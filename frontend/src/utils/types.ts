@@ -1,4 +1,4 @@
-import { type BlocksContent } from '@strapi/blocks-react-renderer'
+// import { type BlocksContent } from '@strapi/blocks-react-renderer'
 
 export interface MetadataProps {
 	tytul: string
@@ -68,7 +68,7 @@ export interface AccordionProps {
 export interface textAndPhotosProps {
 	id: number
 	tytul?: string
-	tekst: BlocksContent
+	// tekst: BlocksContent
 	socials?: SocialsProps[]
 	malyTekst?: string
 	czySociale?: boolean

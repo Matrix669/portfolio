@@ -11,7 +11,6 @@ export async function POST(req: NextRequest) {
 		monthlySupport: boolean
 		paymentMethod: string
 	}
-	// console.log('Dane wejściowe', email, amount, group, monthlySupport, paymentMethod)
 
 	let paymentMethodTypes: Stripe.Checkout.SessionCreateParams.PaymentMethodType[] = []
 	if (paymentMethod === 'Google Pay' || paymentMethod === 'Apple Pay') {
@@ -21,14 +20,39 @@ export async function POST(req: NextRequest) {
 	} else if (paymentMethod === 'Przelewy24') {
 		paymentMethodTypes = ['p24']
 	}
+
 	try {
-		const customer = await stripe.customers.create({ email })
+		// ✅ POPRAWKA: Sprawdź czy customer już istnieje
+		const emailNormalized = email.toLowerCase().trim()
+		let customerId: string
+
+		const existingCustomers = await stripe.customers.list({
+			email: emailNormalized,
+			limit: 1,
+		})
+
+		if (existingCustomers.data.length > 0) {
+			// Użyj istniejącego customera
+			customerId = existingCustomers.data[0].id
+			console.log(`✅ Używam istniejącego customera: ${customerId} dla ${emailNormalized}`)
+		} else {
+			// Utwórz nowego customera tylko jeśli nie istnieje
+			const newCustomer = await stripe.customers.create({
+				email: emailNormalized,
+				metadata: {
+					source: 'fundacja_drachma_website',
+					created_via: 'checkout_form',
+				},
+			})
+			customerId = newCustomer.id
+			console.log(`🆕 Utworzono nowego customera: ${customerId} dla ${emailNormalized}`)
+		}
 
 		let session: Stripe.Checkout.Session
 
 		if (monthlySupport) {
 			session = await stripe.checkout.sessions.create({
-				customer: customer.id,
+				customer: customerId, // ✅ Użyj customerId zamiast customer.id
 				mode: 'subscription',
 				payment_method_types: paymentMethodTypes,
 				payment_method_options: {
@@ -38,6 +62,10 @@ export async function POST(req: NextRequest) {
 				},
 				subscription_data: {
 					description: `Miesięczne wsparcie dla grupy "${group}".`,
+					metadata: {
+						group: group,
+						support_type: 'monthly',
+					},
 				},
 				line_items: [
 					{
@@ -45,7 +73,7 @@ export async function POST(req: NextRequest) {
 							currency: 'pln',
 							product_data: {
 								name: `"${group}"`,
-								description: `Miesięczne wsparcie dla grupy "${group}". Dziękujemy za regularne wspieranie naszej inicjatywy!`,
+								description: `Miesięczne wsparcie dla grupy "${group}".`,
 							},
 							unit_amount: amount,
 							recurring: {
@@ -60,7 +88,7 @@ export async function POST(req: NextRequest) {
 			})
 		} else {
 			session = await stripe.checkout.sessions.create({
-				customer: customer.id,
+				customer: customerId, // ✅ Użyj customerId zamiast customer.id
 				mode: 'payment',
 				payment_method_types: paymentMethodTypes,
 				payment_method_options: {
@@ -70,6 +98,10 @@ export async function POST(req: NextRequest) {
 				},
 				payment_intent_data: {
 					description: `Darowizna na grupę: "${group}"`,
+					metadata: {
+						group: group,
+						support_type: 'one_time',
+					},
 				},
 				line_items: [
 					{
@@ -87,14 +119,16 @@ export async function POST(req: NextRequest) {
 				ui_mode: 'embedded',
 				return_url: `${req.headers.get('origin')}/paymentResult?session_id={CHECKOUT_SESSION_ID}`,
 			})
-			// console.log('Sesja utworzona dla jednorazowej płatności', session.id, session.status)
 		}
+
+		console.log(`💳 Sesja utworzona: ${session.id} (${monthlySupport ? 'subskrypcja' : 'jednorazowa'})`)
+
 		return NextResponse.json({
 			clientSecret: session.client_secret,
 			sessionId: session.id,
 		})
 	} catch (error) {
-		console.error('Błąd w api', error)
+		console.error('❌ Błąd w API:', error)
 		return NextResponse.json({ error: (error as Error).message }, { status: 500 })
 	}
 }

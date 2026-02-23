@@ -1,6 +1,6 @@
-import { generateEmailTemplate } from '@/lib/emailTemplate'
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { generateEmailTemplateContact } from '@/lib/emailTemplateContact'
 
 export async function POST(req: NextRequest) {
 	try {
@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
 				pass: process.env.EMAIL_PASS,
 			},
 		})
-		const htmlContent = generateEmailTemplate(name, email, message)
+		const htmlContent = generateEmailTemplateContact(name, email, message)
 		
 		const mailOptions = {
 			from: process.env.EMAIL_USER,

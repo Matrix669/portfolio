@@ -1,40 +1,37 @@
 import { revalidatePath } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
 
-// Typy dla danych z body żądania
 interface RevalidateBody {
 	model: string
-	// slug?: string
-	// category?: string
-	// infoPage?: string
 	entry?: {
 		slug?: string
 		category?: string
 		infoPage?: string
+		produktSlug?: string
 	}
 }
 
 export async function POST(req: NextRequest) {
-	// Sprawdzenie tokena
 	const token = req.nextUrl.searchParams.get('token')
 	if (token !== process.env.REVALIDATE_TOKEN) {
 		return NextResponse.json({ message: 'Nieprawidłowy token' }, { status: 401 })
 	}
 
 	try {
-		// Pobranie modelu i sluga z body żądania
-		// const { model, slug, category, infoPage }: RevalidateBody = await req.json()
 		const { model, entry }: RevalidateBody = await req.json()
 		const slug = entry?.slug
 		const category = entry?.category
 		const infoPage = entry?.infoPage
+		const produktSlug = entry?.produktSlug
 
-		console.log('Otrzymano dane webhooka:', { model, slug, category, infoPage })
+		console.log('Otrzymano dane webhooka:', { model, slug, category, infoPage, produktSlug })
 
 		let pathToRevalidate: string[] = []
 
-		// Obsługa różnych modeli
 		switch (model) {
+			case 'global':
+				revalidatePath('/', 'layout')
+				break
 			case 'strona-glowna':
 				pathToRevalidate = ['/']
 				break
@@ -68,7 +65,7 @@ export async function POST(req: NextRequest) {
 					if (slug) {
 						pathToRevalidate.push(`/projekty-${category}/${slug}`)
 					}
-					pathToRevalidate.push('/projekty-obecne') // Rewalidacja obu kategorii
+					pathToRevalidate.push('/projekty-obecne') 
 					pathToRevalidate.push('/projekty-zakonczone')
 				} else {
 					console.warn(`Nieprawidłowa kategoria: ${category}`)
@@ -80,14 +77,18 @@ export async function POST(req: NextRequest) {
 			case 'informacje':
 				pathToRevalidate = infoPage ? [`/informacje/${infoPage}`] : ['/informacje']
 				break
+			case 'sklep':
+				pathToRevalidate = ['/sklep']
+				break
+			case 'produkty':
+				pathToRevalidate = [`/sklep/${produktSlug}`] // check is this really work!
+				break
 			default:
 				break
 		}
 
-		// Logowanie ścieżek do rewalidacji
 		console.log(`Revalidating: ${pathToRevalidate.join(', ')}`)
 
-		// Rewalidacja wszystkich ścieżek
 		await Promise.all(pathToRevalidate.map(path => revalidatePath(path)))
 
 		return NextResponse.json({ revalidated: true, paths: pathToRevalidate }, { status: 200 })

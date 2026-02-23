@@ -21,6 +21,8 @@
 - zod
 - react-photoswipe-gallery
 - photoswipe
+- nodemailer
+- motion
 
 ## Branch structure:
 
@@ -77,72 +79,6 @@ If the project will be static i can use `Metadata` not `generateMetadata` :)
 
 Example of getting data from CMS to page:
 
-1. define loader:
-
-   ```
-   async function loader() {
-
-   try {
-   	const data = await getHomePage()
-   	if(!data || !data.data) {
-		throw new Error("Błąd pobierania danych dla strony głównej")
-   	}
-   	return { ...data.data }
-
-   } catch (error) {
-   	console.error('Błąd pobierania danych dla strony głównej:', error)
-   	throw error
-   	}
-   }
-
-   ```
-
-2. generateMetadata:
-
-   ```
-   export async function generateMetadata(): Promise<Metadata> {
-
-   try {
-      const homepage: MetadataProps = await loader()
-      if (!homepage) {
-      return {
-         title: 'Strona główna',
-         description:
-         'Domyślny opis jeśli danych nie będzie',
-      }
-   }
-   return {
-         title: `${homepage.tytul} - Nazwa firmy (nie trzeba ale można)`,
-         description: homepage.opis,
-         keywords: homepage.slowaKluczowe,
-      }
-   } catch (error) {
-      console.error('Błąd generowania metadata dla strony głównej:', error)
-      return {
-         title: 'Strona główna',
-         description:
-         'Domyślny opis jeśli danych nie będzie',
-         }
-      }
-   }
-
-   ```
-
-3. Displaying blocks from CMS on the page:
-   ```
-   export default async function Home() {
-   	const data = await loader()
-   	const blocks = data?.bloki || []
-   	return (
-   		<>
-   			<MainContent style={{ overflow: 'hidden', marginTop: `${navMarginTop}` }}>
-   				<BlockRenderer blocks={blocks} />
-   			</MainContent>
-   		</>
-   	)
-   }
-   ```
-4. Display data from CMS on the page:
    1) define interface for page (if this is a section define in /utils/types.ts otherwise I can define in component but it will be better if i hold interfaces in one file - types.ts):
       ```
       interface ExampleComponentProps {
@@ -167,50 +103,14 @@ Example of getting data from CMS to page:
 
 ### Block rendering:
 
-`<BlockRenderer blocks={bloki_z_cms}>`
-
-BlockRenderer.tsx:
-```
-function blockRenderer(block: Block, index: number) {
-	switch (block.__component) {
-		case 'bloki.sekcja-hero': - nazwa sekcji musi być taka sama jak w Block /types!
-			return <FirstSection {...block} key={index} />
-        case 'bloki.inna-sekcja:
-            return <InnaSekcja {...block} key={index}>
-		default:
-			return null
-	}
-}
-```
 
 ## Steps to creating Blocks (type):
 
 /utils/types.ts
 
-1. `type ComponentType = | 'bloki.sekcja-hero' | 'bloki.inna-sekcja'` (the name of block must be the same as the response from CMS, postman!)
-2. `export type Block = | HeroSectionProps | InnaSekcja |` here add the interface name of section
-3. create interface for section:
-   ```
-   export interface HeroSectionProps extends Base<'bloki.sekcja-hero'> {
-   	tytul: string
-   	and another necessary things
-   }
-   
-   export interface InnaSekcja extends Base<'bloki.inna-sekcja'> {...}
-   ```
-
 ## Steps to creating query by qs:
 
-/data/loaders.ts
 
-1. define query - use interactive query builder from strapi
-   ```
-   const homePagequery = qs.stringify({
-   	populate:{...}
-   })
-   ```
-
-2. define data retrieval function:
 
    ```
    export async function getHomePage() {
@@ -244,7 +144,7 @@ function blockRenderer(block: Block, index: number) {
    ```
 
 ## WARNINGS!
-
+- /api/shipping & /api/delivery/cost is not ready
 
 ### Todo:
----
+- update readme after setup payload cms and finding out how this cms works

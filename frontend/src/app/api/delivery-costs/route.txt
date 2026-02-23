@@ -1,0 +1,43 @@
+import { /*NextRequest,*/ NextResponse } from 'next/server'
+
+// Funkcja do pobierania kosztów dostawy z API InPost
+const getInPostDeliveryCosts = async () => {
+	// Tutaj implementacja pobierania kosztów z API InPost
+	// Na razie zwracamy przykładowe dane
+	return {
+		'Inpost Kurier': 1200, // 12.00 zł w groszach
+		'Inpost Paczkomat': 1000, // 10.00 zł w groszach
+	};
+}
+
+// Funkcja do pobierania kosztów dostawy z API DPD
+const getDPDDeliveryCosts = async () => {
+	// Tutaj implementacja pobierania kosztów z API DPD
+	// Na razie zwracamy przykładowe dane
+	return {
+		'DPD Kurier': 1200, // 12.00 zł w groszach
+	};
+}
+
+export async function GET(/*request: NextRequest*/) {
+	try {
+		const inpostCosts = await getInPostDeliveryCosts();
+		const dpdCosts = await getDPDDeliveryCosts();
+
+		const deliveryCosts = {
+			...inpostCosts,
+			...dpdCosts,
+		};
+
+		return NextResponse.json({
+			success: true,
+			costs: deliveryCosts,
+		});
+	} catch (error) {
+		console.error('Błąd podczas pobierania kosztów dostawy:', error);
+		return NextResponse.json(
+			{ error: 'Błąd podczas pobierania kosztów dostawy' },
+			{ status: 500 }
+		);
+	}
+}

@@ -1,0 +1,147 @@
+import { NextRequest, NextResponse } from 'next/server'
+import Stripe from 'stripe'
+import crypto from 'crypto'
+import { sendMagicLinkEmail } from '@/lib/email'
+import { redis } from '@/lib/redis'
+import { baseUrlFront } from '@/lib/getBaseUrlFront'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+
+// Rate limit: 3 próby na 15 minut per email
+const RATE_LIMIT_MAX = 3
+const RATE_LIMIT_WINDOW = 15 * 60 // 15 minut w sekundach
+const COOLDOWN_BETWEEN_REQUESTS = 60 // 60 sekund między requestami
+
+export async function POST(req: NextRequest) {
+	try {
+		const { email } = await req.json()
+
+		if (!email) {
+			return NextResponse.json({ error: 'Email jest wymagany' }, { status: 400 })
+		}
+
+		const emailLower = email.toLowerCase().trim()
+
+		// 1️⃣ Sprawdź cooldown (czy minęła minuta od ostatniego wysłania)
+		const lastSentKey = `cooldown:${emailLower}`
+		const lastSent = await redis.get(lastSentKey)
+
+		if (lastSent) {
+			const timeLeft = Math.ceil((parseInt(lastSent as string) - Date.now()) / 1000)
+			console.log(`⏱️ Cooldown aktywny dla ${emailLower}, pozostało: ${timeLeft}s`)
+			return NextResponse.json(
+				{
+					error: `Poczekaj ${timeLeft} sekund przed wysłaniem kolejnego linku`,
+					cooldown: timeLeft,
+				},
+				{ status: 429 } // Too Many Requests
+			)
+		}
+
+		// 2️⃣ Sprawdź rate limit (ile razy wysłał w ciągu 15 minut)
+		const rateLimitKey = `rate:${emailLower}`
+		const attempts = await redis.get<number>(rateLimitKey)
+
+		if (attempts && attempts >= RATE_LIMIT_MAX) {
+			console.log(`🚫 Rate limit przekroczony dla ${emailLower}`)
+			// Pobierz TTL z Redis, aby powiedzieć użytkownikowi ile dokładnie musi czekać
+			const ttl = await redis.ttl(rateLimitKey)
+			return NextResponse.json(
+				{
+					error: 'Przekroczono limit prób. Spróbuj ponownie później',
+					rateLimitCooldown: ttl > 0 ? ttl : RATE_LIMIT_WINDOW,
+				},
+				{ status: 429 }
+			)
+		}
+
+		console.log(`📧 Próba wysłania magic link dla: ${emailLower}`)
+
+		// 3️⃣ Znajdź customera w Stripe
+		const customers = await stripe.customers.list({
+			email: emailLower,
+			limit: 1,
+		})
+
+		if (customers.data.length === 0) {
+			console.log(`❌ Brak customera dla: ${emailLower}`)
+			
+			// Zwiększ licznik (nawet dla nieistniejącego emaila, żeby zapobiec atakom)
+			const newAttempts = (attempts || 0) + 1
+			await redis.setex(rateLimitKey, RATE_LIMIT_WINDOW, newAttempts)
+			
+			return NextResponse.json(
+				{ error: 'Nie znaleziono aktywnej subskrypcji dla tego emaila' },
+				{ status: 404 }
+			)
+		}
+
+		const customer = customers.data[0]
+		console.log(`✅ Znaleziono customera: ${customer.id}`)
+
+		// 4️⃣ Sprawdź czy ma aktywną subskrypcję
+		const subscriptions = await stripe.subscriptions.list({
+			customer: customer.id,
+			status: 'active',
+			limit: 1,
+		})
+
+		if (subscriptions.data.length === 0) {
+			console.log(`❌ Brak aktywnej subskrypcji dla: ${customer.id}`)
+			
+			// Zwiększ licznik
+			const newAttempts = (attempts || 0) + 1
+			await redis.setex(rateLimitKey, RATE_LIMIT_WINDOW, newAttempts)
+			
+			return NextResponse.json(
+				{ error: 'Nie znaleziono aktywnej subskrypcji' },
+				{ status: 404 }
+			)
+		}
+
+		console.log(`✅ Znaleziono aktywną subskrypcję`)
+
+		// 5️⃣ Wygeneruj token
+		const token = crypto.randomBytes(32).toString('hex')
+
+		// Zapisz token w Redis (TTL = 15 minut)
+		await redis.setex(
+			`magic:${token}`,
+			900,
+			JSON.stringify({
+				customerId: customer.id,
+				email: emailLower,
+				createdAt: Date.now(),
+			})
+		)
+
+		console.log(`✅ Token zapisany w Redis: magic:${token}`)
+
+		// 6️⃣ Wyślij email
+		const magicUrl = `${baseUrlFront}/subscription/verify?token=${token}`
+		await sendMagicLinkEmail(emailLower, magicUrl)
+
+		console.log(`✉️ Magic link wysłany do: ${emailLower}`)
+
+		// 7️⃣ Ustaw cooldown (60 sekund)
+		await redis.setex(lastSentKey, COOLDOWN_BETWEEN_REQUESTS, Date.now() + COOLDOWN_BETWEEN_REQUESTS * 1000)
+
+		// 8️⃣ Zwiększ licznik prób
+		const newAttempts = (attempts || 0) + 1
+		await redis.setex(rateLimitKey, RATE_LIMIT_WINDOW, newAttempts)
+
+		console.log(`📊 Próba ${newAttempts}/${RATE_LIMIT_MAX} dla ${emailLower}`)
+
+		return NextResponse.json({
+			success: true,
+			message: 'Link został wysłany na Twój email',
+			attemptsLeft: RATE_LIMIT_MAX - newAttempts,
+		})
+	} catch (error) {
+		console.error('❌ Magic link error:', error)
+		return NextResponse.json(
+			{ error: 'Wystąpił błąd podczas wysyłania linku' },
+			{ status: 500 }
+		)
+	}
+}

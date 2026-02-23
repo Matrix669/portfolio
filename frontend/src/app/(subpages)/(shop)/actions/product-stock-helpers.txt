@@ -1,0 +1,33 @@
+import qs from 'qs'
+
+import { fetchAPI } from '@/utils/fetch-api'
+import { getStrapiURL } from '@/utils/get-strapi-url'
+
+export async function fetchProductStock(productId: number | string) {
+	const baseUrl = getStrapiURL()
+	const parsedId = Number(productId)
+
+	if (!baseUrl || Number.isNaN(parsedId)) {
+		return null
+	}
+
+	const query = qs.stringify({
+		filters: {
+			id: {
+				$eq: parsedId,
+			},
+		},
+		fields: ['iloscProduktu'],
+	})
+
+	const url = new URL('/api/produkties', baseUrl)
+	url.search = query
+
+	const response = await fetchAPI(url.href, { method: 'GET' })
+	const productEntry = Array.isArray(response?.data) ? response?.data[0] : response?.data
+	const productAttributes = productEntry?.attributes ?? productEntry
+	const availableQuantity: unknown = productAttributes?.iloscProduktu
+
+	return typeof availableQuantity === 'number' ? availableQuantity : null
+}
+

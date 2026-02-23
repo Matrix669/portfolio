@@ -1,0 +1,146 @@
+import { NextRequest, NextResponse } from 'next/server'
+import Stripe from 'stripe'
+import { sendPaymentEmail } from '@/lib/email'
+import { baseUrlFront } from '@/lib/getBaseUrlFront'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET_SENDING_EMAIL!
+
+export async function POST(req: NextRequest) {
+	const body = await req.text()
+	const signature = req.headers.get('stripe-signature')!
+	// const bypassToken = req.headers.get('x-vercel-protection-bypass')
+	
+	// if (bypassToken !== process.env.VERCEL_AUTOMATION_BYPASS_SECRET) {
+	// 	return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+	// }
+
+	let event: Stripe.Event
+
+	try {
+		event = stripe.webhooks.constructEvent(body, signature, webhookSecret)
+	} catch (err) {
+		console.error('Webhook signature verification failed:', err)
+		return NextResponse.json({ error: 'Invalid signature' }, { status: 400 })
+	}
+
+	switch (event.type) {
+		case 'checkout.session.completed': {
+			const session = event.data.object as Stripe.Checkout.Session
+
+			const customer = await stripe.customers.retrieve(session.customer as string)
+			const email = (customer as Stripe.Customer).email || session.customer_details?.email
+
+			if (!email) {
+				console.error('Brak emaila dla sesji:', session.id)
+				break
+			}
+
+			let lineItems
+			try {
+				lineItems = await stripe.checkout.sessions.listLineItems(session.id, { limit: 1 })
+			} catch (error) {
+				console.error('Błąd pobierania line items:', error)
+			}
+
+			let portalUrl = ''
+			if (session.mode === 'subscription') {
+				// try {
+				// 	const portalSession = await stripe.billingPortal.sessions.create({
+				// 		customer: session.customer as string,
+				// 		return_url: `${baseUrlFront}/zarzadzaj-subskrybcja`,
+				// 	})
+				// 	portalUrl = portalSession.url
+				// } catch (error) {
+				// 	console.error('Błąd tworzenia portal session:', error)
+				// }
+				portalUrl = `${baseUrlFront}/zarzadzaj-subskrypcja`
+			}
+
+			await sendPaymentEmail({
+				to: email,
+				status: 'success',
+				amount: session.amount_total! / 100,
+				currency: session.currency?.toUpperCase() || 'PLN',
+				group: lineItems?.data[0]?.description || 'Nieznana grupa',
+				isMonthly: session.mode === 'subscription',
+				sessionId: session.id,
+				portalUrl,
+			})
+
+			console.log('Email o sukcesie wysłany do:', email)
+			break
+		}
+
+		case 'checkout.session.expired': {
+			const session = event.data.object as Stripe.Checkout.Session
+		
+			// ✅ KLUCZOWA ZMIANA: Poczekaj 5 sekund i ponownie sprawdź status sesji
+			await new Promise(resolve => setTimeout(resolve, 5000))
+			
+			// Pobierz świeże dane sesji z API Stripe
+			const freshSession = await stripe.checkout.sessions.retrieve(session.id)
+			
+			if (freshSession.payment_status === 'paid') {
+				console.log('⏭️ Sesja wygasła, ale płatność została zrealizowana - pomijam email')
+				break
+			}
+		
+			let email: string | null = null
+			
+			if (freshSession.customer) {
+				try {
+					const customer = await stripe.customers.retrieve(freshSession.customer as string)
+					email = (customer as Stripe.Customer).email
+				} catch (error) {
+					console.error('Błąd pobierania customer:', error)
+				}
+			}
+			
+			if (!email) {
+				email = freshSession.customer_details?.email || null
+			}
+		
+			if (!email) {
+				console.log('Brak emaila dla wygasłej sesji:', freshSession.id)
+				break
+			}
+		
+			await sendPaymentEmail({
+				to: email,
+				status: 'expired',
+				sessionId: freshSession.id,
+			})
+		
+			console.log('⏱️ Email o wygaśnięciu wysłany do:', email)
+			break
+		}
+
+		case 'payment_intent.payment_failed': {
+			const paymentIntent = event.data.object as Stripe.PaymentIntent
+
+			if (paymentIntent.customer) {
+				const customer = await stripe.customers.retrieve(paymentIntent.customer as string)
+				const email = (customer as Stripe.Customer).email
+
+				if (email) {
+					await sendPaymentEmail({
+						to: email,
+						status: 'failed',
+						amount: paymentIntent.amount / 100,
+						currency: paymentIntent.currency.toUpperCase(),
+						errorMessage: paymentIntent.last_payment_error?.message,
+					})
+
+					console.log('Email o błędzie wysłany do:', email)
+				}
+			}
+			break
+		}
+
+		default:
+			console.log(`Nieobsługiwany event: ${event.type}`)
+	}
+
+	return NextResponse.json({ received: true })
+}

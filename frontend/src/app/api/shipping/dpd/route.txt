@@ -1,0 +1,194 @@
+import { NextRequest, NextResponse } from 'next/server'
+
+// Przykład integracji z API DPD
+// Dokumentacja: https://www.dpd.com/pl/pl/wysylanie/api-dpd/
+
+interface DPDShipmentData {
+	sender: {
+		name: string
+		company?: string
+		address: {
+			street: string
+			houseNumber: string
+			zipCode: string
+			city: string
+			countryCode: string
+		}
+		contact: {
+			phone: string
+			email: string
+		}
+	}
+	receiver: {
+		name: string
+		company?: string
+		address: {
+			street: string
+			houseNumber: string
+			apartmentNumber?: string
+			zipCode: string
+			city: string
+			countryCode: string
+		}
+		contact: {
+			phone: string
+			email: string
+		}
+	}
+	parcels: Array<{
+		weight: number // w kg
+		dimensions?: {
+			length: number
+			width: number
+			height: number
+		}
+	}>
+	services: string[] // np. ['GUARANTEE', 'SMS', 'EMAIL']
+}
+
+export async function POST(request: NextRequest) {
+	try {
+		const { orderData } = await request.json()
+
+		// Konfiguracja API DPD
+		const DPD_API_URL = process.env.DPD_API_URL || 'https://dpdservices.dpd.com.pl'
+		const DPD_USERNAME = process.env.DPD_USERNAME
+		const DPD_PASSWORD = process.env.DPD_PASSWORD
+
+		if (!DPD_USERNAME || !DPD_PASSWORD) {
+			throw new Error('Brak danych uwierzytelniających DPD')
+		}
+
+		// Dane nadawcy (Twoja firma)
+		const senderData = {
+			name: process.env.COMPANY_NAME || 'Drachma',
+			company: process.env.COMPANY_NAME || 'Drachma',
+			address: {
+				street: process.env.COMPANY_STREET || 'Przykładowa 1',
+				houseNumber: process.env.COMPANY_HOUSE_NUMBER || '1',
+				zipCode: process.env.COMPANY_ZIP_CODE || '00-001',
+				city: process.env.COMPANY_CITY || 'Warszawa',
+				countryCode: 'PL',
+			},
+			contact: {
+				phone: process.env.COMPANY_PHONE || '+48123456789',
+				email: process.env.COMPANY_EMAIL || 'kontakt@drachma.pl',
+			},
+		}
+
+		// Przygotowanie danych przesyłki
+		const shipmentData: DPDShipmentData = {
+			sender: senderData,
+			receiver: {
+				name: `${orderData.firstName} ${orderData.lastName}`,
+				...(orderData.isCompany && { company: orderData.companyName }),
+				address: {
+					street: orderData.street,
+					houseNumber: orderData.houseNumber,
+					...(orderData.apartmentNumber && { apartmentNumber: orderData.apartmentNumber }),
+					zipCode: orderData.zipCode,
+					city: orderData.town,
+					countryCode: 'PL',
+				},
+				contact: {
+					phone: orderData.phoneNumber,
+					email: orderData.email,
+				},
+			},
+			parcels: [
+				{
+					weight: 0.5, // waga w kg
+					dimensions: {
+						length: 20,
+						width: 15,
+						height: 10,
+					},
+				},
+			],
+			services: ['SMS', 'EMAIL'], // powiadomienia SMS i email
+		}
+
+		// Uwierzytelnienie (Basic Auth lub token)
+		const authHeader = Buffer.from(`${DPD_USERNAME}:${DPD_PASSWORD}`).toString('base64')
+
+		// Wywołanie API DPD
+		const response = await fetch(`${DPD_API_URL}/api/shipments`, {
+			method: 'POST',
+			headers: {
+				'Authorization': `Basic ${authHeader}`,
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(shipmentData),
+		})
+
+		if (!response.ok) {
+			const errorData = await response.json()
+			throw new Error(`DPD API Error: ${errorData.message}`)
+		}
+
+		const shipmentResult = await response.json()
+
+		return NextResponse.json({
+			success: true,
+			shipmentId: shipmentResult.shipmentId,
+			trackingNumber: shipmentResult.trackingNumber,
+			labelUrl: shipmentResult.labelUrl,
+		})
+	} catch (error) {
+		console.error('Błąd podczas tworzenia przesyłki DPD:', error)
+		return NextResponse.json(
+			{ error: 'Błąd podczas tworzenia przesyłki' },
+			{ status: 500 }
+		)
+	}
+}
+
+// Endpoint do sprawdzania statusu przesyłki
+export async function GET(request: NextRequest) {
+	try {
+		const { searchParams } = new URL(request.url)
+		const trackingNumber = searchParams.get('trackingNumber')
+
+		if (!trackingNumber) {
+			return NextResponse.json(
+				{ error: 'Brak numeru przesyłki' },
+				{ status: 400 }
+			)
+		}
+
+		const DPD_API_URL = process.env.DPD_API_URL || 'https://dpdservices.dpd.com.pl'
+		const DPD_USERNAME = process.env.DPD_USERNAME
+		const DPD_PASSWORD = process.env.DPD_PASSWORD
+
+		const authHeader = Buffer.from(`${DPD_USERNAME}:${DPD_PASSWORD}`).toString('base64')
+
+		// Sprawdzanie statusu przesyłki
+		const response = await fetch(
+			`${DPD_API_URL}/api/tracking/${trackingNumber}`,
+			{
+				method: 'GET',
+				headers: {
+					'Authorization': `Basic ${authHeader}`,
+					'Content-Type': 'application/json',
+				},
+			}
+		)
+
+		if (!response.ok) {
+			throw new Error('Błąd podczas sprawdzania statusu przesyłki')
+		}
+
+		const trackingData = await response.json()
+
+		return NextResponse.json({
+			success: true,
+			trackingData,
+		})
+	} catch (error) {
+		console.error('Błąd podczas sprawdzania statusu:', error)
+		return NextResponse.json(
+			{ error: 'Błąd podczas sprawdzania statusu' },
+			{ status: 500 }
+		)
+	}
+}

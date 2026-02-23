@@ -1,0 +1,183 @@
+@use '../../../../styles/colors' as *;
+@use '../../../../styles/functions' as *;
+@use '../../../../styles/components' as *;
+@use '../../../../styles/variables' as *;
+
+.product {
+	background-color: $secondary;
+	border-radius: 20px;
+	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+	overflow: hidden;
+	transition: transform 0.3s;
+	&:hover {
+		transform: scale(1.005);
+		.product__boxImg img {
+			transform: scale(1.05);
+		}
+		.product__state {
+			transform: translate(-21px, -20px);
+			&--unavailable {
+				transform: translate(20px, -20px);
+			}
+		}
+	}
+	&:focus,
+	&:focus-visible,
+	&:active {
+		outline: 3px solid $additional;
+	}
+	&--unavailable {
+		.product__boxImg img,
+		.product__boxText {
+			opacity: 0.3;
+		}
+
+		.product__boxText-bottom button {
+			pointer-events: none;
+			cursor: not-allowed;
+			&:hover,
+			&:focus,
+			&:focus-visible,
+			&:active {
+				outline: none;
+			}
+		}
+	}
+	&__boxImg {
+		position: relative;
+		height: rem(323);
+		z-index: 0;
+		overflow: hidden;
+		& img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s;
+		}
+	}
+	&__state {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: rem(6);
+
+		padding: rem(10);
+
+		height: rem(40);
+
+		border-radius: 100px;
+
+		background-color: $secondary;
+		box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+		z-index: 10;
+		transition: transform 0.3s;
+		&--new {
+			width: rem(130);
+		}
+		&--promotion {
+			width: rem(143);
+		}
+		&--unavailable {
+			left: unset !important;
+			right: 20px;
+			width: rem(167);
+			transition: transform 0.3s;
+		}
+		& svg {
+			flex-shrink: 0;
+		}
+		& span {
+			font-family: 'quicksand', 'open sans', sans-serif;
+			font-size: rem(16);
+			font-weight: 600;
+
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		&--newBadge {
+			background: linear-gradient(0deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%),
+				linear-gradient(96deg, #41a75b 0.03%, #27703a 73.93%);
+		}
+		&--promotionBadge {
+			background: linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%),
+				linear-gradient(96deg, #21a7e1 0.03%, #0074a7 73.93%);
+		}
+		.product__state--unavailableBadge {
+			color: #f75c4f;
+			-webkit-text-fill-color: unset;
+		}
+	}
+	&__boxText {
+		padding: rem(20);
+		& h2 {
+			font-size: rem(22);
+			font-weight: 600;
+		}
+		&-bottom {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: rem(15);
+
+			margin-top: rem(20);
+			&--discount {
+				display: inline-flex;
+				gap: rem(3);
+				flex-wrap: wrap;
+				& span {
+					margin-top: rem(-5);
+
+					font-size: rem(14);
+					color: #3a3a3a66;
+					text-decoration: line-through;
+				}
+			}
+			&-price {
+				font-family: 'quicksand', 'open sans', sans-serif;
+				font-weight: 700;
+				font-size: rem(20);
+				line-height: 22px;
+				color: $price-shop-color;
+				@media (min-width: rem(576)) {
+					font-size: rem(22);
+				}
+				@media (min-width: rem(768)) {
+					font-size: rem(28);
+				}
+			}
+			& button {
+				font-weight: 600;
+				color: #41a75b;
+				border-radius: 60px;
+				border: 1.4px solid #41a75b;
+				padding: rem(10);
+				margin-left: auto;
+				height: rem(44);
+				& span {
+					display: none;
+				}
+				&:focus,
+				&:focus-visible,
+				&:active {
+					outline: 3px solid $additional;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: rem(992)) {
+	.product__boxText-bottom {
+		& button {
+			padding: rem(10) rem(20);
+			& span {
+				display: block;
+			}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+@use '../../../../styles/colors' as *;
+@use '../../../../styles/functions' as *;
+@use '../../../../styles/components' as *;
+@use '../../../../styles/variables' as *;
+
+.productList {
+    padding-top: 0;
+    &--skeleton {
+        padding-top: 2em;
+    }
+    &__inner {
+        display: grid;
+        gap: rem(20);
+        @media(min-width: rem(639)) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media(min-width: rem(992)) {
+            gap: rem(40);
+        }
+        @media(min-width: rem(1200)) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media(min-width: rem(1600)) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: rem(60);
+        }
+    }
+}
