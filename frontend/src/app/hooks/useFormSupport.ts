@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { FormData, formSchema } from '../UI/FormSupportUs/schema'
+import { FormData, formSchema } from '../schemas/FormSupportSchema'
 import convertToSubcurrency from '@/lib/convertToSubcurrency'
 
 export const useFormSupport = () => {

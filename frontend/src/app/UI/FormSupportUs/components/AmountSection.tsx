@@ -1,5 +1,5 @@
 import type { UseFormRegister, FieldErrors, UseFormSetValue, UseFormWatch } from 'react-hook-form'
-import type { FormData } from '../schema'
+import type { FormData } from '@/app/schemas/FormSupportSchema'
 import { AMOUNTS, BORDER_STYLE } from '../constants'
 import PopularChoiceIcon from '@/app/icons/formSupport/PopularChoiceIcon'
 import styles from '../FormSupportUs.module.scss'

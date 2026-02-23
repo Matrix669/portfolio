@@ -244,7 +244,7 @@ function blockRenderer(block: Block, index: number) {
    ```
 
 ## WARNINGS!
-- I cant use <StrapiImage /> in client components (because of getImageWithBlur)
+
 
 ### Todo:
 ---

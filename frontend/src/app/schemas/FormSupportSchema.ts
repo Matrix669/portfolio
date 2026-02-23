@@ -13,9 +13,9 @@ export const formSchema = z
 				required_error: 'Musisz wybrać lub wpisać kwotę',
 				invalid_type_error: 'Kwota musi być liczbą',
 			})
-			.regex(/^\d+(\.\d+)?$/, 'Kwota musi być poprawną liczbą')
-			.refine(val => Number(val) >= 1, {
-				message: 'Kwota musi być większa niż 0',
+			.regex(/^\d+(\.\d+)?$/, 'Kwota musi być liczbą dodatnią')
+			.refine(val => Number(val) >= 5, {
+				message: 'Minimalna kwota wsparcia to 5 zł',
 			}),
 		customAmount: z
 			.number({
@@ -35,6 +35,9 @@ export const formSchema = z
 			})
 			.min(1, 'Musisz wybrać metodę płatności'),
 		monthlySupport: z.boolean(),
+		acceptDataFormSupport: z.literal(true, {
+			errorMap: () => ({ message: 'Musisz zaakceptować warunki' }),
+		})
 	})
 	.refine(data => data.amount !== undefined || data.customAmount !== undefined, {
 		message: 'Musisz wybrać lub wpisać kwotę',
