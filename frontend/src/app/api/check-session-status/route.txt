@@ -1,0 +1,42 @@
+import { NextRequest, NextResponse } from 'next/server'
+import Stripe from 'stripe'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+
+// Cache dla sesji
+const sessionCache = new Map<string, { status: string; timestamp: number }>()
+const CACHE_DURATION = 2000 // 2 sekundy w milisekundach
+
+export async function GET(req: NextRequest) {
+	const searchParams = req.nextUrl.searchParams
+	const sessionId = searchParams.get('session_id')
+
+	if (!sessionId) {
+		return NextResponse.json({ error: 'Brak ID sesji' }, { status: 400 })
+	}
+
+	// Sprawdź cache
+	const cachedSession = sessionCache.get(sessionId)
+	const now = Date.now()
+
+	if (cachedSession && now - cachedSession.timestamp < CACHE_DURATION) {
+		return NextResponse.json({ status: cachedSession.status })
+	}
+
+	try {
+		const session = await stripe.checkout.sessions.retrieve(sessionId)
+
+		// Aktualizuj cache
+		if (session.status) {
+			sessionCache.set(sessionId, {
+				status: session.status,
+				timestamp: now,
+			})
+		}
+
+		return NextResponse.json({ status: session.status })
+	} catch (error) {
+		console.error('Błąd podczas pobierania statusu sesji:', error)
+		return NextResponse.json({ error: 'Wystąpił błąd podczas sprawdzania statusu sesji' }, { status: 500 })
+	}
+}

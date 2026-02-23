@@ -1,0 +1,47 @@
+@use '../../styles/colors' as *;
+@use '../../styles/functions' as *;
+
+.swiper-button-next,
+.swiper-button-prev {
+	display: none;
+}
+
+@media (min-width: rem(992)) {
+	.swiper-button-next,
+	.swiper-button-prev {
+		display: flex;
+		background-color: $secondary-color;
+		width: rem(39);
+		height: rem(40);
+		padding: rem(10);
+		border-radius: rem(10);
+        &:focus {
+            outline: 3px solid $additional-color;
+            outline-offset: 2px;
+        }
+        &:hover {
+            opacity: .9;
+        }
+	}
+	.swiper-button-next::after,
+	.swiper-button-prev::after {
+		display: none;
+	}
+	.swiper-button-prev::before,
+	.swiper-button-next::before {
+		display: block;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		width: rem(25);
+		height: rem(25);
+	}
+	.swiper-button-prev::before {
+		content: '';
+		background-image: url('../../assets/subpages/post/left-arrow.svg');
+	}
+	.swiper-button-next::before {
+		content: '';
+		background-image: url('../../assets/subpages/post/right-arrow.svg');
+	}
+}

@@ -1,0 +1,81 @@
+@use '../../styles/colors' as *;
+@use '../../styles/functions' as *;
+@use '../../styles/variables' as *;
+
+.navGroupBtn {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-direction: column;
+	gap: rem(20);
+	& li .navGroupBtnLink {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-family: 'quicksand', 'open sans', sans-serif;
+		font-weight: 700;
+		font-size: rem(14);
+		text-align: center;
+		color: $secondary-color;
+		margin: 0;
+		padding: rem(12) rem(26);
+		border-radius: $borderRadius;
+		transition: color .3s;
+		& svg path {
+			transition: stroke .3s, fill .3s;
+		}
+		&:hover {
+			color: $additional-color;
+		}
+
+		&:hover svg path {
+			stroke: $additional-color;
+			fill: $additional-color;
+		}
+	}
+	& li button {
+		border-radius: $borderRadius;
+		&:hover svg path {
+			stroke: $additional-color;
+			fill: $additional-color;
+		}
+	}
+}
+@media (min-width: rem(480)) {
+	.navGroupBtn {
+		flex-direction: row;		
+	}
+}
+@media (min-width: rem(768)) {
+	.navGroupBtn {
+		flex-direction: column;
+		margin-top: 0;
+		&li .navGroupBtnLink {
+			padding: rem(12) rem(18);
+		}
+	}
+}
+@media(min-width: rem(1024)) {
+	.navGroupBtn {
+		align-items: center;
+		gap: rem(10);
+	}
+}
+@media (min-width: rem(1139)) {
+	.navGroupBtn {
+		flex-direction: row;
+		margin-left: rem(20);
+		& li .navGroupBtnLink {
+			height: 56px;
+			font-size: rem(16);
+		}
+	}
+}
+@media (min-width: rem(1200)) {
+	.navGroupBtn {
+		margin-left: rem(40);
+		& li .navGroupBtnLink {
+			padding: rem(16) rem(26);
+		}
+	}
+}

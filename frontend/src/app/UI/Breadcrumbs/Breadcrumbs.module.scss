@@ -1,0 +1,77 @@
+@use '../../styles/colors' as *;
+@use '../../styles/functions' as *;
+@use '../../styles/components' as *;
+
+.breadcrumbs {
+	&__inner {
+		position: relative;
+		padding: rem(25) rem(20);
+		border-radius: 40px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+		overflow: hidden;
+		z-index: 0;
+		&::after {
+			position: absolute;
+			content: '';
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: linear-gradient(258deg, rgba(32, 27, 24, 0.00) 7.16%, rgba(32, 27, 24, 0.36) 35.11%, rgba(22, 18, 17, 0.60) 67.23%);
+			z-index: -10;
+		}
+		&-link,
+		&-activeLink {
+			font-size: rem(18);
+			font-family: 'quicksand', 'open sans', sans-serif;
+			font-weight: 700;
+			color: $secondary-color;
+		}
+		&-link:hover {
+			color: $additional-color;
+		}
+		&-separator {
+			color: $secondary-color;
+			font-size: rem(18);
+		}
+	}
+}
+
+@media (min-width: rem(768)) {
+	.breadcrumbs {
+		&__inner {
+			padding: rem(40) rem(20);
+			&-link,
+			&-activeLink,
+			&-separator {
+				font-size: rem(24);
+			}
+		}
+	}
+}
+
+@media (min-width: rem(992)) {
+	.breadcrumbs {
+		&__inner {
+			&-link,
+			&-activeLink,
+			&-separator {
+				font-size: rem(30);
+			}
+		}
+	}
+}
+@media (min-width: rem(1200)) {
+	.breadcrumbs {
+		&__inner {
+			height: rem(130);
+			&-link,
+			&-activeLink,
+			&-separator {
+				font-size: rem(36);
+			}
+		}
+	}
+}

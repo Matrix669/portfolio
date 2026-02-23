@@ -1,0 +1,260 @@
+@use '../../styles/colors' as *;
+@use '../../styles/functions' as *;
+
+.skeletonCalendar {
+	width: 100%;
+	background: $secondary-color;
+	border-radius: rem(8);
+	box-shadow: 0 rem(4) rem(6) -rem(1) rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	border: 1px solid rgba($primary-color, 0.1);
+}
+
+.skeletonCalendar__header {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	gap: rem(25);
+	padding: rem(20);
+	background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+	border-bottom: 1px solid rgba($primary-color, 0.1);
+
+	@media (min-width: rem(768)) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+.skeletonCalendar__nav {
+	display: flex;
+	align-items: center;
+	gap: rem(10);
+
+	// @media (min-width: rem(768)) {
+	// 	order: 1;
+	// }
+}
+
+.skeletonCalendar__navButton {
+	width: rem(32);
+	height: rem(32);
+	border-radius: rem(6);
+	background: rgba($primary-color, 0.1);
+}
+
+.skeletonCalendar__todayButton {
+	width: rem(80);
+	height: rem(32);
+	border-radius: rem(6);
+	background: rgba($primary-color, 0.1);
+}
+
+.skeletonCalendar__title {
+	width: rem(200);
+	height: rem(26);
+	border-radius: rem(4);
+	background: rgba($primary-color, 0.1);
+
+	@media (min-width: rem(768)) {
+		order: 2;
+		width: rem(250);
+		height: rem(30);
+	}
+}
+
+.skeletonCalendar__viewButtons {
+	display: flex;
+	align-items: center;
+	gap: rem(8);
+
+	@media (min-width: rem(768)) {
+		order: 3;
+	}
+}
+
+.skeletonCalendar__viewButton {
+	width: rem(60);
+	height: rem(32);
+	border-radius: rem(6);
+	background: rgba($primary-color, 0.1);
+}
+
+.skeletonCalendar__weekDays {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	border-bottom: 1px solid rgba($primary-color, 0.1);
+	background: rgba($primary-color, 0.02);
+}
+
+.skeletonCalendar__weekDay {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: rem(12) rem(8);
+	border-right: 1px solid rgba($primary-color, 0.1);
+
+	&:last-child {
+		border-right: none;
+	}
+}
+
+.skeletonCalendar__weekDayText {
+	width: rem(30);
+	height: rem(16);
+	border-radius: rem(3);
+	background: rgba($primary-color, 0.1);
+}
+
+.skeletonCalendar__grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	min-height: rem(400);
+}
+
+.skeletonCalendar__cell {
+	position: relative;
+	min-height: rem(80);
+	border-right: 1px solid rgba($primary-color, 0.1);
+	border-bottom: 1px solid rgba($primary-color, 0.1);
+	padding: rem(8);
+	background: $secondary-color;
+
+	&:nth-child(7n) {
+		border-right: none;
+	}
+
+	// Co drugi wiersz ma lekko inny kolor
+	&:nth-child(14n + 1),
+	&:nth-child(14n + 2),
+	&:nth-child(14n + 3),
+	&:nth-child(14n + 4),
+	&:nth-child(14n + 5),
+	&:nth-child(14n + 6),
+	&:nth-child(14n + 7) {
+		background: rgba($page-bg, 0.3);
+	}
+}
+
+.skeletonCalendar__dayNumber {
+	width: rem(24);
+	height: rem(20);
+	border-radius: rem(3);
+	background: rgba($primary-color, 0.1);
+	margin-bottom: rem(8);
+    margin-left: auto;
+}
+
+.skeletonCalendar__events {
+	display: flex;
+	flex-direction: column;
+	gap: rem(4);
+	margin-bottom: rem(4);
+}
+
+.skeletonCalendar__event {
+	width: 100%;
+	height: rem(16);
+	border-radius: rem(3);
+	background: rgba($primary-color, 0.08);
+
+	// Różne szerokości dla wydarzeń
+	// &:nth-child(1) {
+	// 	width: 90%;
+	// }
+
+	// &:nth-child(2) {
+	// 	width: 75%;
+	// }
+
+	// &:nth-child(3) {
+	// 	width: 60%;
+	// }
+}
+
+.skeletonCalendar__moreLink {
+	width: rem(40);
+	height: rem(14);
+	border-radius: rem(3);
+	background: rgba($primary-color, 0.1);
+	align-self: flex-start;
+}
+
+// Responsywność
+@media (max-width: rem(768)) {
+	.skeletonCalendar__header {
+		padding: rem(16);
+		gap: rem(20);
+	}
+
+	.skeletonCalendar__navButton,
+	.skeletonCalendar__todayButton,
+	.skeletonCalendar__viewButton {
+		width: rem(28);
+		height: rem(28);
+	}
+
+	.skeletonCalendar__title {
+		width: rem(180);
+		height: rem(24);
+	}
+
+	.skeletonCalendar__cell {
+		min-height: rem(60);
+		padding: rem(6);
+	}
+
+	.skeletonCalendar__dayNumber {
+		width: rem(20);
+		height: rem(18);
+		margin-bottom: rem(6);
+	}
+
+	.skeletonCalendar__event {
+		height: rem(14);
+	}
+
+	.skeletonCalendar__moreLink {
+		width: rem(35);
+		height: rem(12);
+	}
+}
+
+@media (max-width: rem(480)) {
+	.skeletonCalendar__header {
+		padding: rem(12);
+		gap: rem(16);
+	}
+
+	.skeletonCalendar__navButton,
+	.skeletonCalendar__todayButton,
+	.skeletonCalendar__viewButton {
+		width: rem(24);
+		height: rem(24);
+	}
+
+	.skeletonCalendar__title {
+		width: rem(150);
+		height: rem(20);
+	}
+
+	.skeletonCalendar__cell {
+		min-height: rem(50);
+		padding: rem(4);
+	}
+
+	.skeletonCalendar__dayNumber {
+		width: rem(18);
+		height: rem(16);
+		margin-bottom: rem(4);
+	}
+
+	.skeletonCalendar__event {
+		height: rem(12);
+	}
+
+	.skeletonCalendar__moreLink {
+		width: rem(30);
+		height: rem(10);
+	}
+}

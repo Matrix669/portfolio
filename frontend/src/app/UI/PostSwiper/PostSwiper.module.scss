@@ -1,0 +1,135 @@
+@use '../../styles/colors' as *;
+@use '../../styles/functions' as *;
+@use '../../styles/components' as *;
+@use '../../styles/variables' as *;
+
+.postSwiper {
+	position: relative;
+	z-index: 0;
+	&::after {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		width: rem(861);
+		height: rem(575);
+		border-radius: rem(861);
+		background: rgba(241, 147, 70, 0.2);
+
+		filter: blur(150px);
+		z-index: -10;
+	}
+	.postSwiper__button {
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: $secondary-color;
+		width: rem(39);
+		height: rem(40);
+		border-radius: rem(10);
+		&--prev::after {
+			background-image: url('../../assets/subpages/post/left-arrow.svg');
+		}
+		&--next::after {
+			background-image: url('../../assets/subpages/post/right-arrow.svg');
+		}
+	}
+	&__swiper {
+		&-slide {
+			position: relative;
+			height: rem(300);
+			border-radius: 20px;
+			cursor: pointer;
+			overflow: hidden;
+			&:active {
+				cursor: grabbing;
+			}
+
+			& img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.swiper-button-next,
+		.swiper-button-prev {
+			display: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-color: $secondary-color;
+			width: rem(39);
+			height: rem(40);
+			border-radius: rem(10);
+		}
+		.swiper-button-next::after {
+			background-image: url('../../assets/subpages/post/right-arrow.svg');
+		}
+		.swiper-button-prev::after {
+			background-image: url('../../assets/subpages/post/left-arrow.svg');
+		}
+	}
+	&__thumbs-swiper {
+		height: rem(150);
+		margin-top: rem(20);
+		&-slide {
+			position: relative;
+			border-radius: rem(20);
+			cursor: pointer;
+			overflow: hidden;
+			&:active {
+				cursor: grabbing;
+			}
+			& img {
+				object-fit: cover;
+			}
+		}
+	}
+}
+
+@media (min-width: rem(768)) {
+	.postSwiper {
+		&__swiper {
+			&-slide {
+				height: rem(420);
+				border-radius: $borderRadius;
+			}
+		}
+	}
+}
+
+@media (min-width: rem(992)) {
+	.postSwiper {
+		&__swiper {
+			&-slide {
+				height: rem(520);
+				border-radius: $borderRadius;
+			}
+		}
+	}
+}
+
+@media (min-width: rem(1200)) {
+	.postSwiper {
+		float: right;
+		width: 50%;
+		margin-left: rem(30);
+		margin-bottom: rem(30);
+		&__swiper {
+			&-slide {
+				height: rem(420);
+			}
+		}
+	}
+}
+
+@media (min-width: rem(1400)) {
+	.postSwiper {
+		margin-left: rem(60);
+		&__swiper {
+			&-slide {
+				height: rem(520);
+			}
+		}
+	}
+}

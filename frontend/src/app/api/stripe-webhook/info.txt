@@ -1,0 +1,3 @@
+It is a stripe webhook. Maybe in the future I will change the name of the folder but now, it's working so better to leave.
+
+I changed the name but I leave this file

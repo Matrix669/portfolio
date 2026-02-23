@@ -1,0 +1,12 @@
+@use '../../styles/colors' as *;
+@use '../../styles/functions' as *;
+@use '../../styles/components' as *;
+
+@media (min-width: rem(1200)) {
+	.boxImageText {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(40);
+	}
+}

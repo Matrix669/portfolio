@@ -1,0 +1,122 @@
+import { NextRequest, NextResponse } from 'next/server'
+import Stripe from 'stripe'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!
+
+// Cache dla sesji - ten sam co w check-session-status
+const sessionCache = new Map<string, { status: string; timestamp: number }>()
+
+export async function POST(req: NextRequest) {
+	try {
+		const body = await req.text()
+		const signature = req.headers.get('stripe-signature')
+
+		if (!signature) {
+			return NextResponse.json({ error: 'Brak podpisu Stripe' }, { status: 400 })
+		}
+
+		let event: Stripe.Event
+
+		try {
+			event = stripe.webhooks.constructEvent(body, signature, webhookSecret)
+		} catch (err) {
+			console.error('Błąd weryfikacji webhooka:', err)
+			return NextResponse.json({ error: 'Nieprawidłowy podpis webhooka' }, { status: 400 })
+		}
+
+		// Obsługa różnych typów zdarzeń
+		switch (event.type) {
+			case 'checkout.session.completed': {
+				const session = event.data.object as Stripe.Checkout.Session
+				console.log('Sesja zakończona sukcesem:', session.id)
+				// Aktualizuj cache
+				sessionCache.set(session.id, {
+					status: 'complete',
+					timestamp: Date.now(),
+				})
+				break
+			}
+
+			case 'checkout.session.expired': {
+				const expiredSession = event.data.object as Stripe.Checkout.Session
+				console.log('Sesja wygasła:', expiredSession.id)
+				// Aktualizuj cache
+				sessionCache.set(expiredSession.id, {
+					status: 'expired',
+					timestamp: Date.now(),
+				})
+				break
+			}
+
+			case 'checkout.session.async_payment_succeeded': {
+				const asyncSuccessSession = event.data.object as Stripe.Checkout.Session
+				console.log('Asynchroniczna płatność zakończona sukcesem:', asyncSuccessSession.id)
+				// Aktualizuj cache
+				sessionCache.set(asyncSuccessSession.id, {
+					status: 'complete',
+					timestamp: Date.now(),
+				})
+				break
+			}
+
+			case 'checkout.session.async_payment_failed': {
+				const asyncFailedSession = event.data.object as Stripe.Checkout.Session
+				console.log('Asynchroniczna płatność nie powiodła się:', asyncFailedSession.id)
+				// Aktualizuj cache
+				sessionCache.set(asyncFailedSession.id, {
+					status: 'failed',
+					timestamp: Date.now(),
+				})
+				break
+			}
+
+			case 'payment_intent.succeeded': {
+				const paymentIntent = event.data.object as Stripe.PaymentIntent
+				console.log('Płatność zakończona sukcesem:', paymentIntent.id)
+				// Jeśli mamy session_id, aktualizuj cache
+				if (paymentIntent.metadata.session_id) {
+					sessionCache.set(paymentIntent.metadata.session_id, {
+						status: 'complete',
+						timestamp: Date.now(),
+					})
+				}
+				break
+			}
+
+			case 'payment_intent.payment_failed': {
+				const failedPayment = event.data.object as Stripe.PaymentIntent
+				console.log('Płatność nie powiodła się:', failedPayment.id)
+				// Jeśli mamy session_id, aktualizuj cache
+				if (failedPayment.metadata.session_id) {
+					sessionCache.set(failedPayment.metadata.session_id, {
+						status: 'failed',
+						timestamp: Date.now(),
+					})
+				}
+				break
+			}
+
+			case 'payment_intent.canceled': {
+				const canceledPayment = event.data.object as Stripe.PaymentIntent
+				console.log('Płatność anulowana:', canceledPayment.id)
+				// Jeśli mamy session_id, aktualizuj cache
+				if (canceledPayment.metadata.session_id) {
+					sessionCache.set(canceledPayment.metadata.session_id, {
+						status: 'canceled',
+						timestamp: Date.now(),
+					})
+				}
+				break
+			}
+
+			default:
+				console.log(`Nieobsługiwane zdarzenie: ${event.type}`)
+		}
+
+		return NextResponse.json({ received: true })
+	} catch (error) {
+		console.error('Błąd w webhooku:', error)
+		return NextResponse.json({ error: 'Wystąpił błąd podczas przetwarzania webhooka' }, { status: 500 })
+	}
+}

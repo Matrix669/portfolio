@@ -1,0 +1,94 @@
+@use './colors' as *;
+@use './functions' as *;
+@use './components' as *;
+@use './variables' as *;
+
+.textImageSubpage {
+	padding-top: 0;
+	&__inner {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: rem(60);
+	}
+	&__box {
+		display: flex;
+		flex-direction: column-reverse;
+		gap: rem(15);
+	}
+	&__boxText p {
+		max-width: unset;
+	}
+	&__boxImgPuzzle {
+		margin-bottom: 0;
+		& img {
+			max-height: rem(456);
+			object-fit: cover;
+		}
+	}
+}
+.subpageStyles {
+	&__boxImgPuzzle {
+		margin-bottom: 0;
+		& img {
+			max-height: rem(456);
+			object-fit: cover;
+		}
+		& svg {
+			left: -17px;
+			right: unset;
+			&:hover {
+				transform: scale(0.9) translate(22px, -22px);
+			}
+		}
+	}
+	&__boxTiles {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: rem(20);
+		margin-top: rem(35);
+	}
+}
+@media (min-width: rem(768)) {
+	.textImageSubpage {
+		padding-top: 2em;
+	}
+	.subpageStyles {
+		&__boxTiles {
+			margin-top: rem(70);
+		}
+	}
+}
+@media (min-width: rem(992)) {
+	.textImageSubpage {
+		&__boxImgPuzzle {
+			& svg {
+				bottom: unset;
+				top: -20px;
+				&:hover {
+					transform: scale(0.9) translate(-17px, 22px);
+				}
+			}
+		}
+	}
+}
+@media (min-width: rem(1200)) {
+	.textImageSubpage {
+		&__inner {
+			gap: rem(120);
+			margin-bottom: rem(55);
+		}
+		&__box {
+			flex-direction: row-reverse;
+			&:nth-child(even) {
+				flex-direction: row;
+			}
+		}
+		&__boxText p {
+			max-width: rem(620);
+			margin-bottom: 0;
+		}
+		&__link {
+			justify-self: center;
+		}
+	}
+}

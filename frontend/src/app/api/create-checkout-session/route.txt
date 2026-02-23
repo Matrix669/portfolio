@@ -1,0 +1,100 @@
+import { NextRequest, NextResponse } from 'next/server'
+import Stripe from 'stripe'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+
+export async function POST(req: NextRequest) {
+	const { email, amount, group, monthlySupport, paymentMethod } = (await req.json()) as {
+		email: string
+		amount: number
+		group: string
+		monthlySupport: boolean
+		paymentMethod: string
+	}
+	// console.log('Dane wejściowe', email, amount, group, monthlySupport, paymentMethod)
+
+	let paymentMethodTypes: Stripe.Checkout.SessionCreateParams.PaymentMethodType[] = []
+	if (paymentMethod === 'Google Pay' || paymentMethod === 'Apple Pay') {
+		paymentMethodTypes = ['card']
+	} else if (paymentMethod === 'Paypal') {
+		paymentMethodTypes = ['paypal']
+	} else if (paymentMethod === 'Przelewy24') {
+		paymentMethodTypes = ['p24']
+	}
+	try {
+		const customer = await stripe.customers.create({ email })
+
+		let session: Stripe.Checkout.Session
+
+		if (monthlySupport) {
+			session = await stripe.checkout.sessions.create({
+				customer: customer.id,
+				mode: 'subscription',
+				payment_method_types: paymentMethodTypes,
+				payment_method_options: {
+					card: {
+						request_three_d_secure: 'automatic',
+					},
+				},
+				subscription_data: {
+					description: `Miesięczne wsparcie dla grupy "${group}".`,
+				},
+				line_items: [
+					{
+						price_data: {
+							currency: 'pln',
+							product_data: {
+								name: `"${group}"`,
+								description: `Miesięczne wsparcie dla grupy "${group}". Dziękujemy za regularne wspieranie naszej inicjatywy!`,
+							},
+							unit_amount: amount,
+							recurring: {
+								interval: 'month',
+							},
+						},
+						quantity: 1,
+					},
+				],
+				ui_mode: 'embedded',
+				return_url: `${req.headers.get('origin')}/paymentResult?session_id={CHECKOUT_SESSION_ID}`,
+			})
+		} else {
+			session = await stripe.checkout.sessions.create({
+				customer: customer.id,
+				mode: 'payment',
+				payment_method_types: paymentMethodTypes,
+				payment_method_options: {
+					card: {
+						request_three_d_secure: 'automatic',
+					},
+				},
+				payment_intent_data: {
+					description: `Darowizna na grupę: "${group}"`,
+				},
+				line_items: [
+					{
+						price_data: {
+							currency: 'pln',
+							product_data: {
+								name: `Jednorazowa darowizna na: "${group}"`,
+								description: `Dziękujemy za wsparcie grupy "${group}"! Twoja darowizna pomoże nam w realizacji naszych celów.`,
+							},
+							unit_amount: amount,
+						},
+						quantity: 1,
+					},
+				],
+				ui_mode: 'embedded',
+				return_url: `${req.headers.get('origin')}/paymentResult?session_id={CHECKOUT_SESSION_ID}`,
+			})
+			// console.log('Sesja utworzona dla jednorazowej płatności', session.id, session.status)
+		}
+		return NextResponse.json({
+			clientSecret: session.client_secret,
+			sessionId: session.id,
+		})
+	} catch (error) {
+		console.error('Błąd w api', error)
+		return NextResponse.json({ error: (error as Error).message }, { status: 500 })
+	}
+}

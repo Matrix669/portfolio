@@ -1,0 +1,10 @@
+@use '../../styles/colors' as *;
+@use '../../styles/functions' as *;
+.logo {
+	& img {
+		padding: rem(15);
+		&:hover {
+			opacity: .6;
+		}
+	}
+}

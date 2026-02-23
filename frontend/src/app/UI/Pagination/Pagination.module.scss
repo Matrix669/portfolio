@@ -1,0 +1,70 @@
+@use '../../styles/colors' as *;
+@use '../../styles/functions' as *;
+@use '../../styles/components' as *;
+
+.pagination {
+	padding-top: 0;
+	@media (min-width: rem(1200)) {
+		padding-bottom: rem(120);
+	}
+	&__content {
+		gap: rem(20);
+	}
+	&-btn {
+		width: rem(41);
+		height: rem(34);
+		padding: rem(3) rem(10);
+		border-radius: 4px;
+		background-color: $secondary;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.06);
+	}
+	&-btn--active span {
+		background: linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%),
+			linear-gradient(96deg, #21a7e1 0.03%, #0074a7 73.93%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		opacity: 1;
+	}
+	&--arrowBtn {
+		opacity: 1;
+		&:hover {
+			background-color: $secondary;
+		}
+		&:hover svg path {
+			stroke: #21a7e1;
+		}
+		&-disabled {
+			&:hover svg path {
+				stroke: #499652;
+			}
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+		& span {
+			display: none;
+		}
+	}
+	&__boxNumbers {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: rem(12);
+		& a {
+			color: $primary;
+			font-family: 'quicksand', 'open sans', sans-serif;
+			font-weight: 600;
+			font-size: rem(22);
+			border: none;
+			opacity: 0.6;
+			&:hover {
+				background: linear-gradient(0deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%),
+					linear-gradient(96deg, #41a75b 0.03%, #27703a 73.93%);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				opacity: 1;
+			}
+		}
+	}
+}

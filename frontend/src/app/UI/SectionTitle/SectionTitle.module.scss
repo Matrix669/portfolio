@@ -1,0 +1,65 @@
+@use '../../styles/colors' as *;
+@use '../../styles/functions' as *;
+@use '../../styles/components' as *;
+
+.titleSection {
+	position: relative;
+	text-align: center;
+	@media(min-width: rem(768)) {
+		text-align: unset;
+	}
+	& img {
+		display: none;
+		position: absolute;
+		top: -15px;
+		left: -35px;
+		height: 115px;
+		z-index: -10;
+		@media(min-width: rem(768)) {
+			display: block;
+		}
+	}
+	& p {
+		margin-right: rem(40);
+	}
+	& h2 {
+		position: relative;
+		font-family: 'quicksand', 'open sans', sans-serif;
+		font-size: rem(22); 
+		color: $primary-color;
+		font-weight: 700;
+		z-index: 0;
+		&::after {
+			display: none;
+			position: absolute;
+			content: '';
+			bottom: 15px;
+			left: 0;
+			background-repeat: no-repeat;
+            background-position: center;
+			width: 100%;
+			height: 100%;
+			transform: translateY(100%);
+			z-index: -10;
+			@media (min-width: rem(768)) {
+				display: block;
+			}
+		}
+		@media(min-width: rem(420)) {
+			font-size: rem(24);
+		}
+		@media(min-width: rem(480)) {
+			font-size: rem(26);
+		}
+		@media(min-width: rem(576)) {
+			font-size: rem(28);
+		}
+		@media(min-width: rem(768)) {
+			font-size: rem(30);
+		}
+		@media(min-width: rem(992)) {
+			font-size: rem(36);
+		}
+	}
+}
+

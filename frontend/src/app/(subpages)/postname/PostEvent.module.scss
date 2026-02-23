@@ -1,0 +1,55 @@
+@use '../../styles/colors' as *;
+@use '../../styles/functions' as *;
+@use '../../styles/components' as *;
+@use '../../styles/variables' as *;
+
+.mainPostEvent {
+    overflow: hidden;
+}
+
+.postEvent {
+	&__inner {
+		.postEvent__inner-boxTitle h1 {
+			&::after {
+				// background-image: url('../../../../assets/subpages/projects/post/bg-title.png');
+			}
+		}
+        .postEvent__inner-boxTitle {
+            margin-bottom: rem(40);
+        }
+		&-boxText {
+			margin-bottom: rem(30);
+		}
+	}
+    &__container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+@media(min-width: rem(992)) {
+    .postEvent {
+        &__inner {
+            .postEvent__inner-boxTitle {
+                margin-bottom: rem(60);
+            }
+        }
+    }
+}
+
+@media(min-width: rem(1200)) {
+    .postEvent {
+        &__inner {
+            .postEvent__inner-boxTitle {
+                margin-bottom: rem(80);
+            }
+            &-boxText {
+                width: 100%;
+                margin-bottom: 0;
+            }
+        }
+        &__container {
+            display: block;
+        }
+    }
+}
