@@ -23,6 +23,7 @@
 - photoswipe
 - nodemailer
 - motion
+- react-responsive
 
 ## Branch structure:
 
@@ -32,7 +33,7 @@
 
 E.g.: You are working on develop branch and finished some section, so you can push changes to master (but i prefer to push to *preview*) branch
 
-## Files structures:
+## Files structures: ! TO CHANGE !
 
 1. main:
 
