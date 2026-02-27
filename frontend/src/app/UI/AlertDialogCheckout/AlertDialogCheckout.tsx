@@ -21,7 +21,7 @@ import Spinner from '../Spinner/Spinner'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 
 import { X } from 'lucide-react'
-import stylesBtn from '@/app/UI/MainBtn/MainBtn.module.scss'
+import stylesBtn from '@/app/UI/MainLink/MainLink.module.scss'
 
 export interface ButtonProps {
 	className: string
@@ -71,19 +71,25 @@ export default function AlertDialogCheckout({
 	const checkSessionStatus = useCallback(async () => {
 		if (!sessionId) return
 
+		// Sprawdzanie statusu sesji Stripe po stronie API jest tymczasowo wyłączone,
+		// żeby uniknąć błędów przy braku endpointu /api/check-session-status.
+		console.log('checkSessionStatus (API wyłączone) dla sessionId:', sessionId)
+
+		/*
 		try {
 			const response = await fetch(`/api/check-session-status?session_id=${sessionId}`)
 			const data = await response.json()
 
 			if (data.status === 'complete') {
 				router.push(`/paymentResult?session_id=${sessionId}`)
-			} 
+			}
 			// else if (data.status === 'expired') {
 			// 	router.push(`/paymentResult?session_id=${sessionId}`)
 			// }
 		} catch (error) {
 			console.error('Błąd podczas sprawdzania statusu sesji:', error)
 		}
+		*/
 	}, [sessionId, router])
 
 	useEffect(() => {
@@ -107,6 +113,13 @@ export default function AlertDialogCheckout({
 
 		setIsCancelling(true)
 
+		// Anulowanie sesji Stripe po stronie API jest tymczasowo wyłączone,
+		// żeby uniknąć błędów przy braku endpointu /api/cancel-checkout-session.
+		console.log('handleCancel (API wyłączone) dla sessionId:', sessionId)
+		onOpenChange(false)
+		setIsCancelling(false)
+
+		/*
 		try {
 			await fetch('/api/cancel-checkout-session', {
 				method: 'POST',
@@ -121,6 +134,7 @@ export default function AlertDialogCheckout({
 		} finally {
 			setIsCancelling(false)
 		}
+		*/
 	}
 
 	return (

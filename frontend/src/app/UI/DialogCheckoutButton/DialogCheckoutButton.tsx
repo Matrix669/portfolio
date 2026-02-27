@@ -53,6 +53,13 @@ export default function DialogCheckoutButton({
 
 		setIsCancelling(true)
 
+		// Anulowanie sesji Stripe po stronie API jest tymczasowo wyłączone,
+		// żeby nie wywoływać nieistniejącego endpointu /api/cancel-checkout-session.
+		console.log('DialogCheckoutButton handleCancel (API wyłączone) dla sessionId:', sessionId)
+		setIsDialogOpen(false)
+		setIsCancelling(false)
+
+		/*
 		try {
 			await fetch('/api/cancel-checkout-session', {
 				method: 'POST',
@@ -67,6 +74,7 @@ export default function DialogCheckoutButton({
 		} finally {
 			setIsCancelling(false)
 		}
+		*/
 	}
 
 	return (

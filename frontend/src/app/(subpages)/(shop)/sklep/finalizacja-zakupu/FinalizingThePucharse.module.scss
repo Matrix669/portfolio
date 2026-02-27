@@ -83,26 +83,26 @@
 		.finalizingThePucharse__boxCustomerData-checkbox {
 			margin-top: 0;
 		}
-		&-item {
-			position: relative;
-			width: 100%;
-			z-index: 0;
-			&--delivery {
-				&-motion {
+			&-item {
+				position: relative;
+				width: 100%;
+				z-index: 0;
+				&--delivery {
+					&-motion {
 					display: grid;
 					gap: rem(20);
+					}
 				}
-			}
-			& label {
-				position: absolute;
-				top: -12px;
-				left: 25px;
+				& label {
+					position: absolute;
+					top: -12px;
+					left: 25px;
 
-				font-family: 'quicksand', 'open sans', sans-serif;
-				font-size: rem(14);
-				font-weight: 600;
-				color: $primary;
-				background-color: $secondary;
+					font-family: 'quicksand', 'open sans', sans-serif;
+					font-size: rem(14);
+					font-weight: 600;
+					color: $primary-color;
+					background-color: $secondary-color;
 				padding: rem(2) rem(6);
 
 				border-radius: 100px;
@@ -143,17 +143,17 @@
 		}
 		& > div {
 			height: 100%;
-			background-color: $additional;
+			background-color: $additional-color;
 		}
 	}
-	&__btnContainer {
-		display: flex;
-		gap: rem(20);
-		align-items: center;
-		justify-content: space-between;
-		margin-top: rem(20);
-		& button {
-			border: 1px solid $primary;
+		&__btnContainer {
+			display: flex;
+			gap: rem(20);
+			align-items: center;
+			justify-content: space-between;
+			margin-top: rem(20);
+			& button {
+				border: 1px solid $primary-color;
 
 			&:first-child {
 				& svg {

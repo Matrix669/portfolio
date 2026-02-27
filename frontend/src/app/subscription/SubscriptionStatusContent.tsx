@@ -2,7 +2,7 @@
 import { useSearchParams } from 'next/navigation'
 
 import Link from 'next/link'
-import MainBtn from '../UI/MainBtn/MainBtn'
+import MainLink from '../UI/MainLink/MainLink'
 import { navMarginTop } from '@/app/constants/forStyles'
 import { Breadcrumbs } from '@/app/UI/Breadcrumbs/Breadcrumbs'
 import MainContent from '@/app/UI/MainContent/MainContent'
@@ -54,9 +54,9 @@ export function SubscriptionErrorContent() {
 								<p className='text-gray-600'>{errorData.message}</p>
 								<p className='text-sm text-gray-500'>{errorData.hint}</p>
 							</div>
-							<MainBtn href='/zarzadzaj-subskrypcja' isBlack>
+							<MainLink href='/zarzadzaj-subskrypcja' isBlack>
 								Wyślij nowy link
-							</MainBtn>
+							</MainLink>
 
 							<p className='mt-4 text-sm text-gray-500'>
 								Potrzebujesz pomocy?

@@ -3,9 +3,9 @@ import { SHOP_DELIVERY_METHODS } from '../../constants'
 import { UseFormRegister, FieldErrors } from 'react-hook-form'
 import { FormData } from '@/app/schemas/ShopFormFinalizationSchema'
 
-import { BORDER_STYLE } from '@/app/(subpages)/wesprzyj-nas/components/FormSupportUs/constants'
+import { BORDER_STYLE } from '@/app/UI/Forms/FormSupportUs/constants'
 
-import formStyles from '@/app/(subpages)/wesprzyj-nas/components/FormSupportUs/FormSupportUs.module.scss'
+import formStyles from '@/app/UI/Forms/FormSupportUs/FormSupportUs.module.scss'
 import styles from '@/app/(subpages)/(shop)/sklep/finalizacja-zakupu/FinalizingThePucharse.module.scss'
 
 

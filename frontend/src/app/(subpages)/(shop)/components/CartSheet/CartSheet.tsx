@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { useCart } from '@/app/context/CartContext'
 import { AnimatePresence, easeInOut, motion } from 'motion/react'
+import type { CartItem } from '@/app/types/shop'
 
 import {
 	Sheet,
@@ -27,8 +28,48 @@ import SmileFaceIcon from '@/app/icons/shop/SmileFaceIcon'
 import styles from './CartSheet.module.scss'
 import { itemVariants } from './CartAnimationVariants'
 
+const USE_MOCK_DATA = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true'
+
+const MOCK_CART_ITEMS: CartItem[] = [
+	{
+		id: '1',
+		nazwaProduktu: 'Ręcznie robiona bransoletka',
+		cena: 49,
+		produktSlug: 'bransoletka-recznie-robiona',
+		wyroznioneZdjecie: {
+			id: 1,
+			documentId: 'mock-cart-1',
+			url: '/placeholder/product-1.jpg',
+			alternativeText: 'Ręcznie robiona bransoletka',
+		},
+		czyNowy: true,
+		czyPromocja: false,
+		iloscProduktu: 8,
+		przecena: '',
+		quantityInCart: 1,
+	},
+	{
+		id: '2',
+		nazwaProduktu: 'Kubek z motywem Drachmy',
+		cena: 69,
+		produktSlug: 'kubek-z-motywem-drachmy',
+		wyroznioneZdjecie: {
+			id: 2,
+			documentId: 'mock-cart-2',
+			url: '/placeholder/related-2.jpg',
+			alternativeText: 'Kubek z motywem Drachmy',
+		},
+		czyNowy: false,
+		czyPromocja: true,
+		iloscProduktu: 12,
+		przecena: '59',
+		quantityInCart: 2,
+	},
+]
+
 export default function CartSheet() {
 	const { cart, removeFromCart } = useCart()
+	const displayCart = USE_MOCK_DATA && cart.length === 0 ? MOCK_CART_ITEMS : cart
 	const [isAnimating, setIsAnimating] = useState(false)
 	const [bumpIds, setBumpIds] = useState<Set<string>>(new Set())
 
@@ -49,8 +90,11 @@ export default function CartSheet() {
 	}
 
 	const cartNumbersOfCartItems: number =
-		cart.length > 0 ? cart.reduce((total, product) => total + product.quantityInCart, 0) : 0
-	const totalCartPrice: number = cart.reduce((total, product) => total + product.cena * product.quantityInCart, 0)
+		displayCart.length > 0 ? displayCart.reduce((total, product) => total + product.quantityInCart, 0) : 0
+	const totalCartPrice: number = displayCart.reduce(
+		(total, product) => total + product.cena * product.quantityInCart,
+		0
+	)
 
 	useEffect(() => {
 		if (cartNumbersOfCartItems > 0) {
@@ -163,7 +207,7 @@ export default function CartSheet() {
 						className={`${styles.cartSheet__productCartList} ${isHidingScrollbar ? styles['hiding-scrollbar'] : ''}`}
 					>
 						<AnimatePresence initial={false}>
-							{cart.map(product => (
+							{displayCart.map(product => (
 								<motion.div
 									key={product.id}
 									variants={itemVariants}
@@ -209,7 +253,7 @@ export default function CartSheet() {
 								</motion.div>
 							))}
 						</AnimatePresence>
-						{cart.length === 0 && (
+						{displayCart.length === 0 && (
 							<motion.p
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
@@ -233,8 +277,8 @@ export default function CartSheet() {
 							<p>
 								<SmileFaceIcon /> Twój zakup wspiera działania Fundacji Drachma
 							</p>
-							{cart.length === 0 ? (
-								<button disabled={cart.length === 0}>Przejdź do kasy</button>
+							{displayCart.length === 0 ? (
+								<button disabled={displayCart.length === 0}>Przejdź do kasy</button>
 							) : (
 								// <button >
 								<Link href='/sklep/finalizacja-zakupu'>Przejdź do kasy</Link>

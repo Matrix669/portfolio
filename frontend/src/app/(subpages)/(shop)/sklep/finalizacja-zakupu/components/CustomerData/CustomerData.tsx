@@ -6,7 +6,7 @@ import CustomerDataMobile from './CustomerDataMobile'
 import CustomerDataDesktop from './CustomerDataDesktop'
 
 import styles from '@/app/(subpages)/(shop)/sklep/finalizacja-zakupu/FinalizingThePucharse.module.scss'
-import formStyles from '@/app/(subpages)/wesprzyj-nas/components/FormSupportUs/FormSupportUs.module.scss'
+import formStyles from '@/app/UI/Forms/FormSupportUs/FormSupportUs.module.scss'
 
 interface CustomerDataProps {
 	register: UseFormRegister<FormData>

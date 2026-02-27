@@ -1,17 +1,14 @@
 import Link from 'next/link'
-// import { BlocksRenderer, type BlocksContent } from '@strapi/blocks-react-renderer'
 
 import Wrapper from '@/app/UI/Wrapper/Wrapper'
 import SocialsIcons from '../Socials/Socials'
 
 import type { ImageProps, SocialsProps } from '@/utils/types'
-// import { StrapiImage } from '../StrapiImage/StrapiImage'
 
 import HavaheIcon from '@/app/icons/footer/HavaheIcon'
 import LocationIcon from '@/app/icons/footer/LocationIcon'
 import InfoIcon from '@/app/icons/footer/InfoIcon'
 import ContactIcon from '@/app/icons/footer/ContactIcon'
-// import DRACHMA_LOGOIMG from '@/app/assets/footer/logo2.png'
 
 import styles from './Footer.module.scss'
 
@@ -19,7 +16,6 @@ interface FooterProps {
 	data: {
 		logoStopka: ImageProps
 		tytulDane: string
-		// daneFirmyTekst: BlocksContent
 		tytulInformacje: string
 		tytulKontakt: string
 		kontaktTelTytul: string
@@ -33,18 +29,8 @@ interface FooterProps {
 export default function Footer({ data }: FooterProps) {
 	if (!data) return null
 
-	const {
-		// logoStopka,
-		tytulDane,
-		// daneFirmyTekst,
-		tytulInformacje,
-		tytulKontakt,
-		kontaktTelTytul,
-		kontaktTelNumber,
-		kontaktMailTytul,
-		kontaktMailAdres,
-		socials,
-	} = data
+	const { tytulDane, tytulInformacje, tytulKontakt, kontaktTelTytul, kontaktTelNumber, kontaktMailTytul, kontaktMailAdres, socials } =
+		data
 	return (
 		<footer className={styles.footer}>
 			<Wrapper>

@@ -15,7 +15,7 @@
 		height: rem(34);
 		padding: rem(3) rem(10);
 		border-radius: 4px;
-		background-color: $secondary;
+		background-color: $secondary-color;
 		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.06);
 	}
 	&-btn--active span {
@@ -29,7 +29,7 @@
 	&--arrowBtn {
 		opacity: 1;
 		&:hover {
-			background-color: $secondary;
+			background-color: $secondary-color;
 		}
 		&:hover svg path {
 			stroke: #21a7e1;
@@ -51,7 +51,7 @@
 		justify-content: center;
 		gap: rem(12);
 		& a {
-			color: $primary;
+			color: $primary-color;
 			font-family: 'quicksand', 'open sans', sans-serif;
 			font-weight: 600;
 			font-size: rem(22);

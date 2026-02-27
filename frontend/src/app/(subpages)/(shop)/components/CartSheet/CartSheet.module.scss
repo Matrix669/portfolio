@@ -10,7 +10,7 @@
 		bottom: 30px;
 		z-index: 10;
 
-		background-color: $secondary;
+		background-color: $secondary-color;
 		border: 1px solid #41a75b;
 		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 
@@ -42,7 +42,7 @@
 			height: rem(19);
 
 			background-color: #f75c4f;
-			color: $secondary;
+			color: $secondary-color;
 			font-size: rem(12);
 			font-family: 'quicksand', 'open sans';
 			font-weight: 700;
@@ -82,12 +82,12 @@
 			display: none !important;
 		}
 	}
-	&__header {
+		&__header {
 		flex-direction: row;
 		justify-content: space-between;
 		gap: rem(10);
 		padding: rem(20);
-		background-color: $secondary;
+		background-color: $secondary-color;
 		box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.06);
 		&-title {
 			display: flex;
@@ -149,7 +149,7 @@
 			display: flex;
 			align-items: center;
 			border-radius: 20px;
-			background: $secondary;
+			background: $secondary-color;
 			box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
 			transition: box-shadow 0.3s;
 			&:hover {
@@ -196,7 +196,7 @@
 						& > span {
 							margin-left: rem(5);
 							font-size: rem(12);
-							color: $additional;
+							color: $additional-color;
 						}
 						.cartSheet__productCartList-item-price {
 							position: absolute;
@@ -226,12 +226,12 @@
 			}
 		}
 	}
-	&__footer {
+		&__footer {
 		display: grid;
 		justify-content: normal;
 		gap: rem(10);
 		padding: rem(10);
-		background-color: $secondary;
+		background-color: $secondary-color;
 		margin-top: auto;
 		font-family: 'quicksand', 'open sans';
 		font-weight: 600;
@@ -283,7 +283,7 @@
 			}
 			& button,
 			a {
-				color: $secondary;
+				color: $secondary-color;
 				font-family: 'quicksand', 'open sans';
 				font-size: rem(14);
 				font-weight: 600;

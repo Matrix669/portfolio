@@ -12,7 +12,7 @@
 		gap: rem(25);
 		&-content {
 			border-radius: $borderRadius;
-			background: $secondary;
+			background: $secondary-color;
 			padding: rem(20);
 			box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.06);
 			& h1 {
@@ -55,7 +55,7 @@
 
 						height: rem(40);
 						padding: rem(8) rem(20);
-						background-color: $secondary;
+						background-color: $secondary-color;
 						border-radius: 100px;
 
 						font-family: 'Quicksand', 'open sans', sans-serif;
@@ -76,7 +76,7 @@
 			width: 100%;
 			height: rem(52);
 
-			color: $secondary;
+			color: $secondary-color;
 			text-align: center;
 			font-weight: 600;
 
@@ -94,7 +94,7 @@
 					transform: translateX(20px) scale(1.05);
 				}
 				& svg path {
-					stroke: $secondary;
+					stroke: $secondary-color;
 				}
 				&:active {
 					transform: scale(0.9);
@@ -108,7 +108,7 @@
 				opacity: 0.5;
 				cursor: not-allowed;
 				&:hover {
-					color: $secondary;
+					color: $secondary-color;
 					border-radius: rem(60);
 					& svg {
 						transform: translateX(0) scale(1);
@@ -186,8 +186,8 @@
 		padding: rem(6);
 
 		border-radius: 10px;
-		background-color: $secondary;
-		color: $primary;
+			background-color: $secondary-color;
+			color: $primary-color;
 		font-weight: 600;
 
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
@@ -218,7 +218,7 @@
 			object-fit: cover;
 		}
 		&--active {
-			outline: 3px solid $additional;
+			outline: 3px solid $additional-color;
 		}
 	}
 
@@ -256,19 +256,19 @@
 			object-fit: contain;
 		}
 	}
-	&__textContainer {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		gap: rem(25);
+		&__textContainer {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			gap: rem(25);
 
-		margin: rem(25) 0;
-		color: $primary;
-		&--box {
-			width: 100%;
-			padding: rem(25);
-			background: $secondary;
+			margin: rem(25) 0;
+			color: $primary-color;
+			&--box {
+				width: 100%;
+				padding: rem(25);
+				background: $secondary-color;
 			border-radius: $borderRadius;
 			box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.06);
 			& h2 {

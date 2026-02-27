@@ -13,11 +13,8 @@ import CartSheet from '../../components/CartSheet/CartSheet'
 
 import BG_BREADCRUMBS from '@/app/assets/subpages/ourGroups/bg-breadcrumbs.png'
 
-import { getRandomProductList, getProductShop, getProductSlugQuery } from '@/data/loaders'
-import { ImageProps, MetadataProps } from '@/utils/types'
+import { ImageProps } from '@/utils/types'
 import { ShopProductsProps } from '@/app/types/shop'
-import { BlocksContent } from '@strapi/blocks-react-renderer'
-import { fetchProductStock } from '@/app/(subpages)/(shop)/actions/product-stock-helpers'
 
 import styles from './ProductShop.module.scss'
 
@@ -42,63 +39,141 @@ interface ProductShopProps {
 		| 'Plakaty'
 		| 'Torby'
 		| 'Teatr Tańca Szofar'
-	opis: BlocksContent
-	zwrotyReklamacje: BlocksContent
+	opis: string
+	zwrotyReklamacje: string
 }
+
+const MOCK_PRODUCT: ProductShopProps = {
+	id: 1,
+	nazwaProduktu: 'Przykładowa świeca sojowa',
+	produktSlug: 'przykladowa-swieca-sojowa',
+	cena: 59,
+	przecena: '49',
+	czyNowy: true,
+	czyPromocja: true,
+	iloscProduktu: 10,
+	wyroznioneZdjecie: {
+		id: 1,
+		documentId: 'mock-product-1',
+		url: '/placeholder/product-detail-1.jpg',
+		alternativeText: 'Przykładowa świeca sojowa',
+	},
+	glowneZdjecie: {
+		id: 2,
+		documentId: 'mock-product-1-main',
+		url: '/placeholder/product-detail-main.jpg',
+		alternativeText: 'Przykładowa świeca sojowa – główne zdjęcie',
+	},
+	zdjeciaProduktu: [
+		{
+			id: 3,
+			documentId: 'mock-product-1-gallery-1',
+			url: '/placeholder/product-detail-gallery-1.jpg',
+			alternativeText: 'Galeria produktu – zdjęcie 1',
+		},
+		{
+			id: 4,
+			documentId: 'mock-product-1-gallery-2',
+			url: '/placeholder/product-detail-gallery-2.jpg',
+			alternativeText: 'Galeria produktu – zdjęcie 2',
+		},
+	],
+	kategoria: 'Dekoracje',
+	opis: 'To jest przykładowy opis produktu sklepu. W docelowej wersji dane pochodzą z Payload CMS.',
+	zwrotyReklamacje: 'Zwrot produktu możliwy jest w ciągu 14 dni od zakupu. To tylko przykładowa treść.',
+}
+
+const MOCK_RELATED_PRODUCTS: ShopProductsProps[] = [
+	{
+		id: 2,
+		nazwaProduktu: 'Ręcznie robiony naszyjnik',
+		produktSlug: 'naszyjnik-recznie-robiony',
+		cena: 89,
+		czyNowy: true,
+		czyPromocja: false,
+		iloscProduktu: 5,
+		przecena: '',
+		kategoria: 'Biżuteria',
+		wyroznioneZdjecie: {
+			id: 5,
+			documentId: 'mock-related-1',
+			url: '/placeholder/related-1.jpg',
+			alternativeText: 'Ręcznie robiony naszyjnik',
+		},
+	},
+	{
+		id: 3,
+		nazwaProduktu: 'Kubek z motywem Drachmy',
+		produktSlug: 'kubek-z-motywem-drachmy',
+		cena: 69,
+		czyNowy: false,
+		czyPromocja: true,
+		iloscProduktu: 12,
+		przecena: '59',
+		kategoria: 'Ceramika',
+		wyroznioneZdjecie: {
+			id: 6,
+			documentId: 'mock-related-2',
+			url: '/placeholder/related-2.jpg',
+			alternativeText: 'Kubek z motywem Drachmy',
+		},
+	},
+]
+const MOCK_PRODUCTS: ProductShopProps[] = [
+	MOCK_PRODUCT,
+	{
+		id: 2,
+		nazwaProduktu: 'Ręcznie robiony naszyjnik',
+		produktSlug: 'naszyjnik-recznie-robiony',
+		cena: 89,
+		przecena: '',
+		czyNowy: true,
+		czyPromocja: false,
+		iloscProduktu: 5,
+		wyroznioneZdjecie: {
+			id: 5,
+			documentId: 'mock-related-1',
+			url: '/placeholder/related-1.jpg',
+			alternativeText: 'Ręcznie robiony naszyjnik',
+		},
+		glowneZdjecie: {
+			id: 5,
+			documentId: 'mock-related-1-main',
+			url: '/placeholder/related-1-main.jpg',
+			alternativeText: 'Ręcznie robiony naszyjnik – główne zdjęcie',
+		},
+		zdjeciaProduktu: [],
+		kategoria: 'Biżuteria',
+		opis: 'Opis przykładowego naszyjnika. Dane będą pochodziły z Payload CMS.',
+		zwrotyReklamacje: 'Zwroty zgodnie z regulaminem sklepu.',
+	},
+]
+
 interface PageProductProps {
 	params: Promise<{ produktSlug?: string }>
 }
-interface StaticPostProps {
-	data: {
-		produktSlug: string
-	}[]
-}
-async function loader(productSlug: string) {
-	try {
-		if (!productSlug || typeof productSlug !== 'string' || productSlug.trim() === '') {
-			notFound()
-		}
-		const { data } = await getProductShop(productSlug)
-		if (!data || (Array.isArray(data) && data.length === 0)) {
-			notFound()
-		}
 
-		if (!data || data.length === 0) {
-			notFound()
-		}
-		return Array.isArray(data) ? data[0] : data
-	} catch (error) {
-		console.error('Błąd pobierania posta:', productSlug, error)
-		throw error
-	}
+function findProductBySlug(slug: string): ProductShopProps | undefined {
+	return MOCK_PRODUCTS.find(product => product.produktSlug === slug)
 }
-async function loaderShopProducts(currentSlug: string) {
-	try {
-		const items = await getRandomProductList(4, 50, currentSlug)
-		if (!items || items.length === 0) {
-			console.warn('Brak danych dla inny produktów - wyświetlam komunikat o braku postów')
-			return []
-		}
-		return items as unknown as ShopProductsProps[]
-	} catch (error) {
-		console.error('Błąd pobierania danych dla strony produktu (inne produkty)', error)
-		return []
-	}
+
+function getRelatedProducts(currentSlug: string): ShopProductsProps[] {
+	return MOCK_RELATED_PRODUCTS.filter(product => product.produktSlug !== currentSlug)
 }
+
 export async function generateMetadata({ params }: PageProductProps): Promise<Metadata> {
 	const { ['produktSlug']: productSlug } = await params
 	try {
 		if (!productSlug) {
 			return { title: 'Nie znaleziono strony', description: '' }
 		}
-		const { data } = await getProductShop(productSlug)
-		if (!data || (Array.isArray(data) && data.length === 0)) {
+		const product = findProductBySlug(productSlug)
+		if (!product) {
 			return { title: 'Nie znaleziono strony', description: '' }
 		}
-		const pageData: MetadataProps = Array.isArray(data) ? data[0] : data
 		return {
-			title: pageData.nazwaProduktu || 'Strona',
-			description: pageData.opis || pageData.nazwaProduktu,
+			title: product.nazwaProduktu || 'Strona',
+			description: `Produkt: ${product.nazwaProduktu}`,
 		}
 	} catch (error) {
 		console.error('Błąd generowania metadata:', error)
@@ -107,8 +182,7 @@ export async function generateMetadata({ params }: PageProductProps): Promise<Me
 }
 export async function generateStaticParams() {
 	try {
-		const products: StaticPostProps = await getProductSlugQuery()
-		return products.data.map(product => ({
+		return MOCK_PRODUCTS.map(product => ({
 			produktSlug: product.produktSlug,
 		}))
 	} catch (error) {
@@ -121,10 +195,13 @@ export default async function ProductShop({ params }: PageProductProps) {
 	if (!productSlug) {
 		notFound()
 	}
-	const product: ProductShopProps = await loader(productSlug)
-	const liveQuantity = (await fetchProductStock(product.id)) ?? product.iloscProduktu
+	const product = findProductBySlug(productSlug)
+	if (!product) {
+		notFound()
+	}
+	const liveQuantity = product.iloscProduktu
 
-	const shopProducts: ShopProductsProps[] = await loaderShopProducts(productSlug)
+	const shopProducts: ShopProductsProps[] = getRelatedProducts(productSlug)
 	return (
 		<>
 			<Breadcrumbs

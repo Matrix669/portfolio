@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
-if (!process.env.STRAPI_MEDIA_URL) {
-	throw new Error('STRAPI_MEDIA_URL is not defined in .env')
-}
+// if (!process.env.STRAPI_MEDIA_URL) {
+// 	throw new Error('STRAPI_MEDIA_URL is not defined in .env')
+// }
  
 
 const nextConfig: NextConfig = {
@@ -18,19 +18,20 @@ const nextConfig: NextConfig = {
 				search: '',
 			},
 		],
-		remotePatterns: [
-			{
-				protocol: 'http',
-				hostname: 'localhost',
-				port: '1337',
-				pathname: '/uploads/**/*',
-			},
-			{
-				protocol: 'https',
-				hostname: process.env.STRAPI_MEDIA_URL,
-				pathname: '/uploads/**',
-			},
-		],
+		// for strapi
+		// remotePatterns: [
+		// 	{
+		// 		protocol: 'http',
+		// 		hostname: 'localhost',
+		// 		port: '1337',
+		// 		pathname: '/uploads/**/*',
+		// 	},
+		// 	{
+		// 		protocol: 'https',
+		// 		hostname: process.env.STRAPI_MEDIA_URL,
+		// 		pathname: '/uploads/**',
+		// 	},
+		// ],
 	},
   // how to make redirect
 	// async redirects() {

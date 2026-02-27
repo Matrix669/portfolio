@@ -1,4 +1,4 @@
-import { Skeleton } from '@/shadcnComponents/skeleton'
+import { Skeleton } from '@/componentsShadcn/ui/skeleton'
 import styles from './SkeletonCalendar.module.scss'
 
 export default function SkeletonCalendar() {

@@ -3,7 +3,7 @@ import { FieldErrors, UseFormRegister } from 'react-hook-form'
 import { FormData } from '@/app/schemas/ShopFormFinalizationSchema'
 import AlertDialogShopCheckout from '@/app/UI/AlertDialogShopCheckout/AlertDialogShopCheckout'
 
-import formStyles from '@/app/(subpages)/wesprzyj-nas/components/FormSupportUs/FormSupportUs.module.scss'
+import formStyles from '@/app/UI/Forms/FormSupportUs/FormSupportUs.module.scss'
 import styles from '@/app/(subpages)/(shop)/sklep/finalizacja-zakupu/FinalizingThePucharse.module.scss'
 import { useCart } from '@/app/context/CartContext'
 

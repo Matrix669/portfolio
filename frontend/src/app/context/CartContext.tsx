@@ -1,7 +1,6 @@
 'use client'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { CartContextProps, CartItem, CartOperationResult, ProductLinkProps } from '../types/shop'
-import { verifyProductStockAction } from '@/app/(subpages)/(shop)/actions/verify-product-stock'
 
 const CartContext = createContext<CartContextProps | undefined>(undefined)
 
@@ -24,13 +23,16 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 		const existingQuantity = cart.find(item => item.id === product.id)?.quantityInCart ?? 0
 		const requestedQuantity = existingQuantity + 1
 
-		const serverResult = await verifyProductStockAction({
-			productId: product.id,
-			requestedQuantity,
-		})
+		// Proste, lokalne sprawdzanie stanu magazynowego oparte na danych produktu.
+		// Docelowo logika będzie pochodziła z Payload CMS / API.
+		const maxStock = typeof product.iloscProduktu === 'number' ? product.iloscProduktu : Infinity
 
-		if (!serverResult.success) {
-			return serverResult
+		if (requestedQuantity > maxStock) {
+			return {
+				success: false,
+				reason: 'OUT_OF_STOCK',
+				availableQuantity: maxStock,
+			}
 		}
 
 		setCart(prevCart => {
@@ -46,7 +48,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 		// Wywołaj animację po dodaniu produktu
 		triggerCartAnimation()
 
-		return serverResult
+		return {
+			success: true,
+			availableQuantity: maxStock === Infinity ? requestedQuantity : maxStock - requestedQuantity,
+		}
 	}
 
 	const triggerCartAnimation = () => {

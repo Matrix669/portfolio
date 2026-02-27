@@ -7,7 +7,7 @@ import MainContent from '@/app/UI/MainContent/MainContent'
 import { navMarginTop } from '@/app/constants/forStyles'
 
 import BG_BREADCRUMBS from '@/app/assets/shop/productList/product page/bg-breadcrumbs.png'
-import FormShop from './components/FormShop/FormShop'
+import FormShop from '@/app/UI/Forms/FormShop'
 import CartSheet from '../../components/CartSheet/CartSheet'
 
 export const metadata:Metadata = {

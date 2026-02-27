@@ -1,0 +1,133 @@
+@use '../../../styles/colors' as *;
+@use '../../../styles/functions' as *;
+@use '../../../styles/components' as *;
+
+.form {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	&__loading {
+		position: relative;
+		opacity: 0.7;
+		pointer-events: none;
+		z-index: 0;
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(255, 255, 255, 0.5);
+			z-index: 1;
+		}
+	}
+	&Box {
+		position: relative;
+		width: 100%;
+		margin-bottom: rem(20);
+		& label {
+			position: absolute;
+			top: 9px;
+			left: 16px;
+			color: $primary-color;
+			padding: rem(5);
+			transition: transform 0.3s, font-size 0.3s, background-color 0.3s;
+			pointer-events: none;
+		}
+		& input {
+			width: 100%;
+			min-height: 49px;
+			padding: rem(10) rem(15);
+			&:focus ~ label {
+				transform: translateY(-85%) scale(0.9);
+				font-size: rem(14);
+				color: $primary-color;
+				background-color: $secondary-color;
+			}
+			&:valid ~ label {
+				transform: translateY(-85%) scale(0.9);
+				font-size: rem(14);
+				background-color: $secondary-color;
+			}
+		}
+		& textarea {
+			min-height: rem(200);
+			padding: rem(10) rem(15);
+			&:focus ~ label {
+				transform: translateY(-85%) scale(0.9);
+				font-size: rem(14);
+				color: $primary-color;
+				background-color: $secondary-color;
+			}
+			&:valid ~ label {
+				transform: translateY(-85%) scale(0.9);
+				font-size: rem(14);
+				background-color: $secondary-color;
+			}
+		}
+		&:focus input,
+		&:focus textarea {
+			outline: none;
+			border: 2px solid $primary-color;
+		}
+	}
+	& button {
+		width: 100%;
+		padding: rem(18) rem(36);
+		color: $secondary-color;
+		font-size: rem(18);
+		background-color: $primary-color;
+		border: none;
+		transition: border-top-left-radius 0.3s, border-bottom-right-radius 0.3s, background-color 0.3s;
+		&:hover {
+			border-top-left-radius: 36px;
+			border-bottom-right-radius: 36px;
+			background-color: $third-color;
+		}
+	}
+	&Error {
+		align-self: flex-start;
+		font-size: rem(14);
+		color: #f00;
+		margin-top: rem(-10);
+		margin-bottom: rem(25);
+	}
+	&SubmittedText,
+	&TextError {
+		position: fixed;
+		bottom: 10%;
+		right: 0;
+		align-self: flex-start;
+		padding: rem(15);
+		margin-top: rem(35);
+		font-size: 14px;
+		color: $primary-color;
+		transform: translateX(100%);
+	}
+	&SubmittedText {
+		background-color: #adeebc;
+	}
+	&TextError {
+		background-color: tomato;
+		color: $secondary-color;
+	}
+}
+.emailValid {
+	& ~ label {
+		transform: translateY(-85%) scale(0.9);
+		font-size: rem(14);
+		background-color: $secondary-color;
+	}
+}
+.inputError {
+	border: 2px solid rgba(255, 0, 0, 0.633);
+}
+
+@media (min-width: rem(992)) {
+	.form {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+

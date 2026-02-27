@@ -4,7 +4,7 @@ import { FormData } from '@/app/schemas/ShopFormFinalizationSchema'
 import { motion, AnimatePresence } from 'motion/react'
 
 import styles from '@/app/(subpages)/(shop)/sklep/finalizacja-zakupu/FinalizingThePucharse.module.scss'
-import formStyles from '@/app/(subpages)/wesprzyj-nas/components/FormSupportUs/FormSupportUs.module.scss'
+import formStyles from '@/app/UI/Forms/FormSupportUs/FormSupportUs.module.scss'
 
 interface CustomerDataDesktopProps {
 	register: UseFormRegister<FormData>

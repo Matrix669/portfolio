@@ -39,7 +39,7 @@
 		}
 		&-boxText {
             align-self: center;
-			color: $secondary;
+			color: $secondary-color;
 			padding: rem(25);
             @media(min-width: rem(768)) {
                 padding: rem(40);
@@ -70,7 +70,7 @@
 				}
 			}
 			& h1 span {
-				color: $additional;
+				color: $additional-color;
 			}
 			& h1,
 			p {

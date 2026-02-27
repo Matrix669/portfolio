@@ -2,8 +2,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import { toast } from 'sonner'
-import { Spinner } from '@/components/ui/spinner'
+// import { toast } from 'sonner'
+// import { Spinner } from '@/components/ui/spinner'
 import { useCart } from '@/app/context/CartContext'
 
 // import { StrapiImage } from '@/app/UI/StrapiImage/StrapiImage'
@@ -17,7 +17,7 @@ import ShopUnavailableProductIcon from '@/app/icons/shop/ShopUnavailableProductI
 import ShopCartIcon from '@/app/icons/shop/ShopCartIcon'
 
 import styles from './Product.module.scss'
-import btnStyles from '@/app/UI/MainBtn/MainBtn.module.scss'
+import btnStyles from '@/app/UI/MainLink/MainLink.module.scss'
 
 interface ProductCartProps {
 	product: ProductLinkProps
@@ -39,7 +39,7 @@ export default function Product({ product }: ProductCartProps) {
 		e.stopPropagation()
 
 		if (disableAddButton && !isProcessing) {
-			toast.error('Nie możesz dodać więcej sztuk tego produktu.')
+			// toast.error('Nie możesz dodać więcej sztuk tego produktu.')
 			return
 		}
 
@@ -55,7 +55,7 @@ export default function Product({ product }: ProductCartProps) {
 					result?.reason === 'OUT_OF_STOCK'
 						? 'Limit sztuk w magazynie został osiągnięty.'
 						: 'Nie udało się zweryfikować stanu magazynowego. Spróbuj ponownie.'
-				toast.error(message)
+				// toast.error(message)
 				return
 			}
 
@@ -64,7 +64,7 @@ export default function Product({ product }: ProductCartProps) {
 			}
 		} catch (error) {
 			console.error('Błąd podczas dodawania produktu do koszyka', error)
-			toast.error('Nie udało się dodać produktu. Spróbuj ponownie później.')
+			// toast.error('Nie udało się dodać produktu. Spróbuj ponownie później.')
 		} finally {
 			setIsProcessing(false)
 		}
@@ -129,7 +129,7 @@ export default function Product({ product }: ProductCartProps) {
 							{product.cena} zł {product.przecena && <span>{product.przecena ? `${product.przecena} zł` : ''}</span>}
 						</h3>
 						<button className={btnStyles.mainBtn} onClick={handleAddToCart} disabled={disableAddButton}>
-							<span>Do koszyka</span> {isProcessing ? <Spinner aria-label='Dodawanie produktu' /> : <ShopCartIcon />}
+							{/* <span>Do koszyka</span> {isProcessing ? <Spinner aria-label='Dodawanie produktu' /> : <ShopCartIcon />} */}
 						</button>
 					</div>
 				)}

@@ -37,7 +37,7 @@
 			background-color: #fad05e3a;
 		}
 		&:hover {
-			background-color: $additional;
+			background-color: $additional-color;
 		}
 	}
 	&__inner {
@@ -52,14 +52,14 @@
 			font-weight: 400;
 			z-index: 0;
 			&:hover .shopFilters__inner-btnDesktop--superTitle {
-				// background-color: $primary;
-				color: $primary;
+				// background-color: $primary-color;
+				color: $primary-color;
 				transform: translate(-35px, -16px);
 			}
 			&:focus,
 			&:focus-visible,
 			&:active {
-				outline: 3px solid $additional;
+				outline: 3px solid $additional-color;
 			}
 			&--superTitle {
 				position: absolute;
@@ -97,9 +97,9 @@
 			justify-content: space-between;
 			width: 100%;
 			padding-left: rem(5);
-			border-left: 1px solid $additional;
+			border-left: 1px solid $additional-color;
 			&:hover {
-				color: $additional;
+				color: $additional-color;
 			}
 		}
 	}

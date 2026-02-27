@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
 
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Command, CommandGroup, CommandItem, CommandList } from '@/components/ui/command'
+import { Popover, PopoverContent, PopoverTrigger } from '@/componentsShadcn/ui/popover'
+import { Command, CommandGroup, CommandItem, CommandList } from '@/componentsShadcn/ui/command'
 
 import DropdownIcon from '@/app/icons/DropdownIcon'
 
@@ -10,7 +10,7 @@ import { FILTERS } from './config/filters'
 import { useShopFilters } from './hooks/useShopFilters'
 
 import styles from './ShopFilters.module.scss'
-import btnStyles from '@/app/UI/MainBtn/MainBtn.module.scss'
+import btnStyles from '@/app/UI/MainLink/MainLink.module.scss'
 import BadgesShopFilters from '../BadgesShopFilters/BadgesShopFilters'
 
 export default function ShopFiltersDesktop() {

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import stylesSubscription from './ManageSubscription.module.scss'
 import styles from '@/app/(subpages)/(shop)/sklep/finalizacja-zakupu/FinalizingThePucharse.module.scss'
-import formStyles from '@/app/(subpages)/wesprzyj-nas/components/FormSupportUs/FormSupportUs.module.scss'
+import formStyles from '@/app/UI/Forms/FormSupportUs/FormSupportUs.module.scss'
 
 interface FormData {
 	emailCustomer: string
@@ -88,6 +88,18 @@ export function ManageSubscriptionContent() {
 
 		setLoading(true)
 
+		// Wysyłka magic-linka do Stripe portal jest tymczasowo wyłączona,
+		// żeby nie wywoływać nieistniejącego endpointu /api/stripe/portal/magic-link.
+		console.log('ManageSubscriptionContent onSubmit (API wyłączone) dla email:', data.emailCustomer)
+
+		// Symulujemy "sukces" na potrzeby UI.
+		setSuccess(true)
+		setCooldown(0)
+		setCooldownType('normal')
+		setAttemptsLeft(3)
+		setLoading(false)
+
+		/*
 		try {
 			const response = await fetch('/api/stripe/portal/magic-link', {
 				method: 'POST',
@@ -148,6 +160,7 @@ export function ManageSubscriptionContent() {
 		} finally {
 			setLoading(false)
 		}
+		*/
 	}
 
 	const formatTime = (seconds: number) => {

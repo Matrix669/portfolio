@@ -4,7 +4,7 @@
 @use '../../../../styles/variables' as *;
 
 .product {
-	background-color: $secondary;
+	background-color: $secondary-color;
 	border-radius: 20px;
 	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
 	overflow: hidden;
@@ -24,7 +24,7 @@
 	&:focus,
 	&:focus-visible,
 	&:active {
-		outline: 3px solid $additional;
+		outline: 3px solid $additional-color;
 	}
 	&--unavailable {
 		.product__boxImg img,
@@ -55,7 +55,7 @@
 			transition: transform 0.3s;
 		}
 	}
-	&__state {
+		&__state {
 		position: absolute;
 		top: 20px;
 		left: 20px;
@@ -71,7 +71,7 @@
 
 		border-radius: 100px;
 
-		background-color: $secondary;
+			background-color: $secondary-color;
 		box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
 		z-index: 10;
 		transition: transform 0.3s;
@@ -164,7 +164,7 @@
 				&:focus,
 				&:focus-visible,
 				&:active {
-					outline: 3px solid $additional;
+					outline: 3px solid $additional-color;
 				}
 			}
 		}

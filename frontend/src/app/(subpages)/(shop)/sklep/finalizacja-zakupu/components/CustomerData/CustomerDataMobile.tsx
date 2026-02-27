@@ -7,8 +7,8 @@ import { motion, AnimatePresence } from 'motion/react'
 import RightArrow from '@/app/icons/RightArrow'
 
 import styles from '@/app/(subpages)/(shop)/sklep/finalizacja-zakupu/FinalizingThePucharse.module.scss'
-import formStyles from '@/app/(subpages)/wesprzyj-nas/components/FormSupportUs/FormSupportUs.module.scss'
-import btnStyles from '@/app/UI/MainBtn/MainBtn.module.scss'
+import formStyles from '@/app/UI/Forms/FormSupportUs/FormSupportUs.module.scss'
+import btnStyles from '@/app/UI/MainLink/MainLink.module.scss'
 
 interface CustomerDataMobileProps {
 	register: UseFormRegister<FormData>

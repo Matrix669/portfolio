@@ -58,36 +58,52 @@ export const useFormSupport = () => {
 	}
 
 	const onSubmit = async (data: FormData) => {
-		if (isValid) {
-			setIsLoading(true)
-			setSubmittedData(data)
-			try {
-				const response = await fetch('/api/create-checkout-session', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						email: data.email,
-						amount: convertToSubcurrency(Number(data.amount)),
-						group: data.group,
-						monthlySupport: data.monthlySupport,
-						paymentMethod: data.paymentMethod,
-					}),
-				})
-				if (!response.ok) {
-					throw new Error('Błąd podczas tworzenia sesji płatności')
-				}
-				const { clientSecret, sessionId } = await response.json()
-				setClientSecret(clientSecret)
-				setSessionId(sessionId)
-				setIsDialogOpen(true)
-			} catch (error) {
-				console.error('Błąd w onSubmit', error)
-			} finally {
-				setIsLoading(false)
+		if (!isValid) return
+
+		setIsLoading(true)
+		setSubmittedData(data)
+
+		// Tworzenie sesji Stripe dla "Wesprzyj nas" jest tymczasowo wyłączone,
+		// żeby nie wywoływać nieistniejącego endpointu /api/create-checkout-session.
+		console.log('useFormSupport onSubmit (API wyłączone):', {
+			email: data.email,
+			amount: convertToSubcurrency(Number(data.amount)),
+			group: data.group,
+			monthlySupport: data.monthlySupport,
+			paymentMethod: data.paymentMethod,
+		})
+
+		// Możesz tu ewentualnie ustawić przykładowe clientSecret/sessionId, jeśli chcesz testować UI dialogu.
+		setIsLoading(false)
+
+		/*
+		try {
+			const response = await fetch('/api/create-checkout-session', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					email: data.email,
+					amount: convertToSubcurrency(Number(data.amount)),
+					group: data.group,
+					monthlySupport: data.monthlySupport,
+					paymentMethod: data.paymentMethod,
+				}),
+			})
+			if (!response.ok) {
+				throw new Error('Błąd podczas tworzenia sesji płatności')
 			}
+			const { clientSecret, sessionId } = await response.json()
+			setClientSecret(clientSecret)
+			setSessionId(sessionId)
+			setIsDialogOpen(true)
+		} catch (error) {
+			console.error('Błąd w onSubmit', error)
+		} finally {
+			setIsLoading(false)
 		}
+		*/
 	}
 
 	return {

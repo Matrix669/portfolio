@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { toast } from 'sonner'
-import { Spinner } from '@/components/ui/spinner'
+// import { toast } from 'sonner'
+import { Spinner } from '@/componentsShadcn/ui/spinner'
 import { useCart } from '@/app/context/CartContext'
 import { convertShopProductToProductLink } from '@/app/types/shop'
 import { ImageProps } from '@/utils/types'
@@ -22,7 +22,7 @@ import DPD_LOGO from '@/app/assets/shop/productList/product page/dpd.png'
 
 import styles from '../ProductShop.module.scss'
 import stylesProduct from '@/app/(subpages)/(shop)/components/Product/Product.module.scss'
-import stylesBtn from '@/app/UI/MainBtn/MainBtn.module.scss'
+import stylesBtn from '@/app/UI/MainLink/MainLink.module.scss'
 
 interface ProductContentTextProps {
 	id: number
@@ -70,7 +70,7 @@ export default function ProductContentText({
 		e.preventDefault()
 
 		if (isUnavailable || isProcessing) {
-			toast.error('Nie możesz dodać więcej sztuk tego produktu.')
+			// toast.error('Nie możesz dodać więcej sztuk tego produktu.')
 			return
 		}
 
@@ -99,7 +99,7 @@ export default function ProductContentText({
 					result?.reason === 'OUT_OF_STOCK'
 						? 'Limit sztuk w magazynie został osiągnięty.'
 						: 'Nie udało się zweryfikować stanu magazynowego. Spróbuj ponownie.'
-				toast.error(message)
+				// toast.error(message)
 				return
 			}
 
@@ -108,7 +108,7 @@ export default function ProductContentText({
 			}
 		} catch (error) {
 			console.error('Błąd podczas dodawania produktu do koszyka', error)
-			toast.error('Nie udało się dodać produktu. Spróbuj ponownie później.')
+			// toast.error('Nie udało się dodać produktu. Spróbuj ponownie później.')
 		} finally {
 			setIsProcessing(false)
 		}

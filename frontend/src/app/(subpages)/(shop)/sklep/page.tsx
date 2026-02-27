@@ -3,93 +3,77 @@ import { Metadata } from 'next'
 import MainContent from '@/app/UI/MainContent/MainContent'
 import ShopFilters from '../components/ShopFilters/ShopFilters'
 import ProductListClient from '../components/ProductList/ProductListClient'
-import BlockRenderer from '@/app/UI/BlockRenderer/BlockRenderer'
-import CmsWarning from '@/app/UI/CmsWarning/CmsWarning'
 import CartSheet from '../components/CartSheet/CartSheet'
 
 import { navMarginTop } from '@/app/constants/forStyles'
-import { getAllProducts, getShopPage } from '@/data/loaders'
-import { MetadataProps } from '@/utils/types'
 import { ShopProductsProps } from '@/app/types/shop'
-import { Suspense } from 'react'
-import ProductListSkeleton from '../components/ProductList/ProductListSkeleton'
 
-async function loader() {
-	try {
-		const data = await getShopPage()
-		if (!data || !data.data) {
-			console.warn('Brak danych CMS dla sklepu (shop page)')
-			return null
-		}
-		return { ...data.data }
-	} catch (error) {
-		console.error('Błąd pobierania danych dla sklepu:', error)
-		return null
-	}
+export const metadata: Metadata = {
+	title: 'Sklep',
+	description:
+		'Sztuka z duszą. Twój wybór ma znaczenie. Unikatowe ręcznie robione produkty. Podaruj sobie i bliskim nietuzinkowe rękodzieło.',
 }
 
-async function loaderAllProducts() {
-	try {
-		const data = await getAllProducts()
-		if (!data || !data.data) {
-			console.warn('Brak danych list produktu')
-			return { products: [] }
-		}
-		return {
-			products: data.data as ShopProductsProps[],
-		}
-	} catch (error) {
-		console.error('Błąd pobierania danych dla list produktów:', error)
-		return { products: [] }
-	}
-}
-export async function generateMetadata(): Promise<Metadata> {
-	try {
-		const shop: MetadataProps = await loader()
-		if (!shop) {
-			return {
-				title: 'Sklep',
-				description:
-					'Sztuka z duszą. Twój wybór ma znaczenie. Unikatowe ręcznie robione produkty. Podaruj sobie i bliskim nietuzinkowe rękodzieło stworzone przez naszych wolontariuszy, pracowników i podopiecznych.',
-			}
-		}
-		return {
-			title: `${shop.tytul}`,
-			description: shop.opis,
-			keywords: shop.slowaKluczowe,
-		}
-	} catch (error) {
-		console.error('Błąd generowania metadata dla sklepu:', error)
-		return {
-			title: 'Sklep',
-			description:
-				'Sztuka z duszą. Twój wybór ma znaczenie. Unikatowe ręcznie robione produkty. Podaruj sobie i bliskim nietuzinkowe rękodzieło stworzone przez naszych wolontariuszy, pracowników i podopiecznych.',
-		}
-	}
-}
+const MOCK_PRODUCTS: ShopProductsProps[] = [
+	{
+		id: 1,
+		nazwaProduktu: 'Ręcznie robiona bransoletka',
+		produktSlug: 'bransoletka-recznie-robiona',
+		cena: 49,
+		czyNowy: true,
+		czyPromocja: false,
+		iloscProduktu: 8,
+		przecena: '',
+		kategoria: 'Biżuteria',
+		wyroznioneZdjecie: {
+			id: 1,
+			documentId: 'mock-1',
+			url: '/placeholder/product-1.jpg',
+			alternativeText: 'Ręcznie robiona bransoletka',
+		},
+	},
+	{
+		id: 2,
+		nazwaProduktu: 'Ceramiczny kubek',
+		produktSlug: 'ceramiczny-kubek',
+		cena: 79,
+		czyNowy: false,
+		czyPromocja: true,
+		iloscProduktu: 4,
+		przecena: '69',
+		kategoria: 'Ceramika',
+		wyroznioneZdjecie: {
+			id: 2,
+			documentId: 'mock-2',
+			url: '/placeholder/product-2.jpg',
+			alternativeText: 'Ceramiczny kubek',
+		},
+	},
+	{
+		id: 3,
+		nazwaProduktu: 'Plakat artystyczny',
+		produktSlug: 'plakat-artystyczny',
+		cena: 39,
+		czyNowy: false,
+		czyPromocja: false,
+		iloscProduktu: 15,
+		przecena: '',
+		kategoria: 'Plakaty',
+		wyroznioneZdjecie: {
+			id: 3,
+			documentId: 'mock-3',
+			url: '/placeholder/product-3.jpg',
+			alternativeText: 'Plakat artystyczny',
+		},
+	},
+]
 
-export default async function Shop() {
-	const shop = await loader()
-	const showCmsWarning = !shop
-	const blocks = shop?.bloki || []
-	const { products } = await loaderAllProducts()
-
+export default function Shop() {
 	return (
 		<MainContent style={{ marginTop: navMarginTop }}>
-			{showCmsWarning ? (
-				<CmsWarning showCmsWarning={showCmsWarning}>
-					Brak danych z panelu CMS. Część treści może być niedostępna.
-				</CmsWarning>
-			) : (
-				<>
-					<BlockRenderer blocks={blocks} />
-					<Suspense fallback={<ProductListSkeleton />}>
-						<ShopFilters />
-						<ProductListClient initialProducts={products} />
-					</Suspense>
-					<CartSheet />
-				</>
-			)}
+			<ShopFilters />
+			<ProductListClient initialProducts={MOCK_PRODUCTS} />
+			<CartSheet />
 		</MainContent>
 	)
 }

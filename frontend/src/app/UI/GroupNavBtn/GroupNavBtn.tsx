@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '@/UI/NavGroupBtn/NavGroupBtn.module.scss'
+import styles from '@/app/UI/Navigation/NavGroupBtn/NavGroupBtn.module.scss'
 type GroupNavBtnProps = {
 	href: string
 	text: string

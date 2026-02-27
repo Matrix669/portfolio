@@ -17,7 +17,7 @@ import { FILTERS } from './config/filters'
 import { useShopFilters } from './hooks/useShopFilters'
 
 import styles from './ShopFilters.module.scss'
-import btnStyles from '@/app/UI/MainBtn/MainBtn.module.scss'
+import btnStyles from '@/app/UI/MainLink/MainLink.module.scss'
 
 export default function ShopFiltersMobile() {
 	const [isFiltersOpen, setIsFiltersOpen] = useState(false)
@@ -78,17 +78,16 @@ export default function ShopFiltersMobile() {
 									</SheetHeader>
 									<div className={styles['shopFilters__mobileSheetFilterList']}>
 										{category.filterContent.map(option => (
-											<SheetClose asChild key={option.value}>
-												<button
-													onClick={() => {
-														handleSelect(category.superTtitle, option.value)
-														handleCloseAllSheets()
-													}}
-													className={styles['shopFilters__mobileSheetFilterList-trigger']}
-												>
-													{option.value}
-												</button>
-											</SheetClose>
+											<button
+												key={option.value}
+												onClick={() => {
+													handleSelect(category.superTtitle, option.value)
+													handleCloseAllSheets()
+												}}
+												className={styles['shopFilters__mobileSheetFilterList-trigger']}
+											>
+												{option.value}
+											</button>
 										))}
 									</div>
 								</SheetContent>
@@ -107,17 +106,16 @@ export default function ShopFiltersMobile() {
 									</SheetHeader>
 									<div className={styles['shopFilters__mobileSheetFilterList']}>
 										{availability.filterContent.map(option => (
-											<SheetClose asChild key={option.value}>
-												<button
-													onClick={() => {
-														handleSelect(availability.superTtitle, option.value)
-														handleCloseAllSheets()
-													}}
-													className={styles['shopFilters__mobileSheetFilterList-trigger']}
-												>
-													{option.value}
-												</button>
-											</SheetClose>
+											<button
+												key={option.value}
+												onClick={() => {
+													handleSelect(availability.superTtitle, option.value)
+													handleCloseAllSheets()
+												}}
+												className={styles['shopFilters__mobileSheetFilterList-trigger']}
+											>
+												{option.value}
+											</button>
 										))}
 									</div>
 								</SheetContent>
@@ -136,17 +134,16 @@ export default function ShopFiltersMobile() {
 									</SheetHeader>
 									<div className={styles['shopFilters__mobileSheetFilterList']}>
 										{highlight.filterContent.map(option => (
-											<SheetClose asChild key={option.value}>
-												<button
-													onClick={() => {
-														handleSelect(highlight.superTtitle, option.value)
-														handleCloseAllSheets()
-													}}
-													className={styles['shopFilters__mobileSheetFilterList-trigger']}
-												>
-													{option.value}
-												</button>
-											</SheetClose>
+											<button
+												key={option.value}
+												onClick={() => {
+													handleSelect(highlight.superTtitle, option.value)
+													handleCloseAllSheets()
+												}}
+												className={styles['shopFilters__mobileSheetFilterList-trigger']}
+											>
+												{option.value}
+											</button>
 										))}
 									</div>
 								</SheetContent>
@@ -168,17 +165,16 @@ export default function ShopFiltersMobile() {
 						</SheetHeader>
 						<div className={styles['shopFilters__mobileSheetFilterList']}>
 							{sort.filterContent.map(option => (
-								<SheetClose asChild key={option.value}>
-									<button
-										onClick={() => {
-											handleSelect(sort.superTtitle, option.value)
-											handleCloseAllSheets()
-										}}
-										className={styles['shopFilters__mobileSheetFilterList-trigger']}
-									>
-										{option.value}
-									</button>
-								</SheetClose>
+								<button
+									key={option.value}
+									onClick={() => {
+										handleSelect(sort.superTtitle, option.value)
+										handleCloseAllSheets()
+									}}
+									className={styles['shopFilters__mobileSheetFilterList-trigger']}
+								>
+									{option.value}
+								</button>
 							))}
 						</div>
 					</SheetContent>

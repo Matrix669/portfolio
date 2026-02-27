@@ -1,4 +1,4 @@
-import PuzzleIcon from '@/icons/boxTitle/PuzzleIcon'
+import PuzzleIcon from '@/app/icons/boxTitle/PuzzleIcon'
 
 import styles from './BoxTitle.module.scss'
 
