@@ -1,23 +1,11 @@
 import { getPlaiceholder } from 'plaiceholder'
-import { getStrapiURL } from './get-strapi-url'
 
-// now this components is for local images and remote images (strapi)
-// local images: when we use <Image /> component with property "fill"
+// Obrazy zdalne: url jest już pełnym adresem. Obrazy lokalne: url jest ścieżką względną, dopisujemy NEXT_PUBLIC_HOST_URL.
 export async function getImageWithBlur(url: string, isStrapiImage: boolean = false):Promise<string | undefined> {
 	try {
-		let imageUrl = url;
-
-		if (isStrapiImage) {
-		  imageUrl = getStrapiURL() + url
-		//   imageUrl = url // remote Strapi
-		} else {		  
-		  imageUrl = process.env.NEXT_PUBLIC_HOST_URL + url;
-		}
+		const imageUrl = isStrapiImage ? url : (process.env.NEXT_PUBLIC_HOST_URL ?? '') + url
 		
 		const res = await fetch(imageUrl);
-
-		// const res = await fetch(getStrapiURL() + url)
-		// const resLocalImgs = await fetch(process.env.NEXT_PUBLIC_HOST_URL + url)
 
 		if (!res.ok) {
 			throw new Error('Network response was not ok')

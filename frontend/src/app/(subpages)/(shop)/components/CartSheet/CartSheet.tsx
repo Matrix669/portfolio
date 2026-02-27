@@ -18,8 +18,6 @@ import {
 } from '@/componentsShadcn/ui/sheet'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 
-import { getStrapiMedia } from '@/utils/get-strapi-media'
-
 import ShopCartIcon from '@/app/icons/shop/ShopCartIcon'
 import TrashIcon from '@/app/icons/shop/TrashIcon'
 import { X } from 'lucide-react'
@@ -226,7 +224,7 @@ export default function CartSheet() {
 									<Link href={`/sklep/${product.produktSlug}`} className={styles['cartSheet__productCartList-item']}>
 										<div className={styles['cartSheet__productCartList-item__boxImg']}>
 											<Image
-												src={getStrapiMedia(product.wyroznioneZdjecie.url) || product.wyroznioneZdjecie.url}
+												src={product.wyroznioneZdjecie.url}
 												alt={product.wyroznioneZdjecie.alternativeText || 'Zdjęcie produktu'}
 												width={110}
 												height={102}

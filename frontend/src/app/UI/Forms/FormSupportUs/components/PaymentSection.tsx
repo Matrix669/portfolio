@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { UseFormRegister, FieldErrors, UseFormSetValue, UseFormWatch } from 'react-hook-form'
 import type { FormData } from '@/app/schemas/FormSupportSchema'
 import { PAYMENT_PROVIDERS, BORDER_STYLE } from '../constants'
@@ -53,7 +54,7 @@ export const PaymentSection = ({ register, errors, setValue, watch }: PaymentSec
 							className='hidden'
 							disabled={provider.imgAlt === 'Przelewy24' && selectedMonthlySupport}
 						/>
-						<img src={provider.imgSrc} alt={provider.imgAlt} height={83} />
+						<Image src={provider.imgSrc} alt={provider.imgAlt} height={83} />
 					</label>
 				))}
 			</div>

@@ -4,11 +4,9 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Calendar, Clock, MapPin, Tag, X } from 'lucide-react'
 import styles from './DialogEventCalendar.module.scss'
 
-// import { getStrapiMedia } from '@/utils/get-strapi-media'
-
 interface DialogEventCalendarProps {
 	isOpen: boolean
-	onClose: () => void
+	onClose?: () => void
 	event: {
 		title: string
 		start: Date | undefined

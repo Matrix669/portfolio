@@ -25,25 +25,6 @@ export const NAVIGATION_DATA = {
 			czySpecjalnaGrupa: false,
 		},
 		{
-			id: 3,
-			nazwa: 'Oferta',
-			href: '/',
-			czyLinkiDropdown: true,
-			czySpecjalnaGrupa: false,
-			linkiNawigacjaDropdown: [
-				{
-					id: 31,
-					nazwa: 'Podstrona 1',
-					href: '/oferta/podstrona-1',
-				},
-				{
-					id: 32,
-					nazwa: 'Podstrona 2',
-					href: '/oferta/podstrona-2',
-				},
-			],
-		},
-		{
 			id: 4,
 			nazwa: 'Post',
 			href: '/postname',
@@ -61,25 +42,11 @@ export const NAVIGATION_DATA = {
 					href: '/oferta/podstrona-2',
 				},
 			],
-		},
-		{
-			id: 5,
-			nazwa: 'Kontakt',
-			href: '/kontakt',
-			czyLinkiDropdown: false,
-			czySpecjalnaGrupa: false,
-		},
+		},		
 		{
 			id: 6,
 			nazwa: 'Sklep',
 			href: '/sklep',
-			czyLinkiDropdown: false,
-			czySpecjalnaGrupa: false,
-		},
-		{
-			id: 7,
-			nazwa: 'Subskrypcja',
-			href: '/subscription',
 			czyLinkiDropdown: false,
 			czySpecjalnaGrupa: false,
 		},

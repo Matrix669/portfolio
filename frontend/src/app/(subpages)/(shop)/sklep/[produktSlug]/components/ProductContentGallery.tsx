@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 
 import MagnifyingGlassIcon from '@/app/icons/shop/MagnifyingGlassIcon'
 import ShopNewProductIcon from '@/app/icons/shop/ShopNewProductIcon'
@@ -13,12 +14,10 @@ import { Gallery, Item } from 'react-photoswipe-gallery'
 import LOGO_PLACEHOLDER from '@/app/assets/logoDrachma.png'
 
 import { ImageProps } from '@/utils/types'
-import { getStrapiMedia } from '@/utils/get-strapi-media'
 
 import styles from '../ProductShop.module.scss'
 import stylesProduct from '@/app/(subpages)/(shop)/components/Product/Product.module.scss'
 import 'photoswipe/dist/photoswipe.css'
-import { useMediaQuery } from 'react-responsive'
 
 interface ProductContentGalleryProps {
 	zdjeciaProduktu: ImageProps[]
@@ -131,8 +130,8 @@ export default function ProductContentGallery({
 						{images.map((img, idx) => (
 							<Item
 								key={idx}
-								original={getStrapiMedia(img?.url) || img?.url}
-								thumbnail={getStrapiMedia(img?.url) || img?.url}
+								original={img?.url ?? ''}
+								thumbnail={img?.url ?? ''}
 								width={img?.width || 1200}
 								height={img?.height || 1200}
 								alt={img?.alternativeText ?? `zdjęcie ${idx + 1}`}
@@ -145,7 +144,7 @@ export default function ProductContentGallery({
 												if (node) imgRef.current = node
 											}}
 											onClick={open}
-											src={getStrapiMedia(img?.url) || img?.url}
+											src={img?.url ?? ''}
 											alt={img?.alternativeText ?? `zdjęcie ${idx + 1}`}
 											fill
 											sizes='(max-width: 768px) 100vw, 60vw'
@@ -193,7 +192,7 @@ export default function ProductContentGallery({
 							>
 								<span className={styles['productShop__thumb-inner']}>
 									<Image
-										src={getStrapiMedia(img?.url) || img.url}
+										src={img?.url ?? ''}
 										alt={img.alternativeText ?? `miniatura ${idx + 1}`}
 										fill
 										sizes='100px'

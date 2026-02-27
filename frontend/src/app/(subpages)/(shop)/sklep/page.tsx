@@ -8,6 +8,8 @@ import CartSheet from '../components/CartSheet/CartSheet'
 import { navMarginTop } from '@/app/constants/forStyles'
 import { ShopProductsProps } from '@/app/types/shop'
 
+import PLACEHOLDER_IMG from '@/app/assets/placeholder/czajnik.png'
+
 export const metadata: Metadata = {
 	title: 'Sklep',
 	description:
@@ -28,7 +30,7 @@ const MOCK_PRODUCTS: ShopProductsProps[] = [
 		wyroznioneZdjecie: {
 			id: 1,
 			documentId: 'mock-1',
-			url: '/placeholder/product-1.jpg',
+			url: PLACEHOLDER_IMG.src, 
 			alternativeText: 'Ręcznie robiona bransoletka',
 		},
 	},
@@ -45,7 +47,7 @@ const MOCK_PRODUCTS: ShopProductsProps[] = [
 		wyroznioneZdjecie: {
 			id: 2,
 			documentId: 'mock-2',
-			url: '/placeholder/product-2.jpg',
+			url: PLACEHOLDER_IMG.src,
 			alternativeText: 'Ceramiczny kubek',
 		},
 	},
@@ -62,7 +64,7 @@ const MOCK_PRODUCTS: ShopProductsProps[] = [
 		wyroznioneZdjecie: {
 			id: 3,
 			documentId: 'mock-3',
-			url: '/placeholder/product-3.jpg',
+			url: PLACEHOLDER_IMG.src,
 			alternativeText: 'Plakat artystyczny',
 		},
 	},

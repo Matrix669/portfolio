@@ -11,8 +11,6 @@ import SwiperCore from 'swiper'
 import { Gallery, Item } from 'react-photoswipe-gallery'
 import 'photoswipe/dist/photoswipe.css'
 
-// import { getStrapiMedia } from '@/utils/get-strapi-media'
-
 import './customButtonsSwiper.scss'
 import styles from './PostSwiper.module.scss'
 

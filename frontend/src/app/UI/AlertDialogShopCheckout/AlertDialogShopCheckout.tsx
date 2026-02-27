@@ -17,6 +17,7 @@ import RightArrow from '@/app/icons/RightArrow'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import { X } from 'lucide-react'
 import stylesBtn from '@/app/UI/MainLink/MainLink.module.scss'
+import Spinner from '../Spinner/Spinner'
 
 export interface ShopButtonProps {
 	className: string
@@ -147,18 +148,7 @@ export default function AlertDialogShopCheckout({
 			/>
 			<AlertDialogContent className='my-4 p-4 sm:p-6 max-w-screen-xl h-[80svh] z-[910]'>
 				<div className='relative grid w-full h-full p-6 overflow-auto'>
-					{isCancelling && (
-						<div className='fixed inset-0 w-full h-full flex items-center justify-center bg-black/30 backdrop-blur-[2px] z-50'>
-							<div
-								className='inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white'
-								role='status'
-							>
-								<span className='!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]'>
-									Anulowanie...
-								</span>
-							</div>
-						</div>
-					)}
+					{isCancelling && <Spinner />}
 					<AlertDialogHeader>
 						<div className='flex justify-between items-center mb-auto'>
 							<AlertDialogTitle className='inline-block'>Finalizacja zakupu</AlertDialogTitle>
@@ -192,16 +182,7 @@ export default function AlertDialogShopCheckout({
 								</EmbeddedCheckoutProvider> */}
 							</div>
 						) : (
-							<div className='flex items-center justify-center'>
-								<div
-									className='inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white'
-									role='status'
-								>
-									<span className='!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]'>
-										Ładowanie...
-									</span>
-								</div>
-							</div>
+							<Spinner />
 						)}
 					</AlertDialogHeader>
 					<AlertDialogFooter className='self-end sm:justify-center xl:justify-end mt-4'>

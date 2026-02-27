@@ -146,16 +146,18 @@ export default function AlertDialogCheckout({
 				}
 			}}
 		>
-			<AlertDialogTrigger>
-				<button
-					className={buttonProps.className}
-					disabled={buttonProps.disabled}
-					type={buttonProps.type}
-					aria-label={buttonProps.ariaLabel}
-				>
-					{buttonProps.text}
-				</button>
-			</AlertDialogTrigger>
+			<AlertDialogTrigger
+				render={
+					<button
+						className={buttonProps.className}
+						disabled={buttonProps.disabled}
+						type={buttonProps.type}
+						aria-label={buttonProps.ariaLabel}
+					>
+						{buttonProps.text}
+					</button>
+				}
+			/>
 			<AlertDialogContent className='my-4 p-4 sm:p-6 max-w-screen-xl h-[80svh] z-[910]'>
 				<div className='relative grid w-full h-full p-6 overflow-auto'>
 					{isCancelling && (
@@ -200,20 +202,22 @@ export default function AlertDialogCheckout({
 						)}
 					</AlertDialogHeader>
 					<AlertDialogFooter className='self-end sm:justify-center xl:justify-end mt-4'>
-						<AlertDialogCancel>
-							<button
-								className={`${stylesBtn.mainBtn} ${stylesBtn.blackMainBtn} sm:w-[100%] sm:max-w-[412px] xl:w-[unset] xl:max-w-[unset]`}
-								disabled={isCancelling}
-							>
-								{isCancelling ? (
-									<>Anulowanie...</>
-								) : (
-									<>
-										<RightArrow className='rotate-180' /> Powrót
-									</>
-								)}
-							</button>
-						</AlertDialogCancel>
+						<AlertDialogCancel
+							render={
+								<button
+									className={`${stylesBtn.mainBtn} ${stylesBtn.blackMainBtn} sm:w-[100%] sm:max-w-[412px] xl:w-[unset] xl:max-w-[unset]`}
+									disabled={isCancelling}
+								>
+									{isCancelling ? (
+										<>Anulowanie...</>
+									) : (
+										<>
+											<RightArrow className='rotate-180' /> Powrót
+										</>
+									)}
+								</button>
+							}
+						/>
 					</AlertDialogFooter>
 				</div>
 			</AlertDialogContent>

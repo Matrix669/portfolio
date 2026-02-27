@@ -1,10 +1,9 @@
 import qs from 'qs'
 
 import { fetchAPI } from '@/utils/fetch-api'
-import { getStrapiURL } from '@/utils/get-strapi-url'
 
 export async function fetchProductStock(productId: number | string) {
-	const baseUrl = getStrapiURL()
+	const baseUrl = process.env.NEXT_PUBLIC_HOST_URL ?? ''
 	const parsedId = Number(productId)
 
 	if (!baseUrl || Number.isNaN(parsedId)) {

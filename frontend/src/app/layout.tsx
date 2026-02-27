@@ -6,6 +6,7 @@ import Footer from './UI/Footer/Footer'
 
 import { NAVIGATION_DATA } from './constants/navigationData'
 import { FOOTER_DATA } from './constants/footerData'
+import { CartProvider } from './context/CartContext'
 
 import './styles/globals.css'
 
@@ -29,7 +30,7 @@ export default function RootLayout({
 		<html lang='pl'>
 			<body className={`${opensans.className} antialiased`}>
 				<Navigation data={NAVIGATION_DATA} />
-				{children}
+				<CartProvider>{children}</CartProvider>
 				<Footer data={FOOTER_DATA} />
 			</body>
 		</html>

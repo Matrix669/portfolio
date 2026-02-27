@@ -1,6 +1,12 @@
 'use client'
 
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage } from '@/componentsShadcn/ui/breadcrumb'
+import {
+	Breadcrumb,
+	BreadcrumbItem,
+	BreadcrumbLink,
+	BreadcrumbList,
+	BreadcrumbPage,
+} from '@/componentsShadcn/ui/breadcrumb'
 import Wrapper from '@/app/UI/Wrapper/Wrapper'
 
 import { generateBreadcrumbs } from '@/app/utils/breadcrumbs'
@@ -47,19 +53,24 @@ export function Breadcrumbs({
 			<Wrapper>
 				<BreadcrumbList className={styles.breadcrumbs__inner} style={{ backgroundImage: `url(${bgBreadcrumbs})` }}>
 					<BreadcrumbItem>
-						<BreadcrumbLink className={styles['breadcrumbs__inner-link']}>
-							<Link href='/' aria-label='Powrót do strony głównej'>
-								<ChevronLeft />
-							</Link>
-						</BreadcrumbLink>
+						<BreadcrumbLink
+							className={styles['breadcrumbs__inner-link']}
+							render={
+								<Link href='/' aria-label='Powrót do strony głównej'>
+									<ChevronLeft />
+								</Link>
+							}
+						/>
 					</BreadcrumbItem>
 					{breadcrumbs.map((crumb, index) => (
 						<BreadcrumbItem key={crumb.href}>
 							{index < breadcrumbs.length - 1 ? (
 								<>
-									<BreadcrumbLink className={styles['breadcrumbs__inner-link']}>
-										<Link href={crumb.href}>{crumb.title}</Link>
-									</BreadcrumbLink>
+									<BreadcrumbLink
+										className={styles['breadcrumbs__inner-link']}
+										render={<Link href={crumb.href}>{crumb.title}</Link>}
+									/>
+
 									<span className={styles['breadcrumbs__inner-separator']}>/</span>
 								</>
 							) : (

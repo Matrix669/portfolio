@@ -8,7 +8,7 @@ import { Breadcrumbs } from '@/app/UI/Breadcrumbs/Breadcrumbs'
 import MainContent from '@/app/UI/MainContent/MainContent'
 import Wrapper from '@/app/UI/Wrapper/Wrapper'
 
-import BG_BREADCRUMBS from '@/app/assets/subpages/supportUs/bg-breadcrumbs.png'
+import BG_BREADCRUMBS from '@/app/assets/formSupport/bg-breadcrumbs.png'
 
 import styles from './Subscription.module.scss'
 export function SubscriptionErrorContent() {

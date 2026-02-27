@@ -1,7 +1,6 @@
 import Link from 'next/link'
 
 import type { ImageProps } from '@/utils/types'
-// import { getStrapiURL } from '@/utils/get-strapi-url'
 
 import styles from './Logo.module.scss'
 

@@ -1,0 +1,29 @@
+@use '../../styles/colors' as *;
+@use '../../styles/functions' as *;
+@use '../../styles/components' as *;
+@use '../../styles/variables' as *;
+
+.cardLink {
+	display: inline-flex;
+	align-items: center;
+	gap: rem(10);
+	padding: rem(10);
+	font-family: 'quicksand', 'open sans', sans-serif;
+	font-weight: 700;
+	background: linear-gradient(0deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%),
+		linear-gradient(96deg, #41a75b 0.03%, #27703a 73.93%);
+	background-size: 200% 100%;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-position: 0% 0%;
+	transition: background-position 0.3s;
+	& svg {
+		transition: transform 0.3s;
+	}
+	&:hover svg {
+		transform: translateX(30%);
+	}
+	&:hover {
+		background-position: 100% 0;
+	}
+}

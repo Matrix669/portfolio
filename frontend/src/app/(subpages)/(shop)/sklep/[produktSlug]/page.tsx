@@ -11,10 +11,12 @@ import ProductTextContainer from './components/ProductTextContainer'
 import ProductsContainer from './components/ProductsContainer'
 import CartSheet from '../../components/CartSheet/CartSheet'
 
-import BG_BREADCRUMBS from '@/app/assets/subpages/ourGroups/bg-breadcrumbs.png'
+import BG_BREADCRUMBS from '@/app/assets/formSupport/bg-breadcrumbs.png'
 
 import { ImageProps } from '@/utils/types'
 import { ShopProductsProps } from '@/app/types/shop'
+
+import PLACEHOLDER_IMG from '@/app/assets/placeholder/czajnik.png'
 
 import styles from './ProductShop.module.scss'
 
@@ -55,26 +57,26 @@ const MOCK_PRODUCT: ProductShopProps = {
 	wyroznioneZdjecie: {
 		id: 1,
 		documentId: 'mock-product-1',
-		url: '/placeholder/product-detail-1.jpg',
+		url: PLACEHOLDER_IMG.src, 
 		alternativeText: 'Przykładowa świeca sojowa',
 	},
 	glowneZdjecie: {
 		id: 2,
 		documentId: 'mock-product-1-main',
-		url: '/placeholder/product-detail-main.jpg',
+		url: PLACEHOLDER_IMG.src, 
 		alternativeText: 'Przykładowa świeca sojowa – główne zdjęcie',
 	},
 	zdjeciaProduktu: [
 		{
 			id: 3,
 			documentId: 'mock-product-1-gallery-1',
-			url: '/placeholder/product-detail-gallery-1.jpg',
+			url: PLACEHOLDER_IMG.src, 
 			alternativeText: 'Galeria produktu – zdjęcie 1',
 		},
 		{
 			id: 4,
 			documentId: 'mock-product-1-gallery-2',
-			url: '/placeholder/product-detail-gallery-2.jpg',
+			url: PLACEHOLDER_IMG.src, 
 			alternativeText: 'Galeria produktu – zdjęcie 2',
 		},
 	],
@@ -97,7 +99,7 @@ const MOCK_RELATED_PRODUCTS: ShopProductsProps[] = [
 		wyroznioneZdjecie: {
 			id: 5,
 			documentId: 'mock-related-1',
-			url: '/placeholder/related-1.jpg',
+			url: PLACEHOLDER_IMG.src, 
 			alternativeText: 'Ręcznie robiony naszyjnik',
 		},
 	},
@@ -114,7 +116,7 @@ const MOCK_RELATED_PRODUCTS: ShopProductsProps[] = [
 		wyroznioneZdjecie: {
 			id: 6,
 			documentId: 'mock-related-2',
-			url: '/placeholder/related-2.jpg',
+			url: PLACEHOLDER_IMG.src, 
 			alternativeText: 'Kubek z motywem Drachmy',
 		},
 	},
@@ -133,13 +135,13 @@ const MOCK_PRODUCTS: ProductShopProps[] = [
 		wyroznioneZdjecie: {
 			id: 5,
 			documentId: 'mock-related-1',
-			url: '/placeholder/related-1.jpg',
+			url: PLACEHOLDER_IMG.src, 
 			alternativeText: 'Ręcznie robiony naszyjnik',
 		},
 		glowneZdjecie: {
 			id: 5,
 			documentId: 'mock-related-1-main',
-			url: '/placeholder/related-1-main.jpg',
+			url: PLACEHOLDER_IMG.src, 
 			alternativeText: 'Ręcznie robiony naszyjnik – główne zdjęcie',
 		},
 		zdjeciaProduktu: [],

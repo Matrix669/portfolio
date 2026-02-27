@@ -18,7 +18,7 @@ import CmsWarning from '@/app/UI/CmsWarning/CmsWarning'
 import ContactForm from '@/app/UI/Forms/ContactForm/ContactForm'
 import DialogEventCalendar from '@/app/UI/DialogEventCalendar/DialogEventCalendar'
 import Footer from '@/app/UI/Footer/Footer'
-import FormSupportUs from '@/app/UI/Forms/FormSupportUs'
+import { FormSupportUs } from '@/app/UI/Forms/FormSupportUs/FormSupportUs'
 import FormShop from '@/app/UI/Forms/FormShop'
 import GroupNavBtn from '@/app/UI/GroupNavBtn/GroupNavBtn'
 import PageTitle from '@/app/UI/PageTitle/PageTitle'
@@ -26,6 +26,7 @@ import Pagination from '@/app/UI/Pagination/Pagination'
 import PostSwiper from '@/app/UI/PostSwiper/PostSwiper'
 import Socials from '@/app/UI/Socials/Socials'
 import Spinner from '@/app/UI/Spinner/Spinner'
+import { Spinner as SpinnerShadcn } from '@/componentsShadcn/ui/spinner'
 
 import { navMarginTop } from '@/app/constants/forStyles'
 
@@ -143,8 +144,7 @@ export default function UiPreviewPage() {
 						isLoading={false}
 					/>
 					<DialogEventCalendar
-						isOpen={true}
-						onClose={() => undefined}
+						isOpen={false}
 						event={{
 							title: 'Wydarzenie testowe',
 							start: new Date(),
@@ -159,8 +159,8 @@ export default function UiPreviewPage() {
 				</section>
 
 				<section>
-					<h2>Inne komponenty</h2>
-					<PageTitle title='Przykładowy tytuł strony' />
+					<h2 className='mt-2'>Inne komponenty</h2>
+					<PageTitle CSSClassname='my-4' title='Przykładowy tytuł strony' />
 					<Pagination currentPage={1} totalPages={5} />
 					<PostSwiper
 						slides={[
@@ -185,11 +185,14 @@ export default function UiPreviewPage() {
 					/>
 					<CmsWarning showCmsWarning>Przykładowe ostrzeżenie CMS.</CmsWarning>
 					<div style={{ position: 'relative', height: 80 }}>
+						<p>Spinner (ten większy)</p>
 						<Spinner />
+						<p>SpinnerShadcn (ten mniejszy)</p>
+						<SpinnerShadcn />
 					</div>
 				</section>
 
-				<section>
+				<section className='mb-5'>
 					<h2>Stopka</h2>
 					<Footer
 						data={{
@@ -222,4 +225,3 @@ export default function UiPreviewPage() {
 		</MainContent>
 	)
 }
-

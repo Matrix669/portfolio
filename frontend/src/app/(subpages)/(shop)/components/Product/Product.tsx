@@ -8,7 +8,6 @@ import { useCart } from '@/app/context/CartContext'
 
 // import { StrapiImage } from '@/app/UI/StrapiImage/StrapiImage'
 
-import { getStrapiMedia } from '@/utils/get-strapi-media'
 import { ProductLinkProps } from '@/app/types/shop'
 
 import ShopNewProductIcon from '@/app/icons/shop/ShopNewProductIcon'
@@ -18,6 +17,7 @@ import ShopCartIcon from '@/app/icons/shop/ShopCartIcon'
 
 import styles from './Product.module.scss'
 import btnStyles from '@/app/UI/MainLink/MainLink.module.scss'
+import { Spinner } from '@/componentsShadcn/ui/spinner'
 
 interface ProductCartProps {
 	product: ProductLinkProps
@@ -107,7 +107,7 @@ export default function Product({ product }: ProductCartProps) {
 			{product.wyroznioneZdjecie && (
 				<div className={styles.product__boxImg}>
 					<Image
-						src={getStrapiMedia(product.wyroznioneZdjecie.url) || product.wyroznioneZdjecie.url}
+						src={product.wyroznioneZdjecie.url}
 						alt={product.wyroznioneZdjecie.alternativeText || `Zdjęcie produktu ${product.nazwaProduktu}`}
 						width={405}
 						height={329}
@@ -129,7 +129,7 @@ export default function Product({ product }: ProductCartProps) {
 							{product.cena} zł {product.przecena && <span>{product.przecena ? `${product.przecena} zł` : ''}</span>}
 						</h3>
 						<button className={btnStyles.mainBtn} onClick={handleAddToCart} disabled={disableAddButton}>
-							{/* <span>Do koszyka</span> {isProcessing ? <Spinner aria-label='Dodawanie produktu' /> : <ShopCartIcon />} */}
+							<span>Do koszyka</span> {isProcessing ? <Spinner aria-label='Dodawanie produktu' /> : <ShopCartIcon />}
 						</button>
 					</div>
 				)}
