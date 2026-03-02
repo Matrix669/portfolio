@@ -24,45 +24,5 @@ export const NAVIGATION_DATA = {
 			czyLinkiDropdown: false,
 			czySpecjalnaGrupa: false,
 		},
-		{
-			id: 4,
-			nazwa: 'Post',
-			href: '/postname',
-			czyLinkiDropdown: true,
-			czySpecjalnaGrupa: false,
-			linkiNawigacjaDropdown: [
-				{
-					id: 34,
-					nazwa: 'Podstrona 3',
-					href: '/oferta/podstrona-1',
-				},
-				{
-					id: 35,
-					nazwa: 'Podstrona 4',
-					href: '/oferta/podstrona-2',
-				},
-			],
-		},		
-		{
-			id: 6,
-			nazwa: 'Sklep',
-			href: '/sklep',
-			czyLinkiDropdown: false,
-			czySpecjalnaGrupa: false,
-		},
-		{
-			id: 8,
-			nazwa: 'Zarządzaj subskrypcją',
-			href: '/zarzadzaj-subskrypcja',
-			czyLinkiDropdown: false,
-			czySpecjalnaGrupa: false,
-		},
-		{
-			id: 9,
-			nazwa: 'UI preview',
-			href: '/ui-preview',
-			czyLinkiDropdown: false,
-			czySpecjalnaGrupa: false,
-		},
 	],
 }

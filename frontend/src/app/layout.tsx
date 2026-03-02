@@ -6,7 +6,6 @@ import Footer from './UI/Footer/Footer'
 
 import { NAVIGATION_DATA } from './constants/navigationData'
 import { FOOTER_DATA } from './constants/footerData'
-import { CartProvider } from './context/CartContext'
 
 import './styles/globals.css'
 
@@ -19,7 +18,8 @@ const opensans = Open_Sans({
 export const metadata: Metadata = {
 	title: 'Portfolio Maksymilian Tkaczyk',
 	description: 'Moje portfolio w którym znajdziesz moje projekty oraz informacje o mnie',
-	keywords: 'portfolio, projekty, informacje o mnie, it, web development, frontend, backend, fullstack, developer, programista, kodowanie, tworzenie stron, tworzenie aplikacji, tworzenie software',
+	keywords:
+		'portfolio, projekty, informacje o mnie, it, web development, frontend, backend, fullstack, developer, programista, kodowanie, tworzenie stron, tworzenie aplikacji, tworzenie software',
 }
 
 export default function RootLayout({
@@ -31,7 +31,7 @@ export default function RootLayout({
 		<html lang='pl'>
 			<body className={`${opensans.className} antialiased`}>
 				<Navigation data={NAVIGATION_DATA} />
-				<CartProvider>{children}</CartProvider>
+				{children}
 				<Footer data={FOOTER_DATA} />
 			</body>
 		</html>
