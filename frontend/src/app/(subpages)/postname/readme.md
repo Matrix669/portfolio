@@ -1,1 +1,0 @@
-change postName to e.g: [slug]!
