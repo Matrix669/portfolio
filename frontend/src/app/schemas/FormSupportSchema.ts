@@ -2,16 +2,15 @@ import { z } from 'zod'
 
 export const formSchema = z
 	.object({
-		email: z
-			.string({
-				required_error: 'Musisz podać adres e-mail',
-				invalid_type_error: 'Adres e-mail musi być poprawnym adresem e-mail',
-			})
-			.email('Adres e-mail musi być poprawnym adresem e-mail'),
+		email: z.email({
+			error: iss =>
+				iss.code === 'invalid_type' || iss.input === undefined
+					? 'Musisz podać adres e-mail'
+					: 'Adres e-mail musi być poprawnym adresem e-mail',
+		}),
 		amount: z
 			.string({
-				required_error: 'Musisz wybrać lub wpisać kwotę',
-				invalid_type_error: 'Kwota musi być liczbą',
+				error: 'Musisz wybrać lub wpisać kwotę',
 			})
 			.regex(/^\d+(\.\d+)?$/, 'Kwota musi być liczbą dodatnią')
 			.refine(val => Number(val) >= 5, {
@@ -19,25 +18,24 @@ export const formSchema = z
 			}),
 		customAmount: z
 			.number({
-				required_error: 'Musisz wpisać kwotę',
-				invalid_type_error: 'Kwota musi być liczbą',
+				error: 'Musisz wpisać kwotę',
 			})
 			.min(1, 'Kwota musi być większa niż 0')
 			.optional(),
 		group: z
 			.string({
-				required_error: 'Musisz wybrać grupę',
+				error: 'Musisz wybrać grupę',
 			})
 			.min(1, 'Musisz wybrać grupę'),
 		paymentMethod: z
 			.string({
-				required_error: 'Musisz wybrać metodę płatności',
+				error: 'Musisz wybrać metodę płatności',
 			})
 			.min(1, 'Musisz wybrać metodę płatności'),
 		monthlySupport: z.boolean(),
 		acceptDataFormSupport: z.literal(true, {
-			errorMap: () => ({ message: 'Musisz zaakceptować warunki' }),
-		})
+			error: () => ({ message: 'Musisz zaakceptować warunki' }),
+		}),
 	})
 	.refine(data => data.amount !== undefined || data.customAmount !== undefined, {
 		message: 'Musisz wybrać lub wpisać kwotę',

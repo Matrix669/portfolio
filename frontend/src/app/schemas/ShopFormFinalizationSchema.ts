@@ -5,57 +5,48 @@ export const shopFormSchema = z
 		//customer data
 		firstName: z
 			.string({
-				required_error: 'Musisz wpisać imię',
-				invalid_type_error: 'Imię musi być poprawnym imieniem',
+				error: 'Musisz wpisać imię',
 			})
 			.min(3, 'Imię musi zawierać co najmniej 3 litery'),
 		lastName: z
 			.string({
-				required_error: 'Musisz wpisać nazwisko',
-				invalid_type_error: 'Nazwisko musi być poprawnym nazwiskiem',
+				error: 'Musisz wpisać nazwisko',
 			})
 			.min(3, 'Nazwisko musi zawierać co najmniej 3 liter'),
 		email: z
 			.string({
-				required_error: 'Musisz wpisać adres e-mail',
-				invalid_type_error: 'Adres e-mail musi być poprawnym adresem e-mail',
+				error: 'Musisz wpisać adres e-mail',
 			})
 			.email('Adres e-mail musi być poprawnym adresem e-mail'),
 		phoneNumber: z
 			.string({
-				required_error: 'Musisz wpisać numer telefonu',
-				invalid_type_error: 'Numer telefonu musi być poprawnym numerem telefonu',
+				error: 'Musisz wpisać numer telefonu',
 			})
 			.min(9, 'Numer telefonu musi zawierać co najmniej 9 znaków'),
 		street: z
 			.string({
-				required_error: 'Musisz wpisać ulicę',
-				invalid_type_error: 'Ulica musi być poprawnym ulicą',
+				error: 'Musisz wpisać ulicę',
 			})
 			.min(3, 'Ulica musi zawierać co najmniej 3 znaki'),
 		houseNumber: z
 			.string({
-				required_error: 'Musisz podać numer domu',
-				invalid_type_error: 'Number domu musi być poprawnym numerem',
+				error: 'Musisz podać numer domu',
 			})
 			.min(1, 'Number domu musi zawierać co najmniej 1 znak')
 			.refine(val => Number(val) >= 0, {
 				message: 'Numer domu musi być nieujemny',
 			}),
 		apartmentNumber: z.string({
-			required_error: 'Musisz podać numer lokalu',
-			invalid_type_error: 'Number lokalu musi być poprawnym numerem',
+			error: 'Musisz podać numer lokalu',
 		}),
 		town: z
 			.string({
-				required_error: 'Musisz wpisać miasto',
-				invalid_type_error: 'Miasto musi być poprawnym miastem',
+				error: 'Musisz wpisać miasto',
 			})
 			.min(2, 'Miasto musi zawierać co najmniej 2 znaki'),
 		zipCode: z
 			.string({
-				required_error: 'Musisz wpisać kod pocztowy',
-				invalid_type_error: 'Kod pocztowy musi być poprawnym kodem pocztowym',
+				error: 'Musisz wpisać kod pocztowy',
 			})
 			.regex(/^\d{2}-\d{3}$/, 'Kod pocztowy musi być w formacie XX-XXX'),
 		isCompany: z.boolean().optional(),
@@ -81,7 +72,7 @@ export const shopFormSchema = z
 		//delivery
 		delivery: z.string().min(1, 'Musisz wybrać metodę dostawy'),
 		acceptData: z.boolean({
-			required_error: 'Musisz zaakceptować warunki',
+			error: 'Musisz zaakceptować warunki',
 		}),
 	})
 	.superRefine((data, ctx) => {
