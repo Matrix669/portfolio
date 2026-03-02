@@ -17,8 +17,9 @@ const opensans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-	title: 'Startkówka frontend + backend',
-	description: 'Startkówka: tailwind, ts, scss',
+	title: 'Portfolio Maksymilian Tkaczyk',
+	description: 'Moje portfolio w którym znajdziesz moje projekty oraz informacje o mnie',
+	keywords: 'portfolio, projekty, informacje o mnie, it, web development, frontend, backend, fullstack, developer, programista, kodowanie, tworzenie stron, tworzenie aplikacji, tworzenie software',
 }
 
 export default function RootLayout({
