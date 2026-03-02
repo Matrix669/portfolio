@@ -129,7 +129,47 @@ const MOCK_PRODUCTS: ProductShopProps[] = [
 		produktSlug: 'naszyjnik-recznie-robiony',
 		cena: 89,
 		przecena: '',
-		czyNowy: true,
+		czyNowy: true,Tezy
+Tezy egzaminacyjne:
+1. Kościół po wędrówce ludów.
+- Chrześcijaństwo w wizygockiej Hiszpanii.
+- Chrześcijaństwo w królestwie Ostrogotów.
+- Prześladowanie Kościoła przez Wandalów.
+- Chrześcijaństwo w Galii frankońskiej.
+- Chrystianizacja Irlandii i Anglii.
+- Agralizacja kultury.
+2. Renesans karoliński.
+- Karol Wielki i jego imperium.
+- Rozkład imperium karolińskiego – feudalizacja Europy.
+- Sytuacja Kościoła w IX-X w. (Państwo kościelne – „wieki
+ciemne” inwestytura,
+symonia, nepotyzm, nikolaizm).
+- Chrystianizacja Sasów i ludów skandynawskich.
+- Chrystianizacja Słowian , Węgrów. Misja Cyryla i Metodego.
+- Dzieje chrześcijaństwa w Polsce od chrztu do XIII w.
+3. Chrześcijaństwo Wschodnie.
+- Sytuacja Kościoła poza zasięgiem kultury greckiej.
+- Kościół bizantyński.
+- Kryzys obrazoburstwa i jego następstwa.
+- Schizma Focjusza i Cerulariusza.
+4. Czas reformy.
+- Papierze reformatorzy i kongregacja kluniacka.
+- Grzegorz VII i jego reforma.
+- Wyprawy krzyżowe i zakony rycerskie.
+- Herezja Waldensów i Katarów.
+- znaczenie zakonów żebraczych.
+- Inkwizycja.
+- Wzrost znaczenia papiestwa – pontyfikat Innocentego III.
+- Rozwój życia umysłowego: uniwersytety, scholastyka,
+mistyka.
+- Sztuka średniowiecza.
+5. Schyłek średniowiecza – kryzys wzrostu.
+- Bonifacy VIII, zakwestionowany autorytet.
+- Niewola awiniońska.
+- Schizma zachodnia.
+- Sobory reformatorskie.
+- Kościół w Polsce od XIV do XV w. Chrzest Litwy.
+- Renesans i humanizm.
 		czyPromocja: false,
 		iloscProduktu: 5,
 		wyroznioneZdjecie: {
