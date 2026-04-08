@@ -1,5 +1,3 @@
-// import { type BlocksContent } from '@strapi/blocks-react-renderer'
-
 export interface MetadataProps {
 	tytul: string
 	opis: string
@@ -11,14 +9,7 @@ export interface NavLinksProps {
 		id: number
 		nazwa: string
 		href: string
-		czyLinkiDropdown: boolean
-		czySpecjalnaGrupa: boolean
 		onClick?: () => void
-		linkiNawigacjaDropdown?: {
-			id: number
-			nazwa: string
-			href: string
-		}[]
 	}[]
 }
 
@@ -42,9 +33,8 @@ export interface ImageProps {
 export interface SocialsProps {
 	id: number
 	tytul: string
-	ikonySocial: 'fbIcon' | 'igIcon' | 'ytIcon'
+	ikonySocial: 'githubIcon' | 'linkedinIcon'
 	href: string
-	czyGradient: boolean
 }
 
 export interface CardSectionProps {

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Open_Sans } from 'next/font/google'
+import { Open_Sans, Cairo } from 'next/font/google'
 
 import Navigation from './UI/Navigation/Navigation'
 import Footer from './UI/Footer/Footer'
@@ -9,8 +9,8 @@ import { FOOTER_DATA } from './constants/footerData'
 
 import './styles/globals.css'
 
-const opensans = Open_Sans({
-	weight: ['400'],
+const cairo = Cairo({
+	weight: ['400', '500', '600', '700'],
 	subsets: ['latin'],
 	fallback: ['sans-serif'],
 })
@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='pl'>
-			<body className={`${opensans.className} antialiased`}>
+			<body className={`${cairo.className} antialiased`}>
 				<Navigation data={NAVIGATION_DATA} />
 				{children}
 				<Footer data={FOOTER_DATA} />
