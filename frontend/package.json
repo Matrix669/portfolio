@@ -22,7 +22,7 @@
     "cmdk": "^1.1.1",
     "lucide-react": "^0.575.0",
     "motion": "^12.34.3",
-    "next": "16.1.6",
+    "next": "^16.2.2",
     "nodemailer": "^8.0.1",
     "photoswipe": "^5.4.4",
     "plaiceholder": "^3.0.0",
