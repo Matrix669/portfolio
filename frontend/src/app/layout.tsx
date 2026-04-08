@@ -5,7 +5,6 @@ import Navigation from './UI/Navigation/Navigation'
 import Footer from './UI/Footer/Footer'
 
 import { NAVIGATION_DATA } from './constants/navigationData'
-import { FOOTER_DATA } from './constants/footerData'
 
 import './styles/globals.css'
 
@@ -32,7 +31,7 @@ export default function RootLayout({
 			<body className={`${cairo.className} antialiased`}>
 				<Navigation data={NAVIGATION_DATA} />
 				{children}
-				<Footer data={FOOTER_DATA} />
+				<Footer />
 			</body>
 		</html>
 	)

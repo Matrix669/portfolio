@@ -1,7 +1,7 @@
 @use '../../styles/colors' as *;
 @use '../../styles/functions' as *;
 .logo {
-	margin-right: rem(10);
+	margin-right: rem(20);
 	@media (min-width: rem(768)) {
 		margin-right: rem(20);
 	}

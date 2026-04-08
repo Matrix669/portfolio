@@ -25,41 +25,12 @@
 	}
 }
 
-.squareSection {
+.bgGradient {
 	position: absolute;
-	z-index: -5;
-	border-radius: $borderRadius;
-	&--green {
-		width: rem(272);
-		height: rem(288);
-		background: (
-			linear-gradient(0deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%),
-			linear-gradient(96deg, #41a75b 0.03%, #27703a 73.93%)
-		);
-		opacity: 0.2;
-	}
-	&--yellow {
-		width: rem(122);
-		height: rem(129);
-		background-color: #facd53;
-		opacity: 0.2;
-	}
-	&--blue {
-		width: rem(211);
-		height: rem(233);
-		background: (
-			linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%),
-			linear-gradient(96deg, #21a7e1 0.03%, #0074a7 73.93%)
-		);
-		opacity: 0.1;
-	}
-	&--greensm {
-		width: rem(152);
-		height: rem(161);
-		background: (
-			linear-gradient(0deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%),
-			linear-gradient(96deg, #41a75b 0.03%, #27703a 73.93%)
-		);
-		opacity: 0.1;
-	}
+	bottom: 0px;
+	width: 399px;
+	height: 163px;
+	background: $bg-gradient;
+	filter: blur(240px);
+	z-index: -10;
 }
