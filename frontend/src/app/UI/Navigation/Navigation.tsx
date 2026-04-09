@@ -18,7 +18,7 @@ interface NavigationProps {
 	data: {
 		linkiNawigacja: {
 			id: number
-			nazwa: string
+			labelKey: string
 			href: string
 		}[]
 	}

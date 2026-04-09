@@ -1,0 +1,39 @@
+{
+	"navigation": {
+		"home": "Strona główna",
+		"about": "O mnie",
+		"work": "Projekty",
+		"contact": "Kontakt"
+	},
+	"mainPage": {
+        "heroSection": {            
+            "title": "Cześć, mam na imię Maks",
+            "description": "Tworzę nowoczesne, responsywne aplikacje internetowe i strony"
+        },
+        "aboutSection": {
+            "subTitle": "O mnie",
+            "title": "Mam na imię Maks",
+            "description": "Jestem programistą"
+        },
+        "workSection": {
+            "subTitle": "Moje projekty"
+        },
+        "contactSection": {
+            "title": "Zostańmy w kontakcie",
+            "subTitle": "Kontakt",
+            "contactForm": {
+                "name": "Imię",
+                "email": "Adres e-mail",
+                "message": "Wiadomość",
+                "agreement": "Wyrażam zgodę na przetwarzanie danych osobowych"
+            }
+        }
+    },
+	"footer": {},
+	"button": {
+        "work": "Zobacz moje projekty",
+        "cv": "Zobacz moje CV",
+		"contact": "Wyślij wiadomość",
+        "project": "Zobacz więcej"
+	}
+}

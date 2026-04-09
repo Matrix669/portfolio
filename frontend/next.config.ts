@@ -1,15 +1,11 @@
 import type { NextConfig } from "next";
-
-// if (!process.env.STRAPI_MEDIA_URL) {
-// 	throw new Error('STRAPI_MEDIA_URL is not defined in .env')
-// }
+import createNextIntlPlugin from 'next-intl/plugin';
  
 
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
 
-  // for cms strapi
   images: {
 		// unoptimized: true,
 		localPatterns: [
@@ -18,20 +14,6 @@ const nextConfig: NextConfig = {
 				search: '',
 			},
 		],
-		// for strapi
-		// remotePatterns: [
-		// 	{
-		// 		protocol: 'http',
-		// 		hostname: 'localhost',
-		// 		port: '1337',
-		// 		pathname: '/uploads/**/*',
-		// 	},
-		// 	{
-		// 		protocol: 'https',
-		// 		hostname: process.env.STRAPI_MEDIA_URL,
-		// 		pathname: '/uploads/**',
-		// 	},
-		// ],
 	},
   // how to make redirect
 	// async redirects() {
@@ -44,5 +26,5 @@ const nextConfig: NextConfig = {
 	// 	]
 	// },
 };
-
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin();
+export default withNextIntl(nextConfig);

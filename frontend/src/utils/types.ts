@@ -7,7 +7,7 @@ export interface MetadataProps {
 export interface NavLinksProps {
 	linkiNawigacja: {
 		id: number
-		nazwa: string
+		labelKey: string
 		href: string
 		onClick?: () => void
 	}[]

@@ -23,6 +23,7 @@
     "lucide-react": "^0.575.0",
     "motion": "^12.34.3",
     "next": "^16.2.2",
+    "next-intl": "^4.9.0",
     "nodemailer": "^8.0.1",
     "photoswipe": "^5.4.4",
     "plaiceholder": "^3.0.0",

@@ -25,7 +25,7 @@ export default function Footer() {
 					</div>
 					<SocialsIcons socialsIconsArr={SOCIALS_DATA} />
 					<div className={styles.footer__inner__navBox}>
-						<NavigationMenuDesktop linkiNawigacja={NAVIGATION_DATA.linkiNawigacja} />
+						<NavigationMenuDesktop linkiNawigacja={NAVIGATION_DATA.linkiNawigacja}  />
 						<NavLanguages />
 					</div>
 				</div>

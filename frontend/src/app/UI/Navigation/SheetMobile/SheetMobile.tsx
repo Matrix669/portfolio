@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import {
 	Sheet,
 	SheetClose,
@@ -21,11 +21,12 @@ import type { NavLinksProps } from '@/utils/types'
 
 import styles from '@/app/UI/Navigation/Navigation.module.scss'
 import NavLanguages from '../NavLanguages/NavLanguages'
+import { useTranslations } from 'next-intl'
 
 
 export function SheetMobile({ linkiNawigacja }: NavLinksProps) {
 	const [open, setOpen] = useState(false)
-
+	const navTranslations = useTranslations('navigation')
 
 	return (
 		<Sheet open={open} onOpenChange={setOpen}>
@@ -45,8 +46,8 @@ export function SheetMobile({ linkiNawigacja }: NavLinksProps) {
 								<li key={link.id}>
 									<SheetClose
 										render={() => (
-											<Link href={link.href} title={link.nazwa} onClick={() => setOpen(false)}>
-												{link.nazwa}
+											<Link href={link.href} title={navTranslations(link.labelKey)} onClick={() => setOpen(false)}>
+												{navTranslations(link.labelKey)}
 											</Link>
 										)}
 									></SheetClose>

@@ -1,8 +1,7 @@
-import FirstSection from './components/FirstSection/FirstSection'
-import MainContent from './UI/MainContent/MainContent'
+import FirstSection from '../components/FirstSection/FirstSection'
+import MainContent from '../UI/MainContent/MainContent'
 
-import { navMarginTop } from './constants/forStyles'
-
+import { navMarginTop } from '../constants/forStyles'
 
 // async function loader() {
 // 	try {
@@ -45,7 +44,7 @@ import { navMarginTop } from './constants/forStyles'
 export default function Home() {
 	return (
 		<MainContent style={{ marginTop: navMarginTop }}>
-				<FirstSection />
+			<FirstSection />
 		</MainContent>
 	)
 }
