@@ -1,0 +1,39 @@
+{
+    "navigation": {
+        "home": "Home",
+        "about": "About",
+        "work": "Work",
+        "contact": "Contact"
+    },
+    "mainPage": {
+        "heroSection": {
+            "title": "Hi, I'm Maks Tkaczyk",
+            "description": "Building modern, responsive web applications and websites"
+        },
+        "aboutSection": {
+            "subTitle": "About me",
+            "title": "Name's Maks",
+            "description": "I'm a software engineer"
+        },
+        "workSection": {
+            "subTitle": "My projects"
+        },
+        "contactSection": {
+            "title": "Get in Touch",
+            "subTitle": "Contact me",
+            "contactForm": {
+                "name": "Name",
+                "email": "Email Address",
+                "message": "Message",
+                "agreement": "I agree to the processing of personal data"
+            }
+        }
+    },
+	"footer": {},
+	"button": {
+        "work": "See my projects",
+        "cv": "See my CV",
+		"contact": "Send message",
+        "project": "Read more"
+	}
+}

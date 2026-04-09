@@ -4,22 +4,22 @@ export const NAVIGATION_DATA = {
 	linkiNawigacja: [
 		{
 			id: 1,
-			nazwa: 'Home',
+			labelKey: 'home',
 			href: '/',
 		},
 		{
 			id: 2,
-			nazwa: 'About',
+			labelKey: 'about',
 			href: '#about',
 		},
 		{
 			id: 3,
-			nazwa: 'Work',
+			labelKey: 'work',
 			href: '#work',
 		},
 		{
 			id: 4,
-			nazwa: 'Contact',
+			labelKey: 'contact',
 			href: '#contact',
 		},
 	],

@@ -14,7 +14,7 @@
 	// background-color: $nav-bg;
 	z-index: 100;
 	&.navSubpage {
-		background-color: deeppink;
+		// background-color: deeppink;
 	}
 	&__inner {
 		display: flex;
@@ -23,7 +23,36 @@
 		height: 28px;
 		padding: 0 rem(15);
 	}
-
+	&Desktop {
+		& li a {
+			position: relative;
+			color: $secondary-color;
+			font-size: rem(15);
+			padding: rem(15) rem(10);
+			height: rem(33);
+			border-radius: rem(50);
+			transition: color 0.3s, background-color 0.3s;
+			z-index: 0;
+			&::after {
+				content: '/';
+				position: absolute;
+				top: 5px;
+				right: -10px;
+				color: $secondary-color;
+				z-index: 5;
+				pointer-events: none;
+			}
+			&:hover {
+				color: $primary-color;
+				background-color: $secondary-color;
+			}
+		}
+		& li:last-child a {
+			&::after {
+				display: none;
+			}
+		}
+	}
 	&Mobile {
 		display: flex;
 		align-items: flex-start;
@@ -31,9 +60,7 @@
 		flex-direction: column;
 		gap: rem(18);
 		& li a {
-			// font-size: rem(18);
 			color: $secondary-color;
-			// margin: rem(18);
 			padding: rem(18);
 			text-decoration: none;
 			&:hover {
@@ -45,11 +72,15 @@
 		}
 	}
 	&Languages {
-		// ! add active class
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: rem(10);
+		& .active {
+			color: $primary-color;
+			background-color: $secondary-color;
+			font-weight: 600;
+		}
 		&__desktop {
 			display: none;
 		}
@@ -68,7 +99,7 @@
 					content: '/';
 					position: absolute;
 					top: 5px;
-					right: -20%;
+					right: -10px;
 					color: $secondary-color;
 					z-index: 5;
 					pointer-events: none;
@@ -97,35 +128,6 @@
 			display: flex;
 			align-items: center;
 			gap: rem(15);
-
-			& li a {
-				position: relative;
-				color: $secondary-color;
-				font-size: rem(15);
-				padding: rem(15) rem(10);
-				height: rem(33);
-				border-radius: rem(50);
-				transition: color 0.3s, background-color 0.3s;
-				z-index: 0;
-				&::after {
-					content: '/';
-					position: absolute;
-					top: 5px;
-					right: -20%;
-					color: $secondary-color;
-					z-index: 5;
-					pointer-events: none;
-				}
-				&:hover {
-					color: $primary-color;
-					background-color: $secondary-color;
-				}
-			}
-			& li:last-child a {
-				&::after {
-					display: none;
-				}
-			}
 		}
 		&Languages {
 			&__mobile {

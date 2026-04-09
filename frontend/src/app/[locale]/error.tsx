@@ -3,13 +3,13 @@
 import Image from 'next/image'
 import { Metadata } from 'next'
 import { useEffect } from 'react'
-import { navMarginTop } from './constants/forStyles'
+import { navMarginTop } from '../constants/forStyles'
 
-import Wrapper from './UI/Wrapper/Wrapper'
-import MainContent from './UI/MainContent/MainContent'
-import { Breadcrumbs } from './UI/Breadcrumbs/Breadcrumbs'
+import Wrapper from '../UI/Wrapper/Wrapper'
+import MainContent from '../UI/MainContent/MainContent'
+import { Breadcrumbs } from '../UI/Breadcrumbs/Breadcrumbs'
 
-import error_img from './assets/subpages/error/error.png'
+import error_img from '../assets/subpages/error/error.png'
 
 import styles from './404.module.scss'
 import stylesBtn from '@/app/UI/MainLink/MainLink.module.scss'
