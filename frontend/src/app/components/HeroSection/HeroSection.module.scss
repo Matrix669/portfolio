@@ -1,0 +1,36 @@
+@use '../../styles/colors' as *;
+@use '../../styles/functions' as *;
+@use '../../styles/components' as *;
+@use '../../styles/variables' as *;
+
+.heroSectionBox {
+	display: grid;
+	grid-template-columns: 1fr;
+	align-items: center;
+	justify-items: center;
+	gap: rem(15);
+	& h1 {
+		max-width: rem(490);
+		text-align: center;
+	}
+	&-BgGradient {
+		top: 160px;
+		bottom: unset;
+	}
+	&__Tilt {
+		display: grid;
+		grid-template-columns: 1fr;
+		align-items: center;
+		justify-items: center;
+		gap: rem(15);
+		&Image {
+			padding: rem(15);
+		}
+		@media (min-width: rem(768)) {
+			gap: rem(30);
+		}
+	}
+	@media (min-width: rem(768)) {
+		gap: rem(30);
+	}
+}

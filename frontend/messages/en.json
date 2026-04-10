@@ -7,8 +7,9 @@
     },
     "mainPage": {
         "heroSection": {
-            "title": "Hi, I'm Maks Tkaczyk",
-            "description": "Building modern, responsive web applications and websites"
+            "title": "Hi, I'm Max Tkaczyk",
+            "description": "Building modern, responsive web applications and websites",
+            "imgAlt": "me, Max Tkaczyk"
         },
         "aboutSection": {
             "subTitle": "About me",
@@ -31,7 +32,7 @@
     },
 	"footer": {},
 	"button": {
-        "work": "See my projects",
+        "work": "See My Work",
         "cv": "See my CV",
 		"contact": "Send message",
         "project": "Read more"

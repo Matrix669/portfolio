@@ -34,7 +34,7 @@ export default function NotFound() {
 								Błąd 404. Strona, której szukasz, nie istnieje lub została przeniesiona. Możesz wrócić na stronę główną
 								lub spróbować ponownie.
 							</p>
-							<MainLink href='/' isBlack={true}>
+							<MainLink href='/'>
 								<RightArrow />
 								Wróć na stronę główną
 							</MainLink>

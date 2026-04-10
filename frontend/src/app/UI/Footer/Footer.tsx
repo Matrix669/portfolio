@@ -3,20 +3,23 @@ import Link from 'next/link'
 import Wrapper from '@/app/UI/Wrapper/Wrapper'
 import SocialsIcons from '../Socials/Socials'
 
-import Logo from '../Logo/Logo'
+import Logo from '@/app/UI/Logo/Logo'
 import { SOCIALS_DATA } from '@/app/constants/socialsData'
+import BgGradient from '@/app/UI/BgGradient/BgGradient'
+import NavLanguages from '@/app/UI/Navigation/NavLanguages/NavLanguages'
+import { NavigationMenuDesktop } from '@/app/UI/Navigation/NavDesktop/NavDesktop'
+
+
+import { NAVIGATION_DATA } from '@/app/constants/navigationData'
 
 import styles from './Footer.module.scss'
-import NavLanguages from '../Navigation/NavLanguages/NavLanguages'
-import { NavigationMenuDesktop } from '../Navigation/NavDesktop/NavDesktop'
-import { NAVIGATION_DATA } from '@/app/constants/navigationData'
 
 export default function Footer() {
 	return (
 		<footer className={styles.footer}>
 			<Wrapper>
 				<div className={`${styles.sectionPadding} ${styles.footer__inner}`}>
-					<div className={styles.bgGradient}></div>
+					<BgGradient />
 					<div className={styles.footer__inner__logoBox}>
 						<Logo />
 						<p>
@@ -25,7 +28,7 @@ export default function Footer() {
 					</div>
 					<SocialsIcons socialsIconsArr={SOCIALS_DATA} />
 					<div className={styles.footer__inner__navBox}>
-						<NavigationMenuDesktop linkiNawigacja={NAVIGATION_DATA.linkiNawigacja}  />
+						<NavigationMenuDesktop linkiNawigacja={NAVIGATION_DATA.linkiNawigacja} />
 						<NavLanguages />
 					</div>
 				</div>
