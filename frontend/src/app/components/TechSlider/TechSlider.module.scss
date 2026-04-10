@@ -1,5 +1,12 @@
 @use '../../styles/colors' as *;
 @use '../../styles/functions' as *;
 @use '../../styles/components' as *;
-@use '../../styles/variables' as *;
 
+.techSlider {
+	&  div {
+		gap: rem(20);
+		img {
+			object-fit: contain;
+		}
+	}
+}

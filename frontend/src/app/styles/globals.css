@@ -191,11 +191,12 @@
 	h3,
 	h4,
 	h5 {
-		font-family: /*'quicksand', */ 'open sans', sans-serif;
+		font-family: 'Cairo', 'open sans', sans-serif;
 	}
 
 	h1 {
 		font-size: 1.5rem; /* 24px */
+		font-weight: bold;
 	}
 	@media (min-width: 30rem) {
 		/* 480px */
@@ -218,8 +219,8 @@
 	@media (min-width: 62rem) {
 		/* 992px */
 		h1 {
-			font-size: 2.25rem;
-		} /* 36px */
+			font-size: 2.5rem;
+		} /* 40px */
 	}
 
 	h2 {

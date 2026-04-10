@@ -1,54 +1,43 @@
 @use '../../styles/colors' as *;
 @use '../../styles/functions' as *;
 @use '../../styles/components' as *;
-.mainBtn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: rem(10);
-    padding: rem(14) rem(28);
-    height: 46px;
-    color: $primary-color;
-    font-family: 'quicksand', 'open sans', sans-serif;
-    font-size: rem(14);
-    background-color: $secondary-color;
-    border-radius: 100px;
-    transition: background-color .3s, color .3s, border-color .3s;
-    & svg g path {
-        transition: stroke .3s;
-    }
-    &:hover {
-        background-color: $primary-color;
-        color: $secondary-color;
-        & svg g path{
-            stroke: $secondary-color;
-        }
-    }
-}
-.blackMainBtn {
-    border: 1px solid transparent;
-    background-color: $primary-color;
-    color: $secondary-color;
-    & svg g path {
-        stroke: $secondary-color;
-    }
-    &:hover {
-        background-color: $secondary-color;
-        color: $primary-color;
-        border-color: $primary-color;
-        & svg g path{
-            stroke: $primary-color;
-        }
-    }
-    &:focus {
-        outline: 4px solid $additional-color;
-    }
+.mainLink {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: rem(10);
 
+	padding: rem(12) rem(16);
+	height: 44px;
+
+	color: $primary-color;
+	background-color: $secondary-color;
+
+	font-size: rem(15);
+	font-weight: 500;
+
+	border-radius: 100px;
+	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+	& svg g path {
+		transition: stroke 0.3s;
+	}
+	& svg {
+		transition: transform 0.3s;
+	}
+	&:hover {
+		background-color: $primary-color;
+		color: $secondary-color;
+		& svg g path {
+			stroke: $secondary-color;
+		}
+		& svg {
+			transform: translate(40%, -60%);
+		}
+	}
 }
 
 @media (min-width: rem(768)) {
-    .mainBtn {
-        height: 56px;
-        font-size: rem(16);
-    }
+	.mainLink {
+		height: 44px;
+	}
 }
