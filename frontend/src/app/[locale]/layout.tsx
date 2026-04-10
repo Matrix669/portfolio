@@ -1,13 +1,16 @@
 import type { Metadata } from 'next'
+import { Cairo } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
-import { Cairo } from 'next/font/google'
+import CursorLabelProvider from '../contexts/CursorLabelContext'
+
 
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { routing } from '@/i18n/routing'
 
 import Navigation from '../UI/Navigation/Navigation'
 import Footer from '../UI/Footer/Footer'
+import Cursor from '../UI/Cursor/Cursor'
 
 import { NAVIGATION_DATA } from '../constants/navigationData'
 
@@ -43,9 +46,12 @@ export default async function RootLayout({ children, params }: Props) {
 		<html lang={locale}>
 			<body className={`${cairo.className} antialiased`}>
 				<NextIntlClientProvider>
+					<CursorLabelProvider>
 					<Navigation data={NAVIGATION_DATA} />
 					{children}
 					<Footer />
+					<Cursor />
+					</CursorLabelProvider>
 				</NextIntlClientProvider>
 			</body>
 		</html>
