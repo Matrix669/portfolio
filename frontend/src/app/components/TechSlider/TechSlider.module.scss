@@ -3,7 +3,7 @@
 @use '../../styles/components' as *;
 
 .techSlider {
-	&  div {
+	& div {
 		gap: rem(20);
 		img {
 			object-fit: contain;

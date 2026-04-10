@@ -6,7 +6,7 @@ import { navMarginTop } from '@/app/constants/forStyles'
 
 export default function Home() {
 	return (
-		<MainContent style={{ marginTop: navMarginTop }}>
+		<MainContent style={{ marginTop: navMarginTop, overflowX: 'hidden' }}>
 			<HeroSection />
 			<TechSlider />
 		</MainContent>

@@ -55,19 +55,18 @@ const TECH_SLIDER_DATA = [
 	},
 ]
 
-
 export default function TechSlider() {
-    const is992 = useMediaQuery({minWidth: 992})
-    const is768 = useMediaQuery({minWidth: 768})
-    const gap = is992 ? 120 : is768 ? 80 : 30
+	const is992 = useMediaQuery({ minWidth: 992 })
+	const is768 = useMediaQuery({ minWidth: 768 })
+	const gap = is992 ? 120 : is768 ? 80 : 40
 	return (
 		<section className={styles.sectionPadding}>
 			<Wrapper>
-					<InfiniteSlider speedOnHover={20} gap={gap} speed={75} className={styles.techSlider}>
-						{TECH_SLIDER_DATA.map(item => (
-							<Image key={item.id} src={item.imgSrc} alt={item.alt} />
-						))}
-					</InfiniteSlider>
+				<InfiniteSlider speedOnHover={20} gap={gap} speed={75} className={styles.techSlider}>
+					{TECH_SLIDER_DATA.map(item => (
+						<Image key={item.id} src={item.imgSrc} alt={item.alt} />
+					))}
+				</InfiniteSlider>
 			</Wrapper>
 		</section>
 	)
