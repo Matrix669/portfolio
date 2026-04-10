@@ -6,7 +6,6 @@ export default function MouseIcon(props: SVGProps<SVGSVGElement>) {
 		<svg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
 			<foreignObject x='-1' y='-2' width='27' height='27'>
 				<div
-					xmlns='http://www.w3.org/1999/xhtml'
 					style={{
 						backdropFilter: 'blur(2.5px)',
 						clipPath: 'url(#bgblur_0_2020_8_clip_path)',
