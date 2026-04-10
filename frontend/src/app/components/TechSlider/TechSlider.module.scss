@@ -4,7 +4,13 @@
 
 .techSlider {
 	& div {
-		gap: rem(20);
+		gap: rem(40) !important;
+		@media (min-width: rem(768)) {
+			gap: rem(80) !important;
+		}
+		@media (min-width: rem(992)) {
+			gap: rem(120) !important;
+		}
 		img {
 			object-fit: contain;
 		}
