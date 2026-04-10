@@ -8,7 +8,8 @@
 	"mainPage": {
         "heroSection": {            
             "title": "Cześć, mam na imię Maks",
-            "description": "Tworzę nowoczesne, responsywne aplikacje internetowe i strony"
+            "description": "Tworzę nowoczesne, responsywne aplikacje internetowe i strony",
+            "imgAlt": "ja, Maks Tkaczyk"
         },
         "aboutSection": {
             "subTitle": "O mnie",

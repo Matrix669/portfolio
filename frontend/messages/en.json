@@ -8,7 +8,8 @@
     "mainPage": {
         "heroSection": {
             "title": "Hi, I'm Max Tkaczyk",
-            "description": "Building modern, responsive web applications and websites"
+            "description": "Building modern, responsive web applications and websites",
+            "imgAlt": "me, Max Tkaczyk"
         },
         "aboutSection": {
             "subTitle": "About me",
