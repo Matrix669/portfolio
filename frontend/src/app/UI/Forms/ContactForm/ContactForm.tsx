@@ -2,7 +2,11 @@
 
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+
+import { useTranslations } from 'next-intl'
+
 import Link from 'next/link'
+
 // import Toast from '@/app/UI/Toast/Toast'
 // import { toast } from 'sonner'
 import RightArrow from '@/app/icons/RightArrow'
@@ -11,6 +15,7 @@ import Spinner from '../../Spinner/Spinner'
 
 import styles from './ContactForm.module.scss'
 import stylesBtnToast from '@/app/UI/MainLink/MainLink.module.scss'
+import { AnimatePresence, motion } from 'motion/react'
 
 type FormValues = {
 	name: string
@@ -33,7 +38,7 @@ export default function ContactForm() {
 	})
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 	const emailValue = watch('email', '')
-
+	const tContactForm = useTranslations('mainPage.contactSection.contactForm')
 	// async function onSubmit(data: FormValues) {
 	// 	if (isValid) {
 	// 		setIsLoading(true)
@@ -77,50 +82,58 @@ export default function ContactForm() {
 			{isLoading && <Spinner />}
 			<div className={styles.formBoxUp}>
 				<div className={styles.formBox}>
-					<label htmlFor='name'>Imię</label>
+					<label htmlFor='name'>{tContactForm('name.label')}</label>
 					<input
 						className={errors.name ? styles.inputError : ''}
 						required
 						type='text'
 						id='name'
 						{...register('name', {
-							required: 'Podaj imię',
-							minLength: { value: 3, message: 'Imię musi zawierać conajmniej 3 litery' },
+							required: tContactForm('name.required'),
+							minLength: { value: 3, message: tContactForm('name.minLength') },
 						})}
 					/>
-					{errors.name && <span className={styles.formError}>{errors.name.message}</span>}
+					<AnimatedError show={!!errors.name} errorKey='name-error'>
+						{errors.name?.message}
+					</AnimatedError>
 				</div>
 				<div className={styles.formBox}>
-					<label htmlFor='email'>Adres e-mail</label>
+					<label htmlFor='email'>{tContactForm('email.label')}</label>
 					<input
 						className={`${errors.email ? styles.inputError : ''} ${emailValue ? styles.emailValid : ''}`}
 						required
 						type='email'
 						id='email'
 						{...register('email', {
-							required: 'Podaj e-mail',
+							required: tContactForm('email.required'),
 							pattern: {
 								value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-								message: 'Podaj poprawny adres e-mail',
+								message: tContactForm('email.invalid'),
 							},
 						})}
 					/>
-					{errors.email && <span className={styles.formError}>{errors.email.message}</span>}
+					<AnimatedError show={!!errors.email} errorKey='email-error'>
+						{errors.email?.message}
+					</AnimatedError>
 				</div>
 			</div>
 			<div className={styles.formBox}>
-				<label htmlFor='msg'>Wiadomość</label>
+				<label htmlFor='msg'>{tContactForm('message.label')}</label>
 				<textarea
 					className={errors.message ? styles.inputError : ''}
 					required
 					id='msg'
 					{...register('message', {
-						required: 'Podaj wiadomość',
+						required: tContactForm('message.required'),
 					})}
 				></textarea>
-				{errors.message && <span className={styles.formError}>{errors.message.message}</span>}
+				<AnimatedError show={!!errors.message} errorKey='message-error'>
+					{errors.message?.message}
+				</AnimatedError>
 			</div>
-			{errors.general && <span className={styles.formError}>{errors.general.message}</span>}
+			<AnimatedError show={!!errors.general} errorKey='general-error'>
+				{errors.general?.message}
+			</AnimatedError>
 
 			<div className={styles.formBox__agreement}>
 				<div>
@@ -129,14 +142,17 @@ export default function ContactForm() {
 							type='checkbox'
 							id='checkbox'
 							{...register('agreement', {
-								required: 'Musisz wyrazić zgodę na przetwarzanie danych osobowych',
+								required: tContactForm('agreement.required'),
 							})}
 						/>
 						<label htmlFor='checkbox' className={styles.text}>
-							Wyrażam zgodę na przetwarzanie <Link href='/polityka-prywatnosci'> danych osobowych</Link>
+							{tContactForm('agreement.label')}
+							{/* <Link href='/polityka-prywatnosci'>{tContactForm('agreement.link')}</Link> */}
 						</label>
 					</div>
-					{errors.agreement && <span className={styles.formError}>{errors.agreement.message}</span>}
+					<AnimatedError show={!!errors.agreement} errorKey='agreement-error'>
+						{errors.agreement?.message}
+					</AnimatedError>
 				</div>
 				{/* <Toast className={stylesBtnToast.mainBtn}> */}
 				<MainLink href='#'>
@@ -146,5 +162,30 @@ export default function ContactForm() {
 				{/* </Toast> */}
 			</div>
 		</form>
+	)
+}
+
+type AnimatedErrorProps = {
+	show: boolean
+	children?: React.ReactNode
+	errorKey: string
+}
+
+function AnimatedError({ show, children, errorKey }: AnimatedErrorProps) {
+	return (
+		<AnimatePresence mode='wait' initial={false}>
+			{show && (
+				<motion.span
+					key={errorKey}
+					className={styles.formError}
+					initial={{ opacity: 0, y: -6, height: 0 }}
+					animate={{ opacity: 1, y: 0, height: 'auto' }}
+					exit={{ opacity: 0, y: -6, height: 0 }}
+					transition={{ duration: 0.2, ease: 'easeInOut' }}
+				>
+					{children}
+				</motion.span>
+			)}
+		</AnimatePresence>
 	)
 }

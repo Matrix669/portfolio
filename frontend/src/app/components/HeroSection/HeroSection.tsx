@@ -36,8 +36,8 @@ export default function HeroSection() {
 					</Tilt>
 					<BgGradient className={styles['heroSectionBox-BgGradient']} />
 					<h1>{tHeroSection('description')}</h1>
-					<MainLink href='#work'>
-						{tButton('work')} <RightArrow />
+					<MainLink href={tHeroSection('buttonWork.href')}>
+						{tHeroSection('buttonWork.label')} <RightArrow />
 					</MainLink>
 				</div>
 			</Wrapper>

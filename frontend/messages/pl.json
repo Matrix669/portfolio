@@ -6,35 +6,51 @@
 		"contact": "Kontakt"
 	},
 	"mainPage": {
-        "heroSection": {            
-            "title": "Cześć, mam na imię Maks",
-            "description": "Tworzę nowoczesne, responsywne aplikacje internetowe i strony",
-            "imgAlt": "ja, Maks Tkaczyk"
-        },
-        "aboutSection": {
-            "subTitle": "O mnie",
-            "title": "Mam na imię Maks",
-            "description": "Jestem programistą"
-        },
-        "workSection": {
-            "subTitle": "Moje projekty"
-        },
-        "contactSection": {
-            "title": "Zostańmy w kontakcie",
-            "subTitle": "Kontakt",
-            "contactForm": {
-                "name": "Imię",
-                "email": "Adres e-mail",
-                "message": "Wiadomość",
-                "agreement": "Wyrażam zgodę na przetwarzanie danych osobowych"
-            }
-        }
-    },
-	"footer": {},
-	"button": {
-        "work": "Zobacz Moje Projekty",
-        "cv": "Zobacz moje CV",
-		"contact": "Wyślij wiadomość",
-        "project": "Zobacz więcej"
-	}
+		"heroSection": {
+			"title": "Cześć, mam na imię Maks",
+			"description": "Tworzę nowoczesne, responsywne aplikacje internetowe i strony",
+			"imgAlt": "ja, Maks Tkaczyk",
+			"buttonWork": {
+				"label": "Zobacz Moje Projekty",
+				"href": "#work"
+			}
+		},
+		"aboutSection": {
+			"subTitle": "O mnie",
+			"title": "Mam na imię Maks",
+			"description": "Jestem programistą",
+			"buttonAbout": {
+				"label": "Zobacz moje CV",
+				"href": "/CV_Maksymilian_Tkaczyk.pdf"
+			}
+		},
+		"workSection": {
+			"subTitle": "Moje projekty"
+		},
+		"contactSection": {
+			"title": "Zostańmy w kontakcie",
+			"subTitle": "Kontakt",
+			"contactForm": {
+				"name": {
+					"label": "Imię",
+					"required": "Imię jest wymagane",
+					"minLength": "Imię musi zawierać conajmniej 3 litery"
+				},
+				"email": {
+					"label": "Adres e-mail",
+					"required": "Adres e-mail jest wymagany",
+					"invalid": "Adres e-mail jest nieprawidłowy"
+				},
+				"message": {
+					"label": "Wiadomość",
+					"required": "Wiadomość jest wymagana"
+				},
+				"agreement": {
+					"label": "Wyrażam zgodę na przetwarzanie danych osobowych",
+					"required": "Musisz wyrazić zgodę na przetwarzanie danych osobowych"
+				}
+			}
+		}
+	},
+	"footer": {}
 }

@@ -50,7 +50,7 @@ export default async function RootLayout({ children, params }: Props) {
 					<Navigation data={NAVIGATION_DATA} />
 					{children}
 					<Footer />
-					<Cursor />
+					{/* <Cursor /> */}
 					</CursorLabelProvider>
 				</NextIntlClientProvider>
 			</body>

@@ -1,40 +1,65 @@
 {
-    "navigation": {
-        "home": "Home",
-        "about": "About",
-        "work": "Work",
-        "contact": "Contact"
-    },
-    "mainPage": {
-        "heroSection": {
-            "title": "Hi, I'm Max Tkaczyk",
-            "description": "Building modern, responsive web applications and websites",
-            "imgAlt": "me, Max Tkaczyk"
-        },
-        "aboutSection": {
-            "subTitle": "About me",
-            "title": "Name's Maks",
-            "description": "I'm a software engineer"
-        },
-        "workSection": {
-            "subTitle": "My projects"
-        },
-        "contactSection": {
-            "title": "Get in Touch",
-            "subTitle": "Contact me",
-            "contactForm": {
-                "name": "Name",
-                "email": "Email Address",
-                "message": "Message",
-                "agreement": "I agree to the processing of personal data"
+	"navigation": {
+		"home": "Home",
+		"about": "About",
+		"work": "Work",
+		"contact": "Contact"
+	},
+	"mainPage": {
+		"heroSection": {
+			"title": "Hi, I'm Max Tkaczyk",
+			"description": "Building modern, responsive web applications and websites",
+			"imgAlt": "me, Max Tkaczyk",
+			"buttonWork": {
+				"label": "See My Work",
+				"href": "#work"
+			}
+		},
+		"aboutSection": {
+			"subTitle": "About me",
+			"title": "Name's Maks",
+			"description": "I'm a software engineer",
+            "buttonAbout": {
+                "label": "See My CV",
+                "href": "/CV_Maksymilian_Tkaczyk en.pdf"
             }
-        }
-    },
-	"footer": {},
-	"button": {
-        "work": "See My Work",
-        "cv": "See my CV",
-		"contact": "Send message",
-        "project": "Read more"
-	}
+		},
+		"workSection": {
+			"subTitle": "My projects"
+		},
+		"contactSection": {
+			"title": "Get in Touch",
+			"subTitle": "Contact me",
+			"contactForm": {
+				"name": {
+					"label": "Name",
+					"required": "Name is required",
+					"minLength": "Name must be at least 3 characters"
+				},
+				"email": {
+					"label": "Email Address",
+					"required": "Email is required",
+				"email": {
+					"label": "Email Address",
+					"required": "Email is required",
+					"invalid": "Invalid email address"
+				},
+				"message": {
+					"label": "Message",
+					"required": "Message is required"
+				},
+				"agreement": "I agree to the processing of personal data"
+				},
+				"message": {
+					"label": "Message",
+					"required": "Message is required"
+				},
+				"agreement": {
+					"label": "I agree to the processing of personal data",
+					"required": "You must agree to the processing of personal data"
+				}
+			}
+		}
+	},
+	"footer": {}
 }
