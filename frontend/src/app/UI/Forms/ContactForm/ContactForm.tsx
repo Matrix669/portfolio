@@ -138,13 +138,16 @@ export default function ContactForm() {
 			<div className={styles.formBox__agreement}>
 				<div>
 					<div className={styles.formBox__agreementItem}>
-						<input
-							type='checkbox'
-							id='checkbox'
-							{...register('agreement', {
-								required: tContactForm('agreement.required'),
-							})}
-						/>
+						<div className={styles.formBox__agreementControl}>
+							<input
+								type='checkbox'
+								id='checkbox'
+								{...register('agreement', {
+									required: tContactForm('agreement.required'),
+								})}
+							/>
+							<div className={styles.formBox__agreementItemRing} />
+						</div>
 						<label htmlFor='checkbox' className={styles.text}>
 							{tContactForm('agreement.label')}
 							{/* <Link href='/polityka-prywatnosci'>{tContactForm('agreement.link')}</Link> */}

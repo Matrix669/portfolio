@@ -35,6 +35,18 @@
 		font-weight: bold;
 
 		transform: translate(0, -125%);
+
+        & span, svg {
+            transition: transform 0.3s;
+        }
+        &:hover {
+            & span {
+                transform: rotate(12deg) translate(5px, -5px);
+            }
+            & svg {
+                transform: rotate(-12deg) translate(-5px, -5px);
+            }
+        }
 	}
 	h2 {
 		font-weight: bold;

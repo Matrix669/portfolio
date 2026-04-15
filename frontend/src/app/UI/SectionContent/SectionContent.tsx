@@ -22,9 +22,9 @@ export default function SectionContent(props: SectionContentProps) {
 		<section className={styles.sectionPadding}>
 			<Wrapper>
 				<div className={styles.sectionContent}>
-					<span className={styles.sectionContent__subTitle}>
-						{props.icon} {props.subTitle}
-					</span>
+					<div className={styles.sectionContent__subTitle}>
+						{props.icon} <span>{props.subTitle}</span>
+					</div>
 					<h2>{props.title}</h2>
 					<div className={styles.sectionContent__description}>
 						{!props.isContact && <p className={styles.text}>{props.description}</p>}
