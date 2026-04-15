@@ -3,10 +3,24 @@
 @use '../../styles/components' as *;
 
 .footer {
-	color: $secondary-color;
+	position: relative;
 	margin-top: auto;
-	overflow: hidden;
-	clear: both;
+	color: $secondary-color;
+	z-index: 0;
+	&::before {
+		content: '';
+		position: absolute;
+		width: 600px;
+		height: 400px;
+		background: $bg-gradient;
+		filter: blur(240px);
+		z-index: -1;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		pointer-events: none;
+		z-index: 10;
+	}
 	&__inner {
 		display: flex;
 		align-items: center;
@@ -14,7 +28,7 @@
 		flex-direction: column;
 		gap: rem(20);
 		padding: 2em;
-		border-top: 1px solid $border-color;		
+		border-top: 1px solid $border-color;
 		&__logoBox {
 			display: flex;
 			align-items: center;

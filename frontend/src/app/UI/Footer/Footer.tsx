@@ -19,7 +19,7 @@ export default function Footer() {
 		<footer className={styles.footer}>
 			<Wrapper>
 				<div className={`${styles.sectionPadding} ${styles.footer__inner}`}>
-					<BgGradient />
+					{/* <BgGradient /> */}
 					<div className={styles.footer__inner__logoBox}>
 						<Logo />
 						<p>
