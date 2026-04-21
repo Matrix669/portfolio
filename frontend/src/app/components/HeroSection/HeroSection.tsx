@@ -19,7 +19,6 @@ export default function HeroSection() {
 	const { setLabel } = useCursorLabel()
 
 	const tHeroSection = useTranslations('mainPage.heroSection')
-	const tButton = useTranslations('button')
 
 	return (
 		<section className={styles.sectionPadding}>
@@ -31,7 +30,7 @@ export default function HeroSection() {
 							onMouseEnter={() => setLabel(tHeroSection('title'))}
 							onMouseLeave={() => setLabel(null)}
 						>
-							<Image src={HERO_IMG} alt={tHeroSection('imgAlt')} />
+							<Image src={HERO_IMG} alt={tHeroSection('imgAlt')}  />
 						</div>
 					</Tilt>
 					<BgGradient className={styles['heroSectionBox-BgGradient']} />

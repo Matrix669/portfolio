@@ -19,10 +19,10 @@
 			"subTitle": "About me",
 			"title": "Name's Maks",
 			"description": "I'm a software engineer",
-            "buttonAbout": {
-                "label": "See My CV",
-                "href": "/CV_Maksymilian_Tkaczyk en.pdf"
-            }
+			"buttonAbout": {
+				"label": "See My CV",
+				"href": "/CV_Maksymilian_Tkaczyk en.pdf"
+			}
 		},
 		"workSection": {
 			"subTitle": "My projects"
@@ -39,16 +39,12 @@
 				"email": {
 					"label": "Email Address",
 					"required": "Email is required",
-				"email": {
-					"label": "Email Address",
-					"required": "Email is required",
-					"invalid": "Invalid email address"
-				},
-				"message": {
-					"label": "Message",
-					"required": "Message is required"
-				},
-				"agreement": "I agree to the processing of personal data"
+					"invalid": "Invalid email address",
+					"message": {
+						"label": "Message",
+						"required": "Message is required"
+					},
+					"agreement": "I agree to the processing of personal data"
 				},
 				"message": {
 					"label": "Message",

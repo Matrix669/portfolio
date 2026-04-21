@@ -33,6 +33,7 @@ export default async function Home() {
 				icon={<MyWorkIcon />}
 				title='My projects'
 				description='I have worked on many projects'
+				isMyWork
 			/>
 			<SectionContent subTitle={tContact('subTitle')} icon={<ContactMeIcon />} title={tContact('title')} children={<ContactForm />} isContact />
 		</MainContent>

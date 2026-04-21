@@ -11,6 +11,30 @@
 	gap: rem(30);
 	border-top: 1px solid $border-color;
 	padding-top: rem(15);
+	h2 {
+		transition: letter-spacing 0.3s;
+		&:hover {
+			letter-spacing: 1px;
+		}
+	}
+	&__myWork {
+		border-top: none;
+		.sectionContent__subTitle {
+			transform: translateY(-55%);
+		}
+	}
+	&__itemProject {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+		border-top: 1px solid $border-color;
+		padding-top: rem(30);
+		.sectionContent__description {
+			padding-left: 0;
+			border-left: none;
+			align-self: flex-start;
+		}
+	}
 	&__description {
 		display: grid;
 		place-items: flex-start;
@@ -19,7 +43,21 @@
 
 		border-left: 1px solid $border-color;
 		padding-left: rem(15);
-        width: 100%;
+		width: 100%;
+	}
+	&__image {
+		width: 100%;
+		height: 100%;
+		border-left: 1px solid $border-color;
+		padding-left: rem(15);
+		img {
+			border-radius: rem(20);
+			transition: scale 0.3s, border-radius 0.3s;
+			&:hover {
+				scale: 0.95;
+				border-radius: 0;
+			}
+		}
 	}
 	&__subTitle {
 		position: absolute;
@@ -36,17 +74,18 @@
 
 		transform: translate(0, -125%);
 
-        & span, svg {
-            transition: transform 0.3s;
-        }
-        &:hover {
-            & span {
-                transform: rotate(12deg) translate(5px, -5px);
-            }
-            & svg {
-                transform: rotate(-12deg) translate(-5px, -5px);
-            }
-        }
+		& span,
+		svg {
+			transition: transform 0.3s;
+		}
+		&:hover {
+			& span {
+				transform: rotate(12deg) translate(5px, -5px);
+			}
+			& svg {
+				transform: rotate(-12deg) translate(-5px, -5px);
+			}
+		}
 	}
 	h2 {
 		font-weight: bold;
@@ -55,18 +94,49 @@
 
 @media (min-width: rem(992)) {
 	.sectionContent {
-        flex-direction: row;
-        justify-content: space-between;
-        padding-top: rem(30);
+		flex-direction: row;
+		justify-content: space-between;
+		padding-top: rem(30);
+		&__myWork {
+			display: grid;
+			grid-template-columns: 1fr;
+			.sectionContent__subTitle {
+				transform: translateY(10%);
+			}
+		}
 		&__description {
 			max-width: rem(601);
-            width: 100%;
+			width: 100%;
+			padding-left: rem(30);
+		}
+		&__itemProject {
+			align-items: center;
+			flex-direction: row;
+			justify-content: space-between;
+			gap: rem(20);
+			&:nth-child(odd) {
+				flex-direction: row-reverse;
+				padding-top: rem(30);
+
+				.sectionContent__image {
+					padding-left: 0;
+					border-left: none;
+				}
+				.sectionContent__description {
+					padding-left: rem(30);
+					border-left: 1px solid $border-color;
+				}
+			}
+		}
+		&__image {
+			max-width: rem(458);
+			max-height: rem(269);
 			padding-left: rem(30);
 		}
 	}
 }
 
-@media(min-width: rem(1200)) {
+@media (min-width: rem(1200)) {
 	.sectionContent {
 		&__description {
 			max-width: rem(801);
