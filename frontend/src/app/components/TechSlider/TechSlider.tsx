@@ -57,7 +57,7 @@ export default function TechSlider() {
 			<Wrapper>
 				<InfiniteSlider speedOnHover={20} speed={75} className={styles.techSlider}>
 					{TECH_SLIDER_DATA.map(item => (
-						<Image key={item.id} src={item.imgSrc} alt={item.alt} />
+						<Image key={item.id} src={item.imgSrc} alt={item.alt}  />
 					))}
 				</InfiniteSlider>
 			</Wrapper>

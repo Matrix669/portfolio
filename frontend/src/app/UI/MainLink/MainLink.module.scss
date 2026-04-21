@@ -17,6 +17,7 @@
 	font-weight: 500;
 
 	border-radius: 100px;
+	cursor: pointer;
 	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 	& svg g path {
 		transition: stroke 0.3s;
