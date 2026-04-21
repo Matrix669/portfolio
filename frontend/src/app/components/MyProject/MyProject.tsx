@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import {
 	MorphingDialog,
 	MorphingDialogTitle,
@@ -15,19 +13,11 @@ import RightArrow from '@/app/icons/RightArrow'
 
 import { Badge } from '@/componentsShadcn/ui/badge'
 
-import SwiperCore from 'swiper'
-import 'swiper/css'
-import 'swiper/css/thumbs'
-import 'swiper/css/navigation'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Thumbs, Navigation, A11y } from 'swiper/modules'
-
 import type { MyProjectsProps } from '@/app/constants/myProjects'
+import { MyProjectSwiper } from './MyProjectSwiper'
 
 import styles from '@/app/UI/SectionContent/SectionContent.module.scss'
 import stylesMainLink from '@/app/UI/MainLink/MainLink.module.scss'
-import stylesMyProject from './MyProject.module.scss'
-import Image from 'next/image'
 
 export default function MyProject({ project }: { project: MyProjectsProps }) {
 	return (
@@ -43,7 +33,9 @@ export default function MyProject({ project }: { project: MyProjectsProps }) {
 					<MorphingDialogTitle>
 						<h2>{project.title}</h2>
 					</MorphingDialogTitle>
-					<p className={styles.text}>{project.mainDescription}</p>
+					<MorphingDialogDescription>
+						<p className={styles.text}>{project.mainDescription}</p>
+					</MorphingDialogDescription>
 					<MorphingDialogTrigger className={stylesMainLink.mainLink}>
 						Read More <RightArrow />
 					</MorphingDialogTrigger>
@@ -136,69 +128,87 @@ export default function MyProject({ project }: { project: MyProjectsProps }) {
 	)
 }
 
-function MyProjectSwiper({ project: images }: { project: Pick<MyProjectsProps, 'images'>['images'] }) {
-	const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null)
-	return (
-		<>
-			<Swiper
-				modules={[Thumbs, Navigation, A11y]}
-				thumbs={{ swiper: thumbsSwiper  }}
-				spaceBetween={10}
-				grabCursor={true}
-				// navigation
-				loop={true}
-				keyboard={{ enabled: true }}
-				a11y={{
-					enabled: true,
-					firstSlideMessage: 'To jest pierwszy slajd',
-					prevSlideMessage: 'Poprzedni slajd',
-					nextSlideMessage: 'Następny slajd',
-					lastSlideMessage: 'To jest ostatni slajd',
-				}}
-			>
-				{images.map(image => (
-					<SwiperSlide key={image.imageAlt}>
-						<MorphingDialogImage
-							className='rounded-[20px] max-h-[300px] w-full object-cover'
-							src={image.imageSrc}
-							alt={image.imageAlt}
-						/>
-					</SwiperSlide>
-				))}
-			</Swiper>
-			<Swiper
-				onSwiper={setThumbsSwiper}
-				modules={[Thumbs, Navigation, A11y]}
-				slidesPerView={2}
-				spaceBetween={10}
-				watchSlidesProgress
-                grabCursor={true}
-				// navigation
-				a11y={{
-					enabled: true,
-					firstSlideMessage: '',
-					prevSlideMessage: '',
-					nextSlideMessage: '',
-					lastSlideMessage: '',
-				}}
-                breakpoints={{
-                    // 639: { slidesPerView: 3 },
-                    768: { spaceBetween: 20 },
-                    992: { slidesPerView: 3 },
-                }}
-                className={stylesMyProject.myProjectSwiper__thumbs}
-			>
-				{images.map(image => (
-					<SwiperSlide key={image.imageAlt} className={stylesMyProject['myProjectSwiper__thumbs-slide']}>
-						{/* <MorphingDialogImage
-							className='rounded-[20px] max-h-[300px] w-full object-cover'
-							src={image.imageSrc}
-							alt={image.imageAlt}
-						/> */}
-                        <Image className='rounded-[20px] max-h-[300px] w-full object-cover' src={image.imageSrc} alt={image.imageAlt} sizes="(max-width: 768px) 50vw, 33vw" width={250} height={150}/>
-					</SwiperSlide>
-				))}
-			</Swiper>
-		</>
-	)
-}
+// function MyProjectSwiper({ project: images }: { project: Pick<MyProjectsProps, 'images'>['images'] }) {
+// 	const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null)
+// 	return (
+// 		<>
+// 			<Swiper
+// 				modules={[Thumbs, Navigation, A11y, Keyboard]}
+// 				thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+// 				spaceBetween={10}
+// 				grabCursor={true}
+// 				// loop={true}
+// 				keyboard={{ enabled: true }}
+// 				a11y={{
+// 					enabled: true,
+// 					firstSlideMessage: 'To jest pierwszy slajd',
+// 					prevSlideMessage: 'Poprzedni slajd',
+// 					nextSlideMessage: 'Następny slajd',
+// 					lastSlideMessage: 'To jest ostatni slajd',
+// 				}}
+// 				observer
+// 				observeParents
+// 			>
+// 				{images.map((image, index) => (
+// 					<SwiperSlide key={image.imageAlt}>
+// 						{index === 0 ? (
+// 							<MorphingDialogImage
+// 								className='rounded-[20px] max-h-[300px] lg:max-h-[450px] w-full object-cover'
+// 								src={image.imageSrc}
+// 								alt={image.imageAlt}
+// 							/>
+// 						) : (
+// 							<Image
+// 								className='rounded-[20px] max-h-[300px] lg:max-h-[450px] w-full object-cover'
+// 								src={image.imageSrc}
+// 								alt={image.imageAlt}
+// 								sizes='100vw'
+// 								width={900}
+// 								height={450}
+// 							/>
+// 						)}
+// 					</SwiperSlide>
+// 				))}
+// 			</Swiper>
+// 			<Swiper
+// 				onSwiper={setThumbsSwiper}
+// 				modules={[Thumbs, Navigation, A11y]}
+// 				slidesPerView={2}
+// 				spaceBetween={10}
+// 				// watchSlidesProgress
+// 				grabCursor={true}
+// 				// navigation
+// 				a11y={{
+// 					enabled: true,
+// 					firstSlideMessage: '',
+// 					prevSlideMessage: '',
+// 					nextSlideMessage: '',
+// 					lastSlideMessage: '',
+// 				}}
+// 				breakpoints={{
+// 					768: { spaceBetween: 20 },
+// 					992: { slidesPerView: 3 },
+// 				}}
+// 				className={stylesMyProject.myProjectSwiper__thumbs}
+// 			>
+// 				{images.map(image => (
+// 					<SwiperSlide key={image.imageAlt} className={stylesMyProject['myProjectSwiper__thumbs-slide']}>
+// 						{/* <MorphingDialogImage
+// 							className='rounded-[20px] max-h-[300px] w-full object-cover'
+// 							src={image.imageSrc}
+// 							alt={image.imageAlt}
+// 						/> */}
+// 						<Image
+// 							className='rounded-[20px] max-h-[300px] w-full object-cover'
+// 							src={image.imageSrc}
+// 							alt={image.imageAlt}
+// 							sizes='(max-width: 768px) 50vw, 33vw'
+// 							width={250}
+// 							height={150}
+// 						/>
+// 					</SwiperSlide>
+// 				))}
+// 			</Swiper>
+// 		</>
+// 	)
+// }

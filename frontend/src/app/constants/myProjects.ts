@@ -15,6 +15,8 @@ export type MyProjectsProps = {
 	images: {
 		imageSrc: string
 		imageAlt: string
+		width?: number
+		height?: number
 	}[]
 	link: {
 		label: string
@@ -40,18 +42,26 @@ Nulla id purus et massa lacinia rhoncus in porta dolor. Maecenas eu ante aliquam
 			{
 				imageSrc: IMG1.src,
 				imageAlt: 'Image 2',
+				width: IMG1.width,
+				height: IMG1.height,
 			},
 			{
 				imageSrc: IMG2.src,
 				imageAlt: 'Image 3',
+				width: IMG2.width,
+				height: IMG2.height,
 			},
 			{
 				imageSrc: IMG2.src,
 				imageAlt: 'Image 4',
+				width: IMG2.width,
+				height: IMG2.height,
 			},
 			{
 				imageSrc: IMG2.src,
 				imageAlt: 'Image 5',
+				width: IMG2.width,
+				height: IMG2.height,
 			},
 		],
 		link: [
@@ -81,10 +91,14 @@ Nulla id purus et massa lacinia rhoncus in porta dolor. Maecenas eu ante aliquam
 			{
 				imageSrc: IMG1.src,
 				imageAlt: 'Image 4',
+				width: IMG1.width,
+				height: IMG1.height,
 			},
 			{
 				imageSrc: IMG2.src,
 				imageAlt: 'Image 5',
+				width: IMG2.width,
+				height: IMG2.height,
 			},
 		],
 		link: [
@@ -114,12 +128,16 @@ Nulla id purus et massa lacinia rhoncus in porta dolor. Maecenas eu ante aliquam
 		// --- dialog ---
 		images: [
 			{
-				imageSrc: 'image1.jpg',
-				imageAlt: 'Image 1',
+				imageSrc: IMG1.src,
+				imageAlt: 'Image 6',
+				width: IMG1.width,
+				height: IMG1.height,
 			},
 			{
-				imageSrc: 'image2.jpg',
-				imageAlt: 'Image 2',
+				imageSrc: IMG2.src,
+				imageAlt: 'Image 7',
+				width: IMG2.width,
+				height: IMG2.height,
 			},
 		],
 		link: [

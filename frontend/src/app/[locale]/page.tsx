@@ -22,6 +22,7 @@ export default async function Home() {
 			<HeroSection />
 			<TechSlider />
 			<SectionContent
+				sectionId='about'
 				subTitle={tAbout('subTitle')}
 				icon={<AboutMeIcon />}
 				title={tAbout('title')}
@@ -29,13 +30,21 @@ export default async function Home() {
 				link={{ href: tAbout('buttonAbout.href'), text: tAbout('buttonAbout.label'), isNewTab: true }}
 			/>
 			<SectionContent
+				sectionId='work'
 				subTitle={tWork('subTitle')}
 				icon={<MyWorkIcon />}
 				title='My projects'
 				description='I have worked on many projects'
 				isMyWork
 			/>
-			<SectionContent subTitle={tContact('subTitle')} icon={<ContactMeIcon />} title={tContact('title')} children={<ContactForm />} isContact />
+			<SectionContent
+				sectionId='contact'
+				subTitle={tContact('subTitle')}
+				icon={<ContactMeIcon />}
+				title={tContact('title')}
+				children={<ContactForm />}
+				isContact
+			/>
 		</MainContent>
 	)
 }

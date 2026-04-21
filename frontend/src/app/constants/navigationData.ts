@@ -5,7 +5,7 @@ export const NAVIGATION_DATA = {
 		{
 			id: 1,
 			labelKey: 'home',
-			href: '/',
+			href: '/#',
 		},
 		{
 			id: 2,
