@@ -46,62 +46,11 @@ export default function MyProject({ project }: { project: MyProjectsProps }) {
 				<MorphingDialogContainer>
 					<MorphingDialogContent
 						style={{ borderRadius: '20px' }}
-						className='relative h-auto w-full max-w-[900px] bg-background/80 backdrop-blur-sm'
+						className='relative h-auto w-full max-w-[900px] bg-background/10 md:bg-background/80 backdrop-blur-sm'
 					>
 						<div className='h-[90vh] overflow-y-auto'>
 							<div className='p-6 '>
 								<MyProjectSwiper project={project.images} />
-								{/* <Swiper
-									modules={[Thumbs, Navigation, A11y]}
-									thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-									spaceBetween={10}
-									grabCursor={true}
-									navigation
-									loop={true}
-									keyboard={{ enabled: true }}
-									a11y={{
-										enabled: true,
-										firstSlideMessage: 'To jest pierwszy slajd',
-										prevSlideMessage: 'Poprzedni slajd',
-										nextSlideMessage: 'Następny slajd',
-										lastSlideMessage: 'To jest ostatni slajd',
-									}}
-								>
-									{project.images.map(image => (
-										<SwiperSlide key={image.imageAlt}>
-											<MorphingDialogImage
-												className='rounded-[20px] max-h-[300px] w-full object-cover'
-												src={image.imageSrc}
-												alt={image.imageAlt}
-											/>
-										</SwiperSlide>
-									))}
-								</Swiper>
-								<Swiper
-									onSwiper={setThumbsSwiper}
-									modules={[Thumbs, Navigation, A11y]}
-									slidesPerView={2}
-									spaceBetween={10}
-									watchSlidesProgress
-									navigation
-									a11y={{
-										enabled: true,
-										firstSlideMessage: '',
-										prevSlideMessage: '',
-										nextSlideMessage: '',
-										lastSlideMessage: '',
-									}}
-								>
-									{project.images.map(image => (
-										<SwiperSlide key={image.imageAlt}>
-											<MorphingDialogImage
-												className='rounded-[20px] max-h-[300px] w-full object-cover'
-												src={image.imageSrc}
-												alt={image.imageAlt}
-											/>
-										</SwiperSlide>
-									))}
-								</Swiper> */}
 							</div>
 							<div className='flex flex-wrap gap-2 px-6'>
 								{project.technologies.map(technologia => (
