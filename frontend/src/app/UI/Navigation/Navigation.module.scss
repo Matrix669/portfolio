@@ -22,6 +22,19 @@
 		justify-content: space-between;
 		height: 28px;
 		padding: 0 rem(15);
+
+		width: 100%;
+		margin: 0 auto;
+		background-color: rgb(255 255 255 / 0%);
+		border: 1px solid rgb(255 255 255 / 0%);
+		border-radius: 0;
+		box-shadow: 0 0 0 rgb(0 0 0 / 0%);
+		backdrop-filter: blur(0px) saturate(100%);
+		-webkit-backdrop-filter: blur(0px) saturate(100%);
+		transform: scale(1);
+		transition: background-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease,
+			transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), padding 0.35s ease, width 0.35s ease, height 0.35s ease,
+			margin 0.35s ease, border-radius 0.35s ease;
 	}
 	&Desktop {
 		& li a {
@@ -118,8 +131,19 @@
 	}
 }
 
-.navShadow {
-	box-shadow: 0px 1px 10px 0px rgb(0 0 0 / 15%);
+.navPill {
+	background-color: rgb(255 255 255 / 10%);
+	border-color: rgb(255 255 255 / 22%);
+	box-shadow: 0 8px 30px rgb(0 0 0 / 18%), inset 0 1px 0 rgb(255 255 255 / 30%);
+	backdrop-filter: blur(14px) saturate(160%);
+	backdrop-filter: blur(14px) saturate(160%);
+	padding: rem(8) rem(16);
+
+	width: 85%; // klucz: nie pełna szerokość
+	margin: 0 auto; // wyśrodkowanie
+	border-radius: rem(999);
+	height: rem(44);
+	transition: all 0.3s ease;
 }
 
 @media (min-width: rem(640)) {

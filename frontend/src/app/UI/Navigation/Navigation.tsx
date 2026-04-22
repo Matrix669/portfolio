@@ -25,15 +25,15 @@ interface NavigationProps {
 }
 
 export default function Navigation({ data }: NavigationProps) {
-	const [navShadow, setNavShadow] = useState(false)
+	const [navStyle, setNavStyle] = useState(false)
 	const pathname = usePathname()
 
 	useEffect(() => {
 		const handleShadowNav = () => {
 			if (window.scrollY >= 200) {
-				setNavShadow(true)
+				setNavStyle(true)
 			} else {
-				setNavShadow(false)
+				setNavStyle(false)
 			}
 		}
 
@@ -44,11 +44,9 @@ export default function Navigation({ data }: NavigationProps) {
 	}, [])
 
 	return (
-		<header
-			className={`${styles.nav} ${navShadow ? styles.navShadow : ''} ${pathname !== '/' ? styles.navSubpage : ''}`}
-		>
+		<header className={`${styles.nav} ${pathname !== '/' ? styles.navSubpage : ''}`}>
 			<Wrapper>
-				<nav className={styles.nav__inner}>
+				<nav className={`${styles.nav__inner} ${navStyle ? styles.navPill : ''}`}>
 					<Logo />
 					<SocialsIcons socialsIconsArr={SOCIALS_DATA} />
 
