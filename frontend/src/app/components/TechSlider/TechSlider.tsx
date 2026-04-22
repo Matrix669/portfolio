@@ -1,7 +1,11 @@
+'use client'
 import Image from 'next/image'
+
+import { useEffect, useState } from 'react'
 
 import Wrapper from '@/app/UI/Wrapper/Wrapper'
 import { InfiniteSlider } from '@/componentsShadcn/ui/infinite-slider'
+import SkeletonTechSlider from './SkeletonTechSlider'
 
 import GIT_LOGO from '@/app/assets/TechSlider/Git-logo.png'
 import NEXTJS_LOGO from '@/app/assets/TechSlider/Nextjs-logo.png'
@@ -51,13 +55,29 @@ const TECH_SLIDER_DATA = [
 	},
 ]
 
+function getGap(width: number) {
+	if (width >= 992) return 120
+	if (width >= 768) return 80
+	return 40
+}
 export default function TechSlider() {
+	const [gap, setGap] = useState<number | null>(null)
+
+	useEffect(() => {
+		const updateGap = () => setGap(getGap(window.innerWidth))
+		updateGap()
+		window.addEventListener('resize', updateGap)
+		return () => window.removeEventListener('resize', updateGap)
+	}, [])
+
+	if (gap === null) return <SkeletonTechSlider />
+
 	return (
 		<section className={styles.sectionPadding}>
 			<Wrapper>
-				<InfiniteSlider speedOnHover={20} speed={75} className={styles.techSlider}>
+				<InfiniteSlider speedOnHover={20} gap={gap} speed={75} className={styles.techSlider}>
 					{TECH_SLIDER_DATA.map(item => (
-						<Image key={item.id} src={item.imgSrc} alt={item.alt}  />
+						<Image key={item.id} src={item.imgSrc} alt={item.alt} />
 					))}
 				</InfiniteSlider>
 			</Wrapper>

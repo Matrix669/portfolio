@@ -7,20 +7,20 @@
 	margin-top: auto;
 	color: $secondary-color;
 	z-index: 0;
-	&::before {
-		content: '';
-		position: absolute;
-		width: 600px;
-		height: 400px;
-		background: $bg-gradient;
-		filter: blur(240px);
-		z-index: -1;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		pointer-events: none;
-		z-index: 10;
-	}
+	// &::before {
+	// 	content: '';
+	// 	position: absolute;
+	// 	width: 600px;
+	// 	height: 400px;
+	// 	background: $bg-gradient;
+	// 	filter: blur(240px);
+	// 	z-index: -1;
+	// 	left: 50%;
+	// 	top: 50%;
+	// 	transform: translate(-50%, -50%);
+	// 	pointer-events: none;
+	// 	z-index: 10;
+	// }
 	&__inner {
 		display: flex;
 		align-items: center;

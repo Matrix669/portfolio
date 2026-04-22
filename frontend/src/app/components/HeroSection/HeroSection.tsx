@@ -33,7 +33,7 @@ export default function HeroSection() {
 							<Image src={HERO_IMG} alt={tHeroSection('imgAlt')}  />
 						</div>
 					</Tilt>
-					<BgGradient className={styles['heroSectionBox-BgGradient']} />
+					{/* <BgGradient className={styles['heroSectionBox-BgGradient']} /> */}
 					<h1>{tHeroSection('description')}</h1>
 					<MainLink href={tHeroSection('buttonWork.href')}>
 						{tHeroSection('buttonWork.label')} <RightArrow />
