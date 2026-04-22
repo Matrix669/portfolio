@@ -30,7 +30,7 @@ export default function HeroSection() {
 							onMouseEnter={() => setLabel(tHeroSection('title'))}
 							onMouseLeave={() => setLabel(null)}
 						>
-							<Image src={HERO_IMG} alt={tHeroSection('imgAlt')}  />
+							<Image src={HERO_IMG} alt={tHeroSection('imgAlt')} width={128} height={128} quality={100} priority/>
 						</div>
 					</Tilt>
 					{/* <BgGradient className={styles['heroSectionBox-BgGradient']} /> */}

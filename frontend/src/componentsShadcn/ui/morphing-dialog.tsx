@@ -164,7 +164,10 @@ function MorphingDialogContent({ children, className, style }: MorphingDialogCon
 		}
 	}, [isOpen, triggerRef])
 
-	useClickOutside(containerRef, () => {
+	useClickOutside(containerRef, (event: MouseEvent | TouchEvent) => {
+		const target = event?.target as Element
+		if (target.closest('.pspw') || target.closest('[class*="pswp"') || document.querySelector('.pswp--open')) return
+		
 		if (isOpen) {
 			setIsOpen(false)
 		}
