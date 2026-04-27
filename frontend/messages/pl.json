@@ -25,7 +25,33 @@
 			}
 		},
 		"workSection": {
-			"subTitle": "Moje projekty"
+			"subTitle": "Moje projekty",
+			"projects": {
+				"triggerWorkProject": "Więcej",
+				"closeDialog": "Zamknij",
+				"1":{
+					"title": "Fundacja Drachma",
+					"mainDescription": "To jest strona + sklep zrobiony dla fundacji Drachma",
+					"description": "Tutaj zrobiłem wiele rzeczy",
+					"link": {
+						"label": "Odwiedź stronę"
+					},
+					"images": {
+						"0": {
+							"imageAlt": "Image 1"
+						},
+						"1": {
+							"imageAlt": "Image 2"
+						},
+						"2": {
+							"imageAlt": "Image 3"
+						},
+						"3": {
+							"imageAlt": "Image 4"
+						}
+					}
+				}
+			}
 		},
 		"contactSection": {
 			"title": "Zostańmy w kontakcie",

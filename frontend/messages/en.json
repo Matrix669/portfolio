@@ -25,7 +25,33 @@
 			}
 		},
 		"workSection": {
-			"subTitle": "My projects"
+			"subTitle": "My projects",
+			"projects": {
+				"triggerWorkProject": "Read More",
+				"closeDialog": "Close",
+				"1":{
+					"title": "Fundacja Drachma",
+					"mainDescription": "This is a website + shop made for the Drachma Foundation",
+					"description": "I did a lot of things here",
+					"link": {
+						"label": "Visit the website"
+					},
+					"images": {
+						"0": {
+							"imageAlt": "Image 1"
+						},
+						"1": {
+							"imageAlt": "Image 2"
+						},
+						"2": {
+							"imageAlt": "Image 3"
+						},
+						"3": {
+							"imageAlt": "Image 4"
+						}
+					}
+				}
+			}
 		},
 		"contactSection": {
 			"title": "Get in Touch",

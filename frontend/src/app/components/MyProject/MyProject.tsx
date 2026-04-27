@@ -13,15 +13,17 @@ import RightArrow from '@/app/icons/RightArrow'
 
 import { Badge } from '@/componentsShadcn/ui/badge'
 
-import type { MyProjectsProps } from '@/app/constants/myProjects'
+import type { LocalizedProject } from '@/app/constants/myProjects'
 import { MyProjectSwiper } from './MyProjectSwiper'
 
 import styles from '@/app/UI/SectionContent/SectionContent.module.scss'
 import stylesMainLink from '@/app/UI/MainLink/MainLink.module.scss'
 import Link from 'next/link'
 import MainLink from '@/app/UI/MainLink/MainLink'
+import { getTranslations } from 'next-intl/server'
 
-export default function MyProject({ project }: { project: MyProjectsProps }) {
+export default async function MyProject({ project }: { project: LocalizedProject }) {
+	const tWorkProject = await getTranslations('mainPage.workSection.projects')
 	return (
 		<article key={project.id} className={styles.sectionContent__itemProject}>
 			<MorphingDialog
@@ -39,7 +41,7 @@ export default function MyProject({ project }: { project: MyProjectsProps }) {
 						<p className={styles.text}>{project.mainDescription}</p>
 					</MorphingDialogDescription>
 					<MorphingDialogTrigger className={stylesMainLink.mainLink}>
-						Read More <RightArrow />
+						{tWorkProject('triggerWorkProject')} <RightArrow />
 					</MorphingDialogTrigger>
 				</div>
 				<div className={styles.sectionContent__image}>
@@ -75,16 +77,16 @@ export default function MyProject({ project }: { project: MyProjectsProps }) {
 									<MainLink
 										prefetch={false}
 										className='align-self-end'
-										href={project.link[0].href}
+										href={project.link.href}
 										target='_blank'
 										rel='noopener noreferrer'
 										isNextJSLink
 									>
-										{project.link[0].label} <RightArrow />
+										{project.link.label} <RightArrow />
 									</MainLink>
 								</div>
 								<MorphingDialogClose className={`${stylesMainLink.mainLink} translate-x-[25%] translate-y-[-50%]`}>
-									Close <RightArrow />
+									{tWorkProject('closeDialog')} <RightArrow />
 								</MorphingDialogClose>
 							</div>
 						</div>

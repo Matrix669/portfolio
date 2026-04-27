@@ -3,14 +3,14 @@ import MainLink from '@/app/UI/MainLink/MainLink'
 import RightArrow from '@/app/icons/RightArrow'
 import MyProject from '@/app/components/MyProject/MyProject'
 
-import { MY_PROJECTS, MyProjectsProps } from '@/app/constants/myProjects'
+import { LocalizedProject } from '@/app/constants/myProjects'
 
 import styles from './SectionContent.module.scss'
 
 type SectionContentProps = {
 	subTitle: string
 	icon: React.ReactNode
-	title: string
+	title?: string
 	description?: string
 	sectionId?: string
 	link?: {
@@ -20,7 +20,7 @@ type SectionContentProps = {
 	}
 	isContact?: boolean
 	children?: React.ReactNode
-	workProjects?: MyProjectsProps[]
+	workProjects?: LocalizedProject[]
 	limitProjects?: number
 }
 export default function SectionContent(props: SectionContentProps) {

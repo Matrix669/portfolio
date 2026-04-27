@@ -11,7 +11,7 @@ import { navMarginTop } from '@/app/constants/forStyles'
 import { AboutMeIcon } from '@/app/icons/AboutMeIcon'
 import { MyWorkIcon } from '@/app/icons/MyWorkIcon'
 import { ContactMeIcon } from '@/app/icons/ContactMeIcon'
-import { MY_PROJECTS } from '../constants/myProjects'
+import { getMyPproject } from '../constants/myProjects'
 
 export default async function Home() {
 	const tAbout = await getTranslations('mainPage.aboutSection')
@@ -34,9 +34,7 @@ export default async function Home() {
 				sectionId='work'
 				subTitle={tWork('subTitle')}
 				icon={<MyWorkIcon />}
-				title='My projects'
-				description='I have worked on many projects'				
-				workProjects={MY_PROJECTS}
+				workProjects={getMyPproject(tWork)}
 				limitProjects={3}
 			/>
 			<SectionContent
