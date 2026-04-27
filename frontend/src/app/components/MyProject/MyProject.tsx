@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import {
 	MorphingDialog,
 	MorphingDialogTitle,
@@ -12,16 +13,15 @@ import {
 import RightArrow from '@/app/icons/RightArrow'
 
 import { Badge } from '@/componentsShadcn/ui/badge'
+import { MyProjectSwiper } from './MyProjectSwiper'
+import MainLink from '@/app/UI/MainLink/MainLink'
+import { Magnetic } from '@/componentsShadcn/ui/magnetic'
 
 import type { LocalizedProject } from '@/app/constants/myProjects'
-import { MyProjectSwiper } from './MyProjectSwiper'
 
 import styles from '@/app/UI/SectionContent/SectionContent.module.scss'
 import stylesMainLink from '@/app/UI/MainLink/MainLink.module.scss'
-import Link from 'next/link'
-import MainLink from '@/app/UI/MainLink/MainLink'
-import { getTranslations } from 'next-intl/server'
-import { Magnetic } from '@/componentsShadcn/ui/magnetic'
+import stylesProject from './MyProject.module.scss'
 
 export default async function MyProject({ project }: { project: LocalizedProject }) {
 	const tWorkProject = await getTranslations('mainPage.workSection.projects')
@@ -57,9 +57,9 @@ export default async function MyProject({ project }: { project: LocalizedProject
 							// boxShadow:
 							// '0 10px 30px color-mix(in srgb, var(--foreground) 18%, transparent), 0 2px 10px color-mix(in srgb, var(--foreground) 10%, transparent)',
 						}}
-						className='relative h-auto w-full max-w-[900px] bg-background/50 md:bg-background/80 backdrop-blur-sm py-6'
+						className={`${stylesProject.morphingDialogContent} relative h-auto w-full max-w-[900px] bg-background/50 md:bg-background/80 backdrop-blur-sm py-6`}
 					>
-						<div className='h-[90vh] overflow-y-auto'>
+						<div className={`${stylesProject.morphingDialogContent__scroll} h-[90vh] overflow-y-auto`}>
 							<div className='p-6 '>
 								<MyProjectSwiper project={project.images} />
 							</div>
@@ -79,21 +79,21 @@ export default async function MyProject({ project }: { project: LocalizedProject
 								<div className='flex justify-end'>
 									<Magnetic>
 										{/* <MorphingDialogTrigger> */}
-											<MainLink
-												prefetch={false}
-												className='align-self-end'
-												href={project.link.href}
-												target='_blank'
-												rel='noopener noreferrer'
-												isNextJSLink
-											>
-												{project.link.label} <RightArrow />
-											</MainLink>
+										<MainLink
+											prefetch={false}
+											className='align-self-end'
+											href={project.link.href}
+											target='_blank'
+											rel='noopener noreferrer'
+											isNextJSLink
+										>
+											{project.link.label} <RightArrow />
+										</MainLink>
 										{/* </MorphingDialogTrigger> */}
 									</Magnetic>
 								</div>
 								<MorphingDialogClose className={`translate-x-[25%] translate-y-[-50%]`}>
-									<Magnetic className={stylesMainLink.mainLink}>
+									<Magnetic className={`${stylesMainLink.mainLink} ${stylesProject.morphingDialogContent__close}`}>
 										{tWorkProject('closeDialog')} <RightArrow />
 									</Magnetic>
 								</MorphingDialogClose>
