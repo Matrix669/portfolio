@@ -3,7 +3,7 @@ import MainLink from '@/app/UI/MainLink/MainLink'
 import RightArrow from '@/app/icons/RightArrow'
 import MyProject from '@/app/components/MyProject/MyProject'
 
-import { MY_PROJECTS } from '@/app/constants/myProjects'
+import { MY_PROJECTS, MyProjectsProps } from '@/app/constants/myProjects'
 
 import styles from './SectionContent.module.scss'
 
@@ -20,19 +20,20 @@ type SectionContentProps = {
 	}
 	isContact?: boolean
 	children?: React.ReactNode
-	isMyWork?: boolean
+	workProjects?: MyProjectsProps[]
+	limitProjects?: number
 }
 export default function SectionContent(props: SectionContentProps) {
-
-	if (props.isMyWork) {
+	if (props.workProjects) {
+		const workProjects = props.limitProjects ? props.workProjects.slice(0, props.limitProjects) : props.workProjects
 		return (
 			<section id={props.sectionId} className={styles.sectionPadding}>
 				<Wrapper>
-					<div className={`${styles.sectionContent} ${props.isMyWork ? styles.sectionContent__myWork : ''}`}>
+					<div className={`${styles.sectionContent} ${props.workProjects ? styles.sectionContent__myWork : ''}`}>
 						<div className={styles.sectionContent__subTitle}>
 							{props.icon} <span>{props.subTitle}</span>
 						</div>
-						{MY_PROJECTS.map(project => (
+						{workProjects.map(project => (
 							<MyProject key={project.id} project={project} />
 						))}
 					</div>
