@@ -1,12 +1,11 @@
-import type { NextConfig } from "next";
-import createNextIntlPlugin from 'next-intl/plugin';
- 
+import type { NextConfig } from 'next'
+import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+	/* config options here */
+	reactCompiler: true,
 
-  images: {
+	images: {
 		// unoptimized: true,
 		localPatterns: [
 			{
@@ -14,8 +13,9 @@ const nextConfig: NextConfig = {
 				search: '',
 			},
 		],
+		qualities: [25, 50, 75, 100],
 	},
-  // how to make redirect
+	// how to make redirect
 	// async redirects() {
 	// 	return [
 	// 		{
@@ -25,6 +25,6 @@ const nextConfig: NextConfig = {
 	// 		},
 	// 	]
 	// },
-};
-const withNextIntl = createNextIntlPlugin();
-export default withNextIntl(nextConfig);
+}
+const withNextIntl = createNextIntlPlugin()
+export default withNextIntl(nextConfig)

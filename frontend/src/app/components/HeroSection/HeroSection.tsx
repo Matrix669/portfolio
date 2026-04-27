@@ -9,6 +9,7 @@ import Wrapper from '@/app/UI/Wrapper/Wrapper'
 import MainLink from '@/app/UI/MainLink/MainLink'
 import BgGradient from '@/app/UI/BgGradient/BgGradient'
 import { Tilt } from '@/componentsShadcn/ui/tilt'
+import { Magnetic } from '@/componentsShadcn/ui/magnetic'
 
 import RightArrow from '@/app/icons/RightArrow'
 import HERO_IMG from '@/app/assets/HeroSection/me.png'
@@ -30,14 +31,16 @@ export default function HeroSection() {
 							onMouseEnter={() => setLabel(tHeroSection('title'))}
 							onMouseLeave={() => setLabel(null)}
 						>
-							<Image src={HERO_IMG} alt={tHeroSection('imgAlt')} width={128} height={128} quality={100} priority/>
+							<Image src={HERO_IMG} alt={tHeroSection('imgAlt')} width={128} height={128} quality={100} priority />
 						</div>
 					</Tilt>
 					{/* <BgGradient className={styles['heroSectionBox-BgGradient']} /> */}
 					<h1>{tHeroSection('description')}</h1>
-					<MainLink href={tHeroSection('buttonWork.href')}>
-						{tHeroSection('buttonWork.label')} <RightArrow />
-					</MainLink>
+					<Magnetic>
+						<MainLink href={tHeroSection('buttonWork.href')}>
+							{tHeroSection('buttonWork.label')} <RightArrow />
+						</MainLink>
+					</Magnetic>
 				</div>
 			</Wrapper>
 		</section>

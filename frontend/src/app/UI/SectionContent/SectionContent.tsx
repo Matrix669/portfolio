@@ -2,6 +2,7 @@ import Wrapper from '@/app/UI/Wrapper/Wrapper'
 import MainLink from '@/app/UI/MainLink/MainLink'
 import RightArrow from '@/app/icons/RightArrow'
 import MyProject from '@/app/components/MyProject/MyProject'
+import { Magnetic } from '@/componentsShadcn/ui/magnetic'
 
 import { LocalizedProject } from '@/app/constants/myProjects'
 
@@ -52,15 +53,17 @@ export default function SectionContent(props: SectionContentProps) {
 					<div className={styles.sectionContent__description}>
 						{!props.isContact && <p className={styles.text}>{props.description}</p>}
 						{!props.isContact && props.link && (
-							<MainLink
-								href={props.link.href}
-								target={props.link.isNewTab ? '_blank' : '_self'}
-								rel={props.link.isNewTab ? 'noopener noreferrer' : undefined}
-								isNextJSLink
-							>
-								{props.link.text}
-								<RightArrow />
-							</MainLink>
+							<Magnetic>
+								<MainLink
+									href={props.link.href}
+									target={props.link.isNewTab ? '_blank' : '_self'}
+									rel={props.link.isNewTab ? 'noopener noreferrer' : undefined}
+									isNextJSLink
+								>
+									{props.link.text}
+									<RightArrow />
+								</MainLink>
+							</Magnetic>
 						)}
 						{props.isContact && props.children}
 					</div>
