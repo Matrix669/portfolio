@@ -18,12 +18,12 @@ import { MorphingDialogImage } from '@/componentsShadcn/ui/morphing-dialog'
 import { Gallery, Item } from 'react-photoswipe-gallery'
 import 'photoswipe/dist/photoswipe.css'
 
-import type { MyProjectsProps } from '@/app/constants/myProjects'
+import type { LocalizedProject } from '@/app/constants/myProjects'
 
 import stylesMyProject from './MyProject.module.scss'
 
 
-export function MyProjectSwiper({ project: images }: { project: Pick<MyProjectsProps, 'images'>['images'] }) {
+export function MyProjectSwiper({ project: images }: { project: Pick<LocalizedProject, 'images'>['images'] }) {
 	const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null)
 	return (
 		<div role='region' aria-label='Galeria zdjęć projektu'>
