@@ -5,8 +5,6 @@ import { useForm } from 'react-hook-form'
 
 import { useTranslations } from 'next-intl'
 
-import Link from 'next/link'
-
 // import Toast from '@/app/UI/Toast/Toast'
 // import { toast } from 'sonner'
 import RightArrow from '@/app/icons/RightArrow'
@@ -85,6 +83,7 @@ export default function ContactForm() {
 					<label htmlFor='name'>{tContactForm('name.label')}</label>
 					<input
 						className={errors.name ? styles.inputError : ''}
+						placeholder=''
 						required
 						type='text'
 						id='name'
@@ -100,7 +99,8 @@ export default function ContactForm() {
 				<div className={styles.formBox}>
 					<label htmlFor='email'>{tContactForm('email.label')}</label>
 					<input
-						className={`${errors.email ? styles.inputError : ''} ${emailValue ? styles.emailValid : ''}`}
+						className={`${errors.email ? styles.inputError : ''}`}
+						placeholder=''
 						required
 						type='email'
 						id='email'
@@ -121,6 +121,7 @@ export default function ContactForm() {
 				<label htmlFor='msg'>{tContactForm('message.label')}</label>
 				<textarea
 					className={errors.message ? styles.inputError : ''}
+					placeholder=''
 					required
 					id='msg'
 					{...register('message', {
@@ -159,7 +160,7 @@ export default function ContactForm() {
 				</div>
 				{/* <Toast className={stylesBtnToast.mainBtn}> */}
 				<MainLink href='#'>
-					wyślij wiadomość
+					{tContactForm('sendMessage')}
 					<RightArrow />
 				</MainLink>
 				{/* </Toast> */}

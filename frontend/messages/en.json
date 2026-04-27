@@ -79,7 +79,8 @@
 				"agreement": {
 					"label": "I agree to the processing of personal data",
 					"required": "You must agree to the processing of personal data"
-				}
+				},
+				"sendMessage": "Send Message"
 			}
 		}
 	},
