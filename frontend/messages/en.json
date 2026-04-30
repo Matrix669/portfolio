@@ -29,9 +29,9 @@
 			"projects": {
 				"triggerWorkProject": "Read More",
 				"closeDialog": "Close",
-				"seeAllProjects": "See all projects",
+				"seeAllProjects": "See All Projects",
 				"4":{
-					"title": "Projekcik 4",
+					"title": "Project 4",
 					"mainDescription": "This is a website + shop made for the Drachma Foundation",
 					"description": "I did a lot of things here",
 					"link": {
@@ -53,7 +53,7 @@
 					}
 				},
 				"3":{
-					"title": "Projekcik 3",
+					"title": "Project 3",
 					"mainDescription": "This is a website + shop made for the Drachma Foundation",
 					"description": "I did a lot of things here",
 					"link": {
@@ -75,7 +75,7 @@
 					}
 				},
 				"2":{
-					"title": "Projekcik 2",
+					"title": "Project 2",
 					"mainDescription": "This is a website + shop made for the Drachma Foundation",
 					"description": "I did a lot of things here",
 					"link": {

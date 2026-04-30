@@ -159,7 +159,7 @@ export default function ContactForm() {
 					</AnimatedError>
 				</div>
 				{/* <Toast className={stylesBtnToast.mainBtn}> */}
-				<MainLink href='#'>
+				<MainLink href='#' isNextJSLink>
 					{tContactForm('sendMessage')}
 					<RightArrow />
 				</MainLink>

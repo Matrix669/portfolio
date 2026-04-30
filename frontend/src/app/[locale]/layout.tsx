@@ -4,15 +4,14 @@ import { notFound } from 'next/navigation'
 
 import CursorLabelProvider from '../contexts/CursorLabelContext'
 
-
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { routing } from '@/i18n/routing'
 
-import Navigation from '../UI/Navigation/Navigation'
-import Footer from '../UI/Footer/Footer'
-import Cursor from '../UI/Cursor/Cursor'
+import Navigation from '@/app/UI/Navigation/Navigation'
+import Footer from '@/app/UI/Footer/Footer'
+import Cursor from '@/app/UI/Cursor/Cursor'
 
-import { NAVIGATION_DATA } from '../constants/navigationData'
+import { NAVIGATION_DATA } from '@/app/constants/navigationData'
 
 import '../styles/globals.css'
 
@@ -47,10 +46,10 @@ export default async function RootLayout({ children, params }: Props) {
 			<body className={`${cairo.className} antialiased`}>
 				<NextIntlClientProvider>
 					<CursorLabelProvider>
-					<Navigation data={NAVIGATION_DATA} />
-					{children}
-					<Footer />
-					{/* <Cursor /> */}
+						<Navigation data={NAVIGATION_DATA} />
+						{children}
+						<Footer />
+						{/* <Cursor /> */}
 					</CursorLabelProvider>
 				</NextIntlClientProvider>
 			</body>

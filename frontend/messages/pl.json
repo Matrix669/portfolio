@@ -29,6 +29,73 @@
 			"projects": {
 				"triggerWorkProject": "Więcej",
 				"closeDialog": "Zamknij",
+				"seeAllProjects": "Zobacz Wszystkie",
+				"4":{
+					"title": "Projekcik 4",
+					"mainDescription": "This is a website + shop made for the Drachma Foundation",
+					"description": "I did a lot of things here",
+					"link": {
+						"label": "Visit the website"
+					},
+					"images": {
+						"0": {
+							"imageAlt": "Image 1"
+						},
+						"1": {
+							"imageAlt": "Image 2"
+						},
+						"2": {
+							"imageAlt": "Image 3"
+						},
+						"3": {
+							"imageAlt": "Image 4"
+						}
+					}
+				},
+				"3":{
+					"title": "Projekcik 3",
+					"mainDescription": "This is a website + shop made for the Drachma Foundation",
+					"description": "I did a lot of things here",
+					"link": {
+						"label": "Visit the website"
+					},
+					"images": {
+						"0": {
+							"imageAlt": "Image 1"
+						},
+						"1": {
+							"imageAlt": "Image 2"
+						},
+						"2": {
+							"imageAlt": "Image 3"
+						},
+						"3": {
+							"imageAlt": "Image 4"
+						}
+					}
+				},
+				"2":{
+					"title": "Projekcik 2",
+					"mainDescription": "This is a website + shop made for the Drachma Foundation",
+					"description": "I did a lot of things here",
+					"link": {
+						"label": "Visit the website"
+					},
+					"images": {
+						"0": {
+							"imageAlt": "Image 1"
+						},
+						"1": {
+							"imageAlt": "Image 2"
+						},
+						"2": {
+							"imageAlt": "Image 3"
+						},
+						"3": {
+							"imageAlt": "Image 4"
+						}
+					}
+				},
 				"1":{
 					"title": "Fundacja Drachma",
 					"mainDescription": "To jest strona + sklep zrobiony dla fundacji Drachma",

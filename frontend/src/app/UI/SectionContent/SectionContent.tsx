@@ -44,11 +44,15 @@ export default async function SectionContent(props: SectionContentProps) {
 						{workProjects.map(project => (
 							<MyProject key={project.id} project={project} />
 						))}
-						<div className={styles.sectionContent__seeAllProjects}>
-							<hr />
-							<MainLink href='/projekty'>{tWorkProject('seeAllProjects')} <RightArrow /></MainLink>
-							<hr />
-						</div>
+						{props.limitProjects && (
+							<div className={styles.sectionContent__seeAllProjects}>
+								<hr />
+								<MainLink href='/projekty'>
+									{tWorkProject('seeAllProjects')} <RightArrow />
+								</MainLink>
+								<hr />
+							</div>
+						)}
 					</div>
 				</Wrapper>
 			</section>

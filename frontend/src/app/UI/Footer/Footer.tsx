@@ -1,4 +1,3 @@
-import Link from 'next/link'
 
 import Wrapper from '@/app/UI/Wrapper/Wrapper'
 import SocialsIcons from '../Socials/Socials'
