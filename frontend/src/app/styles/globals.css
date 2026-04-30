@@ -49,8 +49,8 @@
 
 :root {
 	--radius: 0.625rem;
-	--background: #221F1F;
-	--foreground: #DFDFDF;
+	--background: #221f1f;
+	--foreground: #dfdfdf;
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0.145 0 0);
 	--popover: oklch(1 0 0);
@@ -137,7 +137,7 @@
 		align-items: center;
 		min-height: 100vh;
 		font-size: 1rem;
-		color: #DFDFDF;
+		color: #dfdfdf;
 	}
 
 	img {
@@ -193,6 +193,15 @@
 	h4,
 	h5 {
 		font-family: 'Cairo', 'open sans', sans-serif;
+
+		/* fallback */
+		color: #dfdfdf;
+
+		/* text gradient */
+		background: linear-gradient(100deg, #dfdfdf 0%, #c4c4c4 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 
 	h1 {
