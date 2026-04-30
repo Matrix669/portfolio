@@ -41,7 +41,7 @@ export default async function MyProject({ project }: { project: LocalizedProject
 					<MorphingDialogDescription>
 						<p className={styles.text}>{project.mainDescription}</p>
 					</MorphingDialogDescription>
-					<Magnetic>
+					<Magnetic className='mt-auto'>
 						<MorphingDialogTrigger className={stylesMainLink.mainLink}>
 							{tWorkProject('triggerWorkProject')} <RightArrow />
 						</MorphingDialogTrigger>

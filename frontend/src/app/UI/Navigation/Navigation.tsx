@@ -27,24 +27,23 @@ interface NavigationProps {
 export default function Navigation({ data }: NavigationProps) {
 	const [navStyle, setNavStyle] = useState(false)
 	const pathname = usePathname()
+	const isHomePage = pathname === '/' || pathname === '/en' || pathname === '/pl'
+	const threshold = isHomePage ? 200 : 10
 
 	useEffect(() => {
 		const handleShadowNav = () => {
-			if (window.scrollY >= 200) {
-				setNavStyle(true)
-			} else {
-				setNavStyle(false)
-			}
+			setNavStyle(window.scrollY >= threshold)
 		}
 
+		handleShadowNav()
 		window.addEventListener('scroll', handleShadowNav)
 		return () => {
 			window.removeEventListener('scroll', handleShadowNav)
 		}
-	}, [])
+	}, [threshold])
 
 	return (
-		<header className={`${styles.nav} ${pathname !== '/' ? styles.navSubpage : ''}`}>
+		<header className={styles.nav}>
 			<Wrapper>
 				<nav className={`${styles.nav__inner} ${navStyle ? styles.navPill : ''}`}>
 					<Logo />

@@ -13,9 +13,6 @@
 	transition: box-shadow 0.3s;
 	// background-color: $nav-bg;
 	z-index: 100;
-	&.navSubpage {
-		// background-color: deeppink;
-	}
 	&__inner {
 		display: flex;
 		align-items: center;

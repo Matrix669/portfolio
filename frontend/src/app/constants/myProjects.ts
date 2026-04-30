@@ -31,6 +31,90 @@ export type LocalizedProject = {
 
 const MY_PROJECTS: MyProjectsBaseProps[] = [
 	{
+		id: 4,
+		// --- dialog ---
+		images: [
+			{
+				imageSrc: IMG1.src,
+				width: IMG1.width,
+				height: IMG1.height,
+			},
+			{
+				imageSrc: IMG2.src,
+				width: IMG2.width,
+				height: IMG2.height,
+			},
+			{
+				imageSrc: IMG2.src,
+				width: IMG2.width,
+				height: IMG2.height,
+			},
+			{
+				imageSrc: IMG2.src,
+				width: IMG2.width,
+				height: IMG2.height,
+			},
+		],
+		linkHref: 'https://www.google.com',
+		technologies: [],
+	},
+	{
+		id: 3,
+		// --- dialog ---
+		images: [
+			{
+				imageSrc: IMG1.src,
+				width: IMG1.width,
+				height: IMG1.height,
+			},
+			{
+				imageSrc: IMG2.src,
+				width: IMG2.width,
+				height: IMG2.height,
+			},
+			{
+				imageSrc: IMG2.src,
+				width: IMG2.width,
+				height: IMG2.height,
+			},
+			{
+				imageSrc: IMG2.src,
+				width: IMG2.width,
+				height: IMG2.height,
+			},
+		],
+		linkHref: 'https://www.google.com',
+		technologies: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript',],
+	},
+	{
+		id: 2,
+		// --- dialog ---
+		images: [
+			{
+				imageSrc: IMG1.src,
+				width: IMG1.width,
+				height: IMG1.height,
+			},
+			{
+				imageSrc: IMG2.src,
+				width: IMG2.width,
+				height: IMG2.height,
+			},
+			{
+				imageSrc: IMG2.src,
+				width: IMG2.width,
+				height: IMG2.height,
+			},
+			{
+				imageSrc: IMG2.src,
+				width: IMG2.width,
+				height: IMG2.height,
+			},
+		],
+		linkHref: 'https://www.google.com',
+		technologies: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript',],
+	},
+	{
 		id: 1,
 		// --- dialog ---
 		images: [
@@ -60,7 +144,7 @@ const MY_PROJECTS: MyProjectsBaseProps[] = [
 	},
 ]
 
-export function getMyPproject(t: any): LocalizedProject[] {
+export function getMyProjects(t: any): LocalizedProject[] {
 	return MY_PROJECTS.map(project => ({
 		id: project.id,
 		title: t(`projects.${project.id}.title`),

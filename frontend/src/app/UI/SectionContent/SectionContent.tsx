@@ -1,3 +1,5 @@
+import { getTranslations } from 'next-intl/server'
+
 import Wrapper from '@/app/UI/Wrapper/Wrapper'
 import MainLink from '@/app/UI/MainLink/MainLink'
 import RightArrow from '@/app/icons/RightArrow'
@@ -23,12 +25,17 @@ type SectionContentProps = {
 	children?: React.ReactNode
 	workProjects?: LocalizedProject[]
 	limitProjects?: number
+	cssClassName?: string
 }
-export default function SectionContent(props: SectionContentProps) {
+export default async function SectionContent(props: SectionContentProps) {
+	const tWorkProject = await getTranslations('mainPage.workSection.projects')
 	if (props.workProjects) {
 		const workProjects = props.limitProjects ? props.workProjects.slice(0, props.limitProjects) : props.workProjects
 		return (
-			<section id={props.sectionId} className={styles.sectionPadding}>
+			<section
+				id={props.sectionId}
+				className={`${styles.sectionPadding} ${props.cssClassName ? props.cssClassName : ''}`}
+			>
 				<Wrapper>
 					<div className={`${styles.sectionContent} ${props.workProjects ? styles.sectionContent__myWork : ''}`}>
 						<div className={styles.sectionContent__subTitle}>
@@ -37,6 +44,11 @@ export default function SectionContent(props: SectionContentProps) {
 						{workProjects.map(project => (
 							<MyProject key={project.id} project={project} />
 						))}
+						<div className={styles.sectionContent__seeAllProjects}>
+							<hr />
+							<MainLink href='/projekty'>{tWorkProject('seeAllProjects')} <RightArrow /></MainLink>
+							<hr />
+						</div>
 					</div>
 				</Wrapper>
 			</section>
