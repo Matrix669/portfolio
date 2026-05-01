@@ -4,6 +4,7 @@ import Wrapper from '@/app/UI/Wrapper/Wrapper'
 import MainLink from '@/app/UI/MainLink/MainLink'
 import RightArrow from '@/app/icons/RightArrow'
 import MyProject from '@/app/components/MyProject/MyProject'
+import SeeAllProjectsLinesReveal from './SeeAllProjectsLinesReveal'
 import { Magnetic } from '@/componentsShadcn/ui/magnetic'
 import { TopBorderReveal, VerticalBorderReveal } from '@/app/components/MyProject/AnimatedBorders'
 
@@ -46,19 +47,11 @@ export default async function SectionContent(props: SectionContentProps) {
 							<MyProject key={project.id} project={project} index={index} />
 						))}
 						{props.limitProjects && (
-							<div className={styles.sectionContent__seeAllProjects}>
-								<span
-									aria-hidden='true'
-									className={`${styles.sectionContent__seeAllProjectsLine} ${styles.sectionContent__seeAllProjectsLineLeft}`}
-								/>
+							<SeeAllProjectsLinesReveal>
 								<MainLink href='/projekty'>
 									{tWorkProject('seeAllProjects')} <RightArrow />
 								</MainLink>
-								<span
-									aria-hidden='true'
-									className={`${styles.sectionContent__seeAllProjectsLine} ${styles.sectionContent__seeAllProjectsLineRight}`}
-								/>
-							</div>
+							</SeeAllProjectsLinesReveal>
 						)}
 					</div>
 				</Wrapper>

@@ -95,8 +95,7 @@
 			min-width: 0;
 			height: 1px;
 			background-color: rgba(223, 223, 223, 0.15);
-			transform: scaleX(0);
-			animation: seeAllLineGrow 0.7s ease-out forwards;
+			transform: scaleX(var(--see-all-line-scale, 1));
 		}
 		&LineLeft {
 			transform-origin: right center;
@@ -128,12 +127,6 @@
 	}
 	h2 {
 		font-weight: bold;
-	}
-}
-
-@keyframes seeAllLineGrow {
-	to {
-		transform: scaleX(1);
 	}
 }
 
