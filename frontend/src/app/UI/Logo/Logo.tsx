@@ -1,7 +1,5 @@
 import Link from 'next/link'
 
-import type { ImageProps } from '@/utils/types'
-
 import LogoIcon from '@/app/icons/LogoIcon'
 
 import styles from './Logo.module.scss'

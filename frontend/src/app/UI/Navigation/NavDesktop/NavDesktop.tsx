@@ -1,5 +1,5 @@
-import Link from 'next/link'
 // import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 import { cn } from '@/lib/utils'
 import {
@@ -26,7 +26,13 @@ export function NavigationMenuDesktop({ linkiNawigacja }: NavLinksProps) {
 						<NavigationMenuItem key={link.id}>
 							<NavigationMenuLink
 								className={cn(navigationMenuTriggerStyle(), 'py-5 px-4 ')}
-								render={<Link href={link.href} />}
+								render={
+									link.href.startsWith('#') || link.href.startsWith('/#') ? (
+										<Link href={{ pathname: '/', hash: link.href.replace(/^\/?#/, '') }} />
+									) : (
+										<Link href={link.href === '/projekty' ? '/projekty' : '/'} />
+									)
+								}
 							>
 								{navTranslations(link.labelKey)}
 							</NavigationMenuLink>
