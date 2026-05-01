@@ -5,6 +5,7 @@ import MainLink from '@/app/UI/MainLink/MainLink'
 import RightArrow from '@/app/icons/RightArrow'
 import MyProject from '@/app/components/MyProject/MyProject'
 import { Magnetic } from '@/componentsShadcn/ui/magnetic'
+import { TopBorderReveal, VerticalBorderReveal } from '@/app/components/MyProject/AnimatedBorders'
 
 import { LocalizedProject } from '@/app/constants/myProjects'
 
@@ -41,8 +42,8 @@ export default async function SectionContent(props: SectionContentProps) {
 						<div className={styles.sectionContent__subTitle}>
 							{props.icon} <span>{props.subTitle}</span>
 						</div>
-						{workProjects.map(project => (
-							<MyProject key={project.id} project={project} />
+						{workProjects.map((project, index) => (
+							<MyProject key={project.id} project={project} index={index} />
 						))}
 						{props.limitProjects && (
 							<div className={styles.sectionContent__seeAllProjects}>
@@ -61,12 +62,12 @@ export default async function SectionContent(props: SectionContentProps) {
 	return (
 		<section id={props.sectionId} className={styles.sectionPadding}>
 			<Wrapper>
-				<div className={styles.sectionContent}>
+				<TopBorderReveal from='right' className={styles.sectionContent}>
 					<div className={styles.sectionContent__subTitle}>
 						{props.icon} <span>{props.subTitle}</span>
 					</div>
 					<h2>{props.title}</h2>
-					<div className={styles.sectionContent__description}>
+					<VerticalBorderReveal side='left' className={styles.sectionContent__description}>
 						{!props.isContact && <p className={styles.text}>{props.description}</p>}
 						{!props.isContact && props.link && (
 							<Magnetic className='inline-block w-fit'>
@@ -82,8 +83,8 @@ export default async function SectionContent(props: SectionContentProps) {
 							</Magnetic>
 						)}
 						{props.isContact && props.children}
-					</div>
-				</div>
+					</VerticalBorderReveal>
+				</TopBorderReveal>
 			</Wrapper>
 		</section>
 	)

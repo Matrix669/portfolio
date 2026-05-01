@@ -16,6 +16,58 @@
 		}
 	}
 }
+
+.topBorderReveal {
+	position: relative;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background-color: $border-color;
+		transform: scaleX(var(--top-border-scale, 1));
+		transform-origin: var(--top-border-origin, left center);
+		pointer-events: none;
+		will-change: transform;
+	}
+}
+
+.verticalBorderReveal {
+	position: relative;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 1px;
+		background-color: $border-color;
+		transform: scaleY(var(--vertical-border-scale, 1));
+		transform-origin: top center;
+		pointer-events: none;
+		will-change: transform;
+	}
+	&[data-side='left']::before {
+		left: 0;
+	}
+	&[data-side='right']::before {
+		right: 0;
+	}
+}
+
+@media (min-width: rem(992)) {
+	.verticalBorderReveal[data-mobile='false']::before {
+		display: block;
+	}
+}
+
+@media (max-width: rem(991.98)) {
+	.verticalBorderReveal[data-mobile='false']::before {
+		display: none;
+	}
+}
+
 .morphingDialogContent {
 	border-radius: rem(20);
 	background: color-mix(in srgb, var(--background) 80%, transparent);
