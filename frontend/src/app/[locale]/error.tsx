@@ -3,15 +3,15 @@
 import Image from 'next/image'
 import { Metadata } from 'next'
 import { useEffect } from 'react'
-import { navMarginTop } from '../constants/forStyles'
+import { navMarginTop } from '@/app/constants/forStyles'
 
-import Wrapper from '../UI/Wrapper/Wrapper'
-import MainContent from '../UI/MainContent/MainContent'
-import { Breadcrumbs } from '../UI/Breadcrumbs/Breadcrumbs'
+import Wrapper from '@/app/UI/Wrapper/Wrapper'
+import MainContent from '@/app/UI/MainContent/MainContent'
+import { Breadcrumbs } from '@/app/UI/Breadcrumbs/Breadcrumbs'
 
-import error_img from '../assets/subpages/error/error.png'
+import error_img from '@/app/assets/subpages/error/error.png'
 
-import styles from './404.module.scss'
+import styles from '@/app/404.module.scss'
 import stylesBtn from '@/app/UI/MainLink/MainLink.module.scss'
 
 export const metadata: Metadata = {

@@ -41,7 +41,11 @@
 		}
 		&__navBox {
 			display: grid;
-			gap: rem(5);
+			gap: rem(14);
+			nav ul {
+				flex-wrap: wrap;
+				row-gap: rem(5);
+			}
 		}
 		& nav {
 			display: flex;

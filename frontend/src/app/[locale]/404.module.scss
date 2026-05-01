@@ -6,26 +6,11 @@
     overflow: hidden;
 }
 .notFound__inner {
-	&-boxImg {
-		position: relative;
-		z-index: -5;
-		&::after {
-			position: absolute;
-			content: '';
-			width: rem(861);
-			height: rem(861);
-			top: 0;
-			left: 0;
-			background-color: #f1934633;
-			filter: blur(150px);
-			z-index: -10;
-		}
-	}
+
 	&-box {
 		margin-top: rem(25);
 		& h1 {
 			position: relative;
-			font-family: 'quicksand', 'open sans', sans-serif;
 			font-weight: 700;
 			font-size: rem(24);
 			margin-bottom: rem(20);
