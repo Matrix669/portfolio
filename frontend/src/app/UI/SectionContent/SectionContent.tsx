@@ -69,7 +69,7 @@ export default async function SectionContent(props: SectionContentProps) {
 					<div className={styles.sectionContent__description}>
 						{!props.isContact && <p className={styles.text}>{props.description}</p>}
 						{!props.isContact && props.link && (
-							<Magnetic>
+							<Magnetic className='inline-block w-fit'>
 								<MainLink
 									href={props.link.href}
 									target={props.link.isNewTab ? '_blank' : '_self'}

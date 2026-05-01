@@ -11,7 +11,7 @@ import { Breadcrumbs } from '@/app/UI/Breadcrumbs/Breadcrumbs'
 
 import error_img from '@/app/assets/subpages/error/error.png'
 
-import styles from '@/app/404.module.scss'
+import styles from '@/app/[locale]/404.module.scss'
 import stylesBtn from '@/app/UI/MainLink/MainLink.module.scss'
 
 export const metadata: Metadata = {
