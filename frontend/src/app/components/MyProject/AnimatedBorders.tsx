@@ -17,6 +17,7 @@ type VerticalBorderRevealProps = {
 	children: ReactNode
 	className?: string
 	showOnMobile?: boolean
+	showOnDesktop?: boolean
 }
 
 export function TopBorderReveal({ from, children, className }: TopBorderRevealProps) {
@@ -50,6 +51,7 @@ export function VerticalBorderReveal({
 	children,
 	className,
 	showOnMobile = true,
+	showOnDesktop = true,
 }: VerticalBorderRevealProps) {
 	const shouldReduceMotion = useReducedMotion()
 	const targetRef = useRef<HTMLDivElement>(null)
@@ -66,6 +68,7 @@ export function VerticalBorderReveal({
 			className={`${styles.verticalBorderReveal} ${className ?? ''}`.trim()}
 			data-side={side}
 			data-mobile={showOnMobile ? 'true' : 'false'}
+			data-desktop={showOnDesktop ? 'true' : 'false'}
 			style={
 				{
 					'--vertical-border-scale': shouldReduceMotion ? 1 : smoothScale,

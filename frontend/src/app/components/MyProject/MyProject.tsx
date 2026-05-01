@@ -29,7 +29,7 @@ export default async function MyProject({ project, index }: { project: Localized
 	const isEvenItem = index % 2 === 0
 
 	return (
-		<article key={project.id} >
+		<article key={project.id}>
 			<TopBorderReveal className={styles.sectionContent__itemProject} from={isEvenItem ? 'left' : 'right'}>
 				<MorphingDialog
 					transition={{
@@ -55,9 +55,9 @@ export default async function MyProject({ project, index }: { project: Localized
 							</MorphingDialogTrigger>
 						</Magnetic>
 					</VerticalBorderReveal>
-					<div className={styles.sectionContent__image}>
+					<VerticalBorderReveal side='left' showOnDesktop={false} className={styles.sectionContent__image}>
 						<MorphingDialogImage src={project.images[0].imageSrc} alt={project.images[0].imageAlt} />
-					</div>
+					</VerticalBorderReveal>
 					<MorphingDialogContainer>
 						<MorphingDialogContent
 							style={{

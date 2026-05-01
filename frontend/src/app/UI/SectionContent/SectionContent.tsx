@@ -47,11 +47,17 @@ export default async function SectionContent(props: SectionContentProps) {
 						))}
 						{props.limitProjects && (
 							<div className={styles.sectionContent__seeAllProjects}>
-								<hr />
+								<span
+									aria-hidden='true'
+									className={`${styles.sectionContent__seeAllProjectsLine} ${styles.sectionContent__seeAllProjectsLineLeft}`}
+								/>
 								<MainLink href='/projekty'>
 									{tWorkProject('seeAllProjects')} <RightArrow />
 								</MainLink>
-								<hr />
+								<span
+									aria-hidden='true'
+									className={`${styles.sectionContent__seeAllProjectsLine} ${styles.sectionContent__seeAllProjectsLineRight}`}
+								/>
 							</div>
 						)}
 					</div>

@@ -60,11 +60,17 @@
 	.verticalBorderReveal[data-mobile='false']::before {
 		display: block;
 	}
+	.verticalBorderReveal[data-desktop='false']::before {
+		display: none;
+	}
 }
 
 @media (max-width: rem(991.98)) {
 	.verticalBorderReveal[data-mobile='false']::before {
 		display: none;
+	}
+	.verticalBorderReveal[data-desktop='false']::before {
+		display: block;
 	}
 }
 
