@@ -32,8 +32,9 @@
 				"seeAllProjects": "See All Projects",
 				"5": {
 					"title": "Drachma Foundation Website + Shop",
-					"mainDescription": "This is a website + shop made for the Drachma Foundation",
-					"description": "I did a lot of things here",
+					"mainDescription": "This is the largest and most demanding project I’ve shipped so far: a full website and online store for the Drachma Foundation, with almost every piece of content driven by Strapi-including navigation, links, on-page copy, and SEO metadata.",
+
+					"description": "It was also my first serious Strapi build, so I had to learn the CMS end-to-end: content modeling, how to fetch and wire data into the UI, and how to keep the site maintainable for my client. For SEO, it was also my first time implementing dynamic metadata generation in Next.js, successfully driven by Strapi so titles, descriptions, and related fields stay in sync with CMS content.\n\n For the fundraising flow, I integrated a support form with Stripe, handling webhooks/events for payment lifecycle, safe testing without charging real cards, and transactional emails with clear status updates plus a subscription management link. I implemented both one-time and recurring payments, then added a self-service subscription portal where users request access by email via a magic link, with anti-abuse limits (three attempts with a one-minute spacing, then a 15-minute lockout after the limit).\n\n On the e-commerce side (also a first for me), I built products, filtering, a cart, and checkout. Filters are handled on the client for a small catalog to keep the product list updating instantly. Cart updates continuously validate stock against Strapi inventory so users can’t exceed availability. Checkout combines Stripe Embedded Checkout (to avoid poor UX from redirect-only flows) with Polish payment methods (including BLIK), shipping pricing pulled from carrier APIs, and InPost integration to browse/select a parcel locker—while sending the right customer and delivery data to carriers and Stripe. The product page “See other products” section excludes the current item and respects stock (including hiding items at zero quantity).\n\n Finally, I handled deployment on the existing domain, configured hosting for both frontend and backend, and wrote client-facing documentation explaining how the CMS and the live site work day to day.",
 					"link": {
 						"label": "Visit the website"
 					},
@@ -55,6 +56,7 @@
 				"4": {
 					"title": "Effatha Digital Library",
 					"mainDescription": "This was my first time building something that felt like a real application end-to-end. I shipped it in a single evening without a polished design or a big product plan-starting from a rough prototype a colleague had vibe-coded and asked me to improve-so I focused on moving fast and making it work.",
+
 					"description": "The biggest challenge was the business logic: reservation states, transitions, and lots of edge cases (“if it’s reserved like this, what happens next?”).\n\n I used TanStack Query with Supabase for a quick start; it was my first serious exposure to both, including designing a simple database schema for books and choosing the right fields.\n\n Authentication was tricky too: access to the main panel is backed by database account (password-based login), while some admin-related authorization is handled on the client-something I’d redesign with a clearer security model today.\n\n I’m planning to rebuild this in Next.js (and maybe as a mobile app) with much better UX, visual design, and overall planning.",
 					"link": {
 						"label": "Visit the app"
@@ -83,6 +85,7 @@
 				"3": {
 					"title": "Effatha website",
 					"mainDescription": "This is the main Effatha website with a refreshed, redesigned look.",
+
 					"description": "The project is fairly straightforward overall: blog posts and the events calendar are powered by Strapi. I’m especially happy with how cleanly the calendar integrates with the CMS. I also used targeted Strapi queries to show the three latest posts on the homepage, and implemented UX basics like breadcrumbs and pagination.",
 					"link": {
 						"label": "Visit the website"
@@ -108,6 +111,7 @@
 				"2": {
 					"title": "Effatha website (old)",
 					"mainDescription": "This is an older static version of a website for the Effatha community. It was one of my first larger front-end projects, and I’m still happy with the overall visual design, responsive layout, and performance. The interactive parts (like the slider and contact form) are not wired up-this is front-end only, originally intended as a WordPress theme template.",
+
 					"description": "This project helped me organize my workflow and level up practical skills: responsive design, building components with Gulp Kit, and structuring the codebase for future growth (SCSS variables, reusable classes, and a scalable styling approach).\n\n Looking back, I’d improve typography constraints for long-form text-especially consistent max-width and line-height-since the content was meant to be managed in WordPress later.",
 					"link": {
 						"label": "Visit the website"
@@ -130,6 +134,7 @@
 				"1": {
 					"title": "Quadratic function calculator",
 					"mainDescription": "Inspired by quadratic functions from my technical school math classes, I turned the concept into a practical coding project.",
+
 					"description": "I built this project to practice object-based routing with React Router, apply mathematical logic in code, and improve form validation skills. I used Chart.js to visualize quadratic function graphs.",
 					"link": {
 						"label": "Visit the website"

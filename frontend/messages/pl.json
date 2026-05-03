@@ -32,7 +32,8 @@
 				"seeAllProjects": "Zobacz Wszystkie Projekty",
 				"5": {
 					"title": "Fundacja Drachma Strona + Sklep",
-					"mainDescription": "",
+					"mainDescription": "To największy i najbardziej wymagający projekt, jaki dotychczas zrealizowałem: kompletna strona internetowa i sklep internetowy dla Fundacji Drachma, w których niemal wszystkie elementy treści są oparte na platformie Strapi – w tym nawigacja, linki, teksty na stronach oraz metadane SEO",
+
 					"description": "",
 					"link": {
 						"label": "Odwiedź stronę"
@@ -46,6 +47,7 @@
 				"4": {
 					"title": "Effathowa Biblioteka Cyfrowa",
 					"mainDescription": "To był mój pierwszy raz, kiedy tworzyłem coś, co od początku do końca przypominało prawdziwą aplikację. Udało mi się ją uruchomić w ciągu jednego wieczoru, bez dopracowanego projektu graficznego ani rozbudowanego planu produktowego - zaczynając od szkicowego prototypu, który kolega napisał na szybko i poprosił mnie o dopracowanie - więc skupiłem się na szybkim działaniu i sprawieniu, by wszystko działało.",
+
 					"description": "Największym wyzwaniem była logika biznesowa: stany rezerwacji, przejścia między nimi i mnóstwo sytuacji granicznych („jeśli rezerwacja wygląda tak, to co dzieje się dalej?”).\n\n Na początek skorzystałem z TanStack Query w połączeniu z Supabase; było to moje pierwsze poważniejsze zetknięcie się z obydwoma rozwiązaniami, łącznie z zaprojektowaniem prostego schematu bazy danych dla książek i doborem odpowiednich pól.\n\n Uwierzytelnianie też było trudne: dostęp do panelu głównego opiera się na koncie w bazie danych (logowanie za pomocą hasła), podczas gdy niektóre uprawnienia administracyjne są obsługiwane po stronie klienta - coś, co dzisiaj przeprojektowałbym z myślą o bardziej przejrzystym modelu bezpieczeństwa.\n\n W przyszłości planuję przepisać to na Next.js (i być może też jako aplikację mobilną) z dużo lepszym UX, projektem wizualnym i ogólnym planowaniem.",
 					"link": {
 						"label": "Odwiedź aplikację"
@@ -68,6 +70,7 @@
 				"3": {
 					"title": "Strona Effathy",
 					"mainDescription": "Oto główna strona internetowa Effatha w odświeżonej, przeprojektowanej odsłonie.",
+
 					"description": "Ogólnie rzecz biorąc, projekt jest dość prosty: wpisy na blogu i kalendarz wydarzeń działają w oparciu o Strapi. Szczególnie podoba mi się to, jak płynnie kalendarz integruje się z systemem CMS. Wykorzystałem również ukierunkowane zapytania Strapi, aby wyświetlać trzy najnowsze wpisy na stronie głównej, a także zaimplementowałem podstawowe elementy UX, takie jak nawigacja typu breadcrumb i paginacja.",
 					"link": {
 						"label": "Odwiedź stronę"
@@ -90,6 +93,7 @@
 				"2": {
 					"title": "Strona Effathy (stara)",
 					"mainDescription": "To starsza, statyczna wersja strony internetowej dla społeczności Effatha. Był to jeden z moich pierwszych większych projektów front-endowych i nadal jestem zadowolony z ogólnego projektu graficznego, responsywnego układu oraz wydajności. Elementy interaktywne (takie jak suwak i formularz kontaktowy) nie są podłączone - jest to wyłącznie front-end, pierwotnie pomyślany jako szablon motywu WordPressa.",
+
 					"description": "Ten projekt pomógł mi uporządkować proces pracy i podnieść poziom umiejętności praktycznych: projektowanie responsywne, tworzenie komponentów za pomocą Gulp Kit oraz organizowanie kodu pod kątem przyszłego rozwoju (zmienne SCSS, klasy wielokrotnego użytku i skalowalne podejście do stylizacji).\n\n Z perspektywy czasu poprawiłbym ograniczenia typograficzne dotyczące długich tekstów - zwłaszcza spójną szerokość maksymalną i wysokość wiersza - ponieważ treść miała być później zarządzana w WordPressie.",
 					"link": {
 						"label": "Odwiedź stronę"
@@ -112,7 +116,8 @@
 				"1": {
 					"title": "Kalkulator funkcji kwadratowej",
 					"mainDescription": "Zainspirowany funkcjami kwadratowymi, których uczyłem się na lekcjach matematyki w technikum, przekształciłem tę koncepcję w praktyczny projekt programistyczny.",
-					"description": "Stworzyłem ten projekt, aby poćwiczyć routing obiektowy w React Routerze, zastosować logikę matematyczną w kodzie oraz doskonalić umiejętności w zakresie walidacji formularzy. Do wizualizacji wykresów funkcji kwadratowych wykorzystałem bibliotekę Chart.js.",
+
+					"description": "Był to również mój pierwszy poważny projekt oparty na Strapi, więc musiałem poznać ten system CMS od podstaw: modelowanie treści, pobieranie i przekazywanie danych do interfejsu użytkownika oraz zapewnienie mojemu klientowi możliwości łatwej aktualizacji strony. Jeśli chodzi o SEO, po raz pierwszy wdrożyłem dynamiczne generowanie metadanych w Next.js, które z powodzeniem sterowane jest przez Strapi, dzięki czemu tytuły, opisy i powiązane pola pozostają zsynchronizowane z treścią w CMS.\n\n W zakresie procesu pozyskiwania funduszy zintegrowałem formularz wsparcia z Stripe, obsługując webhooki/zdarzenia związane z cyklem życia płatności, bezpieczne testowanie bez obciążania prawdziwych kart oraz e-maile transakcyjne z jasnymi aktualizacjami statusu oraz linkiem do zarządzania subskrypcjami. Wdrożyłem zarówno płatności jednorazowe, jak i cykliczne, a następnie dodałem samoobsługowy portal subskrypcyjny, w którym użytkownicy wnioskują o dostęp za pośrednictwem e-maila, korzystając z linku aktywacyjnego, z zabezpieczeniami przed nadużyciami (trzy próby w odstępach jednominutowych, a po przekroczeniu limitu 15-minutowa blokada).\n\n Jeśli chodzi o e-commerce (co również było dla mnie nowością), stworzyłem produkty, filtry, koszyk i proces realizacji transakcji. Filtry są obsługiwane po stronie klienta dla niewielkiego katalogu, aby lista produktów była aktualizowana natychmiastowo. Aktualizacje koszyka na bieżąco weryfikują stan magazynowy w Strapi, dzięki czemu użytkownicy nie mogą przekroczyć dostępności. Kasa łączy Stripe Embedded Checkout (żeby uniknąć kiepskiego UX wynikającego z przepływów opartych wyłącznie na przekierowaniach) z polskimi metodami płatności (w tym BLIK), cenami wysyłki pobieranymi z API przewoźników oraz integracją z InPostem, żeby przeglądać/wybierać paczkomaty — jednocześnie wysyłając odpowiednie dane klienta i dostawy do przewoźników i Stripe. Sekcja „Zobacz inne produkty” na stronie produktu wyklucza bieżący produkt i uwzględnia stan magazynowy (w tym ukrywanie produktów o zerowej ilości).\n\n Na koniec zająłem się wdrożeniem na istniejącej domenie, skonfigurowałem hosting zarówno dla frontendu, jak i backendu oraz napisałem dokumentację dla klienta wyjaśniającą, jak poruszać się po panelu CMS, jak z niego korzystać i jak to wygląda na stronie internetowej.",
 					"link": {
 						"label": "Odwiedź stronę"
 					},

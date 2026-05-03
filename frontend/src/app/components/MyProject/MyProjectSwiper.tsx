@@ -96,7 +96,7 @@ export function MyProjectSwiper({ project: images }: { project: Pick<LocalizedPr
 					slidesPerView={2}
 					spaceBetween={10}
 					// watchSlidesProgress
-					grabCursor={true}
+					grabCursor
 					// navigation
 					a11y={{
 						enabled: true,

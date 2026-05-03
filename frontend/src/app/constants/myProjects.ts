@@ -63,8 +63,9 @@ type technologiesIT =
 	/* STYLES */
 	| 'SCSS'
 	| 'Tailwind CSS'
-	| 'modules CSS'
+	| 'CSS Modules'
 	| 'shadcn/ui'
+	| 'motion'
 	/* BACKEND, CMS things */
 	| 'TypeScript'
 	| 'Strapi'
@@ -79,10 +80,48 @@ type technologiesIT =
 	| 'gulp'
 	| 'gulp-kit'
 	| 'git'
+	| 'react-photoswipe-gallery'
+	| 'redis'
 	/* OTHER */
 	| 'HTML'
+	| 'Stripe'
+	| 'webhooks'
 
 const MY_PROJECTS: MyProjectsBaseProps[] = [
+	{
+		id: 5,
+		images: [
+			{
+				imageSrc: IMG1.src,
+				width: IMG1.width,
+				height: IMG1.height,
+			},
+		],
+		linkHref: 'https://www.drachma.org.pl/',
+		technologies: [
+			'Next.js',
+			'react context',
+			'react hooks',
+			'SCSS',
+			'Tailwind CSS',
+			'CSS Modules',
+			'shadcn/ui',
+			'motion',
+			'TypeScript',
+			'Strapi',
+			'headless cms',
+			'react-hook-form',
+			'zod',
+			'swiper',
+			'qs',
+			'nodemailer',
+			'react-photoswipe-gallery',
+			'git',
+			'Stripe',
+			'webhooks',
+			'redis'
+		],
+	},
 	{
 		id: 4,
 		// --- dialog ---
@@ -129,7 +168,7 @@ const MY_PROJECTS: MyProjectsBaseProps[] = [
 			'git',
 			'react hooks',
 			'react context',
-			'modules CSS',
+			'CSS Modules',
 		],
 	},
 	{
@@ -178,7 +217,7 @@ const MY_PROJECTS: MyProjectsBaseProps[] = [
 			'qs',
 			'git',
 			'fullcalendar',
-			'modules CSS',
+			'CSS Modules',
 		],
 	},
 	{
