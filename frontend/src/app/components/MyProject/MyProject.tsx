@@ -84,9 +84,13 @@ export default async function MyProject({ project, index }: { project: Localized
 									<MorphingDialogDescription>
 										<p className={`${styles.text} my-4`}>{project.description}</p>
 									</MorphingDialogDescription>
+									<MorphingDialogClose className={`translate-x-[25%] translate-y-[-50%]`}>
+										<Magnetic className={`${stylesMainLink.mainLink} ${stylesProject.morphingDialogContent__close}`}>
+											{tWorkProject('closeDialog')} <RightArrow />
+										</Magnetic>
+									</MorphingDialogClose>
 									<div className='flex justify-end'>
 										<Magnetic>
-											{/* <MorphingDialogTrigger> */}
 											<MainLink
 												prefetch={false}
 												className='align-self-end'
@@ -97,14 +101,8 @@ export default async function MyProject({ project, index }: { project: Localized
 											>
 												{project.link.label} <RightArrow />
 											</MainLink>
-											{/* </MorphingDialogTrigger> */}
 										</Magnetic>
 									</div>
-									<MorphingDialogClose className={`translate-x-[25%] translate-y-[-50%]`}>
-										<Magnetic className={`${stylesMainLink.mainLink} ${stylesProject.morphingDialogContent__close}`}>
-											{tWorkProject('closeDialog')} <RightArrow />
-										</Magnetic>
-									</MorphingDialogClose>
 								</div>
 							</div>
 						</MorphingDialogContent>
