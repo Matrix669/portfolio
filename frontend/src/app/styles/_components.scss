@@ -12,6 +12,8 @@
 .text {
 	font-size: rem(15);
 	line-height: 30px;
+	white-space: pre-line;
+	
 	& b,
 	& strong {
 		font-weight: 600;
@@ -24,5 +26,3 @@
 		}
 	}
 }
-
-

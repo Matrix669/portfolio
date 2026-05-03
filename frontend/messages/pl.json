@@ -18,7 +18,7 @@
 		"aboutSection": {
 			"subTitle": "O mnie",
 			"title": "Mam na imię Maks",
-			"description": "Jestem programistą",
+			"description": "Jestem frontend developerem, którego pasją jest tworzenie nowoczesnych, dopracowanych i przyjaznych dla użytkownika aplikacji webowych. Specjalizuję się w budowaniu cyfrowych doświadczeń, które łączą piękny design z doskonałą funkcjonalnością.\n\nMoje projekty to najlepsze odzwierciedlenie tego, kim jestem jako programista. Dlatego zawsze dążę do najwyższej jakości - zwracając szczególną uwagę na wydajność i przemyślane detale projektowe, które sprawiają, że produkt naprawdę się wyróżnia. Wierzę, że dobrze zaprojektowany kod i interfejsy mogą nie tylko rozwiązywać problemy, ale także przynosić rzeczywistą wartość i przyjemność użytkownikom.\n\nPoza programowaniem, studiuję teologię w Warszawie i aktywnie uczestniczę w ewangelizacyjnym Teatrze Tanecznym Szofar. Jestem również członkiem społeczności chrześcijańskiej Effatha w Gliwicach. Te pasje wpływają na moją pracę - uczą mnie dyscypliny, kreatywności i znaczenia budowania rzeczy z przeznaczeniem i dbałością.",
 			"buttonAbout": {
 				"label": "Zobacz moje CV",
 				"href": "/CV_Maksymilian_Tkaczyk.pdf"

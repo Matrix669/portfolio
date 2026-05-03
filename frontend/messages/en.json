@@ -18,7 +18,7 @@
 		"aboutSection": {
 			"subTitle": "About me",
 			"title": "Name's Maks",
-			"description": "I'm a software engineer",
+			"description": "I'm a frontend developer focused on creating modern, polished, and user-friendly web applications. I specialize in building digital experiences that combine beautiful design with excellent functionality.\n\nMy projects are the best reflection of who I am as a developer. That's why I always aim for the highest quality - paying close attention to performance, thoughtful design details, and meaningful extra features that make the product truly stand out. I believe that well-crafted code and interfaces can not only solve problems but also bring real value and joy to users.\n\nOutside of coding, I study theology in Warsaw and am actively involved in the evangelistic Dance Theater Szofar. I'm also part of the Christian community Effatha in Gliwice. These passions shape my approach to work - teaching me discipline, creativity, and the importance of building things with purpose and care.",
 			"buttonAbout": {
 				"label": "See My CV",
 				"href": "/CV_Maksymilian_Tkaczyk en.pdf"
@@ -97,8 +97,8 @@
 					}
 				},
 				"1":{
-					"title": "Fundacja Drachma",
-					"mainDescription": "This is a website + shop made for the Drachma Foundation",
+					"title": "Quadratic function calculator",
+					"mainDescription": "xyz",
 					"description": "I did a lot of things here",
 					"link": {
 						"label": "Visit the website"
