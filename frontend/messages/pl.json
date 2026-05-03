@@ -34,13 +34,25 @@
 					"title": "Fundacja Drachma Strona + Sklep",
 					"mainDescription": "To największy i najbardziej wymagający projekt, jaki dotychczas zrealizowałem: kompletna strona internetowa i sklep internetowy dla Fundacji Drachma, w których niemal wszystkie elementy treści są oparte na platformie Strapi – w tym nawigacja, linki, teksty na stronach oraz metadane SEO",
 
-					"description": "",
+					"description": "Był to również mój pierwszy poważny projekt oparty na Strapi, więc musiałem poznać ten system CMS od podstaw: modelowanie treści, pobieranie i przekazywanie danych do interfejsu użytkownika oraz zapewnienie mojemu klientowi możliwości łatwej aktualizacji strony. Jeśli chodzi o SEO, po raz pierwszy wdrożyłem dynamiczne generowanie metadanych w Next.js, które z powodzeniem sterowane jest przez Strapi, dzięki czemu tytuły, opisy i powiązane pola pozostają zsynchronizowane z treścią w CMS.\n\n W zakresie procesu pozyskiwania funduszy zintegrowałem formularz wsparcia z Stripe, obsługując webhooki/zdarzenia związane z cyklem życia płatności, bezpieczne testowanie bez obciążania prawdziwych kart oraz e-maile transakcyjne z jasnymi aktualizacjami statusu oraz linkiem do zarządzania subskrypcjami. Wdrożyłem zarówno płatności jednorazowe, jak i cykliczne, a następnie dodałem samoobsługowy portal subskrypcyjny, w którym użytkownicy wnioskują o dostęp za pośrednictwem e-maila, korzystając z linku aktywacyjnego, z zabezpieczeniami przed nadużyciami (trzy próby w odstępach jednominutowych, a po przekroczeniu limitu 15-minutowa blokada).\n\n Jeśli chodzi o e-commerce (co również było dla mnie nowością), stworzyłem produkty, filtry, koszyk i proces realizacji transakcji. Filtry są obsługiwane po stronie klienta dla niewielkiego katalogu, aby lista produktów była aktualizowana natychmiastowo. Aktualizacje koszyka na bieżąco weryfikują stan magazynowy w Strapi, dzięki czemu użytkownicy nie mogą przekroczyć dostępności. Kasa łączy Stripe Embedded Checkout (żeby uniknąć kiepskiego UX wynikającego z przepływów opartych wyłącznie na przekierowaniach) z polskimi metodami płatności (w tym BLIK), cenami wysyłki pobieranymi z API przewoźników oraz integracją z InPostem, żeby przeglądać/wybierać paczkomaty - jednocześnie wysyłając odpowiednie dane klienta i dostawy do przewoźników i Stripe. Sekcja „Zobacz inne produkty” na stronie produktu wyklucza bieżący produkt i uwzględnia stan magazynowy (w tym ukrywanie produktów o zerowej ilości).\n\n Na koniec zająłem się wdrożeniem na istniejącej domenie, skonfigurowałem hosting zarówno dla frontendu, jak i backendu oraz napisałem dokumentację dla klienta wyjaśniającą, jak poruszać się po panelu CMS, jak z niego korzystać i jak to wygląda na stronie internetowej.",
 					"link": {
 						"label": "Odwiedź stronę"
 					},
 					"images": {
 						"0": {
 							"imageAlt": "Image 1"
+						},
+						"1": {
+							"imageAlt": "Image 2"
+						},
+						"2": {
+							"imageAlt": "Image 3"
+						},
+						"3": {
+							"imageAlt": "Image 4"
+						},
+						"4": {
+							"imageAlt": "Image 5"
 						}
 					}
 				},
@@ -117,7 +129,7 @@
 					"title": "Kalkulator funkcji kwadratowej",
 					"mainDescription": "Zainspirowany funkcjami kwadratowymi, których uczyłem się na lekcjach matematyki w technikum, przekształciłem tę koncepcję w praktyczny projekt programistyczny.",
 
-					"description": "Był to również mój pierwszy poważny projekt oparty na Strapi, więc musiałem poznać ten system CMS od podstaw: modelowanie treści, pobieranie i przekazywanie danych do interfejsu użytkownika oraz zapewnienie mojemu klientowi możliwości łatwej aktualizacji strony. Jeśli chodzi o SEO, po raz pierwszy wdrożyłem dynamiczne generowanie metadanych w Next.js, które z powodzeniem sterowane jest przez Strapi, dzięki czemu tytuły, opisy i powiązane pola pozostają zsynchronizowane z treścią w CMS.\n\n W zakresie procesu pozyskiwania funduszy zintegrowałem formularz wsparcia z Stripe, obsługując webhooki/zdarzenia związane z cyklem życia płatności, bezpieczne testowanie bez obciążania prawdziwych kart oraz e-maile transakcyjne z jasnymi aktualizacjami statusu oraz linkiem do zarządzania subskrypcjami. Wdrożyłem zarówno płatności jednorazowe, jak i cykliczne, a następnie dodałem samoobsługowy portal subskrypcyjny, w którym użytkownicy wnioskują o dostęp za pośrednictwem e-maila, korzystając z linku aktywacyjnego, z zabezpieczeniami przed nadużyciami (trzy próby w odstępach jednominutowych, a po przekroczeniu limitu 15-minutowa blokada).\n\n Jeśli chodzi o e-commerce (co również było dla mnie nowością), stworzyłem produkty, filtry, koszyk i proces realizacji transakcji. Filtry są obsługiwane po stronie klienta dla niewielkiego katalogu, aby lista produktów była aktualizowana natychmiastowo. Aktualizacje koszyka na bieżąco weryfikują stan magazynowy w Strapi, dzięki czemu użytkownicy nie mogą przekroczyć dostępności. Kasa łączy Stripe Embedded Checkout (żeby uniknąć kiepskiego UX wynikającego z przepływów opartych wyłącznie na przekierowaniach) z polskimi metodami płatności (w tym BLIK), cenami wysyłki pobieranymi z API przewoźników oraz integracją z InPostem, żeby przeglądać/wybierać paczkomaty — jednocześnie wysyłając odpowiednie dane klienta i dostawy do przewoźników i Stripe. Sekcja „Zobacz inne produkty” na stronie produktu wyklucza bieżący produkt i uwzględnia stan magazynowy (w tym ukrywanie produktów o zerowej ilości).\n\n Na koniec zająłem się wdrożeniem na istniejącej domenie, skonfigurowałem hosting zarówno dla frontendu, jak i backendu oraz napisałem dokumentację dla klienta wyjaśniającą, jak poruszać się po panelu CMS, jak z niego korzystać i jak to wygląda na stronie internetowej.",
+					"description": "Stworzyłem ten projekt, aby poćwiczyć routing obiektowy w React Routerze, zastosować logikę matematyczną w kodzie oraz doskonalić umiejętności w zakresie walidacji formularzy. Do wizualizacji wykresów funkcji kwadratowych wykorzystałem bibliotekę Chart.js.",
 					"link": {
 						"label": "Odwiedź stronę"
 					},
