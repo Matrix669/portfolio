@@ -1,6 +1,17 @@
 import IMG1 from '@/app/assets/MyWork/image1.png'
 import IMG2 from '@/app/assets/MyWork/image2.png'
 
+import DRACHMA_IMG1 from '@/app/assets/MyWork/drachma-website-shop/img1.png'
+import DRACHMA_IMG2 from '@/app/assets/MyWork/drachma-website-shop/img2.png'
+import DRACHMA_IMG3 from '@/app/assets/MyWork/drachma-website-shop/img3.png'
+import DRACHMA_IMG4 from '@/app/assets/MyWork/drachma-website-shop/img4.png'
+import DRACHMA_IMG5 from '@/app/assets/MyWork/drachma-website-shop/img5.png'
+import DRACHMA_IMG6 from '@/app/assets/MyWork/drachma-website-shop/img6.png'
+import DRACHMA_IMG7 from '@/app/assets/MyWork/drachma-website-shop/img7.png'
+import DRACHMA_IMG8 from '@/app/assets/MyWork/drachma-website-shop/img8.png'
+import DRACHMA_IMG9 from '@/app/assets/MyWork/drachma-website-shop/img9.png'
+import DRACHMA_IMG10 from '@/app/assets/MyWork/drachma-website-shop/img10.png'
+
 import EFFATHA_DIGITAL_LIBRARY_IMG1 from '@/app/assets/MyWork/effatha-digital-library/img1.png'
 import EFFATHA_DIGITAL_LIBRARY_IMG2 from '@/app/assets/MyWork/effatha-digital-library/img2.png'
 import EFFATHA_DIGITAL_LIBRARY_IMG3 from '@/app/assets/MyWork/effatha-digital-library/img3.png'
@@ -92,10 +103,56 @@ const MY_PROJECTS: MyProjectsBaseProps[] = [
 		id: 5,
 		images: [
 			{
-				imageSrc: IMG1.src,
-				width: IMG1.width,
-				height: IMG1.height,
+				imageSrc: DRACHMA_IMG1.src,
+				width: DRACHMA_IMG1.width,
+				height: DRACHMA_IMG1.height,
 			},
+			{
+				imageSrc: DRACHMA_IMG2.src,
+				width: DRACHMA_IMG2.width,
+				height: DRACHMA_IMG2.height,
+			},
+			{
+				imageSrc: DRACHMA_IMG3.src,
+				width: DRACHMA_IMG3.width,
+				height: DRACHMA_IMG3.height,
+			},
+			{
+				imageSrc: DRACHMA_IMG4.src,
+				width: DRACHMA_IMG4.width,
+				height: DRACHMA_IMG4.height,
+			},
+			{
+				imageSrc: DRACHMA_IMG5.src,
+				width: DRACHMA_IMG5.width,
+				height: DRACHMA_IMG5.height,
+			},
+			// shop ============
+			// {
+			// 	imageSrc: DRACHMA_IMG6.src,
+			// 	width: DRACHMA_IMG6.width,
+			// 	height: DRACHMA_IMG6.height,
+			// },
+			// {
+			// 	imageSrc: DRACHMA_IMG7.src,
+			// 	width: DRACHMA_IMG7.width,
+			// 	height: DRACHMA_IMG7.height,
+			// },
+			// {
+			// 	imageSrc: DRACHMA_IMG8.src,
+			// 	width: DRACHMA_IMG8.width,
+			// 	height: DRACHMA_IMG8.height,
+			// },
+			// {
+			// 	imageSrc: DRACHMA_IMG9.src,
+			// 	width: DRACHMA_IMG9.width,
+			// 	height: DRACHMA_IMG9.height,
+			// },
+			// {
+			// 	imageSrc: DRACHMA_IMG10.src,
+			// 	width: DRACHMA_IMG10.width,
+			// 	height: DRACHMA_IMG10.height,
+			// },
 		],
 		linkHref: 'https://www.drachma.org.pl/',
 		technologies: [
