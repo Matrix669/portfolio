@@ -1,6 +1,26 @@
 import IMG1 from '@/app/assets/MyWork/image1.png'
 import IMG2 from '@/app/assets/MyWork/image2.png'
 
+import EFFATHA_DIGITAL_LIBRARY_IMG1 from '@/app/assets/MyWork/effatha-digital-library/img1.png'
+import EFFATHA_DIGITAL_LIBRARY_IMG2 from '@/app/assets/MyWork/effatha-digital-library/img2.png'
+import EFFATHA_DIGITAL_LIBRARY_IMG3 from '@/app/assets/MyWork/effatha-digital-library/img3.png'
+import EFFATHA_DIGITAL_LIBRARY_IMG4 from '@/app/assets/MyWork/effatha-digital-library/img4.png'
+import EFFATHA_DIGITAL_LIBRARY_IMG5 from '@/app/assets/MyWork/effatha-digital-library/img5.png'
+import EFFATHA_DIGITAL_LIBRARY_IMG6 from '@/app/assets/MyWork/effatha-digital-library/img6.png'
+
+import EFFATHA_WEBSITE_IMG1 from '@/app/assets/MyWork/effatha-website/img1.png'
+import EFFATHA_WEBSITE_IMG2 from '@/app/assets/MyWork/effatha-website/img2.png'
+import EFFATHA_WEBSITE_IMG3 from '@/app/assets/MyWork/effatha-website/img3.png'
+import EFFATHA_WEBSITE_IMG4 from '@/app/assets/MyWork/effatha-website/img4.png'
+import EFFATHA_WEBSITE_IMG5 from '@/app/assets/MyWork/effatha-website/img5.png'
+
+import EFFATHA_WEBSITE_OLD_IMG1 from '@/app/assets/MyWork/effatha-website-old/img1.png'
+import EFFATHA_WEBSITE_OLD_IMG2 from '@/app/assets/MyWork/effatha-website-old/img2.png'
+import EFFATHA_WEBSITE_OLD_IMG3 from '@/app/assets/MyWork/effatha-website-old/img3.png'
+import EFFATHA_WEBSITE_OLD_IMG4 from '@/app/assets/MyWork/effatha-website-old/img4.png'
+
+import QUADRATIC_FUNCTION_CALCULATOR_IMG1 from '@/app/assets/MyWork/quadratic-function-calculator/img1.png'
+import QUADRATIC_FUNCTION_CALCULATOR_IMG2 from '@/app/assets/MyWork/quadratic-function-calculator/img2.png'
 type MyProjectsBaseProps = {
 	id: number
 	images: {
@@ -9,7 +29,7 @@ type MyProjectsBaseProps = {
 		height?: number
 	}[]
 	linkHref: string
-	technologies: string[]
+	technologies: technologiesIT[]
 }
 export type LocalizedProject = {
 	id: number
@@ -26,8 +46,41 @@ export type LocalizedProject = {
 		label: string
 		href: string
 	}
-	technologies: string[]
+	technologies: technologiesIT[]
 }
+type technologiesIT =
+	/* FRONTEND, REACT things */
+	| 'Next.js'
+	| 'React'
+	| 'TanStack Query'
+	| 'react-router'
+	| 'react-hook-form'
+	| 'zod'
+	| 'react hooks'
+	| 'react context'
+	| 'routing'
+	| 'JavaScript'
+	/* STYLES */
+	| 'SCSS'
+	| 'Tailwind CSS'
+	| 'modules CSS'
+	| 'shadcn/ui'
+	/* BACKEND, CMS things */
+	| 'TypeScript'
+	| 'Strapi'
+	| 'supabase'
+	| 'headless cms'
+	| 'qs'
+	/* JS libraries, packages */
+	| 'nodemailer'
+	| 'swiper'
+	| 'chartjs'
+	| 'fullcalendar'
+	| 'gulp'
+	| 'gulp-kit'
+	| 'git'
+	/* OTHER */
+	| 'HTML'
 
 const MY_PROJECTS: MyProjectsBaseProps[] = [
 	{
@@ -35,112 +88,144 @@ const MY_PROJECTS: MyProjectsBaseProps[] = [
 		// --- dialog ---
 		images: [
 			{
-				imageSrc: IMG1.src,
-				width: IMG1.width,
-				height: IMG1.height,
+				imageSrc: EFFATHA_DIGITAL_LIBRARY_IMG1.src,
+				width: EFFATHA_DIGITAL_LIBRARY_IMG1.width,
+				height: EFFATHA_DIGITAL_LIBRARY_IMG1.height,
 			},
 			{
-				imageSrc: IMG2.src,
-				width: IMG2.width,
-				height: IMG2.height,
+				imageSrc: EFFATHA_DIGITAL_LIBRARY_IMG2.src,
+				width: EFFATHA_DIGITAL_LIBRARY_IMG2.width,
+				height: EFFATHA_DIGITAL_LIBRARY_IMG2.height,
 			},
 			{
-				imageSrc: IMG2.src,
-				width: IMG2.width,
-				height: IMG2.height,
+				imageSrc: EFFATHA_DIGITAL_LIBRARY_IMG3.src,
+				width: EFFATHA_DIGITAL_LIBRARY_IMG3.width,
+				height: EFFATHA_DIGITAL_LIBRARY_IMG3.height,
 			},
 			{
-				imageSrc: IMG2.src,
-				width: IMG2.width,
-				height: IMG2.height,
+				imageSrc: EFFATHA_DIGITAL_LIBRARY_IMG4.src,
+				width: EFFATHA_DIGITAL_LIBRARY_IMG4.width,
+				height: EFFATHA_DIGITAL_LIBRARY_IMG4.height,
+			},
+			{
+				imageSrc: EFFATHA_DIGITAL_LIBRARY_IMG5.src,
+				width: EFFATHA_DIGITAL_LIBRARY_IMG5.width,
+				height: EFFATHA_DIGITAL_LIBRARY_IMG5.height,
+			},
+			{
+				imageSrc: EFFATHA_DIGITAL_LIBRARY_IMG6.src,
+				width: EFFATHA_DIGITAL_LIBRARY_IMG6.width,
+				height: EFFATHA_DIGITAL_LIBRARY_IMG6.height,
 			},
 		],
-		linkHref: 'https://www.google.com',
-		technologies: [],
+		linkHref: 'https://biblioteka.effathagliwice.pl/',
+		technologies: [
+			'React',
+			'SCSS',
+			'TypeScript',
+			'TanStack Query',
+			'react-router',
+			'supabase',
+			'git',
+			'react hooks',
+			'react context',
+			'modules CSS',
+		],
 	},
 	{
 		id: 3,
 		// --- dialog ---
 		images: [
 			{
-				imageSrc: IMG1.src,
-				width: IMG1.width,
-				height: IMG1.height,
+				imageSrc: EFFATHA_WEBSITE_IMG1.src,
+				width: EFFATHA_WEBSITE_IMG1.width,
+				height: EFFATHA_WEBSITE_IMG1.height,
 			},
 			{
-				imageSrc: IMG2.src,
-				width: IMG2.width,
-				height: IMG2.height,
+				imageSrc: EFFATHA_WEBSITE_IMG2.src,
+				width: EFFATHA_WEBSITE_IMG2.width,
+				height: EFFATHA_WEBSITE_IMG2.height,
 			},
 			{
-				imageSrc: IMG2.src,
-				width: IMG2.width,
-				height: IMG2.height,
+				imageSrc: EFFATHA_WEBSITE_IMG3.src,
+				width: EFFATHA_WEBSITE_IMG3.width,
+				height: EFFATHA_WEBSITE_IMG3.height,
 			},
 			{
-				imageSrc: IMG2.src,
-				width: IMG2.width,
-				height: IMG2.height,
+				imageSrc: EFFATHA_WEBSITE_IMG4.src,
+				width: EFFATHA_WEBSITE_IMG4.width,
+				height: EFFATHA_WEBSITE_IMG4.height,
+			},
+			{
+				imageSrc: EFFATHA_WEBSITE_IMG5.src,
+				width: EFFATHA_WEBSITE_IMG5.width,
+				height: EFFATHA_WEBSITE_IMG5.height,
 			},
 		],
-		linkHref: 'https://www.google.com',
-		technologies: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript',],
+		linkHref: 'https://www.effathagliwice.pl/',
+		technologies: [
+			'Next.js',
+			'Tailwind CSS',
+			'SCSS',
+			'TypeScript',
+			'Strapi',
+			'shadcn/ui',
+			'headless cms',
+			'react-hook-form',
+			'zod',
+			'nodemailer',
+			'swiper',
+			'qs',
+			'git',
+			'fullcalendar',
+			'modules CSS',
+		],
 	},
 	{
 		id: 2,
 		// --- dialog ---
 		images: [
 			{
-				imageSrc: IMG1.src,
-				width: IMG1.width,
-				height: IMG1.height,
+				imageSrc: EFFATHA_WEBSITE_OLD_IMG1.src,
+				width: EFFATHA_WEBSITE_OLD_IMG1.width,
+				height: EFFATHA_WEBSITE_OLD_IMG1.height,
 			},
 			{
-				imageSrc: IMG2.src,
-				width: IMG2.width,
-				height: IMG2.height,
+				imageSrc: EFFATHA_WEBSITE_OLD_IMG2.src,
+				width: EFFATHA_WEBSITE_OLD_IMG2.width,
+				height: EFFATHA_WEBSITE_OLD_IMG2.height,
 			},
 			{
-				imageSrc: IMG2.src,
-				width: IMG2.width,
-				height: IMG2.height,
+				imageSrc: EFFATHA_WEBSITE_OLD_IMG3.src,
+				width: EFFATHA_WEBSITE_OLD_IMG3.width,
+				height: EFFATHA_WEBSITE_OLD_IMG3.height,
 			},
 			{
-				imageSrc: IMG2.src,
-				width: IMG2.width,
-				height: IMG2.height,
+				imageSrc: EFFATHA_WEBSITE_OLD_IMG4.src,
+				width: EFFATHA_WEBSITE_OLD_IMG4.width,
+				height: EFFATHA_WEBSITE_OLD_IMG4.height,
 			},
 		],
-		linkHref: 'https://www.google.com',
-		technologies: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript',],
+		linkHref: 'https://matrix669.github.io/Effatha-website/',
+		technologies: ['HTML', 'SCSS', 'JavaScript', 'gulp', 'gulp-kit'],
 	},
 	{
 		id: 1,
 		// --- dialog ---
 		images: [
 			{
-				imageSrc: IMG1.src,
-				width: IMG1.width,
-				height: IMG1.height,
+				imageSrc: QUADRATIC_FUNCTION_CALCULATOR_IMG1.src,
+				width: QUADRATIC_FUNCTION_CALCULATOR_IMG1.width,
+				height: QUADRATIC_FUNCTION_CALCULATOR_IMG1.height,
 			},
 			{
-				imageSrc: IMG2.src,
-				width: IMG2.width,
-				height: IMG2.height,
-			},
-			{
-				imageSrc: IMG2.src,
-				width: IMG2.width,
-				height: IMG2.height,
-			},
-			{
-				imageSrc: IMG2.src,
-				width: IMG2.width,
-				height: IMG2.height,
+				imageSrc: QUADRATIC_FUNCTION_CALCULATOR_IMG2.src,
+				width: QUADRATIC_FUNCTION_CALCULATOR_IMG2.width,
+				height: QUADRATIC_FUNCTION_CALCULATOR_IMG2.height,
 			},
 		],
-		linkHref: 'https://www.google.com',
-		technologies: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
+		linkHref: 'https://quadratic-function-calculator.netlify.app/',
+		technologies: ['React', 'JavaScript', 'routing', 'react-router', 'chartjs'],
 	},
 ]
 

@@ -30,12 +30,25 @@
 				"triggerWorkProject": "Więcej",
 				"closeDialog": "Zamknij",
 				"seeAllProjects": "Zobacz Wszystkie Projekty",
-				"4":{
-					"title": "Projekcik 4",
-					"mainDescription": "This is a website + shop made for the Drachma Foundation",
-					"description": "I did a lot of things here",
+				"5": {
+					"title": "Fundacja Drachma Strona + Sklep",
+					"mainDescription": "",
+					"description": "",
 					"link": {
-						"label": "Visit the website"
+						"label": "Odwiedź stronę"
+					},
+					"images": {
+						"0": {
+							"imageAlt": "Image 1"
+						}
+					}
+				},
+				"4": {
+					"title": "Effathowa Biblioteka Cyfrowa",
+					"mainDescription": "To był mój pierwszy raz, kiedy tworzyłem coś, co od początku do końca przypominało prawdziwą aplikację. Udało mi się ją uruchomić w ciągu jednego wieczoru, bez dopracowanego projektu graficznego ani rozbudowanego planu produktowego - zaczynając od szkicowego prototypu, który kolega napisał na szybko i poprosił mnie o dopracowanie - więc skupiłem się na szybkim działaniu i sprawieniu, by wszystko działało.",
+					"description": "Największym wyzwaniem była logika biznesowa: stany rezerwacji, przejścia między nimi i mnóstwo sytuacji granicznych („jeśli rezerwacja wygląda tak, to co dzieje się dalej?”).\n\n Na początek skorzystałem z TanStack Query w połączeniu z Supabase; było to moje pierwsze poważniejsze zetknięcie się z obydwoma rozwiązaniami, łącznie z zaprojektowaniem prostego schematu bazy danych dla książek i doborem odpowiednich pól.\n\n Uwierzytelnianie też było trudne: dostęp do panelu głównego opiera się na koncie w bazie danych (logowanie za pomocą hasła), podczas gdy niektóre uprawnienia administracyjne są obsługiwane po stronie klienta - coś, co dzisiaj przeprojektowałbym z myślą o bardziej przejrzystym modelu bezpieczeństwa.\n\n W przyszłości planuję przepisać to na Next.js (i być może też jako aplikację mobilną) z dużo lepszym UX, projektem wizualnym i ogólnym planowaniem.",
+					"link": {
+						"label": "Odwiedź aplikację"
 					},
 					"images": {
 						"0": {
@@ -52,12 +65,12 @@
 						}
 					}
 				},
-				"3":{
-					"title": "Projekcik 3",
-					"mainDescription": "This is a website + shop made for the Drachma Foundation",
-					"description": "I did a lot of things here",
+				"3": {
+					"title": "Strona Effathy",
+					"mainDescription": "Oto główna strona internetowa Effatha w odświeżonej, przeprojektowanej odsłonie.",
+					"description": "Ogólnie rzecz biorąc, projekt jest dość prosty: wpisy na blogu i kalendarz wydarzeń działają w oparciu o Strapi. Szczególnie podoba mi się to, jak płynnie kalendarz integruje się z systemem CMS. Wykorzystałem również ukierunkowane zapytania Strapi, aby wyświetlać trzy najnowsze wpisy na stronie głównej, a także zaimplementowałem podstawowe elementy UX, takie jak nawigacja typu breadcrumb i paginacja.",
 					"link": {
-						"label": "Visit the website"
+						"label": "Odwiedź stronę"
 					},
 					"images": {
 						"0": {
@@ -74,12 +87,12 @@
 						}
 					}
 				},
-				"2":{
-					"title": "Projekcik 2",
-					"mainDescription": "This is a website + shop made for the Drachma Foundation",
-					"description": "I did a lot of things here",
+				"2": {
+					"title": "Strona Effathy (stara)",
+					"mainDescription": "To starsza, statyczna wersja strony internetowej dla społeczności Effatha. Był to jeden z moich pierwszych większych projektów front-endowych i nadal jestem zadowolony z ogólnego projektu graficznego, responsywnego układu oraz wydajności. Elementy interaktywne (takie jak suwak i formularz kontaktowy) nie są podłączone - jest to wyłącznie front-end, pierwotnie pomyślany jako szablon motywu WordPressa.",
+					"description": "Ten projekt pomógł mi uporządkować proces pracy i podnieść poziom umiejętności praktycznych: projektowanie responsywne, tworzenie komponentów za pomocą Gulp Kit oraz organizowanie kodu pod kątem przyszłego rozwoju (zmienne SCSS, klasy wielokrotnego użytku i skalowalne podejście do stylizacji).\n\n Z perspektywy czasu poprawiłbym ograniczenia typograficzne dotyczące długich tekstów - zwłaszcza spójną szerokość maksymalną i wysokość wiersza - ponieważ treść miała być później zarządzana w WordPressie.",
 					"link": {
-						"label": "Visit the website"
+						"label": "Odwiedź stronę"
 					},
 					"images": {
 						"0": {
@@ -96,10 +109,10 @@
 						}
 					}
 				},
-				"1":{
-					"title": "Fundacja Drachma",
-					"mainDescription": "To jest strona + sklep zrobiony dla fundacji Drachma",
-					"description": "Tutaj zrobiłem wiele rzeczy",
+				"1": {
+					"title": "Kalkulator funkcji kwadratowej",
+					"mainDescription": "Zainspirowany funkcjami kwadratowymi, których uczyłem się na lekcjach matematyki w technikum, przekształciłem tę koncepcję w praktyczny projekt programistyczny.",
+					"description": "Stworzyłem ten projekt, aby poćwiczyć routing obiektowy w React Routerze, zastosować logikę matematyczną w kodzie oraz doskonalić umiejętności w zakresie walidacji formularzy. Do wizualizacji wykresów funkcji kwadratowych wykorzystałem bibliotekę Chart.js.",
 					"link": {
 						"label": "Odwiedź stronę"
 					},

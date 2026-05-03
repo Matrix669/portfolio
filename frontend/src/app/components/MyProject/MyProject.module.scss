@@ -7,6 +7,7 @@
 		height: rem(150);
 		margin-top: rem(20);
 		&-slide {
+			cursor: pointer;
 			overflow: hidden;
 			img {
 				width: 100%;
@@ -15,6 +16,10 @@
 			}
 		}
 	}
+}
+.myProjectSwiper__thumbs :global(.swiper-slide-thumb-active) img {
+	border: 2px solid var(--foreground);
+	border-radius: rem(20);
 }
 
 .topBorderReveal {

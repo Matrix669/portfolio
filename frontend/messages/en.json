@@ -30,8 +30,8 @@
 				"triggerWorkProject": "Read More",
 				"closeDialog": "Close",
 				"seeAllProjects": "See All Projects",
-				"4":{
-					"title": "Project 4",
+				"5": {
+					"title": "Drachma Foundation Website + Shop",
 					"mainDescription": "This is a website + shop made for the Drachma Foundation",
 					"description": "I did a lot of things here",
 					"link": {
@@ -52,10 +52,63 @@
 						}
 					}
 				},
-				"3":{
-					"title": "Project 3",
-					"mainDescription": "This is a website + shop made for the Drachma Foundation",
-					"description": "I did a lot of things here",
+				"4": {
+					"title": "Effatha Digital Library",
+					"mainDescription": "This was my first time building something that felt like a real application end-to-end. I shipped it in a single evening without a polished design or a big product plan-starting from a rough prototype a colleague had vibe-coded and asked me to improve-so I focused on moving fast and making it work.",
+					"description": "The biggest challenge was the business logic: reservation states, transitions, and lots of edge cases (“if it’s reserved like this, what happens next?”).\n\n I used TanStack Query with Supabase for a quick start; it was my first serious exposure to both, including designing a simple database schema for books and choosing the right fields.\n\n Authentication was tricky too: access to the main panel is backed by database account (password-based login), while some admin-related authorization is handled on the client-something I’d redesign with a clearer security model today.\n\n I’m planning to rebuild this in Next.js (and maybe as a mobile app) with much better UX, visual design, and overall planning.",
+					"link": {
+						"label": "Visit the app"
+					},
+					"images": {
+						"0": {
+							"imageAlt": "Image 1"
+						},
+						"1": {
+							"imageAlt": "Image 2"
+						},
+						"2": {
+							"imageAlt": "Image 3"
+						},
+						"3": {
+							"imageAlt": "Image 4"
+						},
+						"4": {
+							"imageAlt": "Image 5"
+						},
+						"5": {
+							"imageAlt": "Image 6"
+						}
+					}
+				},
+				"3": {
+					"title": "Effatha website",
+					"mainDescription": "This is the main Effatha website with a refreshed, redesigned look.",
+					"description": "The project is fairly straightforward overall: blog posts and the events calendar are powered by Strapi. I’m especially happy with how cleanly the calendar integrates with the CMS. I also used targeted Strapi queries to show the three latest posts on the homepage, and implemented UX basics like breadcrumbs and pagination.",
+					"link": {
+						"label": "Visit the website"
+					},
+					"images": {
+						"0": {
+							"imageAlt": "Image 1"
+						},
+						"1": {
+							"imageAlt": "Image 2"
+						},
+						"2": {
+							"imageAlt": "Image 3"
+						},
+						"3": {
+							"imageAlt": "Image 4"
+						},
+						"4": {
+							"imageAlt": "Image 5"
+						}
+					}
+				},
+				"2": {
+					"title": "Effatha website (old)",
+					"mainDescription": "This is an older static version of a website for the Effatha community. It was one of my first larger front-end projects, and I’m still happy with the overall visual design, responsive layout, and performance. The interactive parts (like the slider and contact form) are not wired up-this is front-end only, originally intended as a WordPress theme template.",
+					"description": "This project helped me organize my workflow and level up practical skills: responsive design, building components with Gulp Kit, and structuring the codebase for future growth (SCSS variables, reusable classes, and a scalable styling approach).\n\n Looking back, I’d improve typography constraints for long-form text-especially consistent max-width and line-height-since the content was meant to be managed in WordPress later.",
 					"link": {
 						"label": "Visit the website"
 					},
@@ -74,32 +127,10 @@
 						}
 					}
 				},
-				"2":{
-					"title": "Project 2",
-					"mainDescription": "This is a website + shop made for the Drachma Foundation",
-					"description": "I did a lot of things here",
-					"link": {
-						"label": "Visit the website"
-					},
-					"images": {
-						"0": {
-							"imageAlt": "Image 1"
-						},
-						"1": {
-							"imageAlt": "Image 2"
-						},
-						"2": {
-							"imageAlt": "Image 3"
-						},
-						"3": {
-							"imageAlt": "Image 4"
-						}
-					}
-				},
-				"1":{
+				"1": {
 					"title": "Quadratic function calculator",
-					"mainDescription": "xyz",
-					"description": "I did a lot of things here",
+					"mainDescription": "Inspired by quadratic functions from my technical school math classes, I turned the concept into a practical coding project.",
+					"description": "I built this project to practice object-based routing with React Router, apply mathematical logic in code, and improve form validation skills. I used Chart.js to visualize quadratic function graphs.",
 					"link": {
 						"label": "Visit the website"
 					},
@@ -109,12 +140,6 @@
 						},
 						"1": {
 							"imageAlt": "Image 2"
-						},
-						"2": {
-							"imageAlt": "Image 3"
-						},
-						"3": {
-							"imageAlt": "Image 4"
 						}
 					}
 				}
