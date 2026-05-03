@@ -86,7 +86,7 @@
 					}
 				},
 				"3": {
-					"title": "Effatha website",
+					"title": "Effatha Website",
 					"mainDescription": "This is the main Effatha website with a refreshed, redesigned look.",
 
 					"description": "The project is fairly straightforward overall: blog posts and the events calendar are powered by Strapi. I’m especially happy with how cleanly the calendar integrates with the CMS. I also used targeted Strapi queries to show the three latest posts on the homepage, and implemented UX basics like breadcrumbs and pagination.",
@@ -112,7 +112,7 @@
 					}
 				},
 				"2": {
-					"title": "Effatha website (old)",
+					"title": "Effatha Website (old)",
 					"mainDescription": "This is an older static version of a website for the Effatha community. It was one of my first larger front-end projects, and I’m still happy with the overall visual design, responsive layout, and performance. The interactive parts (like the slider and contact form) are not wired up-this is front-end only, originally intended as a WordPress theme template.",
 
 					"description": "This project helped me organize my workflow and level up practical skills: responsive design, building components with Gulp Kit, and structuring the codebase for future growth (SCSS variables, reusable classes, and a scalable styling approach).\n\n Looking back, I’d improve typography constraints for long-form text-especially consistent max-width and line-height-since the content was meant to be managed in WordPress later.",
@@ -135,7 +135,7 @@
 					}
 				},
 				"1": {
-					"title": "Quadratic function calculator",
+					"title": "Quadratic Function Calculator",
 					"mainDescription": "Inspired by quadratic functions from my technical school math classes, I turned the concept into a practical coding project.",
 
 					"description": "I built this project to practice object-based routing with React Router, apply mathematical logic in code, and improve form validation skills. I used Chart.js to visualize quadratic function graphs.",

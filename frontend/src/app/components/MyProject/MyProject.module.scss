@@ -4,10 +4,12 @@
 
 .myProjectSwiper {
 	&__thumbs {
-		height: rem(150);
+		height: rem(110);
 		margin-top: rem(20);
+		@media (min-width: rem(576)) {
+			height: rem(150);
+		}
 		&-slide {
-			// cursor: pointer;
 			overflow: hidden;
 			img {
 				width: 100%;

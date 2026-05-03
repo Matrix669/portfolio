@@ -126,7 +126,7 @@
 					}
 				},
 				"1": {
-					"title": "Kalkulator funkcji kwadratowej",
+					"title": "Kalkulator Funkcji Kwadratowej",
 					"mainDescription": "Zainspirowany funkcjami kwadratowymi, których uczyłem się na lekcjach matematyki w technikum, przekształciłem tę koncepcję w praktyczny projekt programistyczny.",
 
 					"description": "Stworzyłem ten projekt, aby poćwiczyć routing obiektowy w React Routerze, zastosować logikę matematyczną w kodzie oraz doskonalić umiejętności w zakresie walidacji formularzy. Do wizualizacji wykresów funkcji kwadratowych wykorzystałem bibliotekę Chart.js.",

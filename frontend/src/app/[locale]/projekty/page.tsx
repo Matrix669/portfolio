@@ -11,9 +11,8 @@ import { MyWorkIcon } from '@/app/icons/MyWorkIcon'
 export default async function ProjektyPage() {
 	const tWork = await getTranslations('mainPage.workSection')
 	return (
-		<MainContent style={{ marginTop: navMarginTop, overflowX: 'hidden' }}>
+		<MainContent style={{ marginTop: 60, overflowX: 'hidden' }}>
 			<SectionContent
-				cssClassName='!pt-0'
 				sectionId='work'
 				subTitle={tWork('subTitle')}
 				icon={<MyWorkIcon />}

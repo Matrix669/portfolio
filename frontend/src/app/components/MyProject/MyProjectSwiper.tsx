@@ -59,7 +59,7 @@ export function MyProjectSwiper({ project: images }: { project: Pick<LocalizedPr
 										<MorphingDialogImage
 											ref={ref}
 											onClick={open}
-											className='rounded-[20px] max-h-[300px] lg:max-h-[450px] w-full object-cover'
+											className='rounded-[20px] max-h-[300px] lg:max-h-[450px] w-full h-full object-cover'
 											src={image.imageSrc}
 											alt={image.imageAlt}
 										/>
@@ -77,7 +77,7 @@ export function MyProjectSwiper({ project: images }: { project: Pick<LocalizedPr
 										<Image
 											ref={ref}
 											onClick={open}
-											className='rounded-[20px] max-h-[300px] lg:max-h-[450px] w-full object-cover'
+											className='rounded-[20px] max-h-[300px] lg:max-h-[450px] w-full h-full object-cover'
 											src={image.imageSrc}
 											alt={image.imageAlt}
 											sizes='100vw'
@@ -114,7 +114,7 @@ export function MyProjectSwiper({ project: images }: { project: Pick<LocalizedPr
 					{images.map(image => (
 						<SwiperSlide key={image.imageAlt} className={stylesMyProject['myProjectSwiper__thumbs-slide']}>
 							<Image
-								className='rounded-[20px] max-h-[300px] w-full object-cover'
+								className='rounded-[20px] max-h-[150px] w-full object-cover'
 								src={image.imageSrc}
 								alt={image.imageAlt}
 								sizes='(max-width: 768px) 50vw, 33vw'
