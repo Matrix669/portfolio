@@ -12,6 +12,7 @@ import { AboutMeIcon } from '@/app/icons/AboutMeIcon'
 import { MyWorkIcon } from '@/app/icons/MyWorkIcon'
 import { ContactMeIcon } from '@/app/icons/ContactMeIcon'
 import { getMyProjects } from '../constants/myProjects'
+import SectionScrollReveal from '../UI/SectionScrollReveal/SectionScrollReveal'
 
 export default async function Home() {
 	const tAbout = await getTranslations('mainPage.aboutSection')
@@ -19,32 +20,39 @@ export default async function Home() {
 	const tContact = await getTranslations('mainPage.contactSection')
 
 	return (
-		<MainContent style={{ marginTop: navMarginTop, overflowX: 'hidden' }}>
+		<MainContent style={{ marginTop: navMarginTop, overflow: 'hidden' }}>
 			<HeroSection />
 			<TechSlider />
-			<SectionContent
-				sectionId='about'
-				subTitle={tAbout('subTitle')}
-				icon={<AboutMeIcon />}
-				title={tAbout('title')}
-				description={tAbout('description')}
-				link={{ href: tAbout('buttonAbout.href'), text: tAbout('buttonAbout.label'), isNewTab: true }}
-			/>
-			<SectionContent
-				sectionId='work'
-				subTitle={tWork('subTitle')}
-				icon={<MyWorkIcon />}
-				workProjects={getMyProjects(tWork)}
-				limitProjects={3}
-			/>
-			<SectionContent
-				sectionId='contact'
-				subTitle={tContact('subTitle')}
-				icon={<ContactMeIcon />}
-				title={tContact('title')}
-				children={<ContactForm />}
-				isContact
-			/>
+			<SectionScrollReveal>
+				<SectionContent
+					sectionId='about'
+					subTitle={tAbout('subTitle')}
+					icon={<AboutMeIcon />}
+					title={tAbout('title')}
+					description={tAbout('description')}
+					link={{ href: tAbout('buttonAbout.href'), text: tAbout('buttonAbout.label'), isNewTab: true }}
+				/>
+			</SectionScrollReveal>
+			<SectionScrollReveal>
+				<SectionContent
+					sectionId='work'
+					subTitle={tWork('subTitle')}
+					icon={<MyWorkIcon />}
+					workProjects={getMyProjects(tWork)}
+					limitProjects={3}
+				/>
+			</SectionScrollReveal>
+
+			<SectionScrollReveal>
+				<SectionContent
+					sectionId='contact'
+					subTitle={tContact('subTitle')}
+					icon={<ContactMeIcon />}
+					title={tContact('title')}
+					children={<ContactForm />}
+					isContact
+				/>
+			</SectionScrollReveal>
 		</MainContent>
 	)
 }

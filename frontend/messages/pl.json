@@ -76,6 +76,12 @@
 						},
 						"3": {
 							"imageAlt": "Image 4"
+						},
+						"4": {
+							"imageAlt": "Image 5"
+						},
+						"5": {
+							"imageAlt": "Image 6"
 						}
 					}
 				},
@@ -99,6 +105,9 @@
 						},
 						"3": {
 							"imageAlt": "Image 4"
+						},
+						"4": {
+							"imageAlt": "Image 5"
 						}
 					}
 				},

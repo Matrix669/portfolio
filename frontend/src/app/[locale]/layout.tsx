@@ -43,7 +43,7 @@ export default async function RootLayout({ children, params }: Props) {
 	}
 	return (
 		<html lang={locale}>
-			<body className={`${cairo.className} antialiased`}>
+			<body className={`${cairo.className} antialiased`} data-scroll-behavior="smooth">
 				<NextIntlClientProvider>
 					<CursorLabelProvider>
 						<Navigation data={NAVIGATION_DATA} />
