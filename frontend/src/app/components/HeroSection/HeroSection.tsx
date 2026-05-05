@@ -5,11 +5,14 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { useCursorLabel } from '@/app/contexts/CursorLabelContext'
 
+import { motion } from 'motion/react'
+
 import Wrapper from '@/app/UI/Wrapper/Wrapper'
 import MainLink from '@/app/UI/MainLink/MainLink'
 import BgGradient from '@/app/UI/BgGradient/BgGradient'
 import { Tilt } from '@/componentsShadcn/ui/tilt'
 import { Magnetic } from '@/componentsShadcn/ui/magnetic'
+import { TextEffect } from '@/componentsShadcn/ui/text-effect'
 
 import RightArrow from '@/app/icons/RightArrow'
 import HERO_IMG from '@/app/assets/HeroSection/me.png'
@@ -25,17 +28,27 @@ export default function HeroSection() {
 		<section className={styles.sectionPadding}>
 			<Wrapper>
 				<div className={styles.heroSectionBox}>
-					<Tilt rotationFactor={12} isRevese className={styles.heroSectionBox__Tilt}>
-						<div
-							className={styles.heroSectionBox__TiltImage}
-							onMouseEnter={() => setLabel(tHeroSection('title'))}
-							onMouseLeave={() => setLabel(null)}
-						>
-							<Image src={HERO_IMG} alt={tHeroSection('imgAlt')} width={128} height={128} quality={100} priority />
-						</div>
-					</Tilt>
+					<motion.div
+						initial={{ opacity: 0, scale: 0 }}
+						animate={{ opacity: 1, scale: 1 }}
+						transition={{ opacity: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.3 }, 
+						scale: {type: 'spring', stiffness: 135, damping: 35, mass: 0.35} 
+					}}
+					>
+						<Tilt rotationFactor={12} isRevese className={styles.heroSectionBox__Tilt}>
+							<div
+								className={styles.heroSectionBox__TiltImage}
+								onMouseEnter={() => setLabel(tHeroSection('title'))}
+								onMouseLeave={() => setLabel(null)}
+							>
+								<Image src={HERO_IMG} alt={tHeroSection('imgAlt')} width={128} height={128} quality={100} priority />
+							</div>
+						</Tilt>
+					</motion.div>
 					{/* <BgGradient className={styles['heroSectionBox-BgGradient']} /> */}
-					<h1>{tHeroSection('description')}</h1>
+					<TextEffect as='h1' per='char' preset='fade' delay={0.3}>
+						{tHeroSection('description')}
+					</TextEffect>
 					<Magnetic>
 						<MainLink href={tHeroSection('buttonWork.href')} isNextJSLink>
 							{tHeroSection('buttonWork.label')} <RightArrow />
