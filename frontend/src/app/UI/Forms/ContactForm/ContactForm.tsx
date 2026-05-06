@@ -165,7 +165,7 @@ export default function ContactForm() {
 					</AnimatedError>
 				</div>
 				<Magnetic>
-					<Toast className={stylesBtnToast.mainLink}>
+					<Toast className={stylesBtnToast.mainLink} disabled={isLoading}>
 						{tContactForm('sendMessage')}
 						<RightArrow />
 						{isLoading && <Spinner />}
