@@ -1,19 +1,74 @@
 import { NextRequest, NextResponse } from 'next/server'
+
+import { z } from 'zod'
+import { Redis } from '@upstash/redis'
+import { Ratelimit } from '@upstash/ratelimit'
 import nodemailer from 'nodemailer'
+
 import { generateEmailTemplateContact } from '@/lib/emailTemplateContact'
 
+const contactSchema = z.object({
+	name: z.string().trim().min(2).max(100),
+	email: z.string().trim().email().max(254),
+	message: z.string().trim().min(10).max(3000),
+	agreement: z.literal(true),
+})
+
+const redis = new Redis({
+	url: process.env.UPSTASH_REDIS_REST_URL!,
+	token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+})
+
+const ratelimit = new Ratelimit({
+	redis,
+	limiter: Ratelimit.slidingWindow(5, '10 m'),
+	analytics: true,
+	prefix: 'ratelimit:contact-form',
+})
 export async function POST(req: NextRequest) {
 	try {
-		const { name, email, message, agreement } = await req.json()
+		const body = await req.json()
 
-		if (!agreement) {
+		// 1) Honeypot przed zod
+		const contact_reference = typeof body?.contact_reference === 'string' ? body.contact_reference.trim() : ''
+
+		if(contact_reference.length > 0) {
+			return NextResponse.json({message: "OK"}, {status: 200})
+		}
+
+		// 2) Rate limit
+		const forwardedFor = req.headers.get('x-forwarded-for')
+		const ip = forwardedFor?.split(',')[0]?.trim() || 'unknown'
+
+		const { success, limit, remaining, reset } = await ratelimit.limit(ip)
+
+		if (!success) {
+			return NextResponse.json(
+				{ errorCode: 'RATE_LIMIT' },
+				{
+					status: 429,
+					headers: {
+						'X-RateLimit-Limit': String(limit),
+						'X-RateLimit-Remaining': String(remaining),
+						'X-RateLimit-Reset': String(reset),
+					},
+				}
+			)
+		}
+
+		// 3) Walidacja danych
+		const parsed = contactSchema.safeParse(body)
+
+		if (!parsed.success) {
 			return NextResponse.json(
 				{
-					error: 'Wymagana zgoda na przetwarzanie danych osobowych',
+					error: 'Nieprawidłowe dane formularza',
 				},
 				{ status: 400 }
 			)
 		}
+
+		const { name, email, message } = parsed.data
 
 		const transporter = nodemailer.createTransport({
 			service: 'gmail',
@@ -26,7 +81,7 @@ export async function POST(req: NextRequest) {
 			},
 		})
 		const htmlContent = generateEmailTemplateContact(name, email, message)
-		
+
 		const mailOptions = {
 			from: process.env.EMAIL_USER,
 			to: process.env.EMAIL_RECIPIENT,
