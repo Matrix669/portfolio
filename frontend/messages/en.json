@@ -174,11 +174,18 @@
 				},
 				"message": {
 					"label": "Message",
-					"required": "Message is required"
+					"required": "Message is required",
+					"minLength": "Message must be at least 10 characters",
+					"maxLength": "Message must be less than 3000 characters"
 				},
 				"agreement": {
 					"label": "I agree to the processing of personal data",
 					"required": "You must agree to the processing of personal data"
+				},
+				"toast": {
+					"success": "Message sent successfully",
+					"error": "Error sending message",
+					"tooManyAttempts": "Too many attempts. Try again in a few minutes."
 				},
 				"sendMessage": "Send Message"
 			}

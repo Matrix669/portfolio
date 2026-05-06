@@ -162,6 +162,11 @@
 	button,
 	select {
 		font: inherit;
+		&:disabled {
+			opacity: 0.5;
+			background-color: #dfdfdfa1 !important;
+			cursor: not-allowed;
+		}
 	}
 
 	a,

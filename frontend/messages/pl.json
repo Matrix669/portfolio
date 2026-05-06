@@ -175,11 +175,18 @@
 				},
 				"message": {
 					"label": "Wiadomość",
-					"required": "Wiadomość jest wymagana"
+					"required": "Wiadomość jest wymagana",
+					"minLength": "Wiadomość musi zawierać conajmniej 10 znaków",
+					"maxLength": "Wiadomość musi zawierać maksymalnie 3000 znaków"
 				},
 				"agreement": {
 					"label": "Wyrażam zgodę na przetwarzanie danych osobowych",
 					"required": "Musisz wyrazić zgodę na przetwarzanie danych osobowych"
+				},
+				"toast": {
+					"success": "Wiadomość została wysłana",
+					"error": "Błąd podczas wysyłania wiadomości",
+					"tooManyAttempts": "Za dużo prób. Spróbuj ponownie za kilka minut."
 				},
 				"sendMessage": "Wyślij Wiadomość"
 			}

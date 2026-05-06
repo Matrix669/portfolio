@@ -29,11 +29,18 @@ export default function HeroSection() {
 			<Wrapper>
 				<div className={styles.heroSectionBox}>
 					<motion.div
-						initial={{ opacity: 0, scale: 0 }}
-						animate={{ opacity: 1, scale: 1 }}
-						transition={{ opacity: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.3 }, 
-						scale: {type: 'spring', stiffness: 135, damping: 35, mass: 0.35} 
-					}}
+						  initial={{ opacity: 0, scale: 0.75 }}
+						  animate={{ opacity: 1, scale: 1 }}
+						  transition={{
+							opacity: { duration: 0.45, ease: 'easeOut', delay: 0.3 },
+							scale: {
+							  type: 'spring',
+							  stiffness: 220,
+							  damping: 14,
+							  mass: 0.7,
+							  delay: 0.3,
+							},
+						  }}
 					>
 						<Tilt rotationFactor={12} isRevese className={styles.heroSectionBox__Tilt}>
 							<div
