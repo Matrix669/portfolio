@@ -4,16 +4,18 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { useTranslations } from 'next-intl'
+import { AnimatePresence, motion } from 'motion/react'
+import { toast } from 'sonner'
 
-// import Toast from '@/app/UI/Toast/Toast'
-// import { toast } from 'sonner'
+import Toast from '@/app/UI/Toast/Toast'
 import RightArrow from '@/app/icons/RightArrow'
 import MainLink from '@/app/UI/MainLink/MainLink'
-import Spinner from '../../Spinner/Spinner'
+// import Spinner from '../../Spinner/Spinner'
 
 import styles from './ContactForm.module.scss'
 import stylesBtnToast from '@/app/UI/MainLink/MainLink.module.scss'
-import { AnimatePresence, motion } from 'motion/react'
+import { Magnetic } from '@/componentsShadcn/ui/magnetic'
+import { Spinner } from '@/componentsShadcn/ui/spinner'
 
 type FormValues = {
 	name: string
@@ -35,49 +37,50 @@ export default function ContactForm() {
 		mode: 'all',
 	})
 	const [isLoading, setIsLoading] = useState<boolean>(false)
-	const emailValue = watch('email', '')
+
 	const tContactForm = useTranslations('mainPage.contactSection.contactForm')
-	// async function onSubmit(data: FormValues) {
-	// 	if (isValid) {
-	// 		setIsLoading(true)
-	// 		try {
-	// 			const res = await fetch('/api/send-msg-form-contact', {
-	// 				method: 'POST',
-	// 				headers: {
-	// 					'Content-Type': 'application/json',
-	// 				},
-	// 				body: JSON.stringify(data),
-	// 			})
-	// 			if (res.ok) {
-	// 				console.log(data)
-	// 				toast.success('Wiadomość została wysłana')
-	// 				reset()
-	// 			} else {
-	// 				toast.error('Błąd podczas wysyłania wiadomości')
-	// 				setError('general', {
-	// 					message: 'Błąd wysyłania wiadomości',
-	// 					type: 'custom',
-	// 				})
-	// 			}
-	// 		} catch (e: unknown) {
-	// 			console.error(`Error: ${e}`)
-	// 			toast.error('Wystąpił błąd podczas wysyłania wiadomości')
-	// 			setError('general', {
-	// 				message: 'Błąd wysyłania wiadomości',
-	// 				type: 'custom',
-	// 			})
-	// 		}finally {
-	// 			setIsLoading(false)
-	// 		}
-	// 	}
-	// }
+
+	async function onSubmit(data: FormValues) {
+		if (isValid) {
+			setIsLoading(true)
+			try {
+				const res = await fetch('/api/send-msg-form-contact', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(data),
+				})
+				if (res.ok) {
+					console.log(data)
+					toast.success('Wiadomość została wysłana')
+					reset()
+				} else {
+					toast.error('Błąd podczas wysyłania wiadomości')
+					setError('general', {
+						message: 'Błąd wysyłania wiadomości',
+						type: 'custom',
+					})
+				}
+			} catch (e: unknown) {
+				console.error(`Error: ${e}`)
+				toast.error('Wystąpił błąd podczas wysyłania wiadomości')
+				setError('general', {
+					message: 'Błąd wysyłania wiadomości',
+					type: 'custom',
+				})
+			} finally {
+				setIsLoading(false)
+			}
+		}
+	}
 	return (
 		<form
-			// onSubmit={handleSubmit(onSubmit)}
-			className={`${styles.form} ${isLoading ? styles.form__loading : ''}`}
+			onSubmit={handleSubmit(onSubmit)}
+			className={styles.form}
 			noValidate
 		>
-			{isLoading && <Spinner />}
+			{/* {isLoading && <Spinner />} */}
 			<div className={styles.formBoxUp}>
 				<div className={styles.formBox}>
 					<label htmlFor='name'>{tContactForm('name.label')}</label>
@@ -85,6 +88,7 @@ export default function ContactForm() {
 						className={errors.name ? styles.inputError : ''}
 						placeholder=''
 						required
+						disabled={isLoading}
 						type='text'
 						id='name'
 						{...register('name', {
@@ -102,6 +106,7 @@ export default function ContactForm() {
 						className={`${errors.email ? styles.inputError : ''}`}
 						placeholder=''
 						required
+						disabled={isLoading}
 						type='email'
 						id='email'
 						{...register('email', {
@@ -121,6 +126,7 @@ export default function ContactForm() {
 				<label htmlFor='msg'>{tContactForm('message.label')}</label>
 				<textarea
 					className={errors.message ? styles.inputError : ''}
+					disabled={isLoading}
 					placeholder=''
 					required
 					id='msg'
@@ -158,12 +164,13 @@ export default function ContactForm() {
 						{errors.agreement?.message}
 					</AnimatedError>
 				</div>
-				{/* <Toast className={stylesBtnToast.mainBtn}> */}
-				<MainLink href='#' isNextJSLink>
-					{tContactForm('sendMessage')}
-					<RightArrow />
-				</MainLink>
-				{/* </Toast> */}
+				<Magnetic>
+					<Toast className={stylesBtnToast.mainLink}>
+						{tContactForm('sendMessage')}
+						<RightArrow />
+						{isLoading && <Spinner />}
+					</Toast>
+				</Magnetic>
 			</div>
 		</form>
 	)

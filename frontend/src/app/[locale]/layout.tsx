@@ -14,6 +14,7 @@ import Cursor from '@/app/UI/Cursor/Cursor'
 import { NAVIGATION_DATA } from '@/app/constants/navigationData'
 
 import '../styles/globals.css'
+import { Toaster } from 'sonner'
 
 const cairo = Cairo({
 	weight: ['400', '500', '600', '700'],
@@ -50,6 +51,7 @@ export default async function RootLayout({ children, params }: Props) {
 						{children}
 						<Footer />
 						{/* <Cursor /> */}
+						<Toaster richColors position='bottom-right' expand={true} />
 					</CursorLabelProvider>
 				</NextIntlClientProvider>
 			</body>
