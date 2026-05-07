@@ -1,20 +1,20 @@
 import type { Metadata } from 'next'
 import { Cairo } from 'next/font/google'
 import { notFound } from 'next/navigation'
+import { Analytics } from '@vercel/analytics/next'
 
 import CursorLabelProvider from '../contexts/CursorLabelContext'
 
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { routing } from '@/i18n/routing'
-
 import Navigation from '@/app/UI/Navigation/Navigation'
 import Footer from '@/app/UI/Footer/Footer'
 import Cursor from '@/app/UI/Cursor/Cursor'
+import { Toaster } from 'sonner'
 
 import { NAVIGATION_DATA } from '@/app/constants/navigationData'
 
 import '../styles/globals.css'
-import { Toaster } from 'sonner'
 
 const cairo = Cairo({
 	weight: ['400', '500', '600', '700'],
@@ -52,6 +52,7 @@ export default async function RootLayout({ children, params }: Props) {
 						<Footer />
 						<Cursor />
 						<Toaster richColors position='bottom-right' expand={true} />
+						<Analytics />
 					</CursorLabelProvider>
 				</NextIntlClientProvider>
 			</body>
