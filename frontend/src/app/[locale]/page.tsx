@@ -7,11 +7,11 @@ import SectionContent from '@/app/UI/SectionContent/SectionContent'
 import ContactForm from '@/app/UI/Forms/ContactForm/ContactForm'
 
 import { navMarginTop } from '@/app/constants/forStyles'
+import { getMyProjects } from '../constants/myProjects'
 
 import { AboutMeIcon } from '@/app/icons/AboutMeIcon'
 import { MyWorkIcon } from '@/app/icons/MyWorkIcon'
 import { ContactMeIcon } from '@/app/icons/ContactMeIcon'
-import { getMyProjects } from '../constants/myProjects'
 import SectionScrollReveal from '../UI/SectionScrollReveal/SectionScrollReveal'
 
 export default async function Home() {

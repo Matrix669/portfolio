@@ -1,43 +1,72 @@
-import Image from 'next/image'
 import { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 import Wrapper from '../UI/Wrapper/Wrapper'
 import MainContent from '../UI/MainContent/MainContent'
 import MainLink from '../UI/MainLink/MainLink'
-import { Breadcrumbs } from '../UI/Breadcrumbs/Breadcrumbs'
+import HeroMe from '../UI/HeroMe/HeroMe'
+import { Magnetic } from '@/componentsShadcn/ui/magnetic'
+import { TextEffect } from '@/componentsShadcn/ui/text-effect'
 
 import { navMarginTop } from '../constants/forStyles'
+import { TextShimmer } from '@/componentsShadcn/ui/text-shimmer'
 
-import img_404 from '../assets/subpages/404/404.png'
+import ME_404 from '../assets/404/me-shock.png'
 import RightArrow from '../icons/RightArrow'
 
 import styles from './404.module.scss'
+import AnimationBox from '../UI/AnimationBox/AnimationBox'
 
 export const metadata: Metadata = {
 	title: 'Nie znaleziono strony - Błąd 404',
 	robots: 'noindex',
 }
 
-export default function NotFound() {
+export default async function NotFound() {
+	const tNotFound = await getTranslations('notFound')
 	return (
 		<>
-			<Breadcrumbs styleCSS={{ marginTop: `${navMarginTop}` }} pageTitle='Błąd 404' />
-			<MainContent CSSClassName={styles.mainNotFound}>
+			<MainContent CSSClassName={styles.mainNotFound} style={{ marginTop: `${navMarginTop}` }}>
 				<Wrapper>
 					<div className={`${styles.sectionPadding} ${styles.notFound__inner}`}>
 						<div className={styles['notFound__inner-boxImg']}>
-							<Image src={img_404} alt='404 - nie znaleziono' />
+							<HeroMe imgSrc={ME_404} imgAlt={tNotFound('heroMe.label')} mouseLabel={tNotFound('heroMe.mouseLabel')} />
 						</div>
 						<div className={styles['notFound__inner-box']}>
-							<h1>Przepraszamy, zgubiliśmy krok. Proszę wróć na naszą ścieżkę!</h1>
-							<p className={styles.text}>
-								Błąd 404. Strona, której szukasz, nie istnieje lub została przeniesiona. Możesz wrócić na stronę główną
-								lub spróbować ponownie.
-							</p>
-							<MainLink href='/'>
-								<RightArrow />
-								Wróć na stronę główną
-							</MainLink>
+							<TextEffect as='h1' per='char' preset='fade' delay={0.3} speedReveal={0.5}>
+								{tNotFound('title')}
+							</TextEffect>
+							<AnimationBox
+								initial={{ opacity: 0, rotateX: 90 }}
+								animate={{ opacity: 1, rotateX: 0 }}
+								transition={{ duration: 0.4, ease: 'easeOut', delay: 0.6 }}
+							>
+								<TextShimmer as='p' className={styles.text} duration={2} spread={1}>
+									{tNotFound('description')}
+								</TextShimmer>
+							</AnimationBox>
+							{/* // ! add gradient! */}
+							<AnimationBox
+								initial={{ opacity: 0, scale: 0 }}
+								animate={{ opacity: 1, scale: 1 }}
+								transition={{
+									opacity: { duration: 0.4, ease: 'easeOut', delay: 0.7 },
+									scale: {
+										type: 'spring',
+										stiffness: 220,
+										damping: 14,
+										mass: 0.7,
+										delay: 0.5,
+									},
+								}}
+							>
+								<Magnetic>
+									<MainLink href='/'>
+										{tNotFound('button')}
+										<RightArrow />
+									</MainLink>
+								</Magnetic>
+							</AnimationBox>
 						</div>
 					</div>
 				</Wrapper>
