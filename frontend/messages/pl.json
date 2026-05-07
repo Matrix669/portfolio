@@ -192,5 +192,13 @@
 			}
 		}
 	},
-	"footer": {}
+	"notFound": {
+		"title": "Nie znaleziono...",
+		"description": "ale spokojnie, UI nadal wygląda dobrze",
+		"button": "Wróć na stronę główną",
+		"heroMe": {
+			"label": "404 - nie znaleziono",
+			"mouseLabel": "Gdzie jesteśmy? 🤔"
+		}
+	}
 }
