@@ -8,7 +8,10 @@
 	"mainPage": {
 		"heroSection": {
 			"title": "Cześć, mam na imię Maks",
-			"description": "Tworzę nowoczesne, responsywne aplikacje internetowe i strony",
+			"description": {
+				"first": "Jestem frontend developerem i naprawdę dbam o detale.",
+				"second": "Tworzę nowoczesne, responsywne aplikacje internetowe i strony."
+			},
 			"imgAlt": "ja, Maks Tkaczyk",
 			"buttonWork": {
 				"label": "Zobacz Moje Projekty",
