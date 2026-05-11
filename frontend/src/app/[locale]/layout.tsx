@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Cairo } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import CursorLabelProvider from '../contexts/CursorLabelContext'
 
@@ -53,6 +54,7 @@ export default async function RootLayout({ children, params }: Props) {
 						<Cursor />
 						<Toaster richColors position='bottom-right' expand={true} />
 						<Analytics />
+						<SpeedInsights />
 					</CursorLabelProvider>
 				</NextIntlClientProvider>
 			</body>
