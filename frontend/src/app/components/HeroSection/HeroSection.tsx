@@ -5,8 +5,8 @@ import MainLink from '@/app/UI/MainLink/MainLink'
 import BgGradient from '@/app/UI/BgGradient/BgGradient'
 import HeroMe from '@/app/UI/HeroMe/HeroMe'
 import AnimationBox from '@/app/UI/AnimationBox/AnimationBox'
+import HeroText from '@/app/UI/HeroText/HeroText'
 import { Magnetic } from '@/componentsShadcn/ui/magnetic'
-import { TextEffect } from '@/componentsShadcn/ui/text-effect'
 
 import RightArrow from '@/app/icons/RightArrow'
 import HERO_IMG from '@/app/assets/HeroSection/me.png'
@@ -21,10 +21,7 @@ export default async function HeroSection() {
 			<Wrapper>
 				<div className={styles.heroSectionBox}>
 					<HeroMe imgSrc={HERO_IMG} imgAlt={tHeroSection('imgAlt')} mouseLabel={tHeroSection('title')} />
-					{/* <BgGradient className={styles['heroSectionBox-BgGradient']} /> */}
-					<TextEffect as='h1' per='char' preset='fade' delay={0.3}>
-						{tHeroSection('description')}
-					</TextEffect>
+					<HeroText />
 					<AnimationBox
 						initial={{ opacity: 0, scale: 0 }}
 						animate={{ opacity: 1, scale: 1 }}

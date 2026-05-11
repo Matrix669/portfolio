@@ -12,10 +12,6 @@
 	& h1 {
 		max-width: rem(490);
 		text-align: center;
-		transition: letter-spacing 0.3s;
-		&:hover {
-			letter-spacing: 1px;
-		}
 	}
 	&-BgGradient {
 		top: 160px;

@@ -8,7 +8,10 @@
 	"mainPage": {
 		"heroSection": {
 			"title": "Hi, I'm Max Tkaczyk",
-			"description": "Building modern, responsive web applications and websites",
+			"description": {
+				"first": "I'm a frontend developer and I really care about the details.",
+				"second": "Building modern, responsive web applications and websites."
+			},
 			"imgAlt": "me, Max Tkaczyk",
 			"buttonWork": {
 				"label": "See My Work",
