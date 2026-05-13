@@ -1,4 +1,10 @@
 {
+	"layoutMetadata": {
+		"title": "Portfolio Maksymilian Tkaczyk",
+		"description": "Moje portfolio w którym znajdziesz moje projekty oraz informacje o mnie",
+		"keywords": "portfolio, projekty, informacje o mnie, it, web development, frontend, backend, fullstack, developer, programista, kodowanie, tworzenie stron, tworzenie aplikacji, tworzenie software",
+		"ogDescription": "Moje portfolio w którym znajdziesz moje projekty oraz informacje o mnie"
+	},
 	"navigation": {
 		"home": "Strona główna",
 		"about": "O mnie",
@@ -29,6 +35,11 @@
 		},
 		"workSection": {
 			"subTitle": "Moje projekty",
+			"metadata": {
+				"title": "Projekty",
+				"description": "Moje projekty w których znajdziesz moje umiejętności oraz doświadczenie",
+				"keywords": "projekty, web development, react, next.js, aplikacje webowe, strony internetowe"
+			},
 			"projects": {
 				"triggerWorkProject": "Więcej",
 				"closeDialog": "Zamknij",
