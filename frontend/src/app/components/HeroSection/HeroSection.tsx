@@ -9,7 +9,7 @@ import HeroText from '@/app/UI/HeroText/HeroText'
 import { Magnetic } from '@/componentsShadcn/ui/magnetic'
 
 import RightArrow from '@/app/icons/RightArrow'
-import HERO_IMG from '@/app/assets/HeroSection/me.png'
+import HERO_IMG from '@/app/assets/HeroSection/me-figma-new-better6.png'
 
 import styles from './HeroSection.module.scss'
 
