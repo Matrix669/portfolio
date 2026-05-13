@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { Cairo } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
@@ -22,11 +23,54 @@ const cairo = Cairo({
 	fallback: ['sans-serif'],
 })
 
-export const metadata: Metadata = {
-	title: 'Portfolio Maksymilian Tkaczyk',
-	description: 'Moje portfolio w którym znajdziesz moje projekty oraz informacje o mnie',
-	keywords:
-		'portfolio, projekty, informacje o mnie, it, web development, frontend, backend, fullstack, developer, programista, kodowanie, tworzenie stron, tworzenie aplikacji, tworzenie software',
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+	const { locale } = await params
+	const tLayoutMetadata = await getTranslations('layoutMetadata')
+	return {
+		title: {
+			default: tLayoutMetadata('title'),
+			template: '%s | ' + tLayoutMetadata('title'),
+		},
+		description: tLayoutMetadata('description'),
+		keywords: tLayoutMetadata('keywords'),
+
+		icons: {
+			icon: [
+				{ url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+				{ url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+			],
+			shortcut: '/favicon.ico',
+			apple: '/apple-touch-icon.png',
+		},
+
+		// --- Web App Manifest ---
+		manifest: '/site.webmanifest',
+
+		// --- Open Graph ---
+		openGraph: {
+			title: tLayoutMetadata('title'),
+			description: tLayoutMetadata('ogDescription'),
+			url: 'https://maxtkaczyk.pl',
+			siteName: tLayoutMetadata('title'),
+			images: [{ url: '/og-image.png', width: 1200, height: 630, alt: tLayoutMetadata('title') }],
+			locale: locale === 'pl' ? 'pl_PL' : 'en_US',
+			type: 'website',
+		},
+
+		// --- Twitter ---
+		twitter: {
+			card: 'summary_large_image',
+			title: tLayoutMetadata('title'),
+			description: tLayoutMetadata('ogDescription'),
+			images: [{ url: '/og-image.png', width: 1200, height: 630, alt: tLayoutMetadata('title') }],
+		},
+
+		// --- Other ---
+		metadataBase: new URL('https://maxtkaczyk.pl'),
+		authors: [{ name: 'Maksymilian Tkaczyk' }],
+		creator: 'Maksymilian Tkaczyk',
+		robots: 'index, follow',
+	}
 }
 
 export function generateStaticParams() {
@@ -44,7 +88,7 @@ export default async function RootLayout({ children, params }: Props) {
 	}
 	return (
 		<html lang={locale}>
-			<body className={`${cairo.className} antialiased`} data-scroll-behavior="smooth">
+			<body className={`${cairo.className} antialiased`} data-scroll-behavior='smooth'>
 				<NextIntlClientProvider>
 					<CursorLabelProvider>
 						<Navigation data={NAVIGATION_DATA} />
