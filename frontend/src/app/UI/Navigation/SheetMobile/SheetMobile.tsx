@@ -13,7 +13,7 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/componentsShadcn/ui/sheet'
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
+import { VisuallyHidden } from 'radix-ui'
 
 import BurgerBtn from '../../BurgerBtn/BurgerBtn'
 
@@ -32,12 +32,12 @@ export function SheetMobile({ linkiNawigacja }: NavLinksProps) {
 			<SheetTrigger render={props => <BurgerBtn {...props} />}></SheetTrigger>
 			<SheetContent className='p-6 z-999'>
 				<SheetHeader>
-					<VisuallyHidden>
+					<VisuallyHidden.Root>
 						<SheetTitle>Nav mobile</SheetTitle>
-					</VisuallyHidden>
-					<VisuallyHidden>
+					</VisuallyHidden.Root>
+					<VisuallyHidden.Root>
 						<SheetDescription>Nav mobile links</SheetDescription>
-					</VisuallyHidden>
+					</VisuallyHidden.Root>
 				</SheetHeader>
 				<ul className={styles.navMobile}>
 					{linkiNawigacja.map(link => {
