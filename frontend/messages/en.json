@@ -1,4 +1,10 @@
 {
+	"layoutMetadata": {
+		"title": "Portfolio Maksymilian Tkaczyk",
+		"description": "My portfolio in which you can find my projects and information about me",
+		"keywords": "portfolio, projects, information about me, it, web development, frontend, backend, fullstack, developer, programmer, coding, creating websites, creating web applications, creating software",
+		"ogDescription": "My portfolio in which you can find my projects and information about me"
+	},
 	"navigation": {
 		"home": "Home",
 		"about": "About",
@@ -29,6 +35,11 @@
 		},
 		"workSection": {
 			"subTitle": "My projects",
+			"metadata": {
+				"title": "Projects",
+				"description": "My projects in which you can find my skills and experience",
+				"keywords": "projects, web development, react, next.js, web applications, websites"
+			},
 			"projects": {
 				"triggerWorkProject": "Read More",
 				"closeDialog": "Close",
