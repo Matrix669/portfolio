@@ -1,23 +1,26 @@
+'use client'
+
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useTranslations } from 'next-intl'
 
-import { AnimatePresence, motion } from 'motion/react'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 
 import NavLanguages from '../NavLanguages/NavLanguages'
 import BurgerBtn from '../../BurgerBtn/BurgerBtn'
 import { Link } from '@/i18n/navigation'
 
 import type { NavLinksProps } from '@/utils/types'
+import { contentVariants, createPaintVariants, createReducedPaintVariants, itemVariants } from './variants'
 
 import styles from '@/app/UI/Navigation/Navigation.module.scss'
 import paintStyles from '@/app/UI/Navigation/NavMobilePaint/NavMobilePaint.module.scss'
-import { contentVariants, createPaintVariants, itemVariants } from './variants'
 
 export default function NavMobilePaint({ linkiNawigacja }: NavLinksProps) {
 	const [open, setOpen] = useState(false)
 	const [origin, setOrigin] = useState<{ x: number; y: number; maxRadius: number } | null>(null)
 	const burgerBtnRef = useRef<HTMLButtonElement>(null)
+	const closeBtnRef = useRef<HTMLButtonElement>(null)
 
 	const navTranslations = useTranslations('navigation')
 
@@ -30,6 +33,25 @@ export default function NavMobilePaint({ linkiNawigacja }: NavLinksProps) {
 			document.body.style.overflow = previous
 		}
 	}, [open])
+
+	const closeMenu = () => {
+		setOpen(false)
+		requestAnimationFrame(() => burgerBtnRef.current?.focus())
+	}
+
+	useEffect(() => {
+		if (!open) return
+		closeBtnRef.current?.focus()
+
+		const onKeyDown = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') closeMenu()
+		}
+		document.addEventListener('keydown', onKeyDown)
+		return () => {
+			document.removeEventListener('keydown', onKeyDown)
+		}
+	}, [open, closeMenu])
+
 	const openMenu = () => {
 		const rect = burgerBtnRef.current!.getBoundingClientRect()
 		const x = rect.left + rect.width / 2
@@ -43,11 +65,16 @@ export default function NavMobilePaint({ linkiNawigacja }: NavLinksProps) {
 		})
 		setOpen(true)
 	}
-	const closeMenu = () => {
-		setOpen(false)
-	}
 
-	const paintVariants = useMemo(() => (origin ? createPaintVariants(origin) : undefined), [origin])
+	const shouldReduceMotion = useReducedMotion()
+	const paintVariants = useMemo(() => {
+		if (!origin) return undefined
+		return shouldReduceMotion ? createReducedPaintVariants() : createPaintVariants(origin)
+	}, [origin, shouldReduceMotion])
+	const activeContentVariants = shouldReduceMotion
+		? { closed: { opacity: 0 }, open: { opacity: 1, transition: { duration: 0.2 } } }
+		: contentVariants
+	const activeItemVariants = shouldReduceMotion ? { closed: { opacity: 0 }, open: { opacity: 1 } } : itemVariants
 
 	return (
 		<>
@@ -55,19 +82,23 @@ export default function NavMobilePaint({ linkiNawigacja }: NavLinksProps) {
 				className={open ? paintStyles.burgerInHeaderHidden : undefined}
 				ref={burgerBtnRef}
 				onClick={() => (open ? closeMenu() : openMenu())}
+				tabIndex={open ? -1 : 0}
 				aria-expanded={open}
+				aria-controls='nav-mobile-paint'
 			/>
 			{typeof document !== 'undefined' &&
 				createPortal(
 					<AnimatePresence>
 						{open && origin && (
 							<motion.div
+								id='nav-mobile-paint'
 								key='nav-mobile-paint'
 								className={paintStyles.overlay}
 								initial='closed'
 								animate='open'
 								exit='closed'
 								role='dialog'
+								aria-modal='true'
 							>
 								<motion.div
 									className={paintStyles.paint}
@@ -81,19 +112,20 @@ export default function NavMobilePaint({ linkiNawigacja }: NavLinksProps) {
 									initial='closed'
 									animate='open'
 									exit='closed'
-									variants={contentVariants}
+									variants={activeContentVariants}
 								>
 									<motion.ul className={styles.navMobile}>
-										<motion.li variants={itemVariants}>
+										<motion.li variants={activeItemVariants}>
 											<BurgerBtn
 												className={paintStyles.burgerBtnClose}
+												ref={closeBtnRef}
 												onClick={closeMenu}
 												aria-label={navTranslations('mobileMenu.close')}
 											/>
 										</motion.li>
 										{linkiNawigacja.map(link => {
 											return (
-												<motion.li key={link.id} variants={itemVariants}>
+												<motion.li key={link.id} variants={activeItemVariants}>
 													{link.href.startsWith('#') || link.href.startsWith('/#') ? (
 														<Link
 															href={{ pathname: '/', hash: link.href.replace(/^\/?#/, '') }}
@@ -115,7 +147,7 @@ export default function NavMobilePaint({ linkiNawigacja }: NavLinksProps) {
 											)
 										})}
 									</motion.ul>
-									<motion.div variants={itemVariants}>
+									<motion.div variants={activeItemVariants}>
 										<NavLanguages className={styles.navLanguages__mobile} />
 									</motion.div>
 								</motion.div>

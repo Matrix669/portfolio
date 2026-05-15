@@ -37,3 +37,10 @@ export function createPaintVariants({ x, y, maxRadius }: PaintOrigin): Variants 
 		},
 	}
 }
+
+export function createReducedPaintVariants(): Variants {
+    return {
+      closed: { opacity: 0 },
+      open: { opacity: 1, transition: { duration: 0.2 } },
+    }
+  }
