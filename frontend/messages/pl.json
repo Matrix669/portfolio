@@ -202,7 +202,8 @@
 					"error": "Błąd podczas wysyłania wiadomości",
 					"tooManyAttempts": "Za dużo prób. Spróbuj ponownie za kilka minut."
 				},
-				"sendMessage": "Wyślij Wiadomość"
+				"sendMessage": "Wyślij Wiadomość",
+				"sendingMessage": "Wysyłanie..."
 			}
 		}
 	},
