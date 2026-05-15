@@ -61,7 +61,7 @@ export default function ContactForm() {
 				payload?.errorCode === 'RATE_LIMIT'
 					? tContactForm('toast.tooManyAttempts')
 					: payload?.errorCode === 'INVALID_FORM'
-					? tContactForm('toast.error') 
+					? tContactForm('toast.error')
 					: res.status === 429
 					? tContactForm('toast.tooManyAttempts')
 					: tContactForm('toast.error')
@@ -88,7 +88,6 @@ export default function ContactForm() {
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit, onInvalid)} className={styles.form} noValidate>
-			{/* {isLoading && <Spinner />} */}
 			<div className={styles.formBoxUp}>
 				<input
 					type='text'
@@ -186,9 +185,88 @@ export default function ContactForm() {
 				</div>
 				<Magnetic>
 					<Toast className={stylesBtnToast.mainLink} disabled={isLoading} type='submit'>
-						{tContactForm('sendMessage')}
-						<RightArrow />
-						{isLoading && <Spinner />}
+						<AnimatePresence mode='wait' initial={false}>
+							{isLoading ? (
+								<motion.span
+									key='textLoading'
+									initial={{ opacity: 0, x: -50 }}
+									animate={{ opacity: 1, x: 0 }}
+									exit={{ opacity: 0, x: 50 }}
+									transition={{
+										opacity: { duration: 0.4, ease: 'easeOut', delay: 0.1 },
+										x: {
+											type: 'spring',
+											stiffness: 160,
+											damping: 12,
+											mass: 0.3,
+											delay: 0.3,
+										},
+									}}
+								>
+									{tContactForm('sendingMessage')}
+								</motion.span>
+							) : (
+								<motion.span
+									key='text'
+									initial={{ opacity: 0, x: -50 }}
+									animate={{ opacity: 1, x: 0 }}
+									exit={{ opacity: 0, x: 50 }}
+									transition={{
+										opacity: { duration: 0.4, ease: 'easeOut', delay: 0.1 },
+										x: {
+											type: 'spring',
+											stiffness: 160,
+											damping: 12,
+											mass: 0.3,
+											delay: 0.2,
+										},
+									}}
+								>
+									{tContactForm('sendMessage')}
+								</motion.span>
+							)}
+						</AnimatePresence>
+						<AnimatePresence mode='wait' initial={false}>
+							{isLoading ? (
+								<motion.span
+									key='spinner'
+									initial={{ opacity: 0, scale: 0 }}
+									animate={{ opacity: 1, scale: 1 }}
+									exit={{ opacity: 0, scale: 0 }}
+									transition={{
+										opacity: { duration: 0.4, ease: 'easeOut', delay: 0.1 },
+										scale: {
+											type: 'spring',
+											stiffness: 220,
+											damping: 14,
+											mass: 0.7,
+											// delay: 0.5,
+										},
+									}}
+								>
+									<Spinner />
+								</motion.span>
+							) : (
+								<motion.span
+									key='arrow'
+									initial={{ opacity: 0, scale: 0 }}
+									animate={{ opacity: 1, scale: 1 }}
+									exit={{ opacity: 0, scale: 0 }}
+									transition={{
+										opacity: { duration: 0.4, ease: 'easeOut', delay: 0.1 },
+										scale: {
+											type: 'spring',
+											stiffness: 220,
+											damping: 14,
+											mass: 0.7,
+											// delay: 0.5,
+										},
+									}}
+								>
+									<RightArrow />
+								</motion.span>
+							)}
+						</AnimatePresence>
 					</Toast>
 				</Magnetic>
 			</div>
