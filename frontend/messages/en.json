@@ -54,19 +54,34 @@
 					},
 					"images": {
 						"0": {
-							"imageAlt": "Image 1"
+							"imageAlt": "Drachma Foundation website homepage."
 						},
 						"1": {
-							"imageAlt": "Image 2"
+							"imageAlt": "Support page showing how you can support the foundation."
 						},
 						"2": {
-							"imageAlt": "Image 3"
+							"imageAlt": "Support form with fields: email, amount."
 						},
 						"3": {
-							"imageAlt": "Image 4"
+							"imageAlt": "Support form with fields: choice of initiative, choice of payment method. At the bottom summary of selected options."
 						},
 						"4": {
-							"imageAlt": "Image 5"
+							"imageAlt": "Form for managing subscriptions."
+						},
+						"5": {
+							"imageAlt": "Main view of the shop with a small hero section and a list of products."
+						},
+						"6": {
+							"imageAlt": "View of a specific product."
+						},
+						"7": {
+							"imageAlt": "View of the cart with a product."
+						},
+						"8": {
+							"imageAlt": "View of an empty cart."
+						},
+						"9": {
+							"imageAlt": "View of the checkout with 3 sections: payment method, delivery and customer data."
 						}
 					}
 				},
@@ -80,22 +95,22 @@
 					},
 					"images": {
 						"0": {
-							"imageAlt": "Image 1"
+							"imageAlt": "Main view of the application with a list of books."
 						},
 						"1": {
-							"imageAlt": "Image 2"
+							"imageAlt": "Modal for borrowing a specific book."
 						},
 						"2": {
-							"imageAlt": "Image 3"
+							"imageAlt": "Modal for reserving a specific book."
 						},
 						"3": {
-							"imageAlt": "Image 4"
+							"imageAlt": "Login form for the admin panel."
 						},
 						"4": {
-							"imageAlt": "Image 5"
+							"imageAlt": "View of the book list from the admin panel."
 						},
 						"5": {
-							"imageAlt": "Image 6"
+							"imageAlt": "List of all books from the admin panel and modal for adding a new book."
 						}
 					}
 				},
@@ -109,19 +124,19 @@
 					},
 					"images": {
 						"0": {
-							"imageAlt": "Image 1"
+							"imageAlt": "New Effatha website homepage."
 						},
 						"1": {
-							"imageAlt": "Image 2"
+							"imageAlt": "News page."
 						},
 						"2": {
-							"imageAlt": "Image 3"
+							"imageAlt": "Events calendar - shows events like community meetings."
 						},
 						"3": {
-							"imageAlt": "Image 4"
+							"imageAlt": "Contact form with fields: name, email, message, and agreement checkbox."
 						},
 						"4": {
-							"imageAlt": "Image 5"
+							"imageAlt": "Support page with information like bank details."
 						}
 					}
 				},
@@ -135,16 +150,16 @@
 					},
 					"images": {
 						"0": {
-							"imageAlt": "Image 1"
+							"imageAlt": "Old Effatha website homepage."
 						},
 						"1": {
-							"imageAlt": "Image 2"
+							"imageAlt": "Events page."
 						},
 						"2": {
-							"imageAlt": "Image 3"
+							"imageAlt": "Support page with information like bank details."
 						},
 						"3": {
-							"imageAlt": "Image 4"
+							"imageAlt": "Contact form with fields: name, email, message, and agreement checkbox."
 						}
 					}
 				},
@@ -158,10 +173,10 @@
 					},
 					"images": {
 						"0": {
-							"imageAlt": "Image 1"
+							"imageAlt": "Main menu with selection of 3 quadratic function forms: general, factored, and vertex."
 						},
 						"1": {
-							"imageAlt": "Image 2"
+							"imageAlt": "Quadratic function graph with data."
 						}
 					}
 				}
