@@ -17,7 +17,7 @@ export default async function HeroSection() {
 	const tHeroSection = await getTranslations('mainPage.heroSection')
 
 	return (
-		<section className={styles.sectionPadding}>
+		<section id='home' className={styles.sectionPadding}>
 			<Wrapper>
 				<div className={styles.heroSectionBox}>
 					<HeroMe imgSrc={HERO_IMG} imgAlt={tHeroSection('imgAlt')} mouseLabel={tHeroSection('title')} />
