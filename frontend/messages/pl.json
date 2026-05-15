@@ -9,7 +9,10 @@
 		"home": "Strona główna",
 		"about": "O mnie",
 		"work": "Projekty",
-		"contact": "Kontakt"
+		"contact": "Kontakt",
+		"mobileMenu": {
+			"close": "Zamknij nawigację"
+		}
 	},
 	"mainPage": {
 		"heroSection": {
@@ -54,19 +57,34 @@
 					},
 					"images": {
 						"0": {
-							"imageAlt": "Image 1"
+							"imageAlt": "Strona główna Fundacji Drachma."
 						},
 						"1": {
-							"imageAlt": "Image 2"
+							"imageAlt": "Strona wsparcia pokazująca jak możesz wesprzeć fundację."
 						},
 						"2": {
-							"imageAlt": "Image 3"
+							"imageAlt": "Formularz wsparcia z polami:e-mail, kwota."
 						},
 						"3": {
-							"imageAlt": "Image 4"
+							"imageAlt": "Formularz wsparcia z polami: wybór inicjatywy, którą chcesz wesprzeć, wybór metody płatności. Na samym dole podsumowanie wybranych opcji."
 						},
 						"4": {
-							"imageAlt": "Image 5"
+							"imageAlt": "Formularz do zarządzania subskrypcją."
+						},
+						"5": {
+							"imageAlt": "Główny widok sklepu z małą sekcją hero a pod nią lista produktów."
+						},
+						"6": {
+							"imageAlt": "Poszczególny widok dane produktu."
+						},
+						"7": {
+							"imageAlt": "Widok koszyka, w którym jest produkt."
+						},
+						"8": {
+							"imageAlt": "Widok pustego koszyka."
+						},
+						"9": {
+							"imageAlt": "Widok finalizacji zakupu z 3 sekcjami: metoda płatności, dostawa i dane klienta"
 						}
 					}
 				},
@@ -80,22 +98,22 @@
 					},
 					"images": {
 						"0": {
-							"imageAlt": "Image 1"
+							"imageAlt": "Główny widok aplikacji z listą książek."
 						},
 						"1": {
-							"imageAlt": "Image 2"
+							"imageAlt": "Modal do wypożyczania danej książki."
 						},
 						"2": {
-							"imageAlt": "Image 3"
+							"imageAlt": "Modal do rezerwacji danej książki."
 						},
 						"3": {
-							"imageAlt": "Image 4"
+							"imageAlt": "Formularz logowania do panelu administracyjnego."
 						},
 						"4": {
-							"imageAlt": "Image 5"
+							"imageAlt": "Widok listy książek z poziomu panelu administracyjnego."
 						},
 						"5": {
-							"imageAlt": "Image 6"
+							"imageAlt": "Lista wszystkich książek z poziomu panelu administracyjnego i modal z dodawania nowej książki."
 						}
 					}
 				},
@@ -109,19 +127,19 @@
 					},
 					"images": {
 						"0": {
-							"imageAlt": "Image 1"
+							"imageAlt": "Strona główna nowej strony Effathy."
 						},
 						"1": {
-							"imageAlt": "Image 2"
+							"imageAlt": "Strona aktualności."
 						},
 						"2": {
-							"imageAlt": "Image 3"
+							"imageAlt": "Kalendarz wydarzeń - pokazują się takie wydarzenia jak spotkania wspólnoty."
 						},
 						"3": {
-							"imageAlt": "Image 4"
+							"imageAlt": "Formularz kontaktowy z polami: imię, e-mail, wiadomość i checkbox zgody na przetwarzanie danych."
 						},
 						"4": {
-							"imageAlt": "Image 5"
+							"imageAlt": "Strona wsparcia z informacjami takimi jak dane do przelewu."
 						}
 					}
 				},
@@ -135,16 +153,16 @@
 					},
 					"images": {
 						"0": {
-							"imageAlt": "Image 1"
+							"imageAlt": "Strona główna starej strony Effathy."
 						},
 						"1": {
-							"imageAlt": "Image 2"
+							"imageAlt": "Strona wydarzeń."
 						},
 						"2": {
-							"imageAlt": "Image 3"
+							"imageAlt": "Strona wsparcia z informacjami takimi jak dane do przelewu."
 						},
 						"3": {
-							"imageAlt": "Image 4"
+							"imageAlt": "Formularz kontaktowy z polami: imię, e-mail, wiadomość i checkbox zgody na przetwarzanie danych."
 						}
 					}
 				},
@@ -158,16 +176,10 @@
 					},
 					"images": {
 						"0": {
-							"imageAlt": "Image 1"
+							"imageAlt": "Główne menu z wyborem 3 postacji funkcji: ogólnej, iloczynowej i kanonicznej."
 						},
 						"1": {
-							"imageAlt": "Image 2"
-						},
-						"2": {
-							"imageAlt": "Image 3"
-						},
-						"3": {
-							"imageAlt": "Image 4"
+							"imageAlt": "Wykres funkcji kwadratowej z danymi."
 						}
 					}
 				}

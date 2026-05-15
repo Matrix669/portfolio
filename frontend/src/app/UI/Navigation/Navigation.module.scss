@@ -2,16 +2,12 @@
 @use '../../styles/functions' as *;
 @use '../../styles/components' as *;
 
-[data-state='closed'] .ui-sheet-overlay {
-	display: none;
-}
 .nav {
 	position: fixed;
 	top: 40px;
 	right: 0;
 	left: 0;
 	transition: box-shadow 0.3s;
-	// background-color: $nav-bg;
 	z-index: 100;
 	&__inner {
 		display: flex;
@@ -65,20 +61,20 @@
 	}
 	&Mobile {
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		justify-content: center;
 		flex-direction: column;
 		gap: rem(18);
 		& li a {
-			color: $secondary-color;
+			color: $primary-color;
 			padding: rem(18);
 			text-decoration: none;
 			&:hover {
-				color: $additional-color;
+				color: rgba(35, 37, 38, 0.5);
 			}
 		}
 		& li button:hover a {
-			color: $additional-color;
+			color: rgba(35, 37, 38, 0.5);
 		}
 	}
 	&Languages {
@@ -87,8 +83,8 @@
 		justify-content: center;
 		gap: rem(10);
 		& .active {
-			color: $primary-color;
-			background-color: $secondary-color;
+			color: $secondary-color;
+			background-color: $primary-color;
 			font-weight: 600;
 		}
 		&__desktop {
@@ -96,9 +92,10 @@
 		}
 		&__mobile {
 			display: flex;
+			margin-top: rem(15);
 			& li a {
 				position: relative;
-				color: $secondary-color;
+				color: $primary-color;
 				font-size: rem(15);
 				padding: rem(15) rem(10);
 				height: rem(33);
@@ -110,13 +107,13 @@
 					position: absolute;
 					top: 5px;
 					right: -10px;
-					color: $secondary-color;
+					color: $primary-color;
 					z-index: 5;
 					pointer-events: none;
 				}
 				&:hover {
-					color: $primary-color;
-					background-color: $secondary-color;
+					color: $secondary-color;
+					background-color: $primary-color;
 				}
 			}
 			& li:last-child a {
@@ -143,7 +140,7 @@
 	transition: all 0.3s ease;
 }
 
-@media (min-width: rem(640)) {
+@media (min-width: rem(768)) {
 	.nav {
 		&Desktop {
 			display: flex;
@@ -160,6 +157,10 @@
 				justify-content: center;
 				gap: rem(10);
 				margin-left: rem(25);
+				& .active {
+					color: $primary-color;
+					background-color: $secondary-color;
+				}
 				// & li a {
 				// 	color: $secondary-color;
 				// 	font-size: rem(15);
