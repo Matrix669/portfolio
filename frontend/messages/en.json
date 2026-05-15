@@ -9,7 +9,10 @@
 		"home": "Home",
 		"about": "About",
 		"work": "Work",
-		"contact": "Contact"
+		"contact": "Contact",
+		"mobileMenu": {
+			"close": "Close navigation"
+		}	
 	},
 	"mainPage": {
 		"heroSection": {

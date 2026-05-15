@@ -19,7 +19,7 @@ import styles from '../Navigation.module.scss'
 export function NavigationMenuDesktop({ linkiNawigacja }: NavLinksProps) {
 	const navTranslations = useTranslations('navigation')
 	return (
-		<NavigationMenu className='hidden sm:flex ml-auto'>
+		<NavigationMenu className='hidden md:flex ml-auto'>
 			<NavigationMenuList className={`gap-3 ${styles.navDesktop}`}>
 				{linkiNawigacja.map(link => {
 					return (
