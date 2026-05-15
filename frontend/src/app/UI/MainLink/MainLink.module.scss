@@ -36,6 +36,17 @@
 			transform: translate(40%, -60%);
 		}
 	}
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+	&:disabled:hover {
+		background-color: $secondary-color;
+		color: $primary-color;
+		& svg {
+			transform: none;
+		}
+	}
 }
 
 @media (min-width: rem(768)) {
