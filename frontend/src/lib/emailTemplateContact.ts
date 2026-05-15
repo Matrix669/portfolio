@@ -111,7 +111,7 @@ export function generateEmailTemplateContact(name: string, email: string, messag
             <tr>
               <td style="padding:14px 24px; border-top:1px solid rgba(223,223,223,0.3); text-align:center; background:rgba(223,223,223,0.05);">
                 <p style="margin:0; font-size:12px; color:rgba(223,223,223,0.9);">
-                  Wysłano z <span style="font-weight:700;">${host}/kontakt</span> &copy; ${currentYear}
+                  Wysłano z <span style="font-weight:700;">${host}/pl#contact</span> &copy; ${currentYear}
                 </p>
               </td>
             </tr>
