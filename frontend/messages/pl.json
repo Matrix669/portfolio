@@ -9,7 +9,10 @@
 		"home": "Strona główna",
 		"about": "O mnie",
 		"work": "Projekty",
-		"contact": "Kontakt"
+		"contact": "Kontakt",
+		"mobileMenu": {
+			"close": "Zamknij nawigację"
+		}
 	},
 	"mainPage": {
 		"heroSection": {

@@ -11,12 +11,12 @@ const dots = [
 	{ id: 4, rest: { x: OFFSET, y: OFFSET } },
 ]
 
-const BurgerBtn = forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>((props, ref) => {
+const BurgerBtn = forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement> & { className?: string }>((props, ref) => {
 	const controls = useAnimationControls()
 	return (
 		<button
 			{...props}
-			className={styles.burgerBtn}
+			className={`${styles.burgerBtn} ${props.className ?? ''}`}
 			aria-label='navigation button'
 			ref={ref}
 			onMouseEnter={e => {
@@ -60,7 +60,7 @@ const BurgerBtn = forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLB
 						style={{
 							position: 'absolute',
 							borderRadius: '50%',
-							backgroundColor: 'white',
+							backgroundColor: '#DFDFDF',
 						}}
 					/>
 				))}

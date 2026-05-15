@@ -4,15 +4,15 @@ import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 import Wrapper from '../Wrapper/Wrapper'
-import { SheetMobile } from './SheetMobile/SheetMobile'
-import { NavigationMenuDesktop } from './NavDesktop/NavDesktop'
 import Logo from '../Logo/Logo'
 import SocialsIcons from '@/app/UI/Socials/Socials'
+import NavLanguages from './NavLanguages/NavLanguages'
+import NavMobilePaint from './NavMobilePaint/NavMobilePaint'
+import { NavigationMenuDesktop } from './NavDesktop/NavDesktop'
 
 import { SOCIALS_DATA } from '@/app/constants/socialsData'
 
 import styles from './Navigation.module.scss'
-import NavLanguages from './NavLanguages/NavLanguages'
 
 interface NavigationProps {
 	data: {
@@ -49,7 +49,7 @@ export default function Navigation({ data }: NavigationProps) {
 					<Logo />
 					<SocialsIcons socialsIconsArr={SOCIALS_DATA} />
 
-					<SheetMobile linkiNawigacja={data.linkiNawigacja} />
+					<NavMobilePaint linkiNawigacja={data.linkiNawigacja} />
 					<NavigationMenuDesktop linkiNawigacja={data.linkiNawigacja} />
 					<NavLanguages className={styles.navLanguages__desktop} />
 				</nav>

@@ -3,6 +3,9 @@
 .logo {
 	margin-right: rem(20);
 	@media (min-width: rem(768)) {
+		margin-right: rem(10);
+	}
+	@media (min-width: rem(992)) {
 		margin-right: rem(20);
 	}
 	& img {
