@@ -57,16 +57,16 @@
           },
           "images": {
             "0": {
-              "imageAlt": "Drachma Foundation website homepage."
+              "imageAlt": "Homepage with selection of 3 quadratic function forms: general, canonical, and factored."
             },
             "1": {
-              "imageAlt": "Support page showing how you can support the foundation."
+              "imageAlt": "Data input form for the general function form with fields for coefficients a, b, c, and a tip about the sign of coefficient a."
             },
             "2": {
-              "imageAlt": "Support form with fields: email, amount."
+              "imageAlt": "View of the function analysis results (delta, vertex, function forms) next to the graph with the vertex and roots marked."
             },
             "3": {
-              "imageAlt": "Support form with fields: choice of initiative, choice of payment method. At the bottom summary of selected options."
+              "imageAlt": "Quadratic function graph with a tooltip showing the vertex coordinates."
             }
           }
         },

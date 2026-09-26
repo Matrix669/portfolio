@@ -57,16 +57,16 @@
           },
           "images": {
             "0": {
-              "imageAlt": "Strona główna Fundacji Drachma."
+              "imageAlt": "Strona główna z wyborem 3 postaci funkcji kwadratowej: ogólnej, kanonicznej i iloczynowej."
             },
             "1": {
-              "imageAlt": "Strona wsparcia pokazująca jak możesz wesprzeć fundację."
+              "imageAlt": "Formularz wprowadzania danych dla postaci ogólnej funkcji z polami na współczynniki a, b, c oraz poradą dotyczącą znaku współczynnika a."
             },
             "2": {
-              "imageAlt": "Formularz wsparcia z polami:e-mail, kwota."
+              "imageAlt": "Widok wyników analizy funkcji (delta, wierzchołek, postacie funkcji) obok wykresu z zaznaczonym wierzchołkiem i miejscami zerowymi."
             },
             "3": {
-              "imageAlt": "Formularz wsparcia z polami: wybór inicjatywy, którą chcesz wesprzeć, wybór metody płatności. Na samym dole podsumowanie wybranych opcji."
+              "imageAlt": "Wykres funkcji kwadratowej z tooltipem pokazującym współrzędne wierzchołka."
             }
           }
         },
