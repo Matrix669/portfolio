@@ -1,236 +1,259 @@
 {
-	"layoutMetadata": {
-		"title": "Portfolio Maksymilian Tkaczyk",
-		"description": "My portfolio in which you can find my projects and information about me",
-		"keywords": "portfolio, projects, information about me, it, web development, frontend, backend, fullstack, developer, programmer, coding, creating websites, creating web applications, creating software",
-		"ogDescription": "My portfolio in which you can find my projects and information about me"
-	},
-	"navigation": {
-		"home": "Home",
-		"about": "About",
-		"work": "Work",
-		"contact": "Contact",
-		"mobileMenu": {
-			"close": "Close navigation"
-		}	
-	},
-	"mainPage": {
-		"heroSection": {
-			"title": "Hi, I'm Max Tkaczyk",
-			"description": {
-				"first": "I'm a frontend developer and I really care about the details.",
-				"second": "Building modern, responsive web applications and websites."
-			},
-			"imgAlt": "me, Max Tkaczyk",
-			"buttonWork": {
-				"label": "See My Work",
-				"href": "#work"
-			}
-		},
-		"aboutSection": {
-			"subTitle": "About me",
-			"title": "Name's Maks",
-			"description": "I'm a frontend developer focused on creating modern, polished, and user-friendly web applications. I specialize in building digital experiences that combine beautiful design with excellent functionality.\n\nMy projects are the best reflection of who I am as a developer. That's why I always aim for the highest quality - paying close attention to performance, thoughtful design details, and meaningful extra features that make the product truly stand out. I believe that well-crafted code and interfaces can not only solve problems but also bring real value and joy to users.\n\nOutside of coding, I study theology in Warsaw and am actively involved in the evangelistic Dance Theater Szofar. I'm also part of the Christian community Effatha in Gliwice. These passions shape my approach to work - teaching me discipline, creativity, and the importance of building things with purpose and care.",
-			"buttonAbout": {
-				"label": "See My CV",
-				"href": "/CV_Maksymilian_Tkaczyk en.pdf"
-			}
-		},
-		"workSection": {
-			"subTitle": "My projects",
-			"metadata": {
-				"title": "Projects",
-				"description": "My projects in which you can find my skills and experience",
-				"keywords": "projects, web development, react, next.js, web applications, websites"
-			},
-			"projects": {
-				"triggerWorkProject": "Read More",
-				"closeDialog": "Close",
-				"seeAllProjects": "See All Projects",
-				"5": {
-					"title": "Drachma Foundation Website + Shop",
-					"mainDescription": "This is the largest and most demanding project I’ve shipped so far: a full website and online store for the Drachma Foundation, with almost every piece of content driven by Strapi-including navigation, links, on-page copy, and SEO metadata.",
+  "layoutMetadata": {
+    "title": "Portfolio Maksymilian Tkaczyk",
+    "description": "My portfolio in which you can find my projects and information about me",
+    "keywords": "portfolio, projects, information about me, it, web development, frontend, backend, fullstack, developer, programmer, coding, creating websites, creating web applications, creating software",
+    "ogDescription": "My portfolio in which you can find my projects and information about me"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "work": "Work",
+    "contact": "Contact",
+    "mobileMenu": {
+      "close": "Close navigation"
+    }
+  },
+  "mainPage": {
+    "heroSection": {
+      "title": "Hi, I'm Max Tkaczyk",
+      "description": {
+        "first": "I'm a frontend developer and I really care about the details.",
+        "second": "Building modern, responsive web applications and websites."
+      },
+      "imgAlt": "me, Max Tkaczyk",
+      "buttonWork": {
+        "label": "See My Work",
+        "href": "#work"
+      }
+    },
+    "aboutSection": {
+      "subTitle": "About me",
+      "title": "Name's Maks",
+      "description": "I'm a frontend developer focused on creating modern, polished, and user-friendly web applications. I specialize in building digital experiences that combine beautiful design with excellent functionality.\n\nMy projects are the best reflection of who I am as a developer. That's why I always aim for the highest quality - paying close attention to performance, thoughtful design details, and meaningful extra features that make the product truly stand out. I believe that well-crafted code and interfaces can not only solve problems but also bring real value and joy to users.\n\nOutside of coding, I study theology in Warsaw and am actively involved in the evangelistic Dance Theater Szofar. I'm also part of the Christian community Effatha in Gliwice. These passions shape my approach to work - teaching me discipline, creativity, and the importance of building things with purpose and care.",
+      "buttonAbout": {
+        "label": "See My CV",
+        "href": "/CV_Maksymilian_Tkaczyk en.pdf"
+      }
+    },
+    "workSection": {
+      "subTitle": "My projects",
+      "metadata": {
+        "title": "Projects",
+        "description": "My projects in which you can find my skills and experience",
+        "keywords": "projects, web development, react, next.js, web applications, websites"
+      },
+      "projects": {
+        "triggerWorkProject": "Read More",
+        "closeDialog": "Close",
+        "seeAllProjects": "See All Projects",
+        "6": {
+          "title": "Quadratic Function Calculator (Angular)",
+          "mainDescription": "I wanted to get a real feel for working with Angular, so I rewrote my earlier React-based Quadratic Function Calculator in Angular - and improved it along the way.",
 
-					"description": "It was also my first serious Strapi build, so I had to learn the CMS end-to-end: content modeling, how to fetch and wire data into the UI, and how to keep the site maintainable for my client. For SEO, it was also my first time implementing dynamic metadata generation in Next.js, successfully driven by Strapi so titles, descriptions, and related fields stay in sync with CMS content.\n\n For the fundraising flow, I integrated a support form with Stripe, handling webhooks/events for payment lifecycle, safe testing without charging real cards, and transactional emails with clear status updates plus a subscription management link. I implemented both one-time and recurring payments, then added a self-service subscription portal where users request access by email via a magic link, with anti-abuse limits (three attempts with a one-minute spacing, then a 15-minute lockout after the limit).\n\n On the e-commerce side (also a first for me), I built products, filtering, a cart, and checkout. Filters are handled on the client for a small catalog to keep the product list updating instantly. Cart updates continuously validate stock against Strapi inventory so users can’t exceed availability. Checkout combines Stripe Embedded Checkout (to avoid poor UX from redirect-only flows) with Polish payment methods (including BLIK), shipping pricing pulled from carrier APIs, and InPost integration to browse/select a parcel locker-while sending the right customer and delivery data to carriers and Stripe. The product page “See other products” section excludes the current item and respects stock (including hiding items at zero quantity).\n\n Finally, I handled deployment on the existing domain, configured hosting for both frontend and backend, and wrote client-facing documentation explaining how the CMS and the live site work day to day.",
-					"link": {
-						"label": "Visit the website"
-					},
-					"images": {
-						"0": {
-							"imageAlt": "Drachma Foundation website homepage."
-						},
-						"1": {
-							"imageAlt": "Support page showing how you can support the foundation."
-						},
-						"2": {
-							"imageAlt": "Support form with fields: email, amount."
-						},
-						"3": {
-							"imageAlt": "Support form with fields: choice of initiative, choice of payment method. At the bottom summary of selected options."
-						},
-						"4": {
-							"imageAlt": "Form for managing subscriptions."
-						},
-						"5": {
-							"imageAlt": "Main view of the shop with a small hero section and a list of products."
-						},
-						"6": {
-							"imageAlt": "View of a specific product."
-						},
-						"7": {
-							"imageAlt": "View of the cart with a product."
-						},
-						"8": {
-							"imageAlt": "View of an empty cart."
-						},
-						"9": {
-							"imageAlt": "View of the checkout with 3 sections: payment method, delivery and customer data."
-						}
-					}
-				},
-				"4": {
-					"title": "Effatha Digital Library",
-					"mainDescription": "This was my first time building something that felt like a real application end-to-end. I shipped it in a single evening without a polished design or a big product plan-starting from a rough prototype a colleague had vibe-coded and asked me to improve-so I focused on moving fast and making it work.",
+          "description": "The goal was a purely practical exercise in Angular using a project I already knew well, so I could compare both approaches fairly without also having to learn new business logic at the same time. I rewrote the whole app - component structure, form validation, and the math logic for all three forms of a quadratic function (general, factored, and vertex) - built entirely with standalone components and the Signals API (signal, input, output, computed) instead of classic NgModules, also using the new template control flow syntax.\n\n Along the way I made a few improvements over the original: I swapped Chart.js for ngx-echarts, adding separately marked points for the vertex and the function's roots along with a clear tooltip, improved the overall presentation of the data, and added a custom logo for the app.",
+          "link": {
+            "label": "Visit the website"
+          },
+          "images": {
+            "0": {
+              "imageAlt": "Homepage with selection of 3 quadratic function forms: general, canonical, and factored."
+            },
+            "1": {
+              "imageAlt": "Data input form for the general function form with fields for coefficients a, b, c, and a tip about the sign of coefficient a."
+            },
+            "2": {
+              "imageAlt": "View of the function analysis results (delta, vertex, function forms) next to the graph with the vertex and roots marked."
+            },
+            "3": {
+              "imageAlt": "Quadratic function graph with a tooltip showing the vertex coordinates."
+            }
+          }
+        },
+        "5": {
+          "title": "Drachma Foundation Website + Shop",
+          "mainDescription": "This is the largest and most demanding project I’ve shipped so far: a full website and online store for the Drachma Foundation, with almost every piece of content driven by Strapi-including navigation, links, on-page copy, and SEO metadata.",
 
-					"description": "The biggest challenge was the business logic: reservation states, transitions, and lots of edge cases (“if it’s reserved like this, what happens next?”).\n\n I used TanStack Query with Supabase for a quick start; it was my first serious exposure to both, including designing a simple database schema for books and choosing the right fields.\n\n Authentication was tricky too: access to the main panel is backed by database account (password-based login), while some admin-related authorization is handled on the client-something I’d redesign with a clearer security model today.\n\n I’m planning to rebuild this in Next.js (and maybe as a mobile app) with much better UX, visual design, and overall planning.",
-					"link": {
-						"label": "Visit the app"
-					},
-					"images": {
-						"0": {
-							"imageAlt": "Main view of the application with a list of books."
-						},
-						"1": {
-							"imageAlt": "Modal for borrowing a specific book."
-						},
-						"2": {
-							"imageAlt": "Modal for reserving a specific book."
-						},
-						"3": {
-							"imageAlt": "Login form for the admin panel."
-						},
-						"4": {
-							"imageAlt": "View of the book list from the admin panel."
-						},
-						"5": {
-							"imageAlt": "List of all books from the admin panel and modal for adding a new book."
-						}
-					}
-				},
-				"3": {
-					"title": "Effatha Website",
-					"mainDescription": "This is the main Effatha website with a refreshed, redesigned look.",
+          "description": "It was also my first serious Strapi build, so I had to learn the CMS end-to-end: content modeling, how to fetch and wire data into the UI, and how to keep the site maintainable for my client. For SEO, it was also my first time implementing dynamic metadata generation in Next.js, successfully driven by Strapi so titles, descriptions, and related fields stay in sync with CMS content.\n\n For the fundraising flow, I integrated a support form with Stripe, handling webhooks/events for payment lifecycle, safe testing without charging real cards, and transactional emails with clear status updates plus a subscription management link. I implemented both one-time and recurring payments, then added a self-service subscription portal where users request access by email via a magic link, with anti-abuse limits (three attempts with a one-minute spacing, then a 15-minute lockout after the limit).\n\n On the e-commerce side (also a first for me), I built products, filtering, a cart, and checkout. Filters are handled on the client for a small catalog to keep the product list updating instantly. Cart updates continuously validate stock against Strapi inventory so users can’t exceed availability. Checkout combines Stripe Embedded Checkout (to avoid poor UX from redirect-only flows) with Polish payment methods (including BLIK), shipping pricing pulled from carrier APIs, and InPost integration to browse/select a parcel locker-while sending the right customer and delivery data to carriers and Stripe. The product page “See other products” section excludes the current item and respects stock (including hiding items at zero quantity).\n\n Finally, I handled deployment on the existing domain, configured hosting for both frontend and backend, and wrote client-facing documentation explaining how the CMS and the live site work day to day.",
+          "link": {
+            "label": "Visit the website"
+          },
+          "images": {
+            "0": {
+              "imageAlt": "Drachma Foundation website homepage."
+            },
+            "1": {
+              "imageAlt": "Support page showing how you can support the foundation."
+            },
+            "2": {
+              "imageAlt": "Support form with fields: email, amount."
+            },
+            "3": {
+              "imageAlt": "Support form with fields: choice of initiative, choice of payment method. At the bottom summary of selected options."
+            },
+            "4": {
+              "imageAlt": "Form for managing subscriptions."
+            },
+            "5": {
+              "imageAlt": "Main view of the shop with a small hero section and a list of products."
+            },
+            "6": {
+              "imageAlt": "View of a specific product."
+            },
+            "7": {
+              "imageAlt": "View of the cart with a product."
+            },
+            "8": {
+              "imageAlt": "View of an empty cart."
+            },
+            "9": {
+              "imageAlt": "View of the checkout with 3 sections: payment method, delivery and customer data."
+            }
+          }
+        },
+        "4": {
+          "title": "Effatha Digital Library",
+          "mainDescription": "This was my first time building something that felt like a real application end-to-end. I shipped it in a single evening without a polished design or a big product plan-starting from a rough prototype a colleague had vibe-coded and asked me to improve-so I focused on moving fast and making it work.",
 
-					"description": "The project is fairly straightforward overall: blog posts and the events calendar are powered by Strapi. I’m especially happy with how cleanly the calendar integrates with the CMS. I also used targeted Strapi queries to show the three latest posts on the homepage, and implemented UX basics like breadcrumbs and pagination.",
-					"link": {
-						"label": "Visit the website"
-					},
-					"images": {
-						"0": {
-							"imageAlt": "New Effatha website homepage."
-						},
-						"1": {
-							"imageAlt": "News page."
-						},
-						"2": {
-							"imageAlt": "Events calendar - shows events like community meetings."
-						},
-						"3": {
-							"imageAlt": "Contact form with fields: name, email, message, and agreement checkbox."
-						},
-						"4": {
-							"imageAlt": "Support page with information like bank details."
-						}
-					}
-				},
-				"2": {
-					"title": "Effatha Website (old)",
-					"mainDescription": "This is an older static version of a website for the Effatha community. It was one of my first larger front-end projects, and I’m still happy with the overall visual design, responsive layout, and performance. The interactive parts (like the slider and contact form) are not wired up-this is front-end only, originally intended as a WordPress theme template.",
+          "description": "The biggest challenge was the business logic: reservation states, transitions, and lots of edge cases (“if it’s reserved like this, what happens next?”).\n\n I used TanStack Query with Supabase for a quick start; it was my first serious exposure to both, including designing a simple database schema for books and choosing the right fields.\n\n Authentication was tricky too: access to the main panel is backed by database account (password-based login), while some admin-related authorization is handled on the client-something I’d redesign with a clearer security model today.\n\n I’m planning to rebuild this in Next.js (and maybe as a mobile app) with much better UX, visual design, and overall planning.",
+          "link": {
+            "label": "Visit the app"
+          },
+          "images": {
+            "0": {
+              "imageAlt": "Main view of the application with a list of books."
+            },
+            "1": {
+              "imageAlt": "Modal for borrowing a specific book."
+            },
+            "2": {
+              "imageAlt": "Modal for reserving a specific book."
+            },
+            "3": {
+              "imageAlt": "Login form for the admin panel."
+            },
+            "4": {
+              "imageAlt": "View of the book list from the admin panel."
+            },
+            "5": {
+              "imageAlt": "List of all books from the admin panel and modal for adding a new book."
+            }
+          }
+        },
+        "3": {
+          "title": "Effatha Website",
+          "mainDescription": "This is the main Effatha website with a refreshed, redesigned look.",
 
-					"description": "This project helped me organize my workflow and level up practical skills: responsive design, building components with Gulp Kit, and structuring the codebase for future growth (SCSS variables, reusable classes, and a scalable styling approach).\n\n Looking back, I’d improve typography constraints for long-form text-especially consistent max-width and line-height-since the content was meant to be managed in WordPress later.",
-					"link": {
-						"label": "Visit the website"
-					},
-					"images": {
-						"0": {
-							"imageAlt": "Old Effatha website homepage."
-						},
-						"1": {
-							"imageAlt": "Events page."
-						},
-						"2": {
-							"imageAlt": "Support page with information like bank details."
-						},
-						"3": {
-							"imageAlt": "Contact form with fields: name, email, message, and agreement checkbox."
-						}
-					}
-				},
-				"1": {
-					"title": "Quadratic Function Calculator",
-					"mainDescription": "Inspired by quadratic functions from my technical school math classes, I turned the concept into a practical coding project.",
+          "description": "The project is fairly straightforward overall: blog posts and the events calendar are powered by Strapi. I’m especially happy with how cleanly the calendar integrates with the CMS. I also used targeted Strapi queries to show the three latest posts on the homepage, and implemented UX basics like breadcrumbs and pagination.",
+          "link": {
+            "label": "Visit the website"
+          },
+          "images": {
+            "0": {
+              "imageAlt": "New Effatha website homepage."
+            },
+            "1": {
+              "imageAlt": "News page."
+            },
+            "2": {
+              "imageAlt": "Events calendar - shows events like community meetings."
+            },
+            "3": {
+              "imageAlt": "Contact form with fields: name, email, message, and agreement checkbox."
+            },
+            "4": {
+              "imageAlt": "Support page with information like bank details."
+            }
+          }
+        },
+        "2": {
+          "title": "Effatha Website (old)",
+          "mainDescription": "This is an older static version of a website for the Effatha community. It was one of my first larger front-end projects, and I’m still happy with the overall visual design, responsive layout, and performance. The interactive parts (like the slider and contact form) are not wired up-this is front-end only, originally intended as a WordPress theme template.",
 
-					"description": "I built this project to practice object-based routing with React Router, apply mathematical logic in code, and improve form validation skills. I used Chart.js to visualize quadratic function graphs.",
-					"link": {
-						"label": "Visit the website"
-					},
-					"images": {
-						"0": {
-							"imageAlt": "Main menu with selection of 3 quadratic function forms: general, factored, and vertex."
-						},
-						"1": {
-							"imageAlt": "Quadratic function graph with data."
-						}
-					}
-				}
-			}
-		},
-		"contactSection": {
-			"title": "Get in Touch",
-			"subTitle": "Contact me",
-			"contactForm": {
-				"name": {
-					"label": "Name",
-					"required": "Name is required",
-					"minLength": "Name must be at least 3 characters"
-				},
-				"email": {
-					"label": "Email Address",
-					"required": "Email is required",
-					"invalid": "Invalid email address",
-					"message": {
-						"label": "Message",
-						"required": "Message is required"
-					},
-					"agreement": "I agree to the processing of personal data"
-				},
-				"message": {
-					"label": "Message",
-					"required": "Message is required",
-					"minLength": "Message must be at least 10 characters",
-					"maxLength": "Message must be less than 3000 characters"
-				},
-				"agreement": {
-					"label": "I agree to the processing of personal data",
-					"required": "You must agree to the processing of personal data"
-				},
-				"toast": {
-					"success": "Message sent successfully",
-					"error": "Error sending message",
-					"tooManyAttempts": "Too many attempts. Try again in a few minutes."
-				},
-				"sendMessage": "Send Message",
-				"sendingMessage": "Sending..."
-			}
-		}
-	},
-	"notFound": {
-		"title": "Not Found...",
-		"description": "but don't worry, the UI still looks good",
-		"button": "Go back to the homepage",
-		"heroMe": {
-			"label": "404 - not found",
-			"mouseLabel": "Where are we? 🤔"
-		}
-	}
+          "description": "This project helped me organize my workflow and level up practical skills: responsive design, building components with Gulp Kit, and structuring the codebase for future growth (SCSS variables, reusable classes, and a scalable styling approach).\n\n Looking back, I’d improve typography constraints for long-form text-especially consistent max-width and line-height-since the content was meant to be managed in WordPress later.",
+          "link": {
+            "label": "Visit the website"
+          },
+          "images": {
+            "0": {
+              "imageAlt": "Old Effatha website homepage."
+            },
+            "1": {
+              "imageAlt": "Events page."
+            },
+            "2": {
+              "imageAlt": "Support page with information like bank details."
+            },
+            "3": {
+              "imageAlt": "Contact form with fields: name, email, message, and agreement checkbox."
+            }
+          }
+        },
+        "1": {
+          "title": "Quadratic Function Calculator",
+          "mainDescription": "Inspired by quadratic functions from my technical school math classes, I turned the concept into a practical coding project.",
+
+          "description": "I built this project to practice object-based routing with React Router, apply mathematical logic in code, and improve form validation skills. I used Chart.js to visualize quadratic function graphs.",
+          "link": {
+            "label": "Visit the website"
+          },
+          "images": {
+            "0": {
+              "imageAlt": "Main menu with selection of 3 quadratic function forms: general, factored, and vertex."
+            },
+            "1": {
+              "imageAlt": "Quadratic function graph with data."
+            }
+          }
+        }
+      }
+    },
+    "contactSection": {
+      "title": "Get in Touch",
+      "subTitle": "Contact me",
+      "contactForm": {
+        "name": {
+          "label": "Name",
+          "required": "Name is required",
+          "minLength": "Name must be at least 3 characters"
+        },
+        "email": {
+          "label": "Email Address",
+          "required": "Email is required",
+          "invalid": "Invalid email address",
+          "message": {
+            "label": "Message",
+            "required": "Message is required"
+          },
+          "agreement": "I agree to the processing of personal data"
+        },
+        "message": {
+          "label": "Message",
+          "required": "Message is required",
+          "minLength": "Message must be at least 10 characters",
+          "maxLength": "Message must be less than 3000 characters"
+        },
+        "agreement": {
+          "label": "I agree to the processing of personal data",
+          "required": "You must agree to the processing of personal data"
+        },
+        "toast": {
+          "success": "Message sent successfully",
+          "error": "Error sending message",
+          "tooManyAttempts": "Too many attempts. Try again in a few minutes."
+        },
+        "sendMessage": "Send Message",
+        "sendingMessage": "Sending..."
+      }
+    }
+  },
+  "notFound": {
+    "title": "Not Found...",
+    "description": "but don't worry, the UI still looks good",
+    "button": "Go back to the homepage",
+    "heroMe": {
+      "label": "404 - not found",
+      "mouseLabel": "Where are we? 🤔"
+    }
+  }
 }

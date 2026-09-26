@@ -1,231 +1,254 @@
 {
-	"layoutMetadata": {
-		"title": "Portfolio Maksymilian Tkaczyk",
-		"description": "Moje portfolio w którym znajdziesz moje projekty oraz informacje o mnie",
-		"keywords": "portfolio, projekty, informacje o mnie, it, web development, frontend, backend, fullstack, developer, programista, kodowanie, tworzenie stron, tworzenie aplikacji, tworzenie software",
-		"ogDescription": "Moje portfolio w którym znajdziesz moje projekty oraz informacje o mnie"
-	},
-	"navigation": {
-		"home": "Strona główna",
-		"about": "O mnie",
-		"work": "Projekty",
-		"contact": "Kontakt",
-		"mobileMenu": {
-			"close": "Zamknij nawigację"
-		}
-	},
-	"mainPage": {
-		"heroSection": {
-			"title": "Cześć, mam na imię Maks",
-			"description": {
-				"first": "Jestem frontend developerem i naprawdę dbam o detale.",
-				"second": "Tworzę nowoczesne, responsywne aplikacje internetowe i strony."
-			},
-			"imgAlt": "ja, Maks Tkaczyk",
-			"buttonWork": {
-				"label": "Zobacz Moje Projekty",
-				"href": "#work"
-			}
-		},
-		"aboutSection": {
-			"subTitle": "O mnie",
-			"title": "Mam na imię Maks",
-			"description": "Jestem frontend developerem, którego pasją jest tworzenie nowoczesnych, dopracowanych i przyjaznych dla użytkownika aplikacji webowych. Specjalizuję się w budowaniu cyfrowych doświadczeń, które łączą piękny design z doskonałą funkcjonalnością.\n\nMoje projekty to najlepsze odzwierciedlenie tego, kim jestem jako programista. Dlatego zawsze dążę do najwyższej jakości - zwracając szczególną uwagę na wydajność i przemyślane detale projektowe, które sprawiają, że produkt naprawdę się wyróżnia. Wierzę, że dobrze zaprojektowany kod i interfejsy mogą nie tylko rozwiązywać problemy, ale także przynosić rzeczywistą wartość i przyjemność użytkownikom.\n\nPoza programowaniem, studiuję teologię w Warszawie i aktywnie uczestniczę w ewangelizacyjnym Teatrze Tanecznym Szofar. Jestem również członkiem społeczności chrześcijańskiej Effatha w Gliwicach. Te pasje wpływają na moją pracę - uczą mnie dyscypliny, kreatywności i znaczenia budowania rzeczy z przeznaczeniem i dbałością.",
-			"buttonAbout": {
-				"label": "Zobacz moje CV",
-				"href": "/CV_Maksymilian_Tkaczyk.pdf"
-			}
-		},
-		"workSection": {
-			"subTitle": "Moje projekty",
-			"metadata": {
-				"title": "Projekty",
-				"description": "Moje projekty w których znajdziesz moje umiejętności oraz doświadczenie",
-				"keywords": "projekty, web development, react, next.js, aplikacje webowe, strony internetowe"
-			},
-			"projects": {
-				"triggerWorkProject": "Więcej",
-				"closeDialog": "Zamknij",
-				"seeAllProjects": "Zobacz Wszystkie Projekty",
-				"5": {
-					"title": "Fundacja Drachma Strona + Sklep",
-					"mainDescription": "To największy i najbardziej wymagający projekt, jaki dotychczas zrealizowałem: kompletna strona internetowa i sklep internetowy dla Fundacji Drachma, w których niemal wszystkie elementy treści są oparte na platformie Strapi – w tym nawigacja, linki, teksty na stronach oraz metadane SEO",
+  "layoutMetadata": {
+    "title": "Portfolio Maksymilian Tkaczyk",
+    "description": "Moje portfolio w którym znajdziesz moje projekty oraz informacje o mnie",
+    "keywords": "portfolio, projekty, informacje o mnie, it, web development, frontend, backend, fullstack, developer, programista, kodowanie, tworzenie stron, tworzenie aplikacji, tworzenie software",
+    "ogDescription": "Moje portfolio w którym znajdziesz moje projekty oraz informacje o mnie"
+  },
+  "navigation": {
+    "home": "Strona główna",
+    "about": "O mnie",
+    "work": "Projekty",
+    "contact": "Kontakt",
+    "mobileMenu": {
+      "close": "Zamknij nawigację"
+    }
+  },
+  "mainPage": {
+    "heroSection": {
+      "title": "Cześć, mam na imię Maks",
+      "description": {
+        "first": "Jestem frontend developerem i naprawdę dbam o detale.",
+        "second": "Tworzę nowoczesne, responsywne aplikacje internetowe i strony."
+      },
+      "imgAlt": "ja, Maks Tkaczyk",
+      "buttonWork": {
+        "label": "Zobacz Moje Projekty",
+        "href": "#work"
+      }
+    },
+    "aboutSection": {
+      "subTitle": "O mnie",
+      "title": "Mam na imię Maks",
+      "description": "Jestem frontend developerem, którego pasją jest tworzenie nowoczesnych, dopracowanych i przyjaznych dla użytkownika aplikacji webowych. Specjalizuję się w budowaniu cyfrowych doświadczeń, które łączą piękny design z doskonałą funkcjonalnością.\n\nMoje projekty to najlepsze odzwierciedlenie tego, kim jestem jako programista. Dlatego zawsze dążę do najwyższej jakości - zwracając szczególną uwagę na wydajność i przemyślane detale projektowe, które sprawiają, że produkt naprawdę się wyróżnia. Wierzę, że dobrze zaprojektowany kod i interfejsy mogą nie tylko rozwiązywać problemy, ale także przynosić rzeczywistą wartość i przyjemność użytkownikom.\n\nPoza programowaniem, studiuję teologię w Warszawie i aktywnie uczestniczę w ewangelizacyjnym Teatrze Tanecznym Szofar. Jestem również członkiem społeczności chrześcijańskiej Effatha w Gliwicach. Te pasje wpływają na moją pracę - uczą mnie dyscypliny, kreatywności i znaczenia budowania rzeczy z przeznaczeniem i dbałością.",
+      "buttonAbout": {
+        "label": "Zobacz moje CV",
+        "href": "/CV_Maksymilian_Tkaczyk.pdf"
+      }
+    },
+    "workSection": {
+      "subTitle": "Moje projekty",
+      "metadata": {
+        "title": "Projekty",
+        "description": "Moje projekty w których znajdziesz moje umiejętności oraz doświadczenie",
+        "keywords": "projekty, web development, react, next.js, aplikacje webowe, strony internetowe"
+      },
+      "projects": {
+        "triggerWorkProject": "Więcej",
+        "closeDialog": "Zamknij",
+        "seeAllProjects": "Zobacz Wszystkie Projekty",
+        "6": {
+          "title": "Kalkulator Funkcji Kwadratowej (angular)",
+          "mainDescription": "Chciałem sprawdzić, jak wygląda praca z Angularem 'od środka', więc przepisałem mój wcześniejszy Kalkulator Funkcji Kwadratowej z Reacta na Angular - i przy okazji trochę go ulepszyłem.",
 
-					"description": "Był to również mój pierwszy poważny projekt oparty na Strapi, więc musiałem poznać ten system CMS od podstaw: modelowanie treści, pobieranie i przekazywanie danych do interfejsu użytkownika oraz zapewnienie mojemu klientowi możliwości łatwej aktualizacji strony. Jeśli chodzi o SEO, po raz pierwszy wdrożyłem dynamiczne generowanie metadanych w Next.js, które z powodzeniem sterowane jest przez Strapi, dzięki czemu tytuły, opisy i powiązane pola pozostają zsynchronizowane z treścią w CMS.\n\n W zakresie procesu pozyskiwania funduszy zintegrowałem formularz wsparcia z Stripe, obsługując webhooki/zdarzenia związane z cyklem życia płatności, bezpieczne testowanie bez obciążania prawdziwych kart oraz e-maile transakcyjne z jasnymi aktualizacjami statusu oraz linkiem do zarządzania subskrypcjami. Wdrożyłem zarówno płatności jednorazowe, jak i cykliczne, a następnie dodałem samoobsługowy portal subskrypcyjny, w którym użytkownicy wnioskują o dostęp za pośrednictwem e-maila, korzystając z linku aktywacyjnego, z zabezpieczeniami przed nadużyciami (trzy próby w odstępach jednominutowych, a po przekroczeniu limitu 15-minutowa blokada).\n\n Jeśli chodzi o e-commerce (co również było dla mnie nowością), stworzyłem produkty, filtry, koszyk i proces realizacji transakcji. Filtry są obsługiwane po stronie klienta dla niewielkiego katalogu, aby lista produktów była aktualizowana natychmiastowo. Aktualizacje koszyka na bieżąco weryfikują stan magazynowy w Strapi, dzięki czemu użytkownicy nie mogą przekroczyć dostępności. Kasa łączy Stripe Embedded Checkout (żeby uniknąć kiepskiego UX wynikającego z przepływów opartych wyłącznie na przekierowaniach) z polskimi metodami płatności (w tym BLIK), cenami wysyłki pobieranymi z API przewoźników oraz integracją z InPostem, żeby przeglądać/wybierać paczkomaty - jednocześnie wysyłając odpowiednie dane klienta i dostawy do przewoźników i Stripe. Sekcja „Zobacz inne produkty” na stronie produktu wyklucza bieżący produkt i uwzględnia stan magazynowy (w tym ukrywanie produktów o zerowej ilości).\n\n Na koniec zająłem się wdrożeniem na istniejącej domenie, skonfigurowałem hosting zarówno dla frontendu, jak i backendu oraz napisałem dokumentację dla klienta wyjaśniającą, jak poruszać się po panelu CMS, jak z niego korzystać i jak to wygląda na stronie internetowej.",
-					"link": {
-						"label": "Odwiedź stronę"
-					},
-					"images": {
-						"0": {
-							"imageAlt": "Strona główna Fundacji Drachma."
-						},
-						"1": {
-							"imageAlt": "Strona wsparcia pokazująca jak możesz wesprzeć fundację."
-						},
-						"2": {
-							"imageAlt": "Formularz wsparcia z polami:e-mail, kwota."
-						},
-						"3": {
-							"imageAlt": "Formularz wsparcia z polami: wybór inicjatywy, którą chcesz wesprzeć, wybór metody płatności. Na samym dole podsumowanie wybranych opcji."
-						},
-						"4": {
-							"imageAlt": "Formularz do zarządzania subskrypcją."
-						},
-						"5": {
-							"imageAlt": "Główny widok sklepu z małą sekcją hero a pod nią lista produktów."
-						},
-						"6": {
-							"imageAlt": "Poszczególny widok dane produktu."
-						},
-						"7": {
-							"imageAlt": "Widok koszyka, w którym jest produkt."
-						},
-						"8": {
-							"imageAlt": "Widok pustego koszyka."
-						},
-						"9": {
-							"imageAlt": "Widok finalizacji zakupu z 3 sekcjami: metoda płatności, dostawa i dane klienta"
-						}
-					}
-				},
-				"4": {
-					"title": "Effathowa Biblioteka Cyfrowa",
-					"mainDescription": "To był mój pierwszy raz, kiedy tworzyłem coś, co od początku do końca przypominało prawdziwą aplikację. Udało mi się ją uruchomić w ciągu jednego wieczoru, bez dopracowanego projektu graficznego ani rozbudowanego planu produktowego - zaczynając od szkicowego prototypu, który kolega napisał na szybko i poprosił mnie o dopracowanie - więc skupiłem się na szybkim działaniu i sprawieniu, by wszystko działało.",
+          "description": "Celem było czysto praktyczne przećwiczenie Angulara na projekcie, który już dobrze znałem, żeby móc uczciwie porównać oba podejścia bez uczenia się jednocześnie nowej logiki biznesowej. Przepisałem całą aplikację - strukturę komponentów, walidację formularzy i logikę matematyczną dla trzech postaci funkcji kwadratowej (ogólnej, iloczynowej i kanonicznej) - w oparciu o w pełni standalone'owe komponenty i Signals API (signal, input, output, computed) zamiast klasycznych NgModules, korzystając też z nowej składni control flow w templatkach.\n\n Przy okazji wprowadziłem kilka ulepszeń względem oryginału: zamieniłem Chart.js na ngx-echarts, dodając osobno oznaczone markery dla wierzchołka i miejsc zerowych funkcji wraz z czytelnym tooltipem, poprawiłem ogólną prezentację danych oraz dodałem własne logo aplikacji.",
+          "link": {
+            "label": "Odwiedź stronę"
+          },
+          "images": {
+            "0": {
+              "imageAlt": "Strona główna z wyborem 3 postaci funkcji kwadratowej: ogólnej, kanonicznej i iloczynowej."
+            },
+            "1": {
+              "imageAlt": "Formularz wprowadzania danych dla postaci ogólnej funkcji z polami na współczynniki a, b, c oraz poradą dotyczącą znaku współczynnika a."
+            },
+            "2": {
+              "imageAlt": "Widok wyników analizy funkcji (delta, wierzchołek, postacie funkcji) obok wykresu z zaznaczonym wierzchołkiem i miejscami zerowymi."
+            },
+            "3": {
+              "imageAlt": "Wykres funkcji kwadratowej z tooltipem pokazującym współrzędne wierzchołka."
+            }
+          }
+        },
+        "5": {
+          "title": "Fundacja Drachma Strona + Sklep",
+          "mainDescription": "To największy i najbardziej wymagający projekt, jaki dotychczas zrealizowałem: kompletna strona internetowa i sklep internetowy dla Fundacji Drachma, w których niemal wszystkie elementy treści są oparte na platformie Strapi – w tym nawigacja, linki, teksty na stronach oraz metadane SEO.",
 
-					"description": "Największym wyzwaniem była logika biznesowa: stany rezerwacji, przejścia między nimi i mnóstwo sytuacji granicznych („jeśli rezerwacja wygląda tak, to co dzieje się dalej?”).\n\n Na początek skorzystałem z TanStack Query w połączeniu z Supabase; było to moje pierwsze poważniejsze zetknięcie się z obydwoma rozwiązaniami, łącznie z zaprojektowaniem prostego schematu bazy danych dla książek i doborem odpowiednich pól.\n\n Uwierzytelnianie też było trudne: dostęp do panelu głównego opiera się na koncie w bazie danych (logowanie za pomocą hasła), podczas gdy niektóre uprawnienia administracyjne są obsługiwane po stronie klienta - coś, co dzisiaj przeprojektowałbym z myślą o bardziej przejrzystym modelu bezpieczeństwa.\n\n W przyszłości planuję przepisać to na Next.js (i być może też jako aplikację mobilną) z dużo lepszym UX, projektem wizualnym i ogólnym planowaniem.",
-					"link": {
-						"label": "Odwiedź aplikację"
-					},
-					"images": {
-						"0": {
-							"imageAlt": "Główny widok aplikacji z listą książek."
-						},
-						"1": {
-							"imageAlt": "Modal do wypożyczania danej książki."
-						},
-						"2": {
-							"imageAlt": "Modal do rezerwacji danej książki."
-						},
-						"3": {
-							"imageAlt": "Formularz logowania do panelu administracyjnego."
-						},
-						"4": {
-							"imageAlt": "Widok listy książek z poziomu panelu administracyjnego."
-						},
-						"5": {
-							"imageAlt": "Lista wszystkich książek z poziomu panelu administracyjnego i modal z dodawania nowej książki."
-						}
-					}
-				},
-				"3": {
-					"title": "Strona Effathy",
-					"mainDescription": "Oto główna strona internetowa Effatha w odświeżonej, przeprojektowanej odsłonie.",
+          "description": "Był to również mój pierwszy poważny projekt oparty na Strapi, więc musiałem poznać ten system CMS od podstaw: modelowanie treści, pobieranie i przekazywanie danych do interfejsu użytkownika oraz zapewnienie mojemu klientowi możliwości łatwej aktualizacji strony. Jeśli chodzi o SEO, po raz pierwszy wdrożyłem dynamiczne generowanie metadanych w Next.js, które z powodzeniem sterowane jest przez Strapi, dzięki czemu tytuły, opisy i powiązane pola pozostają zsynchronizowane z treścią w CMS.\n\n W zakresie procesu pozyskiwania funduszy zintegrowałem formularz wsparcia z Stripe, obsługując webhooki/zdarzenia związane z cyklem życia płatności, bezpieczne testowanie bez obciążania prawdziwych kart oraz e-maile transakcyjne z jasnymi aktualizacjami statusu oraz linkiem do zarządzania subskrypcjami. Wdrożyłem zarówno płatności jednorazowe, jak i cykliczne, a następnie dodałem samoobsługowy portal subskrypcyjny, w którym użytkownicy wnioskują o dostęp za pośrednictwem e-maila, korzystając z linku aktywacyjnego, z zabezpieczeniami przed nadużyciami (trzy próby w odstępach jednominutowych, a po przekroczeniu limitu 15-minutowa blokada).\n\n Jeśli chodzi o e-commerce (co również było dla mnie nowością), stworzyłem produkty, filtry, koszyk i proces realizacji transakcji. Filtry są obsługiwane po stronie klienta dla niewielkiego katalogu, aby lista produktów była aktualizowana natychmiastowo. Aktualizacje koszyka na bieżąco weryfikują stan magazynowy w Strapi, dzięki czemu użytkownicy nie mogą przekroczyć dostępności. Kasa łączy Stripe Embedded Checkout (żeby uniknąć kiepskiego UX wynikającego z przepływów opartych wyłącznie na przekierowaniach) z polskimi metodami płatności (w tym BLIK), cenami wysyłki pobieranymi z API przewoźników oraz integracją z InPostem, żeby przeglądać/wybierać paczkomaty - jednocześnie wysyłając odpowiednie dane klienta i dostawy do przewoźników i Stripe. Sekcja „Zobacz inne produkty” na stronie produktu wyklucza bieżący produkt i uwzględnia stan magazynowy (w tym ukrywanie produktów o zerowej ilości).\n\n Na koniec zająłem się wdrożeniem na istniejącej domenie, skonfigurowałem hosting zarówno dla frontendu, jak i backendu oraz napisałem dokumentację dla klienta wyjaśniającą, jak poruszać się po panelu CMS, jak z niego korzystać i jak to wygląda na stronie internetowej.",
+          "link": {
+            "label": "Odwiedź stronę"
+          },
+          "images": {
+            "0": {
+              "imageAlt": "Strona główna Fundacji Drachma."
+            },
+            "1": {
+              "imageAlt": "Strona wsparcia pokazująca jak możesz wesprzeć fundację."
+            },
+            "2": {
+              "imageAlt": "Formularz wsparcia z polami:e-mail, kwota."
+            },
+            "3": {
+              "imageAlt": "Formularz wsparcia z polami: wybór inicjatywy, którą chcesz wesprzeć, wybór metody płatności. Na samym dole podsumowanie wybranych opcji."
+            },
+            "4": {
+              "imageAlt": "Formularz do zarządzania subskrypcją."
+            },
+            "5": {
+              "imageAlt": "Główny widok sklepu z małą sekcją hero a pod nią lista produktów."
+            },
+            "6": {
+              "imageAlt": "Poszczególny widok dane produktu."
+            },
+            "7": {
+              "imageAlt": "Widok koszyka, w którym jest produkt."
+            },
+            "8": {
+              "imageAlt": "Widok pustego koszyka."
+            },
+            "9": {
+              "imageAlt": "Widok finalizacji zakupu z 3 sekcjami: metoda płatności, dostawa i dane klienta"
+            }
+          }
+        },
+        "4": {
+          "title": "Effathowa Biblioteka Cyfrowa",
+          "mainDescription": "To był mój pierwszy raz, kiedy tworzyłem coś, co od początku do końca przypominało prawdziwą aplikację. Udało mi się ją uruchomić w ciągu jednego wieczoru, bez dopracowanego projektu graficznego ani rozbudowanego planu produktowego - zaczynając od szkicowego prototypu, który kolega napisał na szybko i poprosił mnie o dopracowanie - więc skupiłem się na szybkim działaniu i sprawieniu, by wszystko działało.",
 
-					"description": "Ogólnie rzecz biorąc, projekt jest dość prosty: wpisy na blogu i kalendarz wydarzeń działają w oparciu o Strapi. Szczególnie podoba mi się to, jak płynnie kalendarz integruje się z systemem CMS. Wykorzystałem również ukierunkowane zapytania Strapi, aby wyświetlać trzy najnowsze wpisy na stronie głównej, a także zaimplementowałem podstawowe elementy UX, takie jak nawigacja typu breadcrumb i paginacja.",
-					"link": {
-						"label": "Odwiedź stronę"
-					},
-					"images": {
-						"0": {
-							"imageAlt": "Strona główna nowej strony Effathy."
-						},
-						"1": {
-							"imageAlt": "Strona aktualności."
-						},
-						"2": {
-							"imageAlt": "Kalendarz wydarzeń - pokazują się takie wydarzenia jak spotkania wspólnoty."
-						},
-						"3": {
-							"imageAlt": "Formularz kontaktowy z polami: imię, e-mail, wiadomość i checkbox zgody na przetwarzanie danych."
-						},
-						"4": {
-							"imageAlt": "Strona wsparcia z informacjami takimi jak dane do przelewu."
-						}
-					}
-				},
-				"2": {
-					"title": "Strona Effathy (stara)",
-					"mainDescription": "To starsza, statyczna wersja strony internetowej dla społeczności Effatha. Był to jeden z moich pierwszych większych projektów front-endowych i nadal jestem zadowolony z ogólnego projektu graficznego, responsywnego układu oraz wydajności. Elementy interaktywne (takie jak suwak i formularz kontaktowy) nie są podłączone - jest to wyłącznie front-end, pierwotnie pomyślany jako szablon motywu WordPressa.",
+          "description": "Największym wyzwaniem była logika biznesowa: stany rezerwacji, przejścia między nimi i mnóstwo sytuacji granicznych („jeśli rezerwacja wygląda tak, to co dzieje się dalej?”).\n\n Na początek skorzystałem z TanStack Query w połączeniu z Supabase; było to moje pierwsze poważniejsze zetknięcie się z obydwoma rozwiązaniami, łącznie z zaprojektowaniem prostego schematu bazy danych dla książek i doborem odpowiednich pól.\n\n Uwierzytelnianie też było trudne: dostęp do panelu głównego opiera się na koncie w bazie danych (logowanie za pomocą hasła), podczas gdy niektóre uprawnienia administracyjne są obsługiwane po stronie klienta - coś, co dzisiaj przeprojektowałbym z myślą o bardziej przejrzystym modelu bezpieczeństwa.\n\n W przyszłości planuję przepisać to na Next.js (i być może też jako aplikację mobilną) z dużo lepszym UX, projektem wizualnym i ogólnym planowaniem.",
+          "link": {
+            "label": "Odwiedź aplikację"
+          },
+          "images": {
+            "0": {
+              "imageAlt": "Główny widok aplikacji z listą książek."
+            },
+            "1": {
+              "imageAlt": "Modal do wypożyczania danej książki."
+            },
+            "2": {
+              "imageAlt": "Modal do rezerwacji danej książki."
+            },
+            "3": {
+              "imageAlt": "Formularz logowania do panelu administracyjnego."
+            },
+            "4": {
+              "imageAlt": "Widok listy książek z poziomu panelu administracyjnego."
+            },
+            "5": {
+              "imageAlt": "Lista wszystkich książek z poziomu panelu administracyjnego i modal z dodawania nowej książki."
+            }
+          }
+        },
+        "3": {
+          "title": "Strona Effathy",
+          "mainDescription": "Oto główna strona internetowa Effatha w odświeżonej, przeprojektowanej odsłonie.",
 
-					"description": "Ten projekt pomógł mi uporządkować proces pracy i podnieść poziom umiejętności praktycznych: projektowanie responsywne, tworzenie komponentów za pomocą Gulp Kit oraz organizowanie kodu pod kątem przyszłego rozwoju (zmienne SCSS, klasy wielokrotnego użytku i skalowalne podejście do stylizacji).\n\n Z perspektywy czasu poprawiłbym ograniczenia typograficzne dotyczące długich tekstów - zwłaszcza spójną szerokość maksymalną i wysokość wiersza - ponieważ treść miała być później zarządzana w WordPressie.",
-					"link": {
-						"label": "Odwiedź stronę"
-					},
-					"images": {
-						"0": {
-							"imageAlt": "Strona główna starej strony Effathy."
-						},
-						"1": {
-							"imageAlt": "Strona wydarzeń."
-						},
-						"2": {
-							"imageAlt": "Strona wsparcia z informacjami takimi jak dane do przelewu."
-						},
-						"3": {
-							"imageAlt": "Formularz kontaktowy z polami: imię, e-mail, wiadomość i checkbox zgody na przetwarzanie danych."
-						}
-					}
-				},
-				"1": {
-					"title": "Kalkulator Funkcji Kwadratowej",
-					"mainDescription": "Zainspirowany funkcjami kwadratowymi, których uczyłem się na lekcjach matematyki w technikum, przekształciłem tę koncepcję w praktyczny projekt programistyczny.",
+          "description": "Ogólnie rzecz biorąc, projekt jest dość prosty: wpisy na blogu i kalendarz wydarzeń działają w oparciu o Strapi. Szczególnie podoba mi się to, jak płynnie kalendarz integruje się z systemem CMS. Wykorzystałem również ukierunkowane zapytania Strapi, aby wyświetlać trzy najnowsze wpisy na stronie głównej, a także zaimplementowałem podstawowe elementy UX, takie jak nawigacja typu breadcrumb i paginacja.",
+          "link": {
+            "label": "Odwiedź stronę"
+          },
+          "images": {
+            "0": {
+              "imageAlt": "Strona główna nowej strony Effathy."
+            },
+            "1": {
+              "imageAlt": "Strona aktualności."
+            },
+            "2": {
+              "imageAlt": "Kalendarz wydarzeń - pokazują się takie wydarzenia jak spotkania wspólnoty."
+            },
+            "3": {
+              "imageAlt": "Formularz kontaktowy z polami: imię, e-mail, wiadomość i checkbox zgody na przetwarzanie danych."
+            },
+            "4": {
+              "imageAlt": "Strona wsparcia z informacjami takimi jak dane do przelewu."
+            }
+          }
+        },
+        "2": {
+          "title": "Strona Effathy (stara)",
+          "mainDescription": "To starsza, statyczna wersja strony internetowej dla społeczności Effatha. Był to jeden z moich pierwszych większych projektów front-endowych i nadal jestem zadowolony z ogólnego projektu graficznego, responsywnego układu oraz wydajności. Elementy interaktywne (takie jak suwak i formularz kontaktowy) nie są podłączone - jest to wyłącznie front-end, pierwotnie pomyślany jako szablon motywu WordPressa.",
 
-					"description": "Stworzyłem ten projekt, aby poćwiczyć routing obiektowy w React Routerze, zastosować logikę matematyczną w kodzie oraz doskonalić umiejętności w zakresie walidacji formularzy. Do wizualizacji wykresów funkcji kwadratowych wykorzystałem bibliotekę Chart.js.",
-					"link": {
-						"label": "Odwiedź stronę"
-					},
-					"images": {
-						"0": {
-							"imageAlt": "Główne menu z wyborem 3 postacji funkcji: ogólnej, iloczynowej i kanonicznej."
-						},
-						"1": {
-							"imageAlt": "Wykres funkcji kwadratowej z danymi."
-						}
-					}
-				}
-			}
-		},
-		"contactSection": {
-			"title": "Zostańmy w kontakcie",
-			"subTitle": "Kontakt",
-			"contactForm": {
-				"name": {
-					"label": "Imię",
-					"required": "Imię jest wymagane",
-					"minLength": "Imię musi zawierać conajmniej 3 litery"
-				},
-				"email": {
-					"label": "Adres e-mail",
-					"required": "Adres e-mail jest wymagany",
-					"invalid": "Adres e-mail jest nieprawidłowy"
-				},
-				"message": {
-					"label": "Wiadomość",
-					"required": "Wiadomość jest wymagana",
-					"minLength": "Wiadomość musi zawierać conajmniej 10 znaków",
-					"maxLength": "Wiadomość musi zawierać maksymalnie 3000 znaków"
-				},
-				"agreement": {
-					"label": "Wyrażam zgodę na przetwarzanie danych osobowych",
-					"required": "Musisz wyrazić zgodę na przetwarzanie danych osobowych"
-				},
-				"toast": {
-					"success": "Wiadomość została wysłana",
-					"error": "Błąd podczas wysyłania wiadomości",
-					"tooManyAttempts": "Za dużo prób. Spróbuj ponownie za kilka minut."
-				},
-				"sendMessage": "Wyślij Wiadomość",
-				"sendingMessage": "Wysyłanie..."
-			}
-		}
-	},
-	"notFound": {
-		"title": "Nie znaleziono...",
-		"description": "ale spokojnie, UI nadal wygląda dobrze",
-		"button": "Wróć na stronę główną",
-		"heroMe": {
-			"label": "404 - nie znaleziono",
-			"mouseLabel": "Gdzie jesteśmy? 🤔"
-		}
-	}
+          "description": "Ten projekt pomógł mi uporządkować proces pracy i podnieść poziom umiejętności praktycznych: projektowanie responsywne, tworzenie komponentów za pomocą Gulp Kit oraz organizowanie kodu pod kątem przyszłego rozwoju (zmienne SCSS, klasy wielokrotnego użytku i skalowalne podejście do stylizacji).\n\n Z perspektywy czasu poprawiłbym ograniczenia typograficzne dotyczące długich tekstów - zwłaszcza spójną szerokość maksymalną i wysokość wiersza - ponieważ treść miała być później zarządzana w WordPressie.",
+          "link": {
+            "label": "Odwiedź stronę"
+          },
+          "images": {
+            "0": {
+              "imageAlt": "Strona główna starej strony Effathy."
+            },
+            "1": {
+              "imageAlt": "Strona wydarzeń."
+            },
+            "2": {
+              "imageAlt": "Strona wsparcia z informacjami takimi jak dane do przelewu."
+            },
+            "3": {
+              "imageAlt": "Formularz kontaktowy z polami: imię, e-mail, wiadomość i checkbox zgody na przetwarzanie danych."
+            }
+          }
+        },
+        "1": {
+          "title": "Kalkulator Funkcji Kwadratowej",
+          "mainDescription": "Zainspirowany funkcjami kwadratowymi, których uczyłem się na lekcjach matematyki w technikum, przekształciłem tę koncepcję w praktyczny projekt programistyczny.",
+
+          "description": "Stworzyłem ten projekt, aby poćwiczyć routing obiektowy w React Routerze, zastosować logikę matematyczną w kodzie oraz doskonalić umiejętności w zakresie walidacji formularzy. Do wizualizacji wykresów funkcji kwadratowych wykorzystałem bibliotekę Chart.js.",
+          "link": {
+            "label": "Odwiedź stronę"
+          },
+          "images": {
+            "0": {
+              "imageAlt": "Główne menu z wyborem 3 postacji funkcji: ogólnej, iloczynowej i kanonicznej."
+            },
+            "1": {
+              "imageAlt": "Wykres funkcji kwadratowej z danymi."
+            }
+          }
+        }
+      }
+    },
+    "contactSection": {
+      "title": "Zostańmy w kontakcie",
+      "subTitle": "Kontakt",
+      "contactForm": {
+        "name": {
+          "label": "Imię",
+          "required": "Imię jest wymagane",
+          "minLength": "Imię musi zawierać conajmniej 3 litery"
+        },
+        "email": {
+          "label": "Adres e-mail",
+          "required": "Adres e-mail jest wymagany",
+          "invalid": "Adres e-mail jest nieprawidłowy"
+        },
+        "message": {
+          "label": "Wiadomość",
+          "required": "Wiadomość jest wymagana",
+          "minLength": "Wiadomość musi zawierać conajmniej 10 znaków",
+          "maxLength": "Wiadomość musi zawierać maksymalnie 3000 znaków"
+        },
+        "agreement": {
+          "label": "Wyrażam zgodę na przetwarzanie danych osobowych",
+          "required": "Musisz wyrazić zgodę na przetwarzanie danych osobowych"
+        },
+        "toast": {
+          "success": "Wiadomość została wysłana",
+          "error": "Błąd podczas wysyłania wiadomości",
+          "tooManyAttempts": "Za dużo prób. Spróbuj ponownie za kilka minut."
+        },
+        "sendMessage": "Wyślij Wiadomość",
+        "sendingMessage": "Wysyłanie..."
+      }
+    }
+  },
+  "notFound": {
+    "title": "Nie znaleziono...",
+    "description": "ale spokojnie, UI nadal wygląda dobrze",
+    "button": "Wróć na stronę główną",
+    "heroMe": {
+      "label": "404 - nie znaleziono",
+      "mouseLabel": "Gdzie jesteśmy? 🤔"
+    }
+  }
 }
