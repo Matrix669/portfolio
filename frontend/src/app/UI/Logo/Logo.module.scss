@@ -1,17 +1,75 @@
-@use '../../styles/colors' as *;
-@use '../../styles/functions' as *;
+@use "../../styles/colors" as *;
+@use "../../styles/functions" as *;
+
 .logo {
-	margin-right: rem(20);
-	@media (min-width: rem(768)) {
-		margin-right: rem(10);
-	}
-	@media (min-width: rem(992)) {
-		margin-right: rem(20);
-	}
-	& img {
-		padding: rem(15);
-		&:hover {
-			opacity: .6;
-		}
-	}
+    margin-right: rem(20);
+    @media (min-width: rem(768)) {
+        margin-right: rem(10);
+    }
+    @media (min-width: rem(992)) {
+        margin-right: rem(20);
+    }
+    display: inline-flex;
+    padding: rem(15) 0;
+    cursor: pointer;
+
+    svg {
+        overflow: visible;
+        transition:
+            filter 0.4s ease,
+            transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    [data-part] {
+        transform-box: fill-box;
+        transform-origin: center;
+        transition:
+            transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+            fill 0.3s ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+        svg {
+            transform: scale(1.12);
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.45));
+        }
+
+        [data-part] {
+            fill: #fff;
+        }
+
+        // słupki "skaczą" naprzemiennie (efekt equalizera)
+        [data-part="bar-1"] {
+            transform: translateY(-2px) scaleY(1.08);
+        }
+        [data-part="bar-2"] {
+            transform: translateY(2px) scaleY(0.92);
+            transition-delay: 0.05s;
+        }
+        [data-part="dot"] {
+            transform: translateY(2px);
+            transition-delay: 0.1s;
+        }
+
+        // plus obraca się i się powiększa
+        [data-part="plus"] {
+            transform: rotate(90deg) scale(1.25);
+            transition-delay: 0.08s;
+        }
+    }
+
+    &:active svg {
+        transform: scale(0.95);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        svg,
+        [data-part] {
+            transition: none;
+        }
+        &:hover [data-part] {
+            transform: none;
+        }
+    }
 }
