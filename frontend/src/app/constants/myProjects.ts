@@ -17,6 +17,7 @@ import DRACHMA_IMG8 from "@/app/assets/MyWork/drachma-website-shop/img8.png";
 import DRACHMA_IMG9 from "@/app/assets/MyWork/drachma-website-shop/img9.png";
 import DRACHMA_IMG10 from "@/app/assets/MyWork/drachma-website-shop/img10.png";
 import DRACHMA_IMG11 from "@/app/assets/MyWork/drachma-website-shop/img11.png";
+import DRACHMA_IMG12 from "@/app/assets/MyWork/drachma-website-shop/img12.png";
 
 import EFFATHA_DIGITAL_LIBRARY_IMG1 from "@/app/assets/MyWork/effatha-digital-library/img1.png";
 import EFFATHA_DIGITAL_LIBRARY_IMG2 from "@/app/assets/MyWork/effatha-digital-library/img2.png";
@@ -202,6 +203,11 @@ const MY_PROJECTS: MyProjectsBaseProps[] = [
         imageSrc: DRACHMA_IMG11.src,
         width: DRACHMA_IMG11.width,
         height: DRACHMA_IMG11.height,
+      },
+      {
+        imageSrc: DRACHMA_IMG12.src,
+        width: DRACHMA_IMG12.width,
+        height: DRACHMA_IMG12.height,
       },
     ],
     linkHref: "https://www.drachma.org.pl/",
