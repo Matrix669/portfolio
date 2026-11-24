@@ -1,8 +1,10 @@
 {
-    "crons": [
-      {
-        "path": "/api/cron/keepalive-upstash",
-        "schedule": "0 12 * * *"
-      }
-    ]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "schedules": {
+    "upstash-keepalive": {
+      "schedule": "0 12 * * *",
+      "path": "/api/cron/keepalive-upstash",
+      "requestMethod": "GET"
+    }
   }
+}
