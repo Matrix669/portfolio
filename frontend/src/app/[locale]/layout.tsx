@@ -1,20 +1,18 @@
-import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
-import { Cairo } from 'next/font/google'
-import { notFound } from 'next/navigation'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-
-import CursorLabelProvider from '../contexts/CursorLabelContext'
-
+import type { Metadata } from 'next'
+import { Cairo } from 'next/font/google'
+import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
-import { routing } from '@/i18n/routing'
-import Navigation from '@/app/UI/Navigation/Navigation'
-import Footer from '@/app/UI/Footer/Footer'
-import Cursor from '@/app/UI/Cursor/Cursor'
+import { getTranslations } from 'next-intl/server'
 import { Toaster } from 'sonner'
-
 import { NAVIGATION_DATA } from '@/app/constants/navigationData'
+import { absoluteUrl, getAlternates, SITE_URL } from '@/app/constants/site'
+import Cursor from '@/app/UI/Cursor/Cursor'
+import Footer from '@/app/UI/Footer/Footer'
+import Navigation from '@/app/UI/Navigation/Navigation'
+import { routing } from '@/i18n/routing'
+import CursorLabelProvider from '../contexts/CursorLabelContext'
 
 import '../styles/globals.css'
 
@@ -51,7 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 		openGraph: {
 			title: tLayoutMetadata('title'),
 			description: tLayoutMetadata('ogDescription'),
-			url: 'https://maxtkaczyk.pl',
+			url: absoluteUrl('/', locale === 'en' ? 'en' : 'pl'),
 			siteName: tLayoutMetadata('title'),
 			images: [{ url: '/og-image.png', width: 1200, height: 630, alt: tLayoutMetadata('title') }],
 			locale: locale === 'pl' ? 'pl_PL' : 'en_US',
@@ -67,7 +65,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 		},
 
 		// --- Other ---
-		metadataBase: new URL('https://maxtkaczyk.pl'),
+		metadataBase: new URL(SITE_URL),
+		alternates: getAlternates('/', locale),
 		authors: [{ name: 'Maksymilian Tkaczyk' }],
 		creator: 'Maksymilian Tkaczyk',
 		robots: 'index, follow',

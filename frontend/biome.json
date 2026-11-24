@@ -11,8 +11,17 @@
   },
   "formatter": {
     "enabled": true,
-    "indentStyle": "space",
-    "indentWidth": 4
+    "indentStyle": "tab",
+    "indentWidth": 4,
+    "lineWidth": 120
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "single",
+      "semicolons": "asNeeded",
+      "arrowParentheses": "asNeeded"
+    }
   },
   "linter": {
     "enabled": true,

@@ -1,17 +1,14 @@
 import { getTranslations } from 'next-intl/server'
-
-import MainContent from '@/app/UI/MainContent/MainContent'
 import HeroSection from '@/app/components/HeroSection/HeroSection'
 import TechSlider from '@/app/components/TechSlider/TechSlider'
-import SectionContent from '@/app/UI/SectionContent/SectionContent'
-import ContactForm from '@/app/UI/Forms/ContactForm/ContactForm'
-
 import { navMarginTop } from '@/app/constants/forStyles'
-import { getMyProjects } from '../constants/myProjects'
-
 import { AboutMeIcon } from '@/app/icons/AboutMeIcon'
-import { MyWorkIcon } from '@/app/icons/MyWorkIcon'
 import { ContactMeIcon } from '@/app/icons/ContactMeIcon'
+import { MyWorkIcon } from '@/app/icons/MyWorkIcon'
+import ContactForm from '@/app/UI/Forms/ContactForm/ContactForm'
+import MainContent from '@/app/UI/MainContent/MainContent'
+import SectionContent from '@/app/UI/SectionContent/SectionContent'
+import { getMyProjects } from '../constants/myProjects'
 import SectionScrollReveal from '../UI/SectionScrollReveal/SectionScrollReveal'
 
 export default async function Home() {
@@ -49,9 +46,10 @@ export default async function Home() {
 					subTitle={tContact('subTitle')}
 					icon={<ContactMeIcon />}
 					title={tContact('title')}
-					children={<ContactForm />}
 					isContact
-				/>
+				>
+					<ContactForm />
+				</SectionContent>
 			</SectionScrollReveal>
 		</MainContent>
 	)

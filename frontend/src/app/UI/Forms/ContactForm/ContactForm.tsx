@@ -1,30 +1,23 @@
 'use client'
 
+import { zodResolver } from '@hookform/resolvers/zod'
+import { AnimatePresence, motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-
-import { useTranslations } from 'next-intl'
-import { AnimatePresence, motion } from 'motion/react'
 import { toast } from 'sonner'
-
-import Toast from '@/app/UI/Toast/Toast'
 import RightArrow from '@/app/icons/RightArrow'
+import stylesBtnToast from '@/app/UI/MainLink/MainLink.module.scss'
+import Toast from '@/app/UI/Toast/Toast'
 import { Magnetic } from '@/componentsShadcn/ui/magnetic'
 import { Spinner } from '@/componentsShadcn/ui/spinner'
-
+import { type ContactFormValues, createContactSchema } from '@/lib/contactSchema'
 import styles from './ContactForm.module.scss'
-import stylesBtnToast from '@/app/UI/MainLink/MainLink.module.scss'
-
-type FormValues = {
-	name: string
-	email: string
-	message: string
-	agreement: boolean
-	general?: string
-	contact_reference?: string
-}
 
 export default function ContactForm() {
+	const tContactForm = useTranslations('mainPage.contactSection.contactForm')
+	const schema = createContactSchema(key => tContactForm(key))
+
 	const {
 		register,
 		handleSubmit,
@@ -32,15 +25,14 @@ export default function ContactForm() {
 		reset,
 		setError,
 		clearErrors,
-	} = useForm<FormValues>({
+	} = useForm({
 		mode: 'all',
+		resolver: zodResolver(schema),
 	})
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 
-	const tContactForm = useTranslations('mainPage.contactSection.contactForm')
-
-	async function onSubmit(data: FormValues) {
-		clearErrors('general')
+	async function onSubmit(data: ContactFormValues) {
+		clearErrors('root.general')
 		setIsLoading(true)
 		try {
 			const res = await fetch('/api/send-msg-form-contact', {
@@ -60,12 +52,12 @@ export default function ContactForm() {
 				payload?.errorCode === 'RATE_LIMIT'
 					? tContactForm('toast.tooManyAttempts')
 					: payload?.errorCode === 'INVALID_FORM'
-					? tContactForm('toast.error')
-					: res.status === 429
-					? tContactForm('toast.tooManyAttempts')
-					: tContactForm('toast.error')
+						? tContactForm('toast.error')
+						: res.status === 429
+							? tContactForm('toast.tooManyAttempts')
+							: tContactForm('toast.error')
 			toast.error(message)
-			setError('general', {
+			setError('root.general', {
 				message: message,
 				type: 'custom',
 			})
@@ -73,7 +65,7 @@ export default function ContactForm() {
 			console.error(`Error: ${e}`)
 			const message = tContactForm('toast.error')
 			toast.error(message)
-			setError('general', {
+			setError('root.general', {
 				message: message,
 				type: 'custom',
 			})
@@ -105,10 +97,8 @@ export default function ContactForm() {
 						disabled={isLoading}
 						type='text'
 						id='name'
-						{...register('name', {
-							required: tContactForm('name.required'),
-							minLength: { value: 3, message: tContactForm('name.minLength') },
-						})}
+						maxLength={100}
+						{...register('name')}
 					/>
 					<AnimatedError show={!!errors.name} errorKey='name-error'>
 						{errors.name?.message}
@@ -123,13 +113,7 @@ export default function ContactForm() {
 						disabled={isLoading}
 						type='email'
 						id='email'
-						{...register('email', {
-							required: tContactForm('email.required'),
-							pattern: {
-								value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-								message: tContactForm('email.invalid'),
-							},
-						})}
+						{...register('email')}
 					/>
 					<AnimatedError show={!!errors.email} errorKey='email-error'>
 						{errors.email?.message}
@@ -146,31 +130,21 @@ export default function ContactForm() {
 					id='msg'
 					maxLength={3000}
 					minLength={10}
-					{...register('message', {
-						required: tContactForm('message.required'),
-						minLength: { value: 10, message: tContactForm('message.minLength') },
-						maxLength: { value: 3000, message: tContactForm('message.maxLength') },
-					})}
+					{...register('message')}
 				></textarea>
 				<AnimatedError show={!!errors.message} errorKey='message-error'>
 					{errors.message?.message}
 				</AnimatedError>
 			</div>
-			<AnimatedError show={!!errors.general} errorKey='general-error'>
-				{errors.general?.message}
+			<AnimatedError show={!!errors.root?.general} errorKey='general-error'>
+				{errors.root?.general?.message}
 			</AnimatedError>
 
 			<div className={styles.formBox__agreement}>
 				<div>
 					<div className={styles.formBox__agreementItem}>
 						<div className={styles.formBox__agreementControl}>
-							<input
-								type='checkbox'
-								id='checkbox'
-								{...register('agreement', {
-									required: tContactForm('agreement.required'),
-								})}
-							/>
+							<input type='checkbox' id='checkbox' {...register('agreement')} />
 							<div className={styles.formBox__agreementItemRing} />
 						</div>
 						<label htmlFor='checkbox' className={styles.text}>

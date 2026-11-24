@@ -1,1 +1,0 @@
-export const baseUrlFront = process.env.VERCEL_ENV === 'production' ? 'https://www.drachma.org.pl' : process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://localhost:3000'

@@ -221,7 +221,8 @@
         "name": {
           "label": "Imię",
           "required": "Imię jest wymagane",
-          "minLength": "Imię musi zawierać conajmniej 3 litery"
+          "minLength": "Imię musi zawierać co najmniej 3 litery",
+          "maxLength": "Imię może mieć maksymalnie 100 znaków"
         },
         "email": {
           "label": "Adres e-mail",
