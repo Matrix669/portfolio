@@ -107,7 +107,13 @@
               "imageAlt": "Widok pustego koszyka."
             },
             "9": {
+              "imageAlt": "Strona produktu, którego wszystkie dostępne sztuki są już w koszyku - przycisk dodawania jest nieaktywny z komunikatem „Masz w koszyku wszystkie sztuki”."
+            },
+            "10": {
               "imageAlt": "Widok finalizacji zakupu z 3 sekcjami: metoda płatności, dostawa i dane klienta"
+            },
+            "11": {
+              "imageAlt": "Widok finalizacji zakupu z na sekcji dostawy i podsumowaniem zamówienia."
             }
           }
         },

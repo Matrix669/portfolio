@@ -107,7 +107,13 @@
               "imageAlt": "View of an empty cart."
             },
             "9": {
+              "imageAlt": "Product page where all available units are already in the cart - the add button is disabled and reads “You have all units in your cart”."
+            },
+            "10": {
               "imageAlt": "View of the checkout with 3 sections: payment method, delivery and customer data."
+            },
+            "11": {
+              "imageAlt": "View of the checkout with the delivery section and order summary."
             }
           }
         },
