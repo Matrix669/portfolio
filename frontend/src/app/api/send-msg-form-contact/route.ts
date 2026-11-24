@@ -28,7 +28,11 @@ const ratelimit = new Ratelimit({
 
 async function checkRateLimit(ip: string) {
 	try {
-		return await ratelimit.limit(ip)
+		const result = await ratelimit.limit(ip)
+		if (result.reason === 'timeout') {
+			console.warn('[ratelimit] Redis nie odpowiedział w 2s, przepuszczam request')
+		}
+		return result
 	}
 	catch (error) {
 		console.error('[ratelimit] Redis niedostępny, przepuszczam request: ', error)
