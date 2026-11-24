@@ -1,0 +1,12 @@
+name: Upstash keepalive
+on:
+  schedule:
+    - cron: '0 6 */3 * *'   # co 3 dni
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -fsS -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            https://https://maxtkaczyk.pl/api/cron/keepalive-upstash

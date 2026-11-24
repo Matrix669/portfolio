@@ -13,6 +13,12 @@ export async function GET(request: NextRequest) {
     if (!cronSecret|| authHeader !== `Bearer ${cronSecret}`) {
         return new Response("Unauthorized", { status: 401 })
     }
-	await redis.ping()
-	return Response.json({ ok: true })
+    try {
+        const now = new Date().toISOString()
+        await redis.set("keepalive:last", now)
+        return Response.json({ ok: true, at: now })
+    } catch (error) {
+        console.error("[keepalive]: błąd Redis:", error)
+        return Response.json({ ok: false }, { status: 500 })
+    }
 }

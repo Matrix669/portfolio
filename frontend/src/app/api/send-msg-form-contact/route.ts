@@ -8,7 +8,7 @@ import nodemailer from 'nodemailer'
 import { generateEmailTemplateContact } from '@/lib/emailTemplateContact'
 
 const contactSchema = z.object({
-	name: z.string().trim().min(2).max(100),
+	name: z.string().trim().min(3).max(100),
 	email: z.string().trim().email().max(254),
 	message: z.string().trim().min(10).max(3000),
 	agreement: z.literal(true),
@@ -22,9 +22,19 @@ const redis = new Redis({
 const ratelimit = new Ratelimit({
 	redis,
 	limiter: Ratelimit.slidingWindow(5, '10 m'),
-	analytics: true,
+	timeout: 2000,
 	prefix: 'ratelimit:contact-form',
 })
+
+async function checkRateLimit(ip: string) {
+	try {
+		return await ratelimit.limit(ip)
+	}
+	catch (error) {
+		console.error('[ratelimit] Redis niedostępny, przepuszczam request: ', error)
+		return { success: true, limit: 0, remaining: 0, reset: 0 }
+	}
+}
 export async function POST(req: NextRequest) {
 	try {
 		const body = await req.json()
@@ -40,7 +50,7 @@ export async function POST(req: NextRequest) {
 		const forwardedFor = req.headers.get('x-forwarded-for')
 		const ip = forwardedFor?.split(',')[0]?.trim() || 'unknown'
 
-		const { success, limit, remaining, reset } = await ratelimit.limit(ip)
+		const { success, limit, remaining, reset } = await checkRateLimit(ip)
 
 		if (!success) {
 			return NextResponse.json(
@@ -62,6 +72,7 @@ export async function POST(req: NextRequest) {
 		if (!parsed.success) {
 			return NextResponse.json(
 				{
+					errorCode: 'INVALID_FORM',
 					error: 'Nieprawidłowe dane formularza',
 				},
 				{ status: 400 }
@@ -94,6 +105,6 @@ export async function POST(req: NextRequest) {
 		return NextResponse.json({ message: 'Dane otrzymane' }, { status: 200 })
 	} catch (error) {
 		console.error('Błąd podczas wysyłania e-maila: ', error)
-		return NextResponse.json({ error: 'Błąd podczas wysyłania wiadomości' }, { status: 500 })
+		return NextResponse.json({ errorCode: "SERVER_ERROR", error: 'Błąd podczas wysyłania wiadomości' }, { status: 500 })
 	}
 }

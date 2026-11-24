@@ -51,7 +51,6 @@ export default function ContactForm() {
 				body: JSON.stringify(data),
 			})
 			if (res.ok) {
-				console.log(data)
 				toast.success(tContactForm('toast.success'))
 				reset()
 				return
