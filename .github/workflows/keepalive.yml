@@ -9,4 +9,4 @@ jobs:
     steps:
       - run: |
           curl -fsS -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
-            https://https://maxtkaczyk.pl/api/cron/keepalive-upstash
+            https://maxtkaczyk.pl/api/cron/keepalive-upstash
