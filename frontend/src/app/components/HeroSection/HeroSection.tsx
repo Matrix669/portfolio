@@ -2,7 +2,6 @@ import { getTranslations } from 'next-intl/server'
 
 import Wrapper from '@/app/UI/Wrapper/Wrapper'
 import MainLink from '@/app/UI/MainLink/MainLink'
-import BgGradient from '@/app/UI/BgGradient/BgGradient'
 import HeroMe from '@/app/UI/HeroMe/HeroMe'
 import AnimationBox from '@/app/UI/AnimationBox/AnimationBox'
 import HeroText from '@/app/UI/HeroText/HeroText'
